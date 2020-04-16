@@ -1,0 +1,44 @@
+/* ***********styling for cloak******* */
+[v-cloak] > * { display:
+    none;}
+    [v-cloak]::before{
+        content:'GOT NERVE?';
+        position: absolute;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 25px;
+        left:50%;
+        top:50%;
+        z-index:1;
+        width: 150px;
+        height: 150px;
+        margin: 200px 0 0 -60px;
+        border-radius: 50%;
+        width:120px;
+        height:120px;
+        -webkit-animation: spin 2s
+        linear infinite;
+        animation: spin 2s linear
+        infinite;
+        animation-name:floater;
+        -webkit-animation-name:floater;
+        animation-duration:1.5s;
+        -webkit-animation-duration:1.5s;
+        -webkit-animation-iteration-count:infinite;
+        animation-iteration-count:infinite;
+    }
+   
+    @keyframes floater{
+        0%,100%{
+            transform:translateY(0)
+            }50%{
+                transform:translateY(8%)
+                }}
+    @-webkit-keyframes floater{0%,100%{
+        -webkit-transform:translateY(0)
+        }50%{-webkit-transform:translateY(8%)}}
+    /* ***********styling for cloak******* */
+
+
+    .remove-line{
+        text-decoration:none !important;
+    }
