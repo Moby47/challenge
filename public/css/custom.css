@@ -2,9 +2,10 @@
 [v-cloak] > * { display:
     none;}
     [v-cloak]::before{
-        content:'GOT NERVE?';
+        content:'Loading...';
         position: absolute;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: white;
         font-size: 25px;
         left:50%;
         top:50%;
@@ -42,3 +43,22 @@
     .remove-line{
         text-decoration:none !important;
     }
+
+    body{
+        background-color: #07557B;
+      }
+
+    .white-color{
+        color: white !important;
+    }
+
+    
+    /* fix nprogress spinner */
+#nprogress .spinner {
+    display: none !important;
+  }
+  
+
+  .index{
+    z-index: -233 !important;
+}

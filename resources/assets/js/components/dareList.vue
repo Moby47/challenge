@@ -1,14 +1,15 @@
 <template>
-        <div class="container">
+        <div>
+        <div class="container white-color zoomer">
         
-                <h3 class="text-center"> LIST OF DARES </h3>
+                <h3 class="text-center"> DARE LIST </h3>
             
-                <table class="table striped row-hover table-border compact">
+                <table class="table row-hover table-border">
                         <thead>
                         <tr>
-                             <th>Dare</th>
-                            <th>Players Played</th>
-                            <th>Points</th>
+                             <th class='white-color'>Dare</th>
+                            <th class='white-color'>Players Played</th>
+                            <th class='white-color'>Points</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -24,8 +25,12 @@
                                     </tr>
                         </tbody>
                     </table>
+
+                </div>
     
-    
+            <floating></floating>
+           
+
         </div>
     </template>
     
@@ -39,6 +44,8 @@
             },
     
             methods: {
+
+            
     /*
                 this.$validator.validateAll().then(() => {
                

@@ -10,6 +10,7 @@ import dares from './components/dares.vue'
 import singleDare from './components/singleDare.vue'
 import leaderBoard from './components/leaderBoard.vue'
 import dareList from './components/dareList.vue'
+import playerProfile from './components/playerProfile.vue'
 
 export default new Router({
 
@@ -60,6 +61,14 @@ export default new Router({
             path: '/dare-list',
             name: 'dareList',
             component: dareList,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/player-profile',
+            name: 'playerProfile',
+            component: playerProfile,
              meta:{
               //  auth: true
             }

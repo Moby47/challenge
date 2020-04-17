@@ -20,9 +20,9 @@
 <!--nprogress-css-->
 <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet" />
 
-<!--
-<link href="/css/app.css" rel="stylesheet" />
--->
+
+<link href="/css/wicked.min.css" rel="stylesheet" />
+
 <link href="/css/custom.css" rel="stylesheet" />
 
  <!--fav icon -->

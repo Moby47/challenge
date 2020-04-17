@@ -95,6 +95,7 @@ if(localStorage.getItem('token')){
  */
 
 Vue.component('index', require('./components/index.vue'));
+Vue.component('floating', require('./components/includes/floating.vue'));
 
 const app = new Vue({
     el: '#app',

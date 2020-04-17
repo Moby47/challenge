@@ -1,15 +1,16 @@
 <template>
-        <div class="container">
+        <div>
+        <div class="container white-color zoomer">
         
                 <h3 class="text-center"> THEY GOT NERVE </h3>
             
-                <table class="table striped row-hover table-border compact">
+                <table class="table row-hover table-border ">
                         <thead>
-                        <tr>
-                             <th>Player</th>
-                            <th>Likes</th>
-                            <th>Views</th>
-                            <th>Points</th>
+                        <tr >
+                             <th class='white-color'>Player</th>
+                            <th class='white-color'>Likes</th>
+                            <th class='white-color'>Views</th>
+                            <th class='white-color'>Points</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -28,9 +29,14 @@
                         </tbody>
                     </table>
     
-    
+                    </div>
+
+                    <floating></floating>
+
+                    
         </div>
     </template>
+    
     
     <script>
         export default {

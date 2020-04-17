@@ -1,56 +1,55 @@
 <template>
+    <div>
     <div class="container">
     
-            <h3 class="text-center"> WELCOME TO NERVE  </h3>
+            <h3 class="text-center">   </h3>
 
             
-            <div class="tiles-grid">
-                    <div data-role="tile" data-size="medium" class="col-1 row-11">
-                            <span @click.prevent=''>  <span class="mif-chrome icon"></span>
-                            <span class="branding-bar">Store</span>
+            <div class="tiles-grid mt-5">
+                    <div data-role="tile" data-size="medium" class="col-1 row-11 slideUp">
+                            <span onclick="Metro.charms.toggle('#charm')">  <span class="mif-more-vert icon"></span>
+                            <span class="branding-bar">More Options</span>
                         </span>
                     </div>
 
-                    <div data-role="tile" data-size="medium" class="col-3 row-11"
-                     onclick="Metro.dialog.open('#suggest')">
-                            <span @click.prevent=''>  <span class="mif-chrome icon"></span>
+                    <div data-role="tile" data-size="medium" class="col-3 row-11 bg-teal slideUp">
+                            <span onclick="Metro.dialog.open('#suggest')" >  <span class="mif-compass2 icon"></span>
                             <span class="branding-bar">Suggest a Dare</span>
                         </span>
                     </div>
 
-                    <div data-role="tile" data-size="wide" class="bg-red" @click.prevent='board'>
-                            <span >  <span class="mif-chrome icon"></span>
+                    <div data-role="tile" data-size="wide"  class='slideRight'>
+                            <span @click.prevent='board()'>  <span class="mif-clipboard icon"></span>
                             <span class="branding-bar">Leader Board</span>
                             <span class="badge-bottom">10</span>
                         </span>
                     </div>
 
-          <div data-role="tile" data-size="large" class="bg-orange" data-effect="hover-slide-left" @click.prevent='dares()'>
-                          <span >  <span class="mif-chrome icon"></span>
+          <div data-role="tile" data-size="large" class="bg-orange slideDown"
+           data-effect="hover-slide-left">
+                          <span  @click.prevent='dares()'>  <span class="mif-file-video icon"></span>
                             <span class="branding-bar">Watch Dares</span>
-                         <!--   <div class="slide-back d-flex flex-justify-center flex-align-center p-4 op-mauve">
-                                    <p class="text-center">
-                                        Bubos mori in moscua! Tumultumque de brevis historia, aperto heuretes!
-                                    </p>
-                                </div>-->
+                       
                             <span class="badge-bottom">1047</span>
                         </span>
                     </div>
 
-                    <div data-role="tile" data-size="medium" class="bg-teal">
-                            <span @click.prevent=''>  <span class="mif-chrome icon"></span>
+                    <div data-role="tile" data-size="medium" class="bg-teal slideLeft" >
+                            <span onclick="Metro.dialog.open('#search')">  <span class="mif-search icon"></span>
                             <span class="branding-bar">Search Nerve</span>
                         </span>
                     </div>
                     
-                    <div data-role="tile" data-size="medium" class="bg-brown" onclick="Metro.dialog.open('#player')">
-                            <span @click.prevent=''>  <span class="mif-chrome icon"></span>
+                    <div data-role="tile" data-size="medium" 
+                    style="background-color: #b82943" class='slideLeft'>
+                            <span onclick="Metro.dialog.open('#oldPlayer')">  <span class="mif-gamepad icon"></span>
                             <span class="branding-bar">Become a Player</span>
                         </span>
                     </div>
 
-                    <div data-role="tile" data-size="wide" class="bg-cyan" @click.prevent='list()'>
-                            <span >  <span class="mif-chrome icon"></span>
+                    <div data-role="tile" data-size="wide"  style="background-color: #b82943"
+                    class='slideRight'>
+                            <span @click.prevent='list()'>  <span class="mif-list icon"></span>
                             <span class="branding-bar">Dare List</span>
                             <span class="badge-bottom">106</span>
                         </span>
@@ -58,10 +57,23 @@
                 </div>
 
 
+                <div data-role="charms" data-opacity=".5" id='charm'>
+                    
+                        <ul class="sidebar-menu white-color">
+                              
+                                <li><a> <span class="mif-cart icon"></span> Store</a></li>
+                                <li class="divider"></li>
+                                <li><a> <span class="mif-books icon"></span> Rules</a></li>
+                                <li class="divider"></li>
+                                <li><router-link to='/'><span class="mif-home icon"></span> Home Screen</router-link></li>
+                                
+                            </ul>
+
+                </div>
 
                 <!--dialogs suggest-->
-                <div class="dialog" data-role="dialog" id='suggest'>
-                        <div class="dialog-title">Your Dare Can Be On Nerve</div>
+                <div class="dialog " data-role="dialog" id='suggest' >
+                        <div class="dialog-title white-color" style="background-color: #07557B">Suggest a Dare</div>
                         <div class="dialog-content">
                                 <input type="text" data-role="input" data-prepend="User name: " data-history="true">
                                 
@@ -69,15 +81,16 @@
                      <textarea data-role="textarea" data-history="true"></textarea>
                         </div>
                         <div class="dialog-actions">
-                            <button class="button ">Send</button>
-                            <button class="button primary js-dialog-close">Close</button>
+                            <button class="button primary">Send</button>
+                            <button class="button alert js-dialog-close">Cancel</button>
                         </div>
                     </div>
 
 
                       <!--dialogs login-->
-                <div class="dialog" data-role="dialog" id='player'>
-                        <div class="dialog-title">Please Login To Continue</div>
+                <div class="dialog" data-role="dialog" id='oldPlayer'>
+                        <div class="dialog-title white-color" style="background-color: #07557B">
+                            Please Login To Continue</div>
                         <div class="dialog-content">
                                 <input type="text" data-role="input" data-prepend="User name: " data-history="true">
                                 <br>
@@ -89,32 +102,70 @@
                                     </button></p>
                         </div>
                         <div class="dialog-actions">
-                            <button class="button ">Ok</button>
-                            <button class="button primary js-dialog-close">Close</button>
+                            <button class="button primary">Ok</button>
+                            <button class="button alert js-dialog-close">Cancel</button>
                         </div>
                     </div>
 
                       <!--dialogs reg-->
                 <div class="dialog" data-role="dialog" id='newPlayer'>
-                        <div class="dialog-title">Please Login To Continue</div>
+                        <div class="dialog-title white-color" style="background-color: #07557B">
+                            Start New Game</div>
                         <div class="dialog-content">
                                 <input type="text" data-role="input" data-prepend="User name: " data-history="true">
                                 <br>
+                                <input type="email" data-role="input" data-prepend="Email: " data-history="true">
+                                <br>
                                 <input type="password" data-role="input" data-prepend="Password: ">
 
-                                <p class='text-right'><button class="image-button" @click.prevent='oldPlayer'>
+                                <p class='text-right'><button class="image-button" @click.prevent='oldPlayer()'>
                                         <span class="mif-share icon"></span>
                                         <span class="caption">Old Player?</span>
                                     </button></p>
                         </div>
                         <div class="dialog-actions">
-                            <button class="button ">Ok</button>
-                            <button class="button primary js-dialog-close">Close</button>
+                            <button class="button primary">Ok</button>
+                            <button class="button alert js-dialog-close">Cancel</button>
+                        </div>
+                    </div>
+
+
+                      <!--dialogs search-->
+                <div class="dialog" data-role="dialog" id='search'>
+                      
+                    <div class="dialog-title white-color" style="background-color: #07557B">
+                        Search</div>
+
+
+                        <div class="dialog-content">
+                            <p>Search by Player's username</p>
+                            <input type="text" data-role="input"
+                            placeholder="Enter Username" data-autocomplete="Ukraine, USA, Canada, Marokko, Singapur">
+                                <br>
+                                <button class="button primary">Find</button>
+                        </div>
+
+                        <hr>
+
+                        
+                        <div class="dialog-content">
+                                <p>Filter by Dares</p>
+                                <select data-role="select">
+                                        <option class="fg-cyan">One</option>
+                                        <option selected class="text-bold fg-red">Two</option>
+                                        <option class="fg-green">Three</option>
+                                    </select>
+                        </div>
+
+                        <div class="dialog-actions">
+                            <button class="button alert js-dialog-close">Close</button>
                         </div>
                     </div>
                    
     </div>
+    </div>
 </template>
+
 
 <script>
     export default {
@@ -137,6 +188,14 @@
             list(){
                 this.$router.push({name: "dareList"});
             },
+            newPlayer(){
+                Metro.dialog.close('#oldPlayer')
+                Metro.dialog.open('#newPlayer')
+            },
+            oldPlayer(){
+                Metro.dialog.close('#newPlayer')
+                Metro.dialog.open('#oldPlayer')
+            }
             
 /*
             this.$validator.validateAll().then(() => {
