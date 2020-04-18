@@ -75,6 +75,9 @@
                                 <li class="divider"></li>
                                 <li><router-link to='/rules'> <span class="mif-books icon"></span> Rules</router-link></li>
                                 <li class="divider"></li>
+                                <li><router-link to='/player-homepage'> <span class="mif-menu icon"></span> 
+                                Player Menu</router-link></li>
+                                <li class="divider"></li>
                                 <li><a href='mailto:honred47@yahoo.com'> <span class="mif-mail icon"></span> Contact Us</a></li>
                                 <li class="divider"></li>
                                 <li><router-link to='/'><span class="mif-home icon"></span> Home Screen</router-link></li>
@@ -233,7 +236,7 @@
                             timeout: 6000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Welcome to Nerve. Explore all options.");
+                        notify.create("Welcome to Nerve. Explore all options from this page.");
                         notify.reset();
 
                         Metro.session.setItem('welcome','welcome')

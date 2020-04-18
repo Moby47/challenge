@@ -8,7 +8,7 @@
                 >
                 </vue-particles>
     
-                <div class="container">
+                <div class="container fadeIn">
                
                 
                         <div  data-role="accordion"

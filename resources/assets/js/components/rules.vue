@@ -8,12 +8,12 @@
                 >
                 </vue-particles>
     
-                <div class="container">
+                <div class="container fadeIn">
                
                 
                         <div  data-role="accordion"
                         data-active-heading-class="bg-cyan fg-white"
-                        data-active-content-class="bg-dark fg-white" >
+                        data-active-content-class="bg-dark fg-white">
                     <div class="frame active">
                         <div class="heading">Prohibited Content</div>
                         <div class="content">

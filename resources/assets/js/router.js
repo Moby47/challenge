@@ -15,6 +15,12 @@ import store from './components/store.vue'
 import help from './components/help.vue'
 import rules from './components/rules.vue'
 
+
+import playerHomepage from './components/player/playerHomepage.vue'
+import pickDare from './components/player/pickDare.vue'
+import pendingDares from './components/player/pendingDares.vue'
+import upload from './components/player/upload.vue'
+
 export default new Router({
 
     mode: 'history',
@@ -99,6 +105,48 @@ export default new Router({
              meta:{
               //  auth: true
             }
-        }
+        },
+
+
+
+
+
+
+
+        {
+            path: '/player-homepage',
+            name: 'playerHomepage',
+            component: playerHomepage,
+             meta:{
+              //  auth: true
+            }
+        },
+        
+        {
+            path: '/pick-dare',
+            name: 'pickDare',
+            component: pickDare,
+             meta:{
+              //  auth: true
+            }
+        },
+        
+        {
+            path: '/pending-dares',
+            name: 'pendingDares',
+            component: pendingDares,
+             meta:{
+              //  auth: true
+            }
+        },
+        
+        {
+            path: '/upload-dare',
+            name: 'upload',
+            component: upload,
+             meta:{
+              //  auth: true
+            }
+        },
     ]
 })
