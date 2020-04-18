@@ -11,6 +11,9 @@ import singleDare from './components/singleDare.vue'
 import leaderBoard from './components/leaderBoard.vue'
 import dareList from './components/dareList.vue'
 import playerProfile from './components/playerProfile.vue'
+import store from './components/store.vue'
+import help from './components/help.vue'
+import rules from './components/rules.vue'
 
 export default new Router({
 
@@ -69,6 +72,30 @@ export default new Router({
             path: '/player-profile',
             name: 'playerProfile',
             component: playerProfile,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/store',
+            name: 'store',
+            component: store,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/help',
+            name: 'help',
+            component: help,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/rules',
+            name: 'rules',
+            component: rules,
              meta:{
               //  auth: true
             }

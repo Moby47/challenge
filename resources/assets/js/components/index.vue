@@ -1,74 +1,79 @@
 <template>
-    <div >
-    <div class="container ">
+        <div>
+
+    <vue-particles color="#ffffff">
+    </vue-particles>
+
     
-        <h1 class="text-center white-color ani-heartbeat"> GOT NERVE?  </h1>
-        <div data-role="cube" data-color="black"
-        data-flash-color="#00B0FF"></div>
+    <h1 class="text-center white-color ani-heartbeat">NERVE</h1>
+    <div data-role="cube" data-color="black"
+    data-flash-color="#00B0FF" class='zoomer'></div>
 
-    <h3 class="text-center white-color zoomer">Choose your character</h3>
-    
-    <div class="row text-center zoomer">
-       
-        <div class="cell order-1">
-            <button class="shortcut rounded primary" @click.prevent='homepage()' style="background-color: #b82943">
-                <span class="caption">Watcher</span>
-                <span class="mif-eye icon  ani-float"></span>
-            </button>
-        </div>
+<h3 class="text-center white-color fadeIn">Choose a Character</h3>
 
-        <div class="cell order-2">
-            <button class="shortcut rounded primary" onclick="Metro.dialog.open('#oldPlayer')"
-            style="background-color: #1ba1e2">
-                <span class="caption">Player</span>
-                <span class="mif-gamepad icon  ani-float"></span>
-            </button>
-        </div>
-
-    </div>
-    
-
-  <!--dialogs login-->
-  <div class="dialog" data-role="dialog" id='oldPlayer'>
-        <div class="dialog-title">Please Login To Continue</div>
-        <div class="dialog-content">
-                <input type="text" data-role="input" data-prepend="User name: " data-history="true">
-                <br>
-                <input type="password" data-role="input" data-prepend="Password: ">
-
-                <p class='text-right'><button class="image-button" @click.prevent='newPlayer()'>
-                        <span class="mif-share icon"></span>
-                        <span class="caption">New Player?</span>
-                    </button></p>
-        </div>
-        <div class="dialog-actions">
-            <button class="button ">Ok</button>
-            <button class="button primary js-dialog-close">Cancel</button>
-        </div>
+<div class="row text-center fadeIn">
+   
+    <div class="cell order-1">
+        <button class="shortcut rounded primary ani-hover-horizontal" @click.prevent='homepage()' 
+        style="background-color: #b82943">
+            <span class="caption">Watcher</span>
+            <span class="mif-eye icon  ani-float"></span>
+        </button>
     </div>
 
-      <!--dialogs reg-->
+    <div class="cell order-2">
+        <button class="shortcut rounded primary ani-hover-horizontal" onclick="Metro.dialog.open('#oldPlayer')"
+        style="background-color: #00B0FF">
+            <span class="caption">Player</span>
+            <span class="mif-gamepad icon  ani-float"></span>
+        </button>
+    </div>
+
+</div>
+
+
+<!--dialogs login-->
+<div class="dialog" data-role="dialog" id='oldPlayer'>
+    <div class="dialog-title white-color" style="background-color: #07557B">Please Login To Continue</div>
+    <div class="dialog-content">
+        <p>User name:</p>
+            <input type="text" data-role="input" data-history="true">
+           <p>Password:</p>
+            <input type="password" data-role="input">
+
+            <p class='text-right'><button class="image-button" @click.prevent='newPlayer()'>
+                    <span class="mif-user-plus icon"></span>
+                    <span class="caption">New Player?</span>
+                </button></p>
+    </div>
+    <div class="dialog-actions">
+        <button class="button primary">Ok</button>
+        <button class="button alert js-dialog-close">Cancel</button>
+    </div>
+</div>
+
+  <!--dialogs reg-->
 <div class="dialog" data-role="dialog" id='newPlayer'>
-        <div class="dialog-title">Start New Game</div>
-        <div class="dialog-content">
-                <input type="text" data-role="input" data-prepend="User name: " data-history="true">
-                <br>
-                <input type="email" data-role="input" data-prepend="User name: " data-history="true">
-                <br>
-                <input type="password" data-role="input" data-prepend="Password: ">
+    <div class="dialog-title white-color" style="background-color: #07557B">Start New Game</div>
+    <div class="dialog-content">
+            <p>User name:</p>
+            <input type="text" data-role="input" data-history="true">
+            <p>Email:</p>
+            <input type="email" data-role="input" data-history="true">
+           <p>Password:</p>
+            <input type="password" data-role="input">
 
-                <p class='text-right'><button class="image-button" @click.prevent='oldPlayer()'>
-                        <span class="mif-share icon"></span>
-                        <span class="caption">Old Player?</span>
-                    </button></p>
-        </div>
-        <div class="dialog-actions">
-            <button class="button ">Ok</button>
-            <button class="button primary js-dialog-close">Cancel</button>
-        </div>
+            <p class='text-right'><button class="image-button" @click.prevent='oldPlayer()'>
+                    <span class="mif-user icon"></span>
+                    <span class="caption">Old Player?</span>
+                </button></p>
     </div>
+    <div class="dialog-actions">
+        <button class="button primary">Ok</button>
+        <button class="button alert js-dialog-close">Cancel</button>
+    </div>
+</div>
 
-    </div>
 </div>
 
 </template>
@@ -83,9 +88,14 @@
             }
         },
 
+
         methods: {
 
             homepage(){
+                var sound = '/sounds/welcome.mp3'
+                var audio = new Audio(sound);
+                audio.play();
+
                 this.$router.push({name: "homepage"});
             },
             newPlayer(){
@@ -120,8 +130,5 @@
 */
         },
 
-        mounted() {
-            console.log('Component mounted.')
-        }
     }
 </script>

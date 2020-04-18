@@ -1,5 +1,13 @@
 <template>
         <div>
+
+                <vue-particles 
+                color="#ffffff"
+                shapeType="polygon"
+                :particleSize="2"
+                >
+                </vue-particles>
+            
         <div class="container">
         
                 <h3 class="text-center">  </h3>
@@ -15,7 +23,6 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                class='index'
                                  ></video>
 
                                  <div class="card-footer">
@@ -43,7 +50,7 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                class='index'
+                                
                                  ></video>
 
                                  <div class="card-footer">
@@ -72,7 +79,7 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                class='index'
+                                
                                  ></video>
 
                                  <div class="card-footer">
@@ -101,7 +108,7 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                class='index'
+                                
                                  ></video>
 
                                  <div class="card-footer">
@@ -125,7 +132,73 @@
                     </div>
     </div>
 
-    <floating></floating>
+    
+
+     <!--dialogs search-->
+     <div class="dialog" data-role="dialog" id='search'>
+                      
+            <div class="dialog-title white-color" style="background-color: #07557B">
+                Search</div>
+
+
+                <div class="dialog-content">
+                    <p>Search by Player's username</p>
+                    <input type="text" data-role="input"
+                    placeholder="Enter Username" data-autocomplete="Ukraine, USA, Canada, Marokko, Singapur">
+                        <br>
+                        <button class="button primary">Find</button>
+                </div>
+
+                <hr>
+
+                
+                <div class="dialog-content">
+                        <p>Filter by Dares</p>
+                        <select data-role="select">
+                                <option class="fg-cyan">One</option>
+                                <option selected class="text-bold fg-red">Two</option>
+                                <option class="fg-green">Three</option>
+                            </select>
+                </div>
+
+                <div class="dialog-actions">
+                    <button class="button alert js-dialog-close">Close</button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <template>
+     
+                    <div class="container fadeIn index">
+                    
+                            <div class="bottom-nav pos-fixed">
+                                    <button class="button"  @click.prevent='home()' style="background-color: #ebebeb">
+                                            <span class="icon mif-home"></span>
+                                            <span class="label">Home</span>
+                                        </button>
+                                    <button class="button"  @click.prevent='menu()' style="background-color: #ebebeb">
+                                        <span class="icon mif-menu"></span>
+                                        <span class="label">Menu</span>
+                                    </button>
+                                   
+                                    <button class="button" style="background-color: #ebebeb" onclick="Metro.dialog.open('#search')">
+                                        <span class="icon mif-search"></span>
+                                        <span class="label">Search</span>
+                                    </button>
+                        
+                                    <button class="button" style="background-color: #ebebeb"    @click.prevent='back()'>
+                                            <span class="icon mif-backspace"></span>
+                                            <span class="label">Back</span>
+                                        </button>
+                                </div>
+            
+                    </div>
+                </template>
 
 
         </div>
@@ -140,7 +213,25 @@
                 }
             },
     
+            mounted() {
+            $(document).ready(function(){
+                $(window).scrollTop(0);
+            });
+        },
+
             methods: {
+
+                home(){
+                    this.$router.push({name: "index"});
+                },
+
+                menu(){
+                    this.$router.push({name: "homepage"});
+                },
+
+                back(){
+                    this.$router.go(-1)
+                }
     /*
                 this.$validator.validateAll().then(() => {
                
@@ -165,9 +256,7 @@
     */
             },
     
-            mounted() {
-                console.log('Component mounted.')
-            }
+          
         }
     </script>
     

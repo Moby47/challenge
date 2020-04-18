@@ -45,7 +45,7 @@
     }
 
     body{
-        background-color: #07557B;
+        background-color: black;
       }
 
     .white-color{
@@ -60,5 +60,20 @@
   
 
   .index{
-    z-index: -233 !important;
+    z-index: 233 !important;
 }
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+#nprogress .bar {
+    background: #29d;
+    height: 5px;
+  }
+  
+  

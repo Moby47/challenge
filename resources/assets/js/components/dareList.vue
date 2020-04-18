@@ -1,6 +1,14 @@
 <template>
         <div>
-        <div class="container white-color zoomer">
+
+                <vue-particles 
+                color="#ffffff"
+                shapeType="polygon"
+                :particleSize="2"
+                >
+                </vue-particles>
+
+        <div class="container white-color fadeIn">
         
                 <h3 class="text-center"> DARE LIST </h3>
             
@@ -43,6 +51,12 @@
                 }
             },
     
+            mounted() {
+            $(document).ready(function(){
+                $(window).scrollTop(0);
+            });
+        },
+        
             methods: {
 
             
@@ -70,9 +84,6 @@
     */
             },
     
-            mounted() {
-                console.log('Component mounted.')
-            }
         }
     </script>
     

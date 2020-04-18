@@ -1,6 +1,6 @@
 <template>
      
-        <div class="container fadeIn">
+        <div class="container fadeIn index">
         
     
               <!--floating left - home-->
@@ -15,7 +15,7 @@
                   fixed
             @click.prevent='home()'
                     >
-                  <v-icon dark>home</v-icon>
+                  <v-icon dark>apps</v-icon>
                   </v-btn>
 
                    <!--floating right - back-->

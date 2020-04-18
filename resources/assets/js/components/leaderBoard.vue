@@ -1,6 +1,13 @@
 <template>
         <div>
-        <div class="container white-color zoomer">
+                <vue-particles 
+                color="#ffffff"
+                shapeType="polygon"
+                :particleSize="2"
+                >
+                </vue-particles>
+
+        <div class="container white-color fadeIn">
         
                 <h3 class="text-center"> THEY GOT NERVE </h3>
             
@@ -19,6 +26,24 @@
                                         <td>400</td>
                                         <td>74</td>
                                         <td>47000</td>
+                                    </tr>
+                                    <tr>
+                                            <td>Aj101</td>
+                                            <td>400</td>
+                                            <td>74</td>
+                                            <td>47000</td>
+                                    </tr>
+                                    <tr>
+                                            <td>Aj101</td>
+                                            <td>400</td>
+                                            <td>74</td>
+                                            <td>47000</td>
+                                    </tr>
+                                    <tr>
+                                            <td>Aj101</td>
+                                            <td>400</td>
+                                            <td>74</td>
+                                            <td>47000</td>
                                     </tr>
                                     <tr>
                                             <td>Aj101</td>
@@ -46,7 +71,13 @@
     
                 }
             },
-    
+            
+            mounted() {
+            $(document).ready(function(){
+                $(window).scrollTop(0);
+            });
+        },
+
             methods: {
     /*
                 this.$validator.validateAll().then(() => {
@@ -72,9 +103,7 @@
     */
             },
     
-            mounted() {
-                console.log('Component mounted.')
-            }
+          
         }
     </script>
     

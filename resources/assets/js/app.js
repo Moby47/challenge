@@ -13,6 +13,7 @@ window.Vue = require('vue');
 
 //vee validate
 import Vue from 'vue';
+
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
 
@@ -37,6 +38,9 @@ import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 
 
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
+
 /* ------------------------- Imports -------------------- */
 
 
@@ -55,6 +59,14 @@ router.beforeResolve((to, from, next) => {
     // Complete the animation of the route progress bar.
     NProgress.done()
   })
+
+  router.beforeEach((to, from, next) => {
+   // window.scrollTo(0, 0);
+    
+    // More code ...
+    next();
+  });
+  
 
   /* ------------------------URL interceptor for progressbar ----------------*/
 
