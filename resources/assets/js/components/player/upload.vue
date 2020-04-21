@@ -30,6 +30,7 @@
 
                     <div class="remark info text-center">
                            <router-link to='/pending-dares'> Click here to view your pending Dares</router-link>
+                          
                         </div>
 
 
@@ -62,6 +63,40 @@
                                     </div>
                                 </template>
                 
+
+                                <div class="info-box" data-role="infobox" id='ad' data-width='550'>
+                                        <span class="button square closer"></span>
+                                 <div class="info-box-content">
+                                       
+                                    
+                                    <div data-role="carousel"
+                                        data-cls-bullet="bullet-big"
+                                        data-auto-start="true"
+                                        data-cls-controls="fg-white"
+                                        data-bullets-position="right"
+                                        data-period="3000"
+                                        data-control-next="<span class='mif-chevron-right fg-cyan'></span>"
+                                        data-control-prev="<span class='mif-chevron-left fg-cyan'></span>"
+                                   >
+                                      
+                                       <div class="slide" data-cover="images/rules.svg">
+                                      </div>
+                                   
+                                       <div class="slide p-2 pl-10 pr-10" data-cover="images/help.svg">
+                                       </div>
+
+                                       <div class="slide" data-cover="images/rules.svg">
+                                       </div>
+                                      
+                                          <div class="slide p-2 pl-10 pr-10" data-cover="images/help.svg">
+                                          </div>
+
+                                   </div>
+
+
+                                   </div>
+                                </div>
+                            
         </div>
         </div>
     </template>
@@ -79,6 +114,10 @@
                 $(document).ready(function(){
                     $(window).scrollTop(0);
                 });
+
+               setTimeout(function(){
+                Metro.infobox.open('#ad')
+               },5000)
             },
             
             methods: {

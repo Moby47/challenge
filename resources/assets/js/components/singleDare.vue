@@ -320,7 +320,9 @@
             },
     
             mounted() {
-                console.log('Component mounted.')
+                $(document).ready(function(){
+                $(window).scrollTop(0);
+            });
             }
         }
     </script>

@@ -58122,7 +58122,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     mounted: function mounted() {
-        console.log('Component mounted.');
+        $(document).ready(function () {
+            $(window).scrollTop(0);
+        });
     }
 });
 
@@ -103346,25 +103348,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -103419,341 +103402,259 @@ var render = function() {
       _c("div", { staticClass: "bg-store" }),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _c(
-          "ul",
-          {
-            staticClass: "white-color",
-            attrs: {
-              id: "paintings",
-              "data-role": "list",
-              "data-sort-class": "painting-price",
-              "data-sort-dir": "desc",
-              "data-cls-list": "unstyled-list row flex-justify-center mt-4",
-              "data-cls-list-item": "cell-sm-6 cell-md-4"
-            }
-          },
-          [
-            _c(
-              "li",
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+            [
               [
-                [
-                  _c(
-                    "v-card",
-                    {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "344", outlined: "" }
-                    },
-                    [
-                      _c(
-                        "v-list-item",
-                        { attrs: { "three-line": "" } },
-                        [
-                          _c(
-                            "v-list-item-content",
-                            [
-                              _c("div", { staticClass: "overline mb-4" }, [
-                                _vm._v("Remove Ads")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "v-list-item-title",
-                                { staticClass: "headline mb-1" },
-                                [_vm._v("Purchase to remove Ads")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-avatar",
-                            { attrs: { tile: "", size: "80", color: "grey" } },
-                            [
-                              _c("v-img", {
-                                attrs: { src: "/images/store.svg" }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
-                          _vm._v(" "),
-                          _c("v-btn", { attrs: { color: "green" } }, [
-                            _vm._v("Buy")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
+                _c(
+                  "v-card",
+                  {
+                    staticClass: "mx-auto",
+                    attrs: { "max-width": "344", outlined: "" }
+                  },
+                  [
+                    _c(
+                      "v-list-item",
+                      { attrs: { "three-line": "" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c("div", { staticClass: "overline mb-4" }, [
+                              _vm._v("Remove Ads")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-title",
+                              { staticClass: "headline mb-1" },
+                              [_vm._v("Purchase to remove Ads")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-avatar",
+                          { attrs: { tile: "", size: "80", color: "grey" } },
+                          [
+                            _c("v-img", { attrs: { src: "/images/store.svg" } })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-actions",
+                      [
+                        _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                        _vm._v(" "),
+                        _c("v-btn", { attrs: { color: "green" } }, [
+                          _vm._v("Buy")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+            [
               [
-                [
-                  _c(
-                    "v-card",
-                    {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "344", outlined: "" }
-                    },
-                    [
-                      _c(
-                        "v-list-item",
-                        { attrs: { "three-line": "" } },
-                        [
-                          _c(
-                            "v-list-item-content",
-                            [
-                              _c("div", { staticClass: "overline mb-4" }, [
-                                _vm._v("Remove Ads")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "v-list-item-title",
-                                { staticClass: "headline mb-1" },
-                                [_vm._v("Purchase to remove Ads")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-avatar",
-                            { attrs: { tile: "", size: "80", color: "grey" } },
-                            [
-                              _c("v-img", {
-                                attrs: { src: "/images/store.svg" }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
-                          _vm._v(" "),
-                          _c("v-btn", { attrs: { color: "green" } }, [
-                            _vm._v("Buy")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
+                _c(
+                  "v-card",
+                  {
+                    staticClass: "mx-auto",
+                    attrs: { "max-width": "344", outlined: "" }
+                  },
+                  [
+                    _c(
+                      "v-list-item",
+                      { attrs: { "three-line": "" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c("div", { staticClass: "overline mb-4" }, [
+                              _vm._v("Remove Ads")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-title",
+                              { staticClass: "headline mb-1" },
+                              [_vm._v("Purchase to remove Ads")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-avatar",
+                          { attrs: { tile: "", size: "80", color: "grey" } },
+                          [
+                            _c("v-img", { attrs: { src: "/images/store.svg" } })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-actions",
+                      [
+                        _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                        _vm._v(" "),
+                        _c("v-btn", { attrs: { color: "green" } }, [
+                          _vm._v("Buy")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+            [
               [
-                [
-                  _c(
-                    "v-card",
-                    {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "344", outlined: "" }
-                    },
-                    [
-                      _c(
-                        "v-list-item",
-                        { attrs: { "three-line": "" } },
-                        [
-                          _c(
-                            "v-list-item-content",
-                            [
-                              _c("div", { staticClass: "overline mb-4" }, [
-                                _vm._v("Remove Ads")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "v-list-item-title",
-                                { staticClass: "headline mb-1" },
-                                [_vm._v("Purchase to remove Ads")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-avatar",
-                            { attrs: { tile: "", size: "80", color: "grey" } },
-                            [
-                              _c("v-img", {
-                                attrs: { src: "/images/store.svg" }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
-                          _vm._v(" "),
-                          _c("v-btn", { attrs: { color: "green" } }, [
-                            _vm._v("Buy")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
+                _c(
+                  "v-card",
+                  {
+                    staticClass: "mx-auto",
+                    attrs: { "max-width": "344", outlined: "" }
+                  },
+                  [
+                    _c(
+                      "v-list-item",
+                      { attrs: { "three-line": "" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c("div", { staticClass: "overline mb-4" }, [
+                              _vm._v("Remove Ads")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-title",
+                              { staticClass: "headline mb-1" },
+                              [_vm._v("Purchase to remove Ads")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-avatar",
+                          { attrs: { tile: "", size: "80", color: "grey" } },
+                          [
+                            _c("v-img", { attrs: { src: "/images/store.svg" } })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-actions",
+                      [
+                        _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                        _vm._v(" "),
+                        _c("v-btn", { attrs: { color: "green" } }, [
+                          _vm._v("Buy")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+            [
               [
-                [
-                  _c(
-                    "v-card",
-                    {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "344", outlined: "" }
-                    },
-                    [
-                      _c(
-                        "v-list-item",
-                        { attrs: { "three-line": "" } },
-                        [
-                          _c(
-                            "v-list-item-content",
-                            [
-                              _c("div", { staticClass: "overline mb-4" }, [
-                                _vm._v("Remove Ads")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "v-list-item-title",
-                                { staticClass: "headline mb-1" },
-                                [_vm._v("Purchase to remove Ads")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-avatar",
-                            { attrs: { tile: "", size: "80", color: "grey" } },
-                            [
-                              _c("v-img", {
-                                attrs: { src: "/images/store.svg" }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
-                          _vm._v(" "),
-                          _c("v-btn", { attrs: { color: "green" } }, [
-                            _vm._v("Buy")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                [
-                  _c(
-                    "v-card",
-                    {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "344", outlined: "" }
-                    },
-                    [
-                      _c(
-                        "v-list-item",
-                        { attrs: { "three-line": "" } },
-                        [
-                          _c(
-                            "v-list-item-content",
-                            [
-                              _c("div", { staticClass: "overline mb-4" }, [
-                                _vm._v("Remove Ads")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "v-list-item-title",
-                                { staticClass: "headline mb-1" },
-                                [_vm._v("Purchase to remove Ads")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-avatar",
-                            { attrs: { tile: "", size: "80", color: "grey" } },
-                            [
-                              _c("v-img", {
-                                attrs: { src: "/images/store.svg" }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
-                          _vm._v(" "),
-                          _c("v-btn", { attrs: { color: "green" } }, [
-                            _vm._v("Buy")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]
-              ],
-              2
-            )
-          ]
-        )
+                _c(
+                  "v-card",
+                  {
+                    staticClass: "mx-auto",
+                    attrs: { "max-width": "344", outlined: "" }
+                  },
+                  [
+                    _c(
+                      "v-list-item",
+                      { attrs: { "three-line": "" } },
+                      [
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c("div", { staticClass: "overline mb-4" }, [
+                              _vm._v("Remove Ads")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item-title",
+                              { staticClass: "headline mb-1" },
+                              [_vm._v("Purchase to remove Ads")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-avatar",
+                          { attrs: { tile: "", size: "80", color: "grey" } },
+                          [
+                            _c("v-img", { attrs: { src: "/images/store.svg" } })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-actions",
+                      [
+                        _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                        _vm._v(" "),
+                        _c("v-btn", { attrs: { color: "green" } }, [
+                          _vm._v("Buy")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            ],
+            2
+          )
+        ])
       ]),
       _vm._v(" "),
       _c("floating")
@@ -105672,6 +105573,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -105681,6 +105617,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         $(document).ready(function () {
             $(window).scrollTop(0);
         });
+
+        setTimeout(function () {
+            Metro.infobox.open('#ad');
+        }, 5000);
     },
 
 
@@ -105862,7 +105802,9 @@ var render = function() {
                 )
               ])
             ])
-          ]
+          ],
+          _vm._v(" "),
+          _vm._m(1)
         ],
         2
       )
@@ -105895,6 +105837,62 @@ var staticRenderFns = [
           ),
           _vm._v(" "),
           _c("option", { staticClass: "fg-green" }, [_vm._v("Three")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "info-box",
+        attrs: { "data-role": "infobox", id: "ad", "data-width": "550" }
+      },
+      [
+        _c("span", { staticClass: "button square closer" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "info-box-content" }, [
+          _c(
+            "div",
+            {
+              attrs: {
+                "data-role": "carousel",
+                "data-cls-bullet": "bullet-big",
+                "data-auto-start": "true",
+                "data-cls-controls": "fg-white",
+                "data-bullets-position": "right",
+                "data-period": "3000",
+                "data-control-next":
+                  "<span class='mif-chevron-right fg-cyan'></span>",
+                "data-control-prev":
+                  "<span class='mif-chevron-left fg-cyan'></span>"
+              }
+            },
+            [
+              _c("div", {
+                staticClass: "slide",
+                attrs: { "data-cover": "images/rules.svg" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "slide p-2 pl-10 pr-10",
+                attrs: { "data-cover": "images/help.svg" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "slide",
+                attrs: { "data-cover": "images/rules.svg" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "slide p-2 pl-10 pr-10",
+                attrs: { "data-cover": "images/help.svg" }
+              })
+            ]
+          )
         ])
       ]
     )
