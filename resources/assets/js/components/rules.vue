@@ -1,12 +1,7 @@
 <template>
         <div>
 
-                <vue-particles 
-                color="#ffffff"
-                shapeType="polygon"
-                :particleSize="2"
-                >
-                </vue-particles>
+                <div class='bg-rules'></div>
     
                 <div class="container fadeIn">
                
@@ -30,7 +25,7 @@
                     <div class="frame">
                         <div class="heading">Rules</div>
                         <div class="content">
-                            <div class="p-2">Complete a completely safe Dare listed by Nerve to:
+                            <div class="p-2">Complete a completely safe Dare listed by the App to:
                                 <ul>
                                     <li>Upload accurate videos related to the Dare</li>
                                   
@@ -41,9 +36,11 @@
                     <div class="frame">
                         <div class="heading">Conclusion</div>
                         <div class="content">
+                                <div class="p-2">
                            The total rules and regulations mentioned above apply to anyone on this platform.
                            Defaulters will have their accounts shutdown immediately.
                            By using this App, you agree to the terms and rules here.
+                           </div>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,7 @@
 <template>
         <div>
 
-                <vue-particles 
-                color="#ffffff"
-                shapeType="polygon"
-                :particleSize="2"
-                >
-                </vue-particles>
+                <div class='bg-dare'></div>
             
         <div class="container">
         
@@ -16,34 +11,12 @@
 
                         <div class="cell-sm-full cell-md-one-third cell-lg-4">
                             
-                                <video data-role="video"
-                                data-src="https://metroui.org.ua/res/oceans.mp4"
-                                data-logo="https://metroui.org.ua/images/logo4.png"
-                                data-logo-height="64"
-                                data-logo-target="https://metroui.org.ua/v4/"
-                                data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
-                                data-aspect-ratio="hd"
-                                 ></video>
-
-                                 <div class="card-footer">
-                                        <button class="flat-button mif-thumbs-up white-color "> 47</button>
-                                        <button class="flat-button mif-comment white-color"> 7</button>
-                                        <button class="flat-button mif-eye white-color"> 4</button>
-                                        <button class="flat-button mif-share white-color"> 4</button>
-                                    </div>
-                                 <figcaption class="mt-1 text-center">
-                                     <router-link to='/single-dare' class='white-color'>A full title of the dare. A full title of the dare.
-                                     </router-link> 
-                             <span class="badge inside fg-white"
-                             style="background-color: #fa6800">player's username</span></figcaption>
-
-                                 
-                        </div>
-
-
-                        <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                            
-                                <video data-role="video"
+                                <template>
+                                        <v-card
+                                          class="mx-auto"
+                                          
+                                        >
+                                        <video data-role="video"
                                 data-src="https://metroui.org.ua/res/oceans.mp4"
                                 data-logo="https://metroui.org.ua/images/logo4.png"
                                 data-logo-height="64"
@@ -52,27 +25,39 @@
                                 data-aspect-ratio="hd"
                                 
                                  ></video>
-
-                                 <div class="card-footer">
-                                        <button class="flat-button mif-thumbs-up white-color"> 47</button>
-                                        <button class="flat-button mif-comment white-color"> 7</button>
-                                        <button class="flat-button mif-eye white-color"> 4</button>
-                                        <button class="flat-button mif-share white-color"> 4</button>
-                                    </div>
-                                 <figcaption class="mt-1 text-center">
-                                     <router-link to='/single-dare' class='white-color'>A full title of the dare. A full title of the dare.
-                                     </router-link> 
-                             <span class="badge inside  fg-white"
-                             style="background-color: #fa6800">player's username</span></figcaption>
-
-
-                                 
+                                      
+                                          <v-card-title>
+                                                <div class="card-footer">
+                                                        <button class="flat-button mif-thumbs-up "> 47</button>
+                                                        <button class="flat-button mif-comment "> 7</button>
+                                                        <button class="flat-button mif-eye "> 4</button>
+                                                        <button class="flat-button mif-share "> 4</button>
+                                                    </div>
+                                          </v-card-title>
+                                      
+                                          <v-card-subtitle>
+                                                <figcaption class="mt-1 text-center">
+                         <router-link to='/single-dare' class=''>A full title of the dare. 
+                            A full title of the dare.   A full title of the dare.
+                                                        </router-link> 
+                                               </figcaption>
+                                          </v-card-subtitle>
+                                      
+                                        </v-card>
+                                      </template>
+                                      <span class="badge inside  fg-white"
+                                      style="background-color: #b82943">player's username</span>
                         </div>
 
 
                         <div class="cell-sm-full cell-md-one-third cell-lg-4">
                             
-                                <video data-role="video"
+                                <template>
+                                        <v-card
+                                          class="mx-auto"
+                                          
+                                        >
+                                        <video data-role="video"
                                 data-src="https://metroui.org.ua/res/oceans.mp4"
                                 data-logo="https://metroui.org.ua/images/logo4.png"
                                 data-logo-height="64"
@@ -81,27 +66,42 @@
                                 data-aspect-ratio="hd"
                                 
                                  ></video>
-
-                                 <div class="card-footer">
-                                        <button class="flat-button mif-thumbs-up white-color"> 47</button>
-                                        <button class="flat-button mif-comment white-color"> 7</button>
-                                        <button class="flat-button mif-eye white-color"> 4</button>
-                                        <button class="flat-button mif-share white-color"> 4</button>
-                                    </div>
-                                 <figcaption class="mt-1 text-center">
-                                     <router-link to='/single-dare' class='white-color'>A full title of the dare. A full title of the dare.
-                                     </router-link> 
-                             <span class="badge inside  fg-white"
-                             style="background-color: #fa6800">player's username</span></figcaption>
-
-
-                                 
+                                      
+                                          <v-card-title>
+                                                <div class="card-footer">
+                                                        <button class="flat-button mif-thumbs-up "> 47</button>
+                                                        <button class="flat-button mif-comment "> 7</button>
+                                                        <button class="flat-button mif-eye "> 4</button>
+                                                        <button class="flat-button mif-share "> 4</button>
+                                                    </div>
+                                          </v-card-title>
+                                      
+                                          <v-card-subtitle>
+                                                <figcaption class="mt-1 text-center">
+                         <router-link to='/single-dare' class=''>A full title of the dare. 
+                            A full title of the dare.   A full title of the dare.
+                                                        </router-link> 
+                                               </figcaption>
+                                          </v-card-subtitle>
+                                      
+                                        </v-card>
+                                      </template>
+                                      <span class="badge inside  fg-white"
+                                      style="background-color: #b82943">player's username</span>
                         </div>
+
+
+
 
 
                         <div class="cell-sm-full cell-md-one-third cell-lg-4">
                             
-                                <video data-role="video"
+                                <template>
+                                        <v-card
+                                          class="mx-auto"
+                                          
+                                        >
+                                        <video data-role="video"
                                 data-src="https://metroui.org.ua/res/oceans.mp4"
                                 data-logo="https://metroui.org.ua/images/logo4.png"
                                 data-logo-height="64"
@@ -110,26 +110,76 @@
                                 data-aspect-ratio="hd"
                                 
                                  ></video>
-
-                                 <div class="card-footer">
-                                        <button class="flat-button mif-thumbs-up white-color"> 47</button>
-                                        <button class="flat-button mif-comment white-color"> 7</button>
-                                        <button class="flat-button mif-eye white-color"> 4</button>
-                                        <button class="flat-button mif-share white-color"> 4</button>
-                                    </div>
-                                 <figcaption class="mt-1 text-center">
-                                     <router-link to='/single-dare' class='white-color'>A full title of the dare. A full title of the dare.
-                                     </router-link> 
-                             <span class="badge inside  fg-white"
-                             style="background-color: #fa6800">player's username</span></figcaption>
-
-
-                                 
+                                      
+                                          <v-card-title>
+                                                <div class="card-footer">
+                                                        <button class="flat-button mif-thumbs-up "> 47</button>
+                                                        <button class="flat-button mif-comment "> 7</button>
+                                                        <button class="flat-button mif-eye "> 4</button>
+                                                        <button class="flat-button mif-share "> 4</button>
+                                                    </div>
+                                          </v-card-title>
+                                      
+                                          <v-card-subtitle>
+                                                <figcaption class="mt-1 text-center">
+                         <router-link to='/single-dare' class=''>A full title of the dare. 
+                            A full title of the dare.   A full title of the dare.
+                                                        </router-link> 
+                                               </figcaption>
+                                          </v-card-subtitle>
+                                      
+                                        </v-card>
+                                      </template>
+                                      <span class="badge inside  fg-white"
+                                      style="background-color: #b82943">player's username</span>
                         </div>
 
 
 
-                    </div>
+                        <div class="cell-sm-full cell-md-one-third cell-lg-4">
+                            
+                                <template>
+                                        <v-card
+                                          class="mx-auto"
+                                          
+                                        >
+                                        <video data-role="video"
+                                data-src="https://metroui.org.ua/res/oceans.mp4"
+                                data-logo="https://metroui.org.ua/images/logo4.png"
+                                data-logo-height="64"
+                                data-logo-target="https://metroui.org.ua/v4/"
+                                data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
+                                data-aspect-ratio="hd"
+                                
+                                 ></video>
+                                      
+                                          <v-card-title>
+                                                <div class="card-footer">
+                                                        <button class="flat-button mif-thumbs-up "> 47</button>
+                                                        <button class="flat-button mif-comment "> 7</button>
+                                                        <button class="flat-button mif-eye "> 4</button>
+                                                        <button class="flat-button mif-share "> 4</button>
+                                                    </div>
+                                          </v-card-title>
+                                      
+                                          <v-card-subtitle>
+                                                <figcaption class="mt-1 text-center">
+                         <router-link to='/single-dare' class=''>A full title of the dare. 
+                            A full title of the dare.   A full title of the dare.
+                                                        </router-link> 
+                                               </figcaption>
+                                          </v-card-subtitle>
+                                      
+                                        </v-card>
+                                      </template>
+                                      <span class="badge inside  fg-white"
+                                      style="background-color: #b82943">player's username</span>
+                        </div>
+
+
+                        
+
+     </div>
     </div>
 
     
@@ -137,7 +187,7 @@
      <!--dialogs search-->
      <div class="dialog" data-role="dialog" id='search'>
                       
-            <div class="dialog-title white-color" style="background-color: #07557B">
+            <div class="dialog-title fg-white" style="background-color: #07557B">
                 Search</div>
 
 
@@ -168,11 +218,40 @@
 
 
 
+ <!--floating top left --->
+ <v-btn 
+ fab 
+ dark
+ color="#1ba1e2"
+ small
+ relative
+ top
+ left
+ fixed
+ @click.prevent='home()'
+   >
+ <v-icon dark>home</v-icon>
+ </v-btn>
+
+   <!--floating top right --->
+   <v-btn 
+   fab 
+   color="#ebebeb"
+   small
+   relative
+   top
+   right
+   fixed
+   onclick="Metro.dialog.open('#search')"
+     >
+   <v-icon dark>search</v-icon>
+   </v-btn>
 
 
 
+   <floating></floating>
 
-            <template>
+         <!--   <template>
      
                     <div class="container fadeIn index">
                     
@@ -198,7 +277,7 @@
                                 </div>
             
                     </div>
-                </template>
+                </template>-->
 
 
         </div>

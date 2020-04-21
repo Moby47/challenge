@@ -45,7 +45,7 @@
     }
 
     body{
-        background-color: black;
+        background-color: black !important;
       }
 
     .white-color{
@@ -76,4 +76,72 @@
     height: 5px;
   }
   
+
+  .bg-leader{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100% 100%;
+    background-image:url('/images/leader.svg');
+    background-color: #e9f6fc;
+  }
   
+  
+
+  .bg-darelist{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100% 100%;
+    background-image:url('/images/list.svg');
+    background-color: #e9f6fc;
+  }
+  
+  .bg-help{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100% 100%;
+    background-image:url('/images/help.svg');
+    background-color: #e9f6fc;
+  }
+
+  .bg-rules{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100% 100%;
+    background-image:url('/images/rules.svg');
+    background-color: #e9f6fc;
+  }
+
+  .bg-dare{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100% 100%;
+    background-image:url('/images/dare.svg');
+    background-color: #e9f6fc;
+  }
+
+  
+  .bg-store{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100% 100%;
+    background-image:url('/images/store.svg');
+    background-color: #e9f6fc;
+  }

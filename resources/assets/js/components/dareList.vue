@@ -1,32 +1,27 @@
 <template>
         <div>
 
-                <vue-particles 
-                color="#ffffff"
-                shapeType="polygon"
-                :particleSize="2"
-                >
-                </vue-particles>
+                <div class='bg-darelist'></div>
 
-        <div class="container white-color fadeIn">
+        <div class="container fadeIn">
         
-                <h3 class="text-center"> DARE LIST </h3>
+                <h3 class="text-center"> </h3>
             
                 <table class="table row-hover table-border">
                         <thead>
                         <tr>
-                             <th class='white-color'>Dare</th>
-                            <th class='white-color'>Players Played</th>
-                            <th class='white-color'>Points</th>
+                             <th>Dare</th>
+                            <th>Players Played</th>
+                            <th>Points</th>
                         </tr>
                         </thead>
                         <tbody>
-                                <tr>
+                                <tr class="info">
                                         <td>learn a javascript programming syntax</td>
                                         <td>400</td>
                                         <td>74</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="info">
                                             <td>watch a scary movie</td>
                                             <td>40</td>
                                             <td>74</td>

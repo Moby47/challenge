@@ -25,6 +25,7 @@
 
 <link href="/css/custom.css" rel="stylesheet" />
 
+
  <!--fav icon -->
  <link rel="icon" href="{{ asset('images/fav.jpg') }}">
         <!-- Styles -->

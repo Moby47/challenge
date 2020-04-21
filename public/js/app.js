@@ -55811,7 +55811,7 @@ var render = function() {
       _c("vue-particles", { attrs: { color: "#ffffff" } }),
       _vm._v(" "),
       _c("h1", { staticClass: "text-center white-color ani-heartbeat" }, [
-        _vm._v("NERVE")
+        _vm._v("CHALLENGE")
       ]),
       _vm._v(" "),
       _c("div", {
@@ -56273,6 +56273,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56321,7 +56323,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     timeout: 6000,
                     animation: 'easeOutBounce'
                 });
-                notify.create("Welcome to Nerve. Explore all options from this page.");
+                notify.create("Welcome to Challenge App. Explore all options from this page.");
                 notify.reset();
 
                 Metro.session.setItem('welcome', 'welcome');
@@ -56342,7 +56344,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", { attrs: { color: "#ffffff", shapeType: "edge" } }),
+      _c("vue-particles", { attrs: { color: "#9E9E9E", shapeType: "edge" } }),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("h3", { staticClass: "text-center" }),
@@ -56727,7 +56729,7 @@ var staticRenderFns = [
         _c("span", { attrs: { onclick: "Metro.dialog.open('#search')" } }, [
           _c("span", { staticClass: "mif-search icon" }),
           _vm._v(" "),
-          _c("span", { staticClass: "branding-bar" }, [_vm._v("Search Nerve")])
+          _c("span", { staticClass: "branding-bar" }, [_vm._v("Search")])
         ])
       ]
     )
@@ -56795,6 +56797,8 @@ var staticRenderFns = [
               "data-history": "true"
             }
           }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Add Description:")]),
           _vm._v(" "),
           _c("textarea", {
             attrs: { "data-role": "textarea", "data-history": "true" }
@@ -57164,6 +57168,85 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57224,9 +57307,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", {
-        attrs: { color: "#ffffff", shapeType: "polygon", particleSize: 2 }
-      }),
+      _c("div", { staticClass: "bg-dare" }),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("h3", { staticClass: "text-center" }),
@@ -57236,359 +57317,370 @@ var render = function() {
             "div",
             { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
             [
-              _c("video", {
-                attrs: {
-                  "data-role": "video",
-                  "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                  "data-logo": "https://metroui.org.ua/images/logo4.png",
-                  "data-logo-height": "64",
-                  "data-logo-target": "https://metroui.org.ua/v4/",
-                  "data-poster": "https://metroui.org.ua/res/poster-oceans.jpg",
-                  "data-aspect-ratio": "hd"
-                }
-              }),
-              _vm._v(" "),
-              _vm._m(0),
+              [
+                _c(
+                  "v-card",
+                  { staticClass: "mx-auto" },
+                  [
+                    _c("video", {
+                      attrs: {
+                        "data-role": "video",
+                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
+                        "data-logo": "https://metroui.org.ua/images/logo4.png",
+                        "data-logo-height": "64",
+                        "data-logo-target": "https://metroui.org.ua/v4/",
+                        "data-poster":
+                          "https://metroui.org.ua/res/poster-oceans.jpg",
+                        "data-aspect-ratio": "hd"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-card-title", [
+                      _c("div", { staticClass: "card-footer" }, [
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-thumbs-up " },
+                          [_vm._v(" 47")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-comment " },
+                          [_vm._v(" 7")]
+                        ),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "flat-button mif-eye " }, [
+                          _vm._v(" 4")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-share " },
+                          [_vm._v(" 4")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-subtitle", [
+                      _c(
+                        "figcaption",
+                        { staticClass: "mt-1 text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/single-dare" } }, [
+                            _vm._v(
+                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ],
               _vm._v(" "),
               _c(
-                "figcaption",
-                { staticClass: "mt-1 text-center" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "white-color",
-                      attrs: { to: "/single-dare" }
-                    },
-                    [
-                      _vm._v(
-                        "A full title of the dare. A full title of the dare.\n                                 "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass: "badge inside fg-white",
-                      staticStyle: { "background-color": "#fa6800" }
-                    },
-                    [_vm._v("player's username")]
-                  )
-                ],
-                1
+                "span",
+                {
+                  staticClass: "badge inside  fg-white",
+                  staticStyle: { "background-color": "#b82943" }
+                },
+                [_vm._v("player's username")]
               )
-            ]
+            ],
+            2
           ),
           _vm._v(" "),
           _c(
             "div",
             { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
             [
-              _c("video", {
-                attrs: {
-                  "data-role": "video",
-                  "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                  "data-logo": "https://metroui.org.ua/images/logo4.png",
-                  "data-logo-height": "64",
-                  "data-logo-target": "https://metroui.org.ua/v4/",
-                  "data-poster": "https://metroui.org.ua/res/poster-oceans.jpg",
-                  "data-aspect-ratio": "hd"
-                }
-              }),
-              _vm._v(" "),
-              _vm._m(1),
+              [
+                _c(
+                  "v-card",
+                  { staticClass: "mx-auto" },
+                  [
+                    _c("video", {
+                      attrs: {
+                        "data-role": "video",
+                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
+                        "data-logo": "https://metroui.org.ua/images/logo4.png",
+                        "data-logo-height": "64",
+                        "data-logo-target": "https://metroui.org.ua/v4/",
+                        "data-poster":
+                          "https://metroui.org.ua/res/poster-oceans.jpg",
+                        "data-aspect-ratio": "hd"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-card-title", [
+                      _c("div", { staticClass: "card-footer" }, [
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-thumbs-up " },
+                          [_vm._v(" 47")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-comment " },
+                          [_vm._v(" 7")]
+                        ),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "flat-button mif-eye " }, [
+                          _vm._v(" 4")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-share " },
+                          [_vm._v(" 4")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-subtitle", [
+                      _c(
+                        "figcaption",
+                        { staticClass: "mt-1 text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/single-dare" } }, [
+                            _vm._v(
+                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ],
               _vm._v(" "),
               _c(
-                "figcaption",
-                { staticClass: "mt-1 text-center" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "white-color",
-                      attrs: { to: "/single-dare" }
-                    },
-                    [
-                      _vm._v(
-                        "A full title of the dare. A full title of the dare.\n                                 "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass: "badge inside  fg-white",
-                      staticStyle: { "background-color": "#fa6800" }
-                    },
-                    [_vm._v("player's username")]
-                  )
-                ],
-                1
+                "span",
+                {
+                  staticClass: "badge inside  fg-white",
+                  staticStyle: { "background-color": "#b82943" }
+                },
+                [_vm._v("player's username")]
               )
-            ]
+            ],
+            2
           ),
           _vm._v(" "),
           _c(
             "div",
             { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
             [
-              _c("video", {
-                attrs: {
-                  "data-role": "video",
-                  "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                  "data-logo": "https://metroui.org.ua/images/logo4.png",
-                  "data-logo-height": "64",
-                  "data-logo-target": "https://metroui.org.ua/v4/",
-                  "data-poster": "https://metroui.org.ua/res/poster-oceans.jpg",
-                  "data-aspect-ratio": "hd"
-                }
-              }),
-              _vm._v(" "),
-              _vm._m(2),
+              [
+                _c(
+                  "v-card",
+                  { staticClass: "mx-auto" },
+                  [
+                    _c("video", {
+                      attrs: {
+                        "data-role": "video",
+                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
+                        "data-logo": "https://metroui.org.ua/images/logo4.png",
+                        "data-logo-height": "64",
+                        "data-logo-target": "https://metroui.org.ua/v4/",
+                        "data-poster":
+                          "https://metroui.org.ua/res/poster-oceans.jpg",
+                        "data-aspect-ratio": "hd"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-card-title", [
+                      _c("div", { staticClass: "card-footer" }, [
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-thumbs-up " },
+                          [_vm._v(" 47")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-comment " },
+                          [_vm._v(" 7")]
+                        ),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "flat-button mif-eye " }, [
+                          _vm._v(" 4")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-share " },
+                          [_vm._v(" 4")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-subtitle", [
+                      _c(
+                        "figcaption",
+                        { staticClass: "mt-1 text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/single-dare" } }, [
+                            _vm._v(
+                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ],
               _vm._v(" "),
               _c(
-                "figcaption",
-                { staticClass: "mt-1 text-center" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "white-color",
-                      attrs: { to: "/single-dare" }
-                    },
-                    [
-                      _vm._v(
-                        "A full title of the dare. A full title of the dare.\n                                 "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass: "badge inside  fg-white",
-                      staticStyle: { "background-color": "#fa6800" }
-                    },
-                    [_vm._v("player's username")]
-                  )
-                ],
-                1
+                "span",
+                {
+                  staticClass: "badge inside  fg-white",
+                  staticStyle: { "background-color": "#b82943" }
+                },
+                [_vm._v("player's username")]
               )
-            ]
+            ],
+            2
           ),
           _vm._v(" "),
           _c(
             "div",
             { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
             [
-              _c("video", {
-                attrs: {
-                  "data-role": "video",
-                  "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                  "data-logo": "https://metroui.org.ua/images/logo4.png",
-                  "data-logo-height": "64",
-                  "data-logo-target": "https://metroui.org.ua/v4/",
-                  "data-poster": "https://metroui.org.ua/res/poster-oceans.jpg",
-                  "data-aspect-ratio": "hd"
-                }
-              }),
-              _vm._v(" "),
-              _vm._m(3),
+              [
+                _c(
+                  "v-card",
+                  { staticClass: "mx-auto" },
+                  [
+                    _c("video", {
+                      attrs: {
+                        "data-role": "video",
+                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
+                        "data-logo": "https://metroui.org.ua/images/logo4.png",
+                        "data-logo-height": "64",
+                        "data-logo-target": "https://metroui.org.ua/v4/",
+                        "data-poster":
+                          "https://metroui.org.ua/res/poster-oceans.jpg",
+                        "data-aspect-ratio": "hd"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("v-card-title", [
+                      _c("div", { staticClass: "card-footer" }, [
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-thumbs-up " },
+                          [_vm._v(" 47")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-comment " },
+                          [_vm._v(" 7")]
+                        ),
+                        _vm._v(" "),
+                        _c("button", { staticClass: "flat-button mif-eye " }, [
+                          _vm._v(" 4")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "flat-button mif-share " },
+                          [_vm._v(" 4")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-subtitle", [
+                      _c(
+                        "figcaption",
+                        { staticClass: "mt-1 text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/single-dare" } }, [
+                            _vm._v(
+                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ],
               _vm._v(" "),
               _c(
-                "figcaption",
-                { staticClass: "mt-1 text-center" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "white-color",
-                      attrs: { to: "/single-dare" }
-                    },
-                    [
-                      _vm._v(
-                        "A full title of the dare. A full title of the dare.\n                                 "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass: "badge inside  fg-white",
-                      staticStyle: { "background-color": "#fa6800" }
-                    },
-                    [_vm._v("player's username")]
-                  )
-                ],
-                1
+                "span",
+                {
+                  staticClass: "badge inside  fg-white",
+                  staticStyle: { "background-color": "#b82943" }
+                },
+                [_vm._v("player's username")]
               )
-            ]
+            ],
+            2
           )
         ])
       ]),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(0),
       _vm._v(" "),
-      [
-        _c("div", { staticClass: "container fadeIn index" }, [
-          _c("div", { staticClass: "bottom-nav pos-fixed" }, [
-            _c(
-              "button",
-              {
-                staticClass: "button",
-                staticStyle: { "background-color": "#ebebeb" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.home()
-                  }
-                }
-              },
-              [
-                _c("span", { staticClass: "icon mif-home" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("Home")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "button",
-                staticStyle: { "background-color": "#ebebeb" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.menu()
-                  }
-                }
-              },
-              [
-                _c("span", { staticClass: "icon mif-menu" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("Menu")])
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(5),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "button",
-                staticStyle: { "background-color": "#ebebeb" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.back()
-                  }
-                }
-              },
-              [
-                _c("span", { staticClass: "icon mif-backspace" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("Back")])
-              ]
-            )
-          ])
-        ])
-      ]
+      _c(
+        "v-btn",
+        {
+          attrs: {
+            fab: "",
+            dark: "",
+            color: "#1ba1e2",
+            small: "",
+            relative: "",
+            top: "",
+            left: "",
+            fixed: ""
+          },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              _vm.home()
+            }
+          }
+        },
+        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("home")])],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-btn",
+        {
+          attrs: {
+            fab: "",
+            color: "#ebebeb",
+            small: "",
+            relative: "",
+            top: "",
+            right: "",
+            fixed: "",
+            onclick: "Metro.dialog.open('#search')"
+          }
+        },
+        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("search")])],
+        1
+      ),
+      _vm._v(" "),
+      _c("floating")
     ],
-    2
+    1
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("button", { staticClass: "flat-button mif-thumbs-up white-color " }, [
-        _vm._v(" 47")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-comment white-color" }, [
-        _vm._v(" 7")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-eye white-color" }, [
-        _vm._v(" 4")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-share white-color" }, [
-        _vm._v(" 4")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("button", { staticClass: "flat-button mif-thumbs-up white-color" }, [
-        _vm._v(" 47")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-comment white-color" }, [
-        _vm._v(" 7")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-eye white-color" }, [
-        _vm._v(" 4")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-share white-color" }, [
-        _vm._v(" 4")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("button", { staticClass: "flat-button mif-thumbs-up white-color" }, [
-        _vm._v(" 47")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-comment white-color" }, [
-        _vm._v(" 7")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-eye white-color" }, [
-        _vm._v(" 4")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-share white-color" }, [
-        _vm._v(" 4")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("button", { staticClass: "flat-button mif-thumbs-up white-color" }, [
-        _vm._v(" 47")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-comment white-color" }, [
-        _vm._v(" 7")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-eye white-color" }, [
-        _vm._v(" 4")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "flat-button mif-share white-color" }, [
-        _vm._v(" 4")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -57600,10 +57692,10 @@ var staticRenderFns = [
         _c(
           "div",
           {
-            staticClass: "dialog-title white-color",
+            staticClass: "dialog-title fg-white",
             staticStyle: { "background-color": "#07557B" }
           },
-          [_vm._v("\n            Search")]
+          [_vm._v("\n               Search")]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "dialog-content" }, [
@@ -57646,24 +57738,6 @@ var staticRenderFns = [
             _vm._v("Close")
           ])
         ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "button",
-        staticStyle: { "background-color": "#ebebeb" },
-        attrs: { onclick: "Metro.dialog.open('#search')" }
-      },
-      [
-        _c("span", { staticClass: "icon mif-search" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "label" }, [_vm._v("Search")])
       ]
     )
   }
@@ -57903,6 +57977,106 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57960,257 +58134,350 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container white-color" },
-    [
-      _c("h3", { staticClass: "text-center" }, [
-        _vm._v(" Full title of the dare ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "grid" }, [
-        _c("div", { staticClass: "row" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "cell-sm-full cell-md-two-third cell-lg-4 offset-1"
-            },
-            [
-              _c("h4", { staticClass: "text-center" }, [
-                _vm._v(" Other Dares  ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row flex-align-center cell-lg-12" }, [
-                _c("div", { staticClass: "cell" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "cell" }, [
-                  _c("video", {
-                    attrs: {
-                      "data-role": "video",
-                      "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                      "data-logo": "https://metroui.org.ua/images/logo4.png",
-                      "data-logo-height": "64",
-                      "data-logo-target": "https://metroui.org.ua/v4/",
-                      "data-poster":
-                        "https://metroui.org.ua/res/poster-oceans.jpg",
-                      "data-aspect-ratio": "cinema"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "figcaption",
-                    { staticClass: "mt-1 text-center" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "white-color",
-                          attrs: { to: "/single-dare" }
-                        },
-                        [
-                          _vm._v(
-                            "A full title of the dare. A full title of the dare. "
-                          ),
-                          _c("b", [_vm._v("4hrs ago")])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "badge inside fg-white",
-                          staticStyle: { "background-color": "#fa6800" }
-                        },
-                        [_vm._v("player's username")]
-                      )
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "cell" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row flex-align-center cell-lg-12" }, [
-                _c("div", { staticClass: "cell" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "cell" }, [
-                  _c("video", {
-                    attrs: {
-                      "data-role": "video",
-                      "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                      "data-logo": "https://metroui.org.ua/images/logo4.png",
-                      "data-logo-height": "64",
-                      "data-logo-target": "https://metroui.org.ua/v4/",
-                      "data-poster":
-                        "https://metroui.org.ua/res/poster-oceans.jpg",
-                      "data-aspect-ratio": "cinema"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "figcaption",
-                    { staticClass: "mt-1 text-center" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "white-color",
-                          attrs: { to: "/single-dare" }
-                        },
-                        [
-                          _vm._v(
-                            "A full title of the dare. A full title of the dare. "
-                          ),
-                          _c("b", [_vm._v("4hrs ago")])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "badge inside fg-white",
-                          staticStyle: { "background-color": "#fa6800" }
-                        },
-                        [_vm._v("player's username")]
-                      )
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "cell" })
-              ])
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", { staticClass: "bg-dare" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "container white-color" },
       [
-        _c("div", { staticClass: "container fadeIn index" }, [
-          _c("div", { staticClass: "bottom-nav pos-fixed" }, [
+        _c("h3", { staticClass: "text-center" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "grid" }, [
+          _c("div", { staticClass: "row" }, [
             _c(
-              "button",
-              {
-                staticClass: "button",
-                staticStyle: { "background-color": "#ebebeb" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.home()
-                  }
-                }
-              },
+              "div",
+              { staticClass: "cell-sm-full cell-md-one-third cell-lg-7" },
               [
-                _c("span", { staticClass: "icon mif-home" }),
+                [
+                  _c(
+                    "v-card",
+                    { staticClass: "mx-auto" },
+                    [
+                      _c("video", {
+                        attrs: {
+                          "data-role": "video",
+                          "data-src": "https://metroui.org.ua/res/oceans.mp4",
+                          "data-logo":
+                            "https://metroui.org.ua/images/logo4.png",
+                          "data-logo-height": "64",
+                          "data-logo-target": "https://metroui.org.ua/v4/",
+                          "data-poster":
+                            "https://metroui.org.ua/res/poster-oceans.jpg",
+                          "data-aspect-ratio": "hd"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-card-title", [
+                        _c("div", { staticClass: "card-footer" }, [
+                          _c(
+                            "button",
+                            { staticClass: "flat-button mif-thumbs-up " },
+                            [_vm._v(" 47")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            { staticClass: "flat-button mif-comment " },
+                            [_vm._v(" 7")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            { staticClass: "flat-button mif-eye " },
+                            [_vm._v(" 4")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            { staticClass: "flat-button mif-share " },
+                            [_vm._v(" 4")]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("v-card-subtitle", [
+                        _c("figcaption", { staticClass: "mt-1" }, [
+                          _vm._v(
+                            "\n                            A full title of the dare. \n                               A full title of the dare.   A full title of the dare. "
+                          ),
+                          _c("b", [_vm._v("4hrs ago")])
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ],
                 _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("Home")])
-              ]
+                _c(
+                  "span",
+                  {
+                    staticClass: "badge inside  fg-white",
+                    staticStyle: { "background-color": "#b82943" }
+                  },
+                  [_vm._v("player's username")]
+                )
+              ],
+              2
             ),
             _vm._v(" "),
             _c(
-              "button",
+              "div",
               {
-                staticClass: "button",
-                staticStyle: { "background-color": "#ebebeb" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.menu()
-                  }
-                }
+                staticClass: "cell-sm-full cell-md-two-third cell-lg-4 offset-1"
               },
               [
-                _c("span", { staticClass: "icon mif-menu" }),
+                _c("h4", { staticClass: "text-center" }),
                 _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("Menu")])
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "button",
-                staticStyle: { "background-color": "#ebebeb" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.back()
-                  }
-                }
-              },
-              [
-                _c("span", { staticClass: "icon mif-backspace" }),
+                _c("div", { staticClass: "row flex-align-center cell-lg-12" }, [
+                  _c("div", { staticClass: "cell" }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "cell" },
+                    [
+                      [
+                        _c(
+                          "v-card",
+                          {
+                            staticClass: "mx-auto",
+                            attrs: { "max-width": "344" }
+                          },
+                          [
+                            _c("video", {
+                              attrs: {
+                                "data-role": "video",
+                                "data-src":
+                                  "https://metroui.org.ua/res/oceans.mp4",
+                                "data-logo":
+                                  "https://metroui.org.ua/images/logo4.png",
+                                "data-logo-height": "64",
+                                "data-logo-target":
+                                  "https://metroui.org.ua/v4/",
+                                "data-poster":
+                                  "https://metroui.org.ua/res/poster-oceans.jpg",
+                                "data-aspect-ratio": "hd"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("v-card-title", [
+                              _c("div", { staticClass: "card-footer" }, [
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-thumbs-up " },
+                                  [_vm._v(" 47")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-comment " },
+                                  [_vm._v(" 7")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-eye " },
+                                  [_vm._v(" 4")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-share " },
+                                  [_vm._v(" 4")]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("v-card-subtitle", [
+                              _c(
+                                "figcaption",
+                                { staticClass: "mt-1 text-center" },
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/single-dare" } },
+                                    [
+                                      _vm._v(
+                                        "A full title of the dare. \n                                               A full title of the dare.   A full title of the dare.\n                                                                           "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "badge inside  fg-white",
+                          staticStyle: { "background-color": "#b82943" }
+                        },
+                        [_vm._v("player's username")]
+                      )
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "cell" })
+                ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("Back")])
+                _c("div", { staticClass: "row flex-align-center cell-lg-12" }, [
+                  _c("div", { staticClass: "cell" }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "cell" },
+                    [
+                      [
+                        _c(
+                          "v-card",
+                          {
+                            staticClass: "mx-auto",
+                            attrs: { "max-width": "344" }
+                          },
+                          [
+                            _c("video", {
+                              attrs: {
+                                "data-role": "video",
+                                "data-src":
+                                  "https://metroui.org.ua/res/oceans.mp4",
+                                "data-logo":
+                                  "https://metroui.org.ua/images/logo4.png",
+                                "data-logo-height": "64",
+                                "data-logo-target":
+                                  "https://metroui.org.ua/v4/",
+                                "data-poster":
+                                  "https://metroui.org.ua/res/poster-oceans.jpg",
+                                "data-aspect-ratio": "hd"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("v-card-title", [
+                              _c("div", { staticClass: "card-footer" }, [
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-thumbs-up " },
+                                  [_vm._v(" 47")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-comment " },
+                                  [_vm._v(" 7")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-eye " },
+                                  [_vm._v(" 4")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-share " },
+                                  [_vm._v(" 4")]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("v-card-subtitle", [
+                              _c(
+                                "figcaption",
+                                { staticClass: "mt-1 text-center" },
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/single-dare" } },
+                                    [
+                                      _vm._v(
+                                        "A full title of the dare. \n                                                   A full title of the dare.   A full title of the dare.\n                                                                               "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "badge inside  fg-white",
+                          staticStyle: { "background-color": "#b82943" }
+                        },
+                        [_vm._v("player's username")]
+                      )
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "cell" })
+                ])
               ]
             )
           ])
-        ])
-      ]
-    ],
-    2
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "cell-sm-full cell-md-one-third cell-lg-7" },
-      [
-        _c("video", {
-          attrs: {
-            "data-role": "video",
-            "data-src": "https://metroui.org.ua/res/oceans.mp4",
-            "data-logo": "https://metroui.org.ua/images/logo4.png",
-            "data-logo-height": "64",
-            "data-logo-target": "https://metroui.org.ua/v4/",
-            "data-poster": "https://metroui.org.ua/res/poster-oceans.jpg",
-            "data-aspect-ratio": "hd"
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-footer" }, [
-          _c("button", { staticClass: "flat-button mif-thumbs-up" }, [
-            _vm._v(" 47")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "flat-button mif-comment" }, [
-            _vm._v(" 7")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "flat-button mif-eye" }, [_vm._v(" 4")]),
-          _vm._v(" "),
-          _c("button", { staticClass: "flat-button mif-share" }, [_vm._v(" 4")])
         ]),
         _vm._v(" "),
-        _c("figcaption", { staticClass: "mt-1" }, [
-          _vm._v(
-            "\n                                    A full title of the dare. A full title of the dare. "
-          ),
-          _c("b", [_vm._v(" 4hrs ago")]),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              staticClass: "badge inside fg-white",
-              staticStyle: { "background-color": "#fa6800" }
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "v-btn",
+          {
+            attrs: {
+              fab: "",
+              dark: "",
+              color: "#1ba1e2",
+              small: "",
+              relative: "",
+              top: "",
+              left: "",
+              fixed: ""
             },
-            [_vm._v("player's username")]
-          )
-        ])
-      ]
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.home()
+              }
+            }
+          },
+          [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("home")])],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "v-btn",
+          {
+            attrs: {
+              fab: "",
+              color: "#ebebeb",
+              small: "",
+              relative: "",
+              top: "",
+              right: "",
+              fixed: "",
+              onclick: "Metro.dialog.open('#search')"
+            }
+          },
+          [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("search")])],
+          1
+        ),
+        _vm._v(" "),
+        _c("floating")
+      ],
+      1
     )
-  },
+  ])
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -58225,7 +58492,7 @@ var staticRenderFns = [
             staticClass: "dialog-title white-color",
             staticStyle: { "background-color": "#07557B" }
           },
-          [_vm._v("\n           Search")]
+          [_vm._v("\n               Search")]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "dialog-content" }, [
@@ -58268,24 +58535,6 @@ var staticRenderFns = [
             _vm._v("Close")
           ])
         ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "button",
-        staticStyle: { "background-color": "#ebebeb" },
-        attrs: { onclick: "Metro.dialog.open('#search')" }
-      },
-      [
-        _c("span", { staticClass: "icon mif-search" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "label" }, [_vm._v("Search")])
       ]
     )
   }
@@ -58405,18 +58654,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58467,9 +58704,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", {
-        attrs: { color: "#ffffff", shapeType: "polygon", particleSize: 2 }
-      }),
+      _c("div", { staticClass: "bg-leader" }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -58483,74 +58718,66 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container white-color fadeIn" }, [
-      _c("h3", { staticClass: "text-center" }, [_vm._v(" THEY GOT NERVE ")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table row-hover table-border " }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", { staticClass: "white-color" }, [_vm._v("Player")]),
+    return _c("div", { staticClass: "container  fadeIn" }, [
+      _c(
+        "table",
+        { staticClass: "table row-hover table-border table-striped " },
+        [
+          _c("thead", [
+            _c("tr", [
+              _c("th", [_vm._v("Player")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("Likes")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("Views")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("Points")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", { staticClass: "info" }, [
+              _c("td", [_vm._v("Moby47")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("400")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("74")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("47000")])
+            ]),
             _vm._v(" "),
-            _c("th", { staticClass: "white-color" }, [_vm._v("Likes")]),
+            _c("tr", { staticClass: "info" }, [
+              _c("td", [_vm._v("Aj101")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("400")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("74")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("47000")])
+            ]),
             _vm._v(" "),
-            _c("th", { staticClass: "white-color" }, [_vm._v("Views")]),
+            _c("tr", { staticClass: "info" }, [
+              _c("td", [_vm._v("Aj101")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("400")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("74")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("47000")])
+            ]),
             _vm._v(" "),
-            _c("th", { staticClass: "white-color" }, [_vm._v("Points")])
+            _c("tr", { staticClass: "info" }, [
+              _c("td", [_vm._v("Aj101")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("400")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("74")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("47000")])
+            ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("td", [_vm._v("Moby47")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("400")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("74")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("47000")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_vm._v("Aj101")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("400")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("74")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("47000")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_vm._v("Aj101")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("400")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("74")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("47000")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_vm._v("Aj101")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("400")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("74")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("47000")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_vm._v("Aj101")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("400")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("74")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("47000")])
-          ])
-        ])
-      ])
+        ]
+      )
     ])
   }
 ]
@@ -58655,11 +58882,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58711,9 +58933,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", {
-        attrs: { color: "#ffffff", shapeType: "polygon", particleSize: 2 }
-      }),
+      _c("div", { staticClass: "bg-darelist" }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -58727,24 +58947,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container white-color fadeIn" }, [
-      _c("h3", { staticClass: "text-center" }, [_vm._v(" DARE LIST ")]),
+    return _c("div", { staticClass: "container fadeIn" }, [
+      _c("h3", { staticClass: "text-center" }),
       _vm._v(" "),
       _c("table", { staticClass: "table row-hover table-border" }, [
         _c("thead", [
           _c("tr", [
-            _c("th", { staticClass: "white-color" }, [_vm._v("Dare")]),
+            _c("th", [_vm._v("Dare")]),
             _vm._v(" "),
-            _c("th", { staticClass: "white-color" }, [
-              _vm._v("Players Played")
-            ]),
+            _c("th", [_vm._v("Players Played")]),
             _vm._v(" "),
-            _c("th", { staticClass: "white-color" }, [_vm._v("Points")])
+            _c("th", [_vm._v("Points")])
           ])
         ]),
         _vm._v(" "),
         _c("tbody", [
-          _c("tr", [
+          _c("tr", { staticClass: "info" }, [
             _c("td", [_vm._v("learn a javascript programming syntax")]),
             _vm._v(" "),
             _c("td", [_vm._v("400")]),
@@ -58752,7 +58970,7 @@ var staticRenderFns = [
             _c("td", [_vm._v("74")])
           ]),
           _vm._v(" "),
-          _c("tr", [
+          _c("tr", { staticClass: "info" }, [
             _c("td", [_vm._v("watch a scary movie")]),
             _vm._v(" "),
             _c("td", [_vm._v("40")]),
@@ -103040,6 +103258,113 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -103091,119 +103416,352 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", {
-        attrs: { color: "#ffffff", shapeType: "polygon", particleSize: 2 }
-      }),
+      _c("div", { staticClass: "bg-store" }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "ul",
+          {
+            staticClass: "white-color",
+            attrs: {
+              id: "paintings",
+              "data-role": "list",
+              "data-sort-class": "painting-price",
+              "data-sort-dir": "desc",
+              "data-cls-list": "unstyled-list row flex-justify-center mt-4",
+              "data-cls-list-item": "cell-sm-6 cell-md-4"
+            }
+          },
+          [
+            _c(
+              "li",
+              [
+                [
+                  _c(
+                    "v-card",
+                    {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "344", outlined: "" }
+                    },
+                    [
+                      _c(
+                        "v-list-item",
+                        { attrs: { "three-line": "" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("div", { staticClass: "overline mb-4" }, [
+                                _vm._v("Remove Ads")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "headline mb-1" },
+                                [_vm._v("Purchase to remove Ads")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-avatar",
+                            { attrs: { tile: "", size: "80", color: "grey" } },
+                            [
+                              _c("v-img", {
+                                attrs: { src: "/images/store.svg" }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                          _vm._v(" "),
+                          _c("v-btn", { attrs: { color: "green" } }, [
+                            _vm._v("Buy")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                [
+                  _c(
+                    "v-card",
+                    {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "344", outlined: "" }
+                    },
+                    [
+                      _c(
+                        "v-list-item",
+                        { attrs: { "three-line": "" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("div", { staticClass: "overline mb-4" }, [
+                                _vm._v("Remove Ads")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "headline mb-1" },
+                                [_vm._v("Purchase to remove Ads")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-avatar",
+                            { attrs: { tile: "", size: "80", color: "grey" } },
+                            [
+                              _c("v-img", {
+                                attrs: { src: "/images/store.svg" }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                          _vm._v(" "),
+                          _c("v-btn", { attrs: { color: "green" } }, [
+                            _vm._v("Buy")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                [
+                  _c(
+                    "v-card",
+                    {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "344", outlined: "" }
+                    },
+                    [
+                      _c(
+                        "v-list-item",
+                        { attrs: { "three-line": "" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("div", { staticClass: "overline mb-4" }, [
+                                _vm._v("Remove Ads")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "headline mb-1" },
+                                [_vm._v("Purchase to remove Ads")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-avatar",
+                            { attrs: { tile: "", size: "80", color: "grey" } },
+                            [
+                              _c("v-img", {
+                                attrs: { src: "/images/store.svg" }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                          _vm._v(" "),
+                          _c("v-btn", { attrs: { color: "green" } }, [
+                            _vm._v("Buy")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                [
+                  _c(
+                    "v-card",
+                    {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "344", outlined: "" }
+                    },
+                    [
+                      _c(
+                        "v-list-item",
+                        { attrs: { "three-line": "" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("div", { staticClass: "overline mb-4" }, [
+                                _vm._v("Remove Ads")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "headline mb-1" },
+                                [_vm._v("Purchase to remove Ads")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-avatar",
+                            { attrs: { tile: "", size: "80", color: "grey" } },
+                            [
+                              _c("v-img", {
+                                attrs: { src: "/images/store.svg" }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                          _vm._v(" "),
+                          _c("v-btn", { attrs: { color: "green" } }, [
+                            _vm._v("Buy")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                [
+                  _c(
+                    "v-card",
+                    {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "344", outlined: "" }
+                    },
+                    [
+                      _c(
+                        "v-list-item",
+                        { attrs: { "three-line": "" } },
+                        [
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("div", { staticClass: "overline mb-4" }, [
+                                _vm._v("Remove Ads")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "headline mb-1" },
+                                [_vm._v("Purchase to remove Ads")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-avatar",
+                            { attrs: { tile: "", size: "80", color: "grey" } },
+                            [
+                              _c("v-img", {
+                                attrs: { src: "/images/store.svg" }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-list-item-subtitle", [_vm._v("47 Pts")]),
+                          _vm._v(" "),
+                          _c("v-btn", { attrs: { color: "green" } }, [
+                            _vm._v("Buy")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
+            )
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c("floating")
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c(
-        "ul",
-        {
-          staticClass: "white-color",
-          attrs: {
-            id: "paintings",
-            "data-role": "list",
-            "data-sort-class": "painting-price",
-            "data-sort-dir": "desc",
-            "data-cls-list": "unstyled-list row flex-justify-center mt-4",
-            "data-cls-list-item": "cell-sm-6 cell-md-4"
-          }
-        },
-        [
-          _c("li", [
-            _c("figure", { staticClass: "text-center" }, [
-              _c("div", { staticClass: "img-container thumbnail" }, [
-                _c("img", {
-                  attrs: {
-                    src: "/images/bg-game.png",
-                    alt: "Sezann, Players in cards"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("figcaption", { staticClass: "painting-author text-bold" }, [
-                _vm._v("Buy to remove Ads")
-              ]),
-              _vm._v(" "),
-              _c(
-                "figcaption",
-                {
-                  staticClass: "painting-price",
-                  attrs: { "data-format": "money" }
-                },
-                [_vm._v("$ 250M")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("figure", { staticClass: "text-center" }, [
-              _c("div", { staticClass: "img-container thumbnail" }, [
-                _c("img", {
-                  attrs: {
-                    src: "/images/bg-game.png",
-                    alt: "Sezann, Players in cards"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("figcaption", { staticClass: "painting-author text-bold" }, [
-                _vm._v("Buy to remove Ads")
-              ]),
-              _vm._v(" "),
-              _c(
-                "figcaption",
-                {
-                  staticClass: "painting-price",
-                  attrs: { "data-format": "money" }
-                },
-                [_vm._v("$ 250M")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("figure", { staticClass: "text-center" }, [
-              _c("div", { staticClass: "img-container thumbnail" }, [
-                _c("img", {
-                  attrs: {
-                    src: "/images/bg-game.png",
-                    alt: "Sezann, Players in cards"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("figcaption", { staticClass: "painting-author text-bold" }, [
-                _vm._v("Buy to remove Ads")
-              ]),
-              _vm._v(" "),
-              _c(
-                "figcaption",
-                {
-                  staticClass: "painting-price",
-                  attrs: { "data-format": "money" }
-                },
-                [_vm._v("$ 250M")]
-              )
-            ])
-          ])
-        ]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -103366,11 +103924,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -103422,9 +103975,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", {
-        attrs: { color: "#ffffff", shapeType: "polygon", particleSize: 2 }
-      }),
+      _c("div", { staticClass: "bg-help" }),
       _vm._v(" "),
       _c("div", { staticClass: "container fadeIn" }, [
         _c(
@@ -103438,14 +103989,16 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "frame active" }, [
-              _c("div", { staticClass: "heading" }, [_vm._v("Nerve")]),
+              _c("div", { staticClass: "heading" }, [_vm._v("Challenge App")]),
               _vm._v(" "),
               _c("div", { staticClass: "content" }, [
                 _c(
                   "div",
                   { staticClass: "p-2" },
                   [
-                    _vm._v("\n                    Nerve is a fun game of "),
+                    _vm._v(
+                      "\n                     Challenge App is a fun game of "
+                    ),
                     _c(
                       "b",
                       [_c("strike", [_vm._v("Truth")]), _vm._v(" or Dare")],
@@ -103459,7 +104012,9 @@ var render = function() {
                       {
                         staticStyle: {
                           "background-color": "#b82943",
-                          color: "white"
+                          color: "white",
+                          padding: "3px",
+                          "border-radius": "6px"
                         },
                         attrs: { to: "/dares" }
                       },
@@ -103484,10 +104039,12 @@ var render = function() {
               _c("div", { staticClass: "content" }, [
                 _c("div", { staticClass: "p-2" }, [
                   _vm._v(
-                    "Complete a completely safe Dare listed by Nerve to:\n                        "
+                    "Complete a completely safe Dare listed by the Challenge App to:\n                        "
                   ),
                   _c("ul", [
-                    _c("li", [_vm._v("Earn gold to spend in the Nerve store")]),
+                    _c("li", [
+                      _vm._v("Earn gold to spend in the Challenge App store")
+                    ]),
                     _vm._v(" "),
                     _c(
                       "li",
@@ -103498,7 +104055,9 @@ var render = function() {
                           {
                             staticStyle: {
                               "background-color": "#b82943",
-                              color: "white"
+                              color: "white",
+                              padding: "3px",
+                              "border-radius": "6px"
                             },
                             attrs: { to: "/leader-board" }
                           },
@@ -103524,13 +104083,15 @@ var render = function() {
                   "div",
                   { staticClass: "p-2" },
                   [
-                    _vm._v("Browse through nerve "),
+                    _vm._v("Browse through the Challenge App "),
                     _c(
                       "router-link",
                       {
                         staticStyle: {
                           "background-color": "#b82943",
-                          color: "white"
+                          color: "white",
+                          padding: "3px",
+                          "border-radius": "6px"
                         },
                         attrs: { to: "/store" }
                       },
@@ -103567,9 +104128,6 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
 //
 //
 //
@@ -103675,9 +104233,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", {
-        attrs: { color: "#ffffff", shapeType: "polygon", particleSize: 2 }
-      }),
+      _c("div", { staticClass: "bg-rules" }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -103736,7 +104292,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "content" }, [
               _c("div", { staticClass: "p-2" }, [
                 _vm._v(
-                  "Complete a completely safe Dare listed by Nerve to:\n                        "
+                  "Complete a completely safe Dare listed by the App to:\n                        "
                 ),
                 _c("ul", [
                   _c("li", [
@@ -103751,9 +104307,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "heading" }, [_vm._v("Conclusion")]),
             _vm._v(" "),
             _c("div", { staticClass: "content" }, [
-              _vm._v(
-                "\n                   The total rules and regulations mentioned above apply to anyone on this platform.\n                   Defaulters will have their accounts shutdown immediately.\n                   By using this App, you agree to the terms and rules here.\n                "
-              )
+              _c("div", { staticClass: "p-2" }, [
+                _vm._v(
+                  "\n                   The total rules and regulations mentioned above apply to anyone on this platform.\n                   Defaulters will have their accounts shutdown immediately.\n                   By using this App, you agree to the terms and rules here.\n                   "
+                )
+              ])
             ])
           ])
         ]
@@ -104345,11 +104903,12 @@ module.exports = Component.exports
 /* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(107)
 /* template */
-var __vue_template__ = null
+var __vue_template__ = __webpack_require__(108)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -104367,6 +104926,22 @@ var Component = normalizeComponent(
   __vue_module_identifier__
 )
 Component.options.__file = "resources/assets/js/components/player/upload.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-409b2630", Component.options)
+  } else {
+    hotAPI.reload("data-v-409b2630", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
 
 module.exports = Component.exports
 
@@ -105019,6 +105594,318 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-33fd345a", module.exports)
+  }
+}
+
+/***/ }),
+/* 107 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {};
+    },
+    mounted: function mounted() {
+        $(document).ready(function () {
+            $(window).scrollTop(0);
+        });
+    },
+
+
+    methods: {
+        home: function home() {
+            this.$router.push({ name: "index" });
+        },
+        menu: function menu() {
+            this.$router.push({ name: "homepage" });
+        },
+        Pmenu: function Pmenu() {
+            this.$router.push({ name: "playerHomepage" });
+        },
+        back: function back() {
+            this.$router.go(-1);
+        }
+
+        /*
+                    this.$validator.validateAll().then(() => {
+                   
+                   if (!this.errors.any()) {
+                    //
+                    }else{
+                    //
+                    }
+                 
+                            //
+                    })
+                    .catch(err=>{
+                        
+                    }),
+              
+                 setTimeout(func=>{
+                     //this.errors.clear()
+                    // this.$validator.reset()
+                 },1) 
+                
+                 }); //validator
+        */
+
+    }
+
+});
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("vue-particles", {
+        attrs: {
+          color: "#00B0FF",
+          shapeType: "star",
+          linesColor: "#00B0FF",
+          particleSize: 5
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container fadeIn" },
+        [
+          _c("h3", { staticClass: "text-center white-color" }, [
+            _vm._v(" Upload Dare")
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Select Dare")]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("p", [_vm._v("Video upload")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "file", "data-role": "file", "data-mode": "drop" }
+          }),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("button", { staticClass: "button primary" }, [_vm._v("Done")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "remark info text-center" },
+            [
+              _c("router-link", { attrs: { to: "/pending-dares" } }, [
+                _vm._v(" Click here to view your pending Dares")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          [
+            _c("div", { staticClass: "container fadeIn index" }, [
+              _c("div", { staticClass: "bottom-nav pos-fixed" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    staticStyle: { "background-color": "#ebebeb" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.home()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "icon mif-home" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "label" }, [
+                      _vm._v("Home Screen")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    staticStyle: { "background-color": "#ebebeb" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.menu()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "icon mif-menu" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "label" }, [_vm._v("Main Menu")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    staticStyle: { "background-color": "#ebebeb" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.Pmenu()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "icon mif-menu" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "label" }, [
+                      _vm._v("Player Menu")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    staticStyle: { "background-color": "#ebebeb" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.back()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "icon mif-backspace" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "label" }, [_vm._v("Back")])
+                  ]
+                )
+              ])
+            ])
+          ]
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      {
+        attrs: {
+          "data-role": "hint",
+          "data-hint-text": "Select Dare you want to upload its video",
+          "data-hint-position": "top"
+        }
+      },
+      [
+        _c("select", { attrs: { "data-role": "select" } }, [
+          _c("option", { staticClass: "fg-cyan" }, [_vm._v("One")]),
+          _vm._v(" "),
+          _c(
+            "option",
+            { staticClass: "text-bold fg-red", attrs: { selected: "" } },
+            [_vm._v("Two")]
+          ),
+          _vm._v(" "),
+          _c("option", { staticClass: "fg-green" }, [_vm._v("Three")])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-409b2630", module.exports)
   }
 }
 

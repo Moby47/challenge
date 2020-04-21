@@ -51,7 +51,7 @@
                         
                         <!--<div data-role="tile" data-size="medium"  class='fadeIn ani-hover-horizontal bg-teal'>
                         <span onclick="Metro.dialog.open('#search')">  <span class="mif-search icon"></span>
-                                <span class="branding-bar">Search Nerve</span>
+                                <span class="branding-bar">Search</span>
                             </span>
                         </div>-->
     

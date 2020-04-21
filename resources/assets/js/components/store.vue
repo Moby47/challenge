@@ -1,12 +1,8 @@
 <template>
         <div>
 
-                <vue-particles 
-                color="#ffffff"
-                shapeType="polygon"
-                :particleSize="2"
-                >
-                </vue-particles>
+                
+                        <div class='bg-store'></div>
     
                 <div class="container">
                 <ul id="paintings"
@@ -19,36 +15,147 @@
                 >
                    
                     <li>
-                        <figure class="text-center">
-                            <div class="img-container thumbnail">
-                                <img src="/images/bg-game.png" alt="Sezann, Players in cards">
-                            </div>
-                           <!-- <figcaption class="painting-name">Players in cards</figcaption> -->
-                            <figcaption class="painting-author text-bold">Buy to remove Ads</figcaption>
-                            <figcaption class="painting-price" data-format="money">$ 250M</figcaption>
-                        </figure>
+                            <template>
+                                    <v-card
+                                      class="mx-auto"
+                                      max-width="344"
+                                      outlined
+                                    >
+                                      <v-list-item three-line>
+                                        <v-list-item-content>
+                                          <div class="overline mb-4">Remove Ads</div>
+                                          <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
+                                        </v-list-item-content>
+                                  
+                                        <v-list-item-avatar
+                                          tile
+                                          size="80"
+                                          color="grey"
+                                        > <v-img src="/images/store.svg"></v-img>
+                                    </v-list-item-avatar>
+                                      </v-list-item>
+                                  
+                                      <v-card-actions>
+                                            <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
+                                        <v-btn color='green'>Buy</v-btn>
+                                      </v-card-actions>
+                                    </v-card>
+                                  </template>
                     </li>
                     <li>
-                            <figure class="text-center">
-                                <div class="img-container thumbnail">
-                                    <img src="/images/bg-game.png" alt="Sezann, Players in cards">
-                                </div>
-                               <!-- <figcaption class="painting-name">Players in cards</figcaption> -->
-                                <figcaption class="painting-author text-bold">Buy to remove Ads</figcaption>
-                                <figcaption class="painting-price" data-format="money">$ 250M</figcaption>
-                            </figure>
+                            <template>
+                                    <v-card
+                                      class="mx-auto"
+                                      max-width="344"
+                                      outlined
+                                    >
+                                      <v-list-item three-line>
+                                        <v-list-item-content>
+                                          <div class="overline mb-4">Remove Ads</div>
+                                          <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
+                                        </v-list-item-content>
+                                  
+                                        <v-list-item-avatar
+                                          tile
+                                          size="80"
+                                          color="grey"
+                                        > <v-img src="/images/store.svg"></v-img>
+                                    </v-list-item-avatar>
+                                      </v-list-item>
+                                  
+                                      <v-card-actions>
+                                            <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
+                                        <v-btn color='green'>Buy</v-btn>
+                                      </v-card-actions>
+                                    </v-card>
+                                  </template>
                         </li>
                         <li>
-                                <figure class="text-center">
-                                    <div class="img-container thumbnail">
-                                        <img src="/images/bg-game.png" alt="Sezann, Players in cards">
-                                    </div>
-                                   <!-- <figcaption class="painting-name">Players in cards</figcaption> -->
-                                    <figcaption class="painting-author text-bold">Buy to remove Ads</figcaption>
-                                    <figcaption class="painting-price" data-format="money">$ 250M</figcaption>
-                                </figure>
+                                <template>
+                                        <v-card
+                                          class="mx-auto"
+                                          max-width="344"
+                                          outlined
+                                        >
+                                          <v-list-item three-line>
+                                            <v-list-item-content>
+                                              <div class="overline mb-4">Remove Ads</div>
+                                              <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
+                                            </v-list-item-content>
+                                      
+                                            <v-list-item-avatar
+                                              tile
+                                              size="80"
+                                              color="grey"
+                                            > <v-img src="/images/store.svg"></v-img>
+                                        </v-list-item-avatar>
+                                          </v-list-item>
+                                      
+                                          <v-card-actions>
+                                                <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
+                                            <v-btn color='green'>Buy</v-btn>
+                                          </v-card-actions>
+                                        </v-card>
+                                      </template>
                             </li>
                   
+                            <li>
+                                    <template>
+                                            <v-card
+                                              class="mx-auto"
+                                              max-width="344"
+                                              outlined
+                                            >
+                                              <v-list-item three-line>
+                                                <v-list-item-content>
+                                                  <div class="overline mb-4">Remove Ads</div>
+                                                  <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
+                                                </v-list-item-content>
+                                          
+                                                <v-list-item-avatar
+                                                  tile
+                                                  size="80"
+                                                  color="grey"
+                                                > <v-img src="/images/store.svg"></v-img>
+                                            </v-list-item-avatar>
+                                              </v-list-item>
+                                          
+                                              <v-card-actions>
+                                                    <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
+                                                <v-btn color='green'>Buy</v-btn>
+                                              </v-card-actions>
+                                            </v-card>
+                                          </template>
+                            </li>
+
+                            <li>
+                                    <template>
+                                            <v-card
+                                              class="mx-auto"
+                                              max-width="344"
+                                              outlined
+                                            >
+                                              <v-list-item three-line>
+                                                <v-list-item-content>
+                                                  <div class="overline mb-4">Remove Ads</div>
+                                                  <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
+                                                </v-list-item-content>
+                                          
+                                                <v-list-item-avatar
+                                                  tile
+                                                  size="80"
+                                                  color="grey"
+                                                > <v-img src="/images/store.svg"></v-img>
+                                            </v-list-item-avatar>
+                                              </v-list-item>
+                                          
+                                              <v-card-actions>
+                                                    <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
+                                                <v-btn color='green'>Buy</v-btn>
+                                              </v-card-actions>
+                                            </v-card>
+                                          </template>
+                            </li>
                 </ul>
                 
 </div>

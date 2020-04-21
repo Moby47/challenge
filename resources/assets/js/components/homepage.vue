@@ -1,10 +1,11 @@
 <template>
     <div>
             <vue-particles 
-            color="#ffffff"
+            color="#9E9E9E"
             shapeType="edge"
             >
             </vue-particles>
+            
 
     <div class="container">
     
@@ -32,6 +33,7 @@
                         </span>
                     </div>
 
+                    
           <div data-role="tile" data-size="large" class="bg-orange fadeIn ani-hover-horizontal"
            data-effect="hover-slide-left">
                           <span  @click.prevent='dares()'>  <span class="mif-file-video icon"></span>
@@ -43,7 +45,7 @@
 
                     <div data-role="tile" data-size="medium" class="bg-teal fadeIn ani-hover-horizontal" >
                             <span onclick="Metro.dialog.open('#search')">  <span class="mif-search icon"></span>
-                            <span class="branding-bar">Search Nerve</span>
+                            <span class="branding-bar">Search</span>
                         </span>
                     </div>
                     
@@ -92,7 +94,7 @@
                         <div class="dialog-content">
                                 <p>User name:</p>    
                             <input type="text" data-role="input" data-history="true">
-                                
+                            <p>Add Description:</p>    
                      <textarea data-role="textarea" data-history="true"></textarea>
                         </div>
                         <div class="dialog-actions">
@@ -236,7 +238,7 @@
                             timeout: 6000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Welcome to Nerve. Explore all options from this page.");
+                        notify.create("Welcome to Challenge App. Explore all options from this page.");
                         notify.reset();
 
                         Metro.session.setItem('welcome','welcome')

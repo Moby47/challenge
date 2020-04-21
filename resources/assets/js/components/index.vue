@@ -5,7 +5,7 @@
     </vue-particles>
 
     
-    <h1 class="text-center white-color ani-heartbeat">NERVE</h1>
+    <h1 class="text-center white-color ani-heartbeat">CHALLENGE</h1>
     <div data-role="cube" data-color="black"
     data-flash-color="#00B0FF" class='zoomer'></div>
 

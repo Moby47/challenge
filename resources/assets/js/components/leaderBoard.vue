@@ -1,56 +1,44 @@
 <template>
         <div>
-                <vue-particles 
-                color="#ffffff"
-                shapeType="polygon"
-                :particleSize="2"
-                >
-                </vue-particles>
+                        <div class='bg-leader'></div>
 
-        <div class="container white-color fadeIn">
-        
-                <h3 class="text-center"> THEY GOT NERVE </h3>
+        <div class="container  fadeIn">
             
-                <table class="table row-hover table-border ">
+                <table class="table row-hover table-border table-striped ">
                         <thead>
                         <tr >
-                             <th class='white-color'>Player</th>
-                            <th class='white-color'>Likes</th>
-                            <th class='white-color'>Views</th>
-                            <th class='white-color'>Points</th>
+                             <th>Player</th>
+                            <th>Likes</th>
+                            <th>Views</th>
+                            <th>Points</th>
                         </tr>
                         </thead>
                         <tbody>
-                                <tr>
+                                <tr class="info">
                                         <td>Moby47</td>
                                         <td>400</td>
                                         <td>74</td>
                                         <td>47000</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="info">
                                             <td>Aj101</td>
                                             <td>400</td>
                                             <td>74</td>
                                             <td>47000</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="info">
                                             <td>Aj101</td>
                                             <td>400</td>
                                             <td>74</td>
                                             <td>47000</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="info">
                                             <td>Aj101</td>
                                             <td>400</td>
                                             <td>74</td>
                                             <td>47000</td>
                                     </tr>
-                                    <tr>
-                                            <td>Aj101</td>
-                                            <td>400</td>
-                                            <td>74</td>
-                                            <td>47000</td>
-                                    </tr>
+                                   
                         </tbody>
                     </table>
     
