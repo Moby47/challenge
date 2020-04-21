@@ -23,7 +23,8 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                
+                                data-on-play
+                                id='one'
                                  ></video>
                                       
                                           <v-card-title>
@@ -64,7 +65,8 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                
+                                data-on-play
+                                id='two'
                                  ></video>
                                       
                                           <v-card-title>
@@ -108,7 +110,7 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                
+                                v-on:click='rr(d)'
                                  ></video>
                                       
                                           <v-card-title>
@@ -150,7 +152,7 @@
                                 data-logo-target="https://metroui.org.ua/v4/"
                                 data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                 data-aspect-ratio="hd"
-                                
+                                v-on:click='rr(d)'
                                  ></video>
                                       
                                           <v-card-title>
@@ -296,9 +298,14 @@
             $(document).ready(function(){
                 $(window).scrollTop(0);
             });
+
         },
 
             methods: {
+
+              rr(d){
+                console.log(d)
+              },
 
                 home(){
                     this.$router.push({name: "index"});

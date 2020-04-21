@@ -24,7 +24,7 @@
                                     data-logo-target="https://metroui.org.ua/v4/"
                                     data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
                                     data-aspect-ratio="hd"
-                                    
+                                    data-autoplay="true"
                                      ></video>
                                           
                                               <v-card-title>

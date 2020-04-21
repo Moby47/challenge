@@ -34,12 +34,19 @@
 
 <!--dialogs login-->
 <div class="dialog" data-role="dialog" id='oldPlayer'>
-    <div class="dialog-title white-color" style="background-color: #07557B">Please Login To Continue</div>
-    <div class="dialog-content">
+  
+    <form method="post" data-vv-scope='loginForm'>
+            <div class="dialog-title white-color" style="background-color: #07557B">Login To Continue</div>
+
+     <div class="dialog-content">
         <p>User name:</p>
-            <input type="text" data-role="input" data-history="true">
+     <input type="text" data-role="input" data-history="true" name="Username"
+      v-model='username' v-validate='"required|max:15"'>
+      <p class='text-danger shake' v-show="errors.has('loginForm.Username')">{{ errors.first('loginForm.Username') }}</p>
            <p>Password:</p>
-            <input type="password" data-role="input">
+     <input type="password" data-role="input" name="Password" 
+     v-model='password' v-validate='"required"'>
+     <p class='text-danger shake' v-show="errors.has('loginForm.Password')">{{ errors.first('loginForm.Password') }}</p>
 
             <p class='text-right'><button class="image-button" @click.prevent='newPlayer()'>
                     <span class="mif-user-plus icon"></span>
@@ -47,21 +54,29 @@
                 </button></p>
     </div>
     <div class="dialog-actions">
-        <button class="button primary">Ok</button>
-        <button class="button alert js-dialog-close">Cancel</button>
+        <button class="button primary" @click.prevent='login()'>Ok</button>
+        <button class="button alert js-dialog-close" @click.prevent=''>Cancel</button>
     </div>
+    </form>
 </div>
 
   <!--dialogs reg-->
 <div class="dialog" data-role="dialog" id='newPlayer'>
+        <form method="post" data-vv-scope='regForm'>
     <div class="dialog-title white-color" style="background-color: #07557B">Start New Game</div>
     <div class="dialog-content">
             <p>User name:</p>
-            <input type="text" data-role="input" data-history="true">
+            <input type="text" data-role="input" data-history="true" name="Username"
+            v-model='username' v-validate='"required|max:15"'>
+            <p class='text-danger shake' v-show="errors.has('regForm.Username')">{{ errors.first('regForm.Username') }}</p>
             <p>Email:</p>
-            <input type="email" data-role="input" data-history="true">
+            <input type="email" data-role="input" data-history="true" name="Email"
+             v-model='email' v-validate='"required|email|max:100"'>
+             <p class='text-danger shake' v-show="errors.has('regForm.Email')">{{ errors.first('regForm.Email') }}</p>
            <p>Password:</p>
-            <input type="password" data-role="input">
+            <input type="password" data-role="input" name="Password" 
+            v-model='password' v-validate='"required"'>
+            <p class='text-danger shake' v-show="errors.has('regForm.Password')">{{ errors.first('regForm.Password') }}</p>
 
             <p class='text-right'><button class="image-button" @click.prevent='oldPlayer()'>
                     <span class="mif-user icon"></span>
@@ -69,10 +84,12 @@
                 </button></p>
     </div>
     <div class="dialog-actions">
-        <button class="button primary">Ok</button>
-        <button class="button alert js-dialog-close">Cancel</button>
+        <button class="button primary"  @click.prevent='reg()'>Ok</button>
+        <button class="button alert js-dialog-close" @click.prevent=''>Cancel</button>
     </div>
+    </form>
 </div>
+
 
 </div>
 
@@ -84,17 +101,23 @@
 
         data(){
             return {
-
+                email:'',
+                password:'',
+                username:'',
             }
         },
 
 
         methods: {
 
+            mounted(){
+
+            },
+
             homepage(){
-                var sound = '/sounds/welcome.mp3'
-                var audio = new Audio(sound);
-                audio.play();
+               // var sound = '/sounds/welcome.mp3'
+               // var audio = new Audio(sound);
+               // audio.play();
 
                 this.$router.push({name: "homepage"});
             },
@@ -105,7 +128,114 @@
             oldPlayer(){
                 Metro.dialog.close('#newPlayer')
                 Metro.dialog.open('#oldPlayer')
-            }
+            },
+
+
+            login(){
+                          //validate specific reg fields
+        this.$validator.validateAll('loginForm').then(() => {
+             if (!this.errors.any()) {
+                Metro.activity.open({
+                    type: 'metro',
+                })
+
+                    var input = {'email':this.email, 'password':this.password};
+                    axios.post('/login-user',input)
+                    .then(res => {
+                    var result = res.data.result;
+
+                    
+                         if(result == 2){
+                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again',
+                             null, 5000, 'yellow');
+                            Metro.activity.close({type: 'metro',})
+                          }else if(result == 3){
+                            Metro.toast.create('Account declined. Please contact support',
+                             null, 5000, 'alert');
+                            Metro.activity.close({type: 'metro',})
+                          }else{
+                            Metro.toast.create('Login Successful!',
+                             null, 5000, 'success');
+                            //start login 
+                               localStorage.setItem('userToken',res.data.userToken);
+                               localStorage.setItem('userId',res.data.userId);
+                               localStorage.setItem('userName',res.data.userName);
+                               localStorage.setItem('userMail',res.data.userMail);
+                               
+                          }
+                    })
+                    .catch(error =>{
+                      Metro.activity.close({type: 'metro',})
+                      console.log(error)
+                    })
+                  }else{ //if error
+                    //error is auto shown, dont worry
+                  } //if error
+                })//val
+              
+                   }, //login
+
+
+
+                   reg(){
+                          //validate
+            this.$validator.validateAll('regForm').then(() => {
+             if (!this.errors.any()) {
+              
+                Metro.activity.open({
+                    type: 'metro',
+                })
+
+          //start registeration
+          var input = {'username':this.username,'email':this.email,
+          'password':this.password };
+      
+      //send to database with axios
+          axios.post('/register-user',input)
+          .then(res=>{
+        if(res.data.msg == 1){
+            Metro.activity.close({
+                    type: 'metro',
+                })
+                Metro.toast.create('Signup was Successful!',
+                             null, 5000, 'success');
+ 
+           this.$router.push({name: "playerHomepage"});
+  
+
+        }
+
+        })
+        .catch(error=>{
+          console.log(error)
+          Metro.activity.close({
+                    type: 'metro',
+                })
+          if(error.response.status == 422){
+            this.valError = error.response.data.errors;
+         
+            Metro.toast.create('This Email has been taken.',
+                             null, 5000, 'yellow');
+          }else{
+    Metro.toast.create('Please verify that your inputs are correct',
+                             null, 5000, 'alert');
+          } 
+        })
+          //start registeration - end
+         
+        // }
+    
+//read pId for saving on reg
+ 
+             }else{
+               console.log('vee errors exist')
+               //val err
+               //do nothing, vee val got u
+             }
+             })//val
+            
+                  }, //reg
+
 /*
             this.$validator.validateAll().then(() => {
            
