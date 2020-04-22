@@ -16,3 +16,19 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//Route::apiResource('/leaderboard', 'leaderController');
+
+
+Route::get('/leaderboard', 'dareController@scores'); //->middleware('auth.apikey');
+
+Route::get('/dares', 'dareController@dares'); //->middleware('auth.apikey');
+
+Route::get('/search', 'dareController@search'); //->middleware('auth.apikey');
+
+Route::get('/filter-dare', 'dareController@filter_dare'); //->middleware('auth.apikey');
+
+Route::get('/dare-list', 'dareController@dare_list'); //->middleware('auth.apikey');
+
+Route::post('/suggest-dare', 'dareController@suggestion'); //->middleware('auth.apikey');
