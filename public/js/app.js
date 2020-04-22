@@ -12747,26 +12747,28 @@ __WEBPACK_IMPORTED_MODULE_3__router__["a" /* default */].beforeEach(function (to
 
 /* ------------------------URL interceptor for auth ----------------*/
 
-/*
 //route middleware 
-router.beforeEach((to, from, next) => {
-        if(to.matched.some(record => record.meta.auth)){
-   
-if(localStorage.getItem('token')){
-   //continue
-   next()
-}else{
-   //redirect
-   next({path: '/'})
-} //inner if close
-        }else{
+__WEBPACK_IMPORTED_MODULE_3__router__["a" /* default */].beforeEach(function (to, from, next) {
+
+    if (to.matched.some(function (record) {
+        return record.meta.auth;
+    })) {
+
+        if (Metro.session.getItem('userToken')) {
+            //continue
+            next();
+        } else {
+            //redirect
+            next({ path: '/homepage' });
+        } //inner if close
+    } else {
         //no auth required for this page
-           next()
-       } //main if close
-    } //func closure
-) //router close
+        next();
+    } //main if close
+} //func closure
+); //router close
 // route middleware 
-*/
+
 
 /* ------------------------URL interceptor ----------------*/
 
@@ -53009,28 +53011,28 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
         name: 'playerHomepage',
         component: __WEBPACK_IMPORTED_MODULE_12__components_player_playerHomepage_vue___default.a,
         meta: {
-            //  auth: true
+            auth: true
         }
     }, {
         path: '/pick-dare',
         name: 'pickDare',
         component: __WEBPACK_IMPORTED_MODULE_13__components_player_pickDare_vue___default.a,
         meta: {
-            //  auth: true
+            auth: true
         }
     }, {
         path: '/pending-dares',
         name: 'pendingDares',
         component: __WEBPACK_IMPORTED_MODULE_14__components_player_pendingDares_vue___default.a,
         meta: {
-            //  auth: true
+            auth: true
         }
     }, {
         path: '/upload-dare',
         name: 'upload',
         component: __WEBPACK_IMPORTED_MODULE_15__components_player_upload_vue___default.a,
         meta: {
-            //  auth: true
+            auth: true
         }
     }]
 }));
@@ -55764,6 +55766,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -55791,6 +55801,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         oldPlayer: function oldPlayer() {
             Metro.dialog.close('#newPlayer');
             Metro.dialog.open('#oldPlayer');
+        },
+        player: function player() {
+            this.$router.push({ name: "playerHomepage" });
         },
         login: function login() {
             var _this = this;
@@ -55880,6 +55893,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     //do nothing, vee val got u
                 }
             }); //val
+        },
+        //reg
+
+        //meth to check Auth
+        isAuth: function isAuth() {
+            if (Metro.session.getItem('userToken')) {
+                // this.loggedOut = false;
+                return true;
+            } else {
+                // this.loggedOut = true;
+                return false;
+            }
         }
     }
 
@@ -55937,7 +55962,28 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _vm.isAuth()
+          ? _c("div", { staticClass: "cell order-2" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "shortcut rounded primary ani-hover-horizontal",
+                  staticStyle: { "background-color": "#00B0FF" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.player()
+                    }
+                  }
+                },
+                [
+                  _c("span", { staticClass: "caption" }, [_vm._v("Player")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "mif-gamepad icon  ani-float" })
+                ]
+              )
+            ])
+          : _c("div", { staticClass: "cell order-2" }, [_vm._m(0)])
       ]),
       _vm._v(" "),
       _c(
@@ -56350,21 +56396,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cell order-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "shortcut rounded primary ani-hover-horizontal",
-          staticStyle: { "background-color": "#00B0FF" },
-          attrs: { onclick: "Metro.dialog.open('#oldPlayer')" }
-        },
-        [
-          _c("span", { staticClass: "caption" }, [_vm._v("Player")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "mif-gamepad icon  ani-float" })
-        ]
-      )
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "shortcut rounded primary ani-hover-horizontal",
+        staticStyle: { "background-color": "#00B0FF" },
+        attrs: { onclick: "Metro.dialog.open('#oldPlayer')" }
+      },
+      [
+        _c("span", { staticClass: "caption" }, [_vm._v("Player")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "mif-gamepad icon  ani-float" })
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -56429,6 +56473,36 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56618,7 +56692,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            email: '',
+            password: '',
+            username: ''
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
@@ -56630,7 +56708,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
 
-    methods: {
+    methods: _defineProperty({
+        guest: function guest() {
+            Metro.charms.toggle('#charm');
+            Metro.dialog.open('#oldPlayer');
+        },
         dares: function dares() {
             this.$router.push({ name: "dares" });
         },
@@ -56647,6 +56729,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         oldPlayer: function oldPlayer() {
             Metro.dialog.close('#newPlayer');
             Metro.dialog.open('#oldPlayer');
+        },
+        player: function player() {
+            this.$router.push({ name: "playerHomepage" });
         },
         notify: function notify() {
             var wel = Metro.session.getItem('welcome');
@@ -56668,8 +56753,117 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 Metro.session.setItem('welcome', 'welcome');
             }
+        },
+
+
+        //meth to check Auth
+        isAuth: function isAuth() {
+            if (Metro.session.getItem('userToken')) {
+                // this.loggedOut = false;
+                return true;
+            } else {
+                // this.loggedOut = true;
+                return false;
+            }
+        },
+        login: function login() {
+            var _this = this;
+
+            //validate specific reg fields
+            this.$validator.validateAll('loginForm').then(function () {
+                if (!_this.errors.any()) {
+                    var activity = Metro.activity.open({
+                        type: 'metro'
+                    });
+
+                    var input = { 'username': _this.username, 'password': _this.password };
+                    axios.post('/login-user', input).then(function (res) {
+                        var result = res.data.result;
+
+                        if (result == 2) {
+                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 5000, 'yellow');
+                            Metro.activity.close(activity);
+                        } else {
+                            Metro.toast.create('Login Successful!', null, 5000, 'success');
+                            Metro.dialog.close('#oldPlayer');
+                            //start login 
+                            Metro.session.setItem('userToken', res.data.token);
+                            Metro.session.setItem('userId', res.data.id);
+                            Metro.session.setItem('userName', res.data.username);
+                            Metro.activity.close(activity);
+                            _this.$router.push({ name: "playerHomepage" });
+                        }
+                    }).catch(function (error) {
+                        Metro.activity.close(activity);
+                        console.log(error);
+                    });
+                } else {} //if error
+                //error is auto shown, dont worry
+                //if error
+            }); //val
+        },
+        //login
+
+
+        reg: function reg() {
+            var _this2 = this;
+
+            //validate
+            this.$validator.validateAll('regForm').then(function () {
+                if (!_this2.errors.any()) {
+
+                    var activity = Metro.activity.open({
+                        type: 'metro'
+                    });
+
+                    //start registeration
+                    var input = { 'username': _this2.username, 'email': _this2.email,
+                        'password': _this2.password };
+
+                    //send to database with axios
+                    axios.post('/register-user', input).then(function (res) {
+                        console.log(res);
+                        if (res.data == 1) {
+                            Metro.activity.close(activity);
+                            Metro.toast.create('Signup was Successful! Please Login', null, 5000, 'success');
+                            Metro.dialog.close('#newPlayer');
+                            Metro.dialog.open('#oldPlayer');
+                        } else {
+                            Metro.toast.create('An error occured!', null, 5000, 'alert');
+                            Metro.activity.close(activity);
+                        }
+                    }).catch(function (error) {
+                        console.log(error);
+                        Metro.activity.close(activity);
+
+                        if (error.response.status == 422) {
+
+                            Metro.toast.create('This Email has been taken.', null, 5000, 'yellow');
+                        } else {
+                            Metro.toast.create('Please verify that your inputs are correct', null, 5000, 'alert');
+                        }
+                    });
+                    //start registeration - end
+
+                    // }
+
+                    //read pId for saving on reg
+                } else {
+                    console.log('vee errors exist');
+                    //val err
+                    //do nothing, vee val got u
+                }
+            }); //val
         }
-    }
+    }, 'isAuth', function isAuth() {
+        if (Metro.session.getItem('userToken')) {
+            // this.loggedOut = false;
+            return true;
+        } else {
+            // this.loggedOut = true;
+            return false;
+        }
+    })
 
 });
 
@@ -56760,7 +56954,44 @@ var render = function() {
           _vm._v(" "),
           _vm._m(2),
           _vm._v(" "),
-          _vm._m(3),
+          _vm.isAuth()
+            ? _c(
+                "div",
+                {
+                  staticClass: "fadeIn ani-hover-horizontal",
+                  staticStyle: { "background-color": "#b82943" },
+                  attrs: { "data-role": "tile", "data-size": "medium" }
+                },
+                [
+                  _c(
+                    "span",
+                    {
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.player()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "mif-gamepad icon" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "branding-bar" }, [
+                        _vm._v("Play")
+                      ])
+                    ]
+                  )
+                ]
+              )
+            : _c(
+                "div",
+                {
+                  staticClass: "fadeIn ani-hover-horizontal",
+                  staticStyle: { "background-color": "#b82943" },
+                  attrs: { "data-role": "tile", "data-size": "medium" }
+                },
+                [_vm._m(3)]
+              ),
           _vm._v(" "),
           _c(
             "div",
@@ -56845,16 +57076,37 @@ var render = function() {
               _vm._v(" "),
               _c("li", { staticClass: "divider" }),
               _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/player-homepage" } }, [
-                    _c("span", { staticClass: "mif-menu icon" }),
-                    _vm._v(" \n                                Player Menu")
-                  ])
-                ],
-                1
-              ),
+              _vm.isAuth()
+                ? _c(
+                    "li",
+                    [
+                      _c("router-link", { attrs: { to: "/player-homepage" } }, [
+                        _c("span", { staticClass: "mif-menu icon" }),
+                        _vm._v(" \n                                Player Menu")
+                      ])
+                    ],
+                    1
+                  )
+                : _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.guest()
+                          }
+                        }
+                      },
+                      [
+                        _c("span", { staticClass: "mif-menu icon" }),
+                        _vm._v(
+                          " \n                                    Player Menu"
+                        )
+                      ]
+                    )
+                  ]),
               _vm._v(" "),
               _c("li", { staticClass: "divider" }),
               _vm._v(" "),
@@ -56886,55 +57138,171 @@ var render = function() {
           },
           [
             _c(
-              "div",
-              {
-                staticClass: "dialog-title white-color",
-                staticStyle: { "background-color": "#07557B" }
-              },
-              [_vm._v("Please Login To Continue")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "dialog-content" }, [
-              _c("p", [_vm._v("User name:")]),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "text",
-                  "data-role": "input",
-                  "data-history": "true"
-                }
-              }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Password:")]),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "password", "data-role": "input" }
-              }),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-right" }, [
+              "form",
+              { attrs: { method: "post", "data-vv-scope": "loginForm" } },
+              [
                 _c(
-                  "button",
+                  "div",
                   {
-                    staticClass: "image-button",
+                    staticClass: "dialog-title white-color",
+                    staticStyle: { "background-color": "#07557B" }
+                  },
+                  [_vm._v("Login To Continue")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dialog-content" }, [
+                  _c("p", [_vm._v("User name:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.username,
+                        expression: "username"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required|max:15",
+                        expression: '"required|max:15"'
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      "data-role": "input",
+                      "data-history": "true",
+                      name: "Username"
+                    },
+                    domProps: { value: _vm.username },
                     on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.newPlayer()
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.username = $event.target.value
                       }
                     }
-                  },
-                  [
-                    _c("span", { staticClass: "mif-user-plus icon" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "caption" }, [
-                      _vm._v("New Player?")
-                    ])
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(6)
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("loginForm.Username"),
+                          expression: "errors.has('loginForm.Username')"
+                        }
+                      ],
+                      staticClass: "fg-red shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("loginForm.Username")))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Password:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.password,
+                        expression: "password"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: '"required"'
+                      }
+                    ],
+                    attrs: {
+                      type: "password",
+                      "data-role": "input",
+                      name: "Password"
+                    },
+                    domProps: { value: _vm.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.password = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("loginForm.Password"),
+                          expression: "errors.has('loginForm.Password')"
+                        }
+                      ],
+                      staticClass: "fg-red shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("loginForm.Password")))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-right" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "image-button",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.newPlayer()
+                          }
+                        }
+                      },
+                      [
+                        _c("span", { staticClass: "mif-user-plus icon" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "caption" }, [
+                          _vm._v("New Player?")
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dialog-actions" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button primary",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.login()
+                        }
+                      }
+                    },
+                    [_vm._v("Ok")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button alert js-dialog-close",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                        }
+                      }
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            )
           ]
         ),
         _vm._v(" "),
@@ -56946,69 +57314,225 @@ var render = function() {
           },
           [
             _c(
-              "div",
-              {
-                staticClass: "dialog-title white-color",
-                staticStyle: { "background-color": "#07557B" }
-              },
-              [_vm._v("Start New Game")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "dialog-content" }, [
-              _c("p", [_vm._v("User name:")]),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "text",
-                  "data-role": "input",
-                  "data-history": "true"
-                }
-              }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Email:")]),
-              _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "email",
-                  "data-role": "input",
-                  "data-history": "true"
-                }
-              }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Password:")]),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "password", "data-role": "input" }
-              }),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-right" }, [
+              "form",
+              { attrs: { method: "post", "data-vv-scope": "regForm" } },
+              [
                 _c(
-                  "button",
+                  "div",
                   {
-                    staticClass: "image-button",
+                    staticClass: "dialog-title white-color",
+                    staticStyle: { "background-color": "#07557B" }
+                  },
+                  [_vm._v("Start New Game")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dialog-content" }, [
+                  _c("p", [_vm._v("User name:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.username,
+                        expression: "username"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required|max:15",
+                        expression: '"required|max:15"'
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      "data-role": "input",
+                      "data-history": "true",
+                      name: "Username"
+                    },
+                    domProps: { value: _vm.username },
                     on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.oldPlayer()
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.username = $event.target.value
                       }
                     }
-                  },
-                  [
-                    _c("span", { staticClass: "mif-user icon" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "caption" }, [
-                      _vm._v("Old Player?")
-                    ])
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(7)
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("regForm.Username"),
+                          expression: "errors.has('regForm.Username')"
+                        }
+                      ],
+                      staticClass: "fg-red shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("regForm.Username")))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Email:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.email,
+                        expression: "email"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required|email|max:100",
+                        expression: '"required|email|max:100"'
+                      }
+                    ],
+                    attrs: {
+                      type: "email",
+                      "data-role": "input",
+                      "data-history": "true",
+                      name: "Email"
+                    },
+                    domProps: { value: _vm.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.email = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("regForm.Email"),
+                          expression: "errors.has('regForm.Email')"
+                        }
+                      ],
+                      staticClass: "fg-red shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("regForm.Email")))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Password:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.password,
+                        expression: "password"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: '"required"'
+                      }
+                    ],
+                    attrs: {
+                      type: "password",
+                      "data-role": "input",
+                      name: "Password"
+                    },
+                    domProps: { value: _vm.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.password = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("regForm.Password"),
+                          expression: "errors.has('regForm.Password')"
+                        }
+                      ],
+                      staticClass: "fg-red shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("regForm.Password")))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-right" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "image-button",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.oldPlayer()
+                          }
+                        }
+                      },
+                      [
+                        _c("span", { staticClass: "mif-user icon" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "caption" }, [
+                          _vm._v("Old Player?")
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dialog-actions" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button primary",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.reg()
+                        }
+                      }
+                    },
+                    [_vm._v("Ok")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button alert js-dialog-close",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                        }
+                      }
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            )
           ]
         ),
         _vm._v(" "),
-        _vm._m(8)
+        _vm._m(6)
       ])
     ],
     1
@@ -57079,20 +57603,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      {
-        staticClass: "fadeIn ani-hover-horizontal",
-        staticStyle: { "background-color": "#b82943" },
-        attrs: { "data-role": "tile", "data-size": "medium" }
-      },
+      "span",
+      { attrs: { onclick: "Metro.dialog.open('#oldPlayer')" } },
       [
-        _c("span", { attrs: { onclick: "Metro.dialog.open('#oldPlayer')" } }, [
-          _c("span", { staticClass: "mif-gamepad icon" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "branding-bar" }, [
-            _vm._v("Become a Player")
-          ])
-        ])
+        _c("span", { staticClass: "mif-gamepad icon" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "branding-bar" }, [_vm._v("Become a Player")])
       ]
     )
   },
@@ -57154,30 +57670,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dialog-actions" }, [
-      _c("button", { staticClass: "button primary" }, [_vm._v("Ok")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "button alert js-dialog-close" }, [
-        _vm._v("Cancel")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dialog-actions" }, [
-      _c("button", { staticClass: "button primary" }, [_vm._v("Ok")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "button alert js-dialog-close" }, [
-        _vm._v("Cancel")
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -61129,6 +61621,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 Metro.session.setItem('player', 'player');
             }
+        },
+        logout: function logout() {
+            var activity = Metro.activity.open({
+                type: 'metro'
+            });
+            Metro.session.delItem('userToken');
+            Metro.session.delItem('userId');
+            Metro.session.delItem('userName');
+
+            Metro.activity.close(activity);
+            this.$router.push({ name: "homepage" });
         }
     }
 
@@ -61337,16 +61840,24 @@ var render = function() {
               _vm._v(" "),
               _c("li", { staticClass: "divider" }),
               _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.logout()
+                      }
+                    }
+                  },
+                  [
                     _c("span", { staticClass: "mif-settings-power icon" }),
                     _vm._v(" Logout")
-                  ])
-                ],
-                1
-              ),
+                  ]
+                )
+              ]),
               _vm._v(" "),
               _c("li", { staticClass: "divider" }),
               _vm._v(" "),

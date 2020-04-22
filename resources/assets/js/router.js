@@ -118,7 +118,7 @@ export default new Router({
             name: 'playerHomepage',
             component: playerHomepage,
              meta:{
-              //  auth: true
+                auth: true
             }
         },
         
@@ -127,7 +127,7 @@ export default new Router({
             name: 'pickDare',
             component: pickDare,
              meta:{
-              //  auth: true
+                auth: true
             }
         },
         
@@ -136,7 +136,7 @@ export default new Router({
             name: 'pendingDares',
             component: pendingDares,
              meta:{
-              //  auth: true
+                auth: true
             }
         },
         
@@ -145,7 +145,7 @@ export default new Router({
             name: 'upload',
             component: upload,
              meta:{
-              //  auth: true
+                auth: true
             }
         },
     ]

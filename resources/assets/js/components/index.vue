@@ -21,13 +21,21 @@
         </button>
     </div>
 
-    <div class="cell order-2">
-        <button class="shortcut rounded primary ani-hover-horizontal" onclick="Metro.dialog.open('#oldPlayer')"
+    <div class="cell order-2" v-if='isAuth()'>
+        <button class="shortcut rounded primary ani-hover-horizontal" @click.prevent='player()'
         style="background-color: #00B0FF">
             <span class="caption">Player</span>
             <span class="mif-gamepad icon  ani-float"></span>
         </button>
     </div>
+
+    <div class="cell order-2" v-else>
+            <button class="shortcut rounded primary ani-hover-horizontal" onclick="Metro.dialog.open('#oldPlayer')"
+            style="background-color: #00B0FF">
+                <span class="caption">Player</span>
+                <span class="mif-gamepad icon  ani-float"></span>
+            </button>
+        </div>
 
 </div>
 
@@ -129,7 +137,9 @@
                 Metro.dialog.close('#newPlayer')
                 Metro.dialog.open('#oldPlayer')
             },
-
+            player(){
+                this.$router.push({name: "playerHomepage"});
+            },
 
             login(){
                           //validate specific reg fields
@@ -234,28 +244,16 @@
             
                   }, //reg
 
-/*
-            this.$validator.validateAll().then(() => {
-           
-           if (!this.errors.any()) {
-            //
-            }else{
-            //
-            }
-         
-                    //
-            })
-            .catch(err=>{
-                
-            }),
-      
-         setTimeout(func=>{
-             //this.errors.clear()
-            // this.$validator.reset()
-         },1) 
-        
-         }); //validator
-*/
+                  //meth to check Auth
+                  isAuth(){
+                    if(Metro.session.getItem('userToken')){
+                     // this.loggedOut = false;
+                          return true;
+                    }else{
+                     // this.loggedOut = true;
+                          return false;
+                    }
+                     },
         },
 
     }

@@ -49,7 +49,14 @@
                         </span>
                     </div>
                     
-                    <div data-role="tile" data-size="medium" 
+                    <div data-role="tile" data-size="medium" v-if='isAuth()'
+                    style="background-color: #b82943" class='fadeIn ani-hover-horizontal'>
+                            <span @click.prevent='player()'>  <span class="mif-gamepad icon"></span>
+                            <span class="branding-bar">Play</span>
+                        </span>
+                    </div>
+
+                    <div data-role="tile" data-size="medium" v-else
                     style="background-color: #b82943" class='fadeIn ani-hover-horizontal'>
                             <span onclick="Metro.dialog.open('#oldPlayer')">  <span class="mif-gamepad icon"></span>
                             <span class="branding-bar">Become a Player</span>
@@ -77,8 +84,10 @@
                                 <li class="divider"></li>
                                 <li><router-link to='/rules'> <span class="mif-books icon"></span> Rules</router-link></li>
                                 <li class="divider"></li>
-                                <li><router-link to='/player-homepage'> <span class="mif-menu icon"></span> 
+                                <li v-if='isAuth()'><router-link to='/player-homepage'> <span class="mif-menu icon"></span> 
                                 Player Menu</router-link></li>
+                                <li v-else><a href='#' @click.prevent="guest()"> <span class="mif-menu icon"></span> 
+                                    Player Menu</a></li>
                                 <li class="divider"></li>
                                 <li><a href='mailto:honred47@yahoo.com'> <span class="mif-mail icon"></span> Contact Us</a></li>
                                 <li class="divider"></li>
@@ -104,47 +113,66 @@
                     </div>
 
 
-                       <!--dialogs login-->
-  <div class="dialog" data-role="dialog" id='oldPlayer'>
-        <div class="dialog-title white-color" style="background-color: #07557B">Please Login To Continue</div>
-        <div class="dialog-content">
-            <p>User name:</p>
-                <input type="text" data-role="input" data-history="true">
-               <p>Password:</p>
-                <input type="password" data-role="input">
+                   
 
+<!--dialogs login-->
+<div class="dialog" data-role="dialog" id='oldPlayer'>
+  
+        <form method="post" data-vv-scope='loginForm'>
+                <div class="dialog-title white-color" style="background-color: #07557B">Login To Continue</div>
+    
+         <div class="dialog-content">
+            <p>User name:</p>
+         <input type="text" data-role="input" data-history="true" name="Username"
+          v-model='username' v-validate='"required|max:15"'>
+          <p class='fg-red shake' v-show="errors.has('loginForm.Username')">{{ errors.first('loginForm.Username') }}</p>
+               <p>Password:</p>
+         <input type="password" data-role="input" name="Password" 
+         v-model='password' v-validate='"required"'>
+         <p class='fg-red shake' v-show="errors.has('loginForm.Password')">{{ errors.first('loginForm.Password') }}</p>
+    
                 <p class='text-right'><button class="image-button" @click.prevent='newPlayer()'>
                         <span class="mif-user-plus icon"></span>
                         <span class="caption">New Player?</span>
                     </button></p>
         </div>
         <div class="dialog-actions">
-            <button class="button primary">Ok</button>
-            <button class="button alert js-dialog-close">Cancel</button>
+            <button class="button primary" @click.prevent='login()'>Ok</button>
+            <button class="button alert js-dialog-close" @click.prevent=''>Cancel</button>
         </div>
+        </form>
     </div>
-
+    
       <!--dialogs reg-->
-<div class="dialog" data-role="dialog" id='newPlayer'>
+    <div class="dialog" data-role="dialog" id='newPlayer'>
+            <form method="post" data-vv-scope='regForm'>
         <div class="dialog-title white-color" style="background-color: #07557B">Start New Game</div>
         <div class="dialog-content">
                 <p>User name:</p>
-                <input type="text" data-role="input" data-history="true">
+                <input type="text" data-role="input" data-history="true" name="Username"
+                v-model='username' v-validate='"required|max:15"'>
+                <p class='fg-red shake' v-show="errors.has('regForm.Username')">{{ errors.first('regForm.Username') }}</p>
                 <p>Email:</p>
-                <input type="email" data-role="input" data-history="true">
+                <input type="email" data-role="input" data-history="true" name="Email"
+                 v-model='email' v-validate='"required|email|max:100"'>
+                 <p class='fg-red shake' v-show="errors.has('regForm.Email')">{{ errors.first('regForm.Email') }}</p>
                <p>Password:</p>
-                <input type="password" data-role="input">
-
+                <input type="password" data-role="input" name="Password" 
+                v-model='password' v-validate='"required"'>
+                <p class='fg-red shake' v-show="errors.has('regForm.Password')">{{ errors.first('regForm.Password') }}</p>
+    
                 <p class='text-right'><button class="image-button" @click.prevent='oldPlayer()'>
                         <span class="mif-user icon"></span>
                         <span class="caption">Old Player?</span>
                     </button></p>
         </div>
         <div class="dialog-actions">
-            <button class="button primary">Ok</button>
-            <button class="button alert js-dialog-close">Cancel</button>
+            <button class="button primary"  @click.prevent='reg()'>Ok</button>
+            <button class="button alert js-dialog-close" @click.prevent=''>Cancel</button>
         </div>
+        </form>
     </div>
+    
 
 
                       <!--dialogs search-->
@@ -189,7 +217,9 @@
 
         data(){
             return {
-
+                email:'',
+                password:'',
+                username:'',
             }
         },
         mounted() {
@@ -203,6 +233,11 @@
         },
         
         methods: {
+
+            guest(){
+                Metro.charms.toggle('#charm')
+                Metro.dialog.open('#oldPlayer')
+            },
 
             dares(){
                 this.$router.push({name: "dares"});
@@ -222,7 +257,9 @@
                 Metro.dialog.close('#newPlayer')
                 Metro.dialog.open('#oldPlayer')
             },
-
+            player(){
+                this.$router.push({name: "playerHomepage"});
+            },
             notify(){
                 var wel = Metro.session.getItem('welcome')
 
@@ -245,28 +282,134 @@
                     }
             },
             
-/*
-            this.$validator.validateAll().then(() => {
-           
-           if (!this.errors.any()) {
-            //
-            }else{
-            //
-            }
-         
-                    //
-            })
-            .catch(err=>{
+                        //meth to check Auth
+                        isAuth(){
+                            if(Metro.session.getItem('userToken')){
+                            // this.loggedOut = false;
+                                return true;
+                            }else{
+                            // this.loggedOut = true;
+                                return false;
+                            }
+                            },
+
+
                 
-            }),
+                            login(){
+                          //validate specific reg fields
+        this.$validator.validateAll('loginForm').then(() => {
+             if (!this.errors.any()) {
+            var activity =  Metro.activity.open({
+                    type: 'metro',
+                })
+
+                    var input = {'username':this.username, 'password':this.password};
+                    axios.post('/login-user',input)
+                    .then(res => {
+                    var result = res.data.result;
+
+                    
+                         if(result == 2){
+                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again',
+                             null, 5000, 'yellow');
+                             Metro.activity.close(activity);
+                          }else{
+                            Metro.toast.create('Login Successful!',
+                             null, 5000, 'success');
+                             Metro.dialog.close('#oldPlayer')
+                            //start login 
+                               Metro.session.setItem('userToken',res.data.token);
+                               Metro.session.setItem('userId',res.data.id);
+                               Metro.session.setItem('userName',res.data.username);
+                               Metro.activity.close(activity);
+                               this.$router.push({name: "playerHomepage"});
+                          }
+                    })
+                    .catch(error =>{
+                        Metro.activity.close(activity);
+                      console.log(error)
+                    })
+                  }else{ //if error
+                    //error is auto shown, dont worry
+                  } //if error
+                })//val
+              
+                   }, //login
+
+
+
+                   reg(){
+                          //validate
+            this.$validator.validateAll('regForm').then(() => {
+             if (!this.errors.any()) {
+              
+              var activity =  Metro.activity.open({
+                    type: 'metro',
+                })
+
+          //start registeration
+          var input = {'username':this.username,'email':this.email,
+          'password':this.password };
       
-         setTimeout(func=>{
-             //this.errors.clear()
-            // this.$validator.reset()
-         },1) 
-        
-         }); //validator
-*/
+      //send to database with axios
+          axios.post('/register-user',input)
+          .then(res=>{
+              console.log(res)
+        if(res.data == 1){
+            Metro.activity.close(activity);
+                Metro.toast.create('Signup was Successful! Please Login',
+                             null, 5000, 'success');
+                             Metro.dialog.close('#newPlayer')
+                             Metro.dialog.open('#oldPlayer')
+  
+
+        }else{
+            Metro.toast.create('An error occured!',
+                             null, 5000, 'alert');
+                             Metro.activity.close(activity);
+        }
+
+        })
+        .catch(error=>{
+          console.log(error)
+          Metro.activity.close(activity);
+
+          if(error.response.status == 422){
+           
+            Metro.toast.create('This Email has been taken.',
+                             null, 5000, 'yellow');
+          }else{
+    Metro.toast.create('Please verify that your inputs are correct',
+                             null, 5000, 'alert');
+          } 
+        })
+          //start registeration - end
+         
+        // }
+    
+//read pId for saving on reg
+ 
+             }else{
+               console.log('vee errors exist')
+               //val err
+               //do nothing, vee val got u
+             }
+             })//val
+            
+                  }, //reg
+
+                  //meth to check Auth
+                  isAuth(){
+                    if(Metro.session.getItem('userToken')){
+                     // this.loggedOut = false;
+                          return true;
+                    }else{
+                     // this.loggedOut = true;
+                          return false;
+                    }
+                     },
+
+
         },
 
        

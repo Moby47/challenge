@@ -72,7 +72,7 @@
                                   
                                     <li><router-link to='/store'> <span class="mif-cart icon"></span> Store</router-link></li>
                                     <li class="divider"></li>
-                                    <li><router-link to='/'><span class="mif-settings-power icon"></span> Logout</router-link></li>
+                                    <li><a href='#' @click.prevent='logout()'><span class="mif-settings-power icon"></span> Logout</a></li>
                                     <li class="divider"></li>
                                      <li><router-link to='/homepage'> <span class="mif-menu icon"></span> 
                                         Main Menu</router-link></li>
@@ -147,28 +147,17 @@
                         }
                 },
                 
-    /*
-                this.$validator.validateAll().then(() => {
-               
-               if (!this.errors.any()) {
-                //
-                }else{
-                //
-                }
-             
-                        //
+                logout(){
+                    var activity =  Metro.activity.open({
+                    type: 'metro',
                 })
-                .catch(err=>{
+                Metro.session.delItem('userToken');
+                               Metro.session.delItem('userId');
+                               Metro.session.delItem('userName');
                     
-                }),
-          
-             setTimeout(func=>{
-                 //this.errors.clear()
-                // this.$validator.reset()
-             },1) 
-            
-             }); //validator
-    */
+                   Metro.activity.close(activity);
+                    this.$router.push({name: "homepage"});
+                    },
             },
     
            
