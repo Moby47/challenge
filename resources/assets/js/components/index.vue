@@ -42,11 +42,11 @@
         <p>User name:</p>
      <input type="text" data-role="input" data-history="true" name="Username"
       v-model='username' v-validate='"required|max:15"'>
-      <p class='text-danger shake' v-show="errors.has('loginForm.Username')">{{ errors.first('loginForm.Username') }}</p>
+      <p class='fg-red shake' v-show="errors.has('loginForm.Username')">{{ errors.first('loginForm.Username') }}</p>
            <p>Password:</p>
      <input type="password" data-role="input" name="Password" 
      v-model='password' v-validate='"required"'>
-     <p class='text-danger shake' v-show="errors.has('loginForm.Password')">{{ errors.first('loginForm.Password') }}</p>
+     <p class='fg-red shake' v-show="errors.has('loginForm.Password')">{{ errors.first('loginForm.Password') }}</p>
 
             <p class='text-right'><button class="image-button" @click.prevent='newPlayer()'>
                     <span class="mif-user-plus icon"></span>
@@ -68,15 +68,15 @@
             <p>User name:</p>
             <input type="text" data-role="input" data-history="true" name="Username"
             v-model='username' v-validate='"required|max:15"'>
-            <p class='text-danger shake' v-show="errors.has('regForm.Username')">{{ errors.first('regForm.Username') }}</p>
+            <p class='fg-red shake' v-show="errors.has('regForm.Username')">{{ errors.first('regForm.Username') }}</p>
             <p>Email:</p>
             <input type="email" data-role="input" data-history="true" name="Email"
              v-model='email' v-validate='"required|email|max:100"'>
-             <p class='text-danger shake' v-show="errors.has('regForm.Email')">{{ errors.first('regForm.Email') }}</p>
+             <p class='fg-red shake' v-show="errors.has('regForm.Email')">{{ errors.first('regForm.Email') }}</p>
            <p>Password:</p>
             <input type="password" data-role="input" name="Password" 
             v-model='password' v-validate='"required"'>
-            <p class='text-danger shake' v-show="errors.has('regForm.Password')">{{ errors.first('regForm.Password') }}</p>
+            <p class='fg-red shake' v-show="errors.has('regForm.Password')">{{ errors.first('regForm.Password') }}</p>
 
             <p class='text-right'><button class="image-button" @click.prevent='oldPlayer()'>
                     <span class="mif-user icon"></span>
@@ -135,11 +135,11 @@
                           //validate specific reg fields
         this.$validator.validateAll('loginForm').then(() => {
              if (!this.errors.any()) {
-                Metro.activity.open({
+            var activity =  Metro.activity.open({
                     type: 'metro',
                 })
 
-                    var input = {'email':this.email, 'password':this.password};
+                    var input = {'username':this.username, 'password':this.password};
                     axios.post('/login-user',input)
                     .then(res => {
                     var result = res.data.result;
@@ -148,24 +148,21 @@
                          if(result == 2){
                             Metro.toast.create('Login failed. Invalid credentials. Refresh and try again',
                              null, 5000, 'yellow');
-                            Metro.activity.close({type: 'metro',})
-                          }else if(result == 3){
-                            Metro.toast.create('Account declined. Please contact support',
-                             null, 5000, 'alert');
-                            Metro.activity.close({type: 'metro',})
+                             Metro.activity.close(activity);
                           }else{
                             Metro.toast.create('Login Successful!',
                              null, 5000, 'success');
+                             Metro.dialog.close('#oldPlayer')
                             //start login 
-                               localStorage.setItem('userToken',res.data.userToken);
-                               localStorage.setItem('userId',res.data.userId);
-                               localStorage.setItem('userName',res.data.userName);
-                               localStorage.setItem('userMail',res.data.userMail);
-                               
+                               Metro.session.setItem('userToken',res.data.token);
+                               Metro.session.setItem('userId',res.data.id);
+                               Metro.session.setItem('userName',res.data.username);
+                               Metro.activity.close(activity);
+                               this.$router.push({name: "playerHomepage"});
                           }
                     })
                     .catch(error =>{
-                      Metro.activity.close({type: 'metro',})
+                        Metro.activity.close(activity);
                       console.log(error)
                     })
                   }else{ //if error
@@ -182,7 +179,7 @@
             this.$validator.validateAll('regForm').then(() => {
              if (!this.errors.any()) {
               
-                Metro.activity.open({
+              var activity =  Metro.activity.open({
                     type: 'metro',
                 })
 
@@ -193,27 +190,28 @@
       //send to database with axios
           axios.post('/register-user',input)
           .then(res=>{
-        if(res.data.msg == 1){
-            Metro.activity.close({
-                    type: 'metro',
-                })
-                Metro.toast.create('Signup was Successful!',
+              console.log(res)
+        if(res.data == 1){
+            Metro.activity.close(activity);
+                Metro.toast.create('Signup was Successful! Please Login',
                              null, 5000, 'success');
- 
-           this.$router.push({name: "playerHomepage"});
+                             Metro.dialog.close('#newPlayer')
+                             Metro.dialog.open('#oldPlayer')
   
 
+        }else{
+            Metro.toast.create('An error occured!',
+                             null, 5000, 'alert');
+                             Metro.activity.close(activity);
         }
 
         })
         .catch(error=>{
           console.log(error)
-          Metro.activity.close({
-                    type: 'metro',
-                })
+          Metro.activity.close(activity);
+
           if(error.response.status == 422){
-            this.valError = error.response.data.errors;
-         
+           
             Metro.toast.create('This Email has been taken.',
                              null, 5000, 'yellow');
           }else{

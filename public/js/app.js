@@ -55798,30 +55798,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             //validate specific reg fields
             this.$validator.validateAll('loginForm').then(function () {
                 if (!_this.errors.any()) {
-                    Metro.activity.open({
+                    var activity = Metro.activity.open({
                         type: 'metro'
                     });
 
-                    var input = { 'email': _this.email, 'password': _this.password };
+                    var input = { 'username': _this.username, 'password': _this.password };
                     axios.post('/login-user', input).then(function (res) {
                         var result = res.data.result;
 
                         if (result == 2) {
                             Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 5000, 'yellow');
-                            Metro.activity.close({ type: 'metro' });
-                        } else if (result == 3) {
-                            Metro.toast.create('Account declined. Please contact support', null, 5000, 'alert');
-                            Metro.activity.close({ type: 'metro' });
+                            Metro.activity.close(activity);
                         } else {
                             Metro.toast.create('Login Successful!', null, 5000, 'success');
+                            Metro.dialog.close('#oldPlayer');
                             //start login 
-                            localStorage.setItem('userToken', res.data.userToken);
-                            localStorage.setItem('userId', res.data.userId);
-                            localStorage.setItem('userName', res.data.userName);
-                            localStorage.setItem('userMail', res.data.userMail);
+                            Metro.session.setItem('userToken', res.data.token);
+                            Metro.session.setItem('userId', res.data.id);
+                            Metro.session.setItem('userName', res.data.username);
+                            Metro.activity.close(activity);
+                            _this.$router.push({ name: "playerHomepage" });
                         }
                     }).catch(function (error) {
-                        Metro.activity.close({ type: 'metro' });
+                        Metro.activity.close(activity);
                         console.log(error);
                     });
                 } else {} //if error
@@ -55839,7 +55838,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$validator.validateAll('regForm').then(function () {
                 if (!_this2.errors.any()) {
 
-                    Metro.activity.open({
+                    var activity = Metro.activity.open({
                         type: 'metro'
                     });
 
@@ -55849,21 +55848,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                     //send to database with axios
                     axios.post('/register-user', input).then(function (res) {
-                        if (res.data.msg == 1) {
-                            Metro.activity.close({
-                                type: 'metro'
-                            });
-                            Metro.toast.create('Signup was Successful!', null, 5000, 'success');
-
-                            _this2.$router.push({ name: "playerHomepage" });
+                        console.log(res);
+                        if (res.data == 1) {
+                            Metro.activity.close(activity);
+                            Metro.toast.create('Signup was Successful! Please Login', null, 5000, 'success');
+                            Metro.dialog.close('#newPlayer');
+                            Metro.dialog.open('#oldPlayer');
+                        } else {
+                            Metro.toast.create('An error occured!', null, 5000, 'alert');
+                            Metro.activity.close(activity);
                         }
                     }).catch(function (error) {
                         console.log(error);
-                        Metro.activity.close({
-                            type: 'metro'
-                        });
+                        Metro.activity.close(activity);
+
                         if (error.response.status == 422) {
-                            _this2.valError = error.response.data.errors;
 
                             Metro.toast.create('This Email has been taken.', null, 5000, 'yellow');
                         } else {
@@ -56007,7 +56006,7 @@ var render = function() {
                         expression: "errors.has('loginForm.Username')"
                       }
                     ],
-                    staticClass: "text-danger shake"
+                    staticClass: "fg-red shake"
                   },
                   [_vm._v(_vm._s(_vm.errors.first("loginForm.Username")))]
                 ),
@@ -56056,7 +56055,7 @@ var render = function() {
                         expression: "errors.has('loginForm.Password')"
                       }
                     ],
-                    staticClass: "text-danger shake"
+                    staticClass: "fg-red shake"
                   },
                   [_vm._v(_vm._s(_vm.errors.first("loginForm.Password")))]
                 ),
@@ -56183,7 +56182,7 @@ var render = function() {
                         expression: "errors.has('regForm.Username')"
                       }
                     ],
-                    staticClass: "text-danger shake"
+                    staticClass: "fg-red shake"
                   },
                   [_vm._v(_vm._s(_vm.errors.first("regForm.Username")))]
                 ),
@@ -56233,7 +56232,7 @@ var render = function() {
                         expression: "errors.has('regForm.Email')"
                       }
                     ],
-                    staticClass: "text-danger shake"
+                    staticClass: "fg-red shake"
                   },
                   [_vm._v(_vm._s(_vm.errors.first("regForm.Email")))]
                 ),
@@ -56282,7 +56281,7 @@ var render = function() {
                         expression: "errors.has('regForm.Password')"
                       }
                     ],
-                    staticClass: "text-danger shake"
+                    staticClass: "fg-red shake"
                   },
                   [_vm._v(_vm._s(_vm.errors.first("regForm.Password")))]
                 ),

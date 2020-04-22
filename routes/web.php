@@ -14,3 +14,7 @@
 Route::get('/{vue_capture?}', function () {
     return view('welcome');
   })->where('vue_capture', '[\/\w\.-]*');
+
+
+Route::Post('/login-user', 'customauthcontroller@login');
+Route::Post('/register-user', 'customauthcontroller@reg');
