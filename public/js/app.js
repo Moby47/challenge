@@ -55816,7 +55816,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     });
 
                     var input = { 'username': _this.username, 'password': _this.password };
-                    axios.post('/login-user', input).then(function (res) {
+                    axios.post('/api/login-user', input).then(function (res) {
                         var result = res.data.result;
 
                         if (result == 2) {
@@ -55860,7 +55860,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         'password': _this2.password };
 
                     //send to database with axios
-                    axios.post('/register-user', input).then(function (res) {
+                    axios.post('/api/register-user', input).then(function (res) {
                         console.log(res);
                         if (res.data == 1) {
                             Metro.activity.close(activity);
@@ -56473,8 +56473,16 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _methods;
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56695,7 +56703,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return {
             email: '',
             password: '',
-            username: ''
+            username: '',
+            description: ''
         };
     },
     mounted: function mounted() {
@@ -56708,7 +56717,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
 
-    methods: _defineProperty({
+    methods: (_methods = {
         guest: function guest() {
             Metro.charms.toggle('#charm');
             Metro.dialog.open('#oldPlayer');
@@ -56777,7 +56786,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     });
 
                     var input = { 'username': _this.username, 'password': _this.password };
-                    axios.post('/login-user', input).then(function (res) {
+                    axios.post('/api/login-user', input).then(function (res) {
                         var result = res.data.result;
 
                         if (result == 2) {
@@ -56821,7 +56830,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         'password': _this2.password };
 
                     //send to database with axios
-                    axios.post('/register-user', input).then(function (res) {
+                    axios.post('/api/register-user', input).then(function (res) {
                         console.log(res);
                         if (res.data == 1) {
                             Metro.activity.close(activity);
@@ -56855,7 +56864,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 }
             }); //val
         }
-    }, 'isAuth', function isAuth() {
+    }, _defineProperty(_methods, 'isAuth', function isAuth() {
         if (Metro.session.getItem('userToken')) {
             // this.loggedOut = false;
             return true;
@@ -56863,7 +56872,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             // this.loggedOut = true;
             return false;
         }
-    })
+    }), _defineProperty(_methods, 'suggest', function suggest() {
+        var _this3 = this;
+
+        //validate specific reg fields
+        this.$validator.validateAll('suggForm').then(function () {
+            if (!_this3.errors.any()) {
+                var activity = Metro.activity.open({
+                    type: 'metro'
+                });
+
+                var input = { 'username': _this3.username, 'description': _this3.description };
+                axios.post('/api/suggest-dare', input).then(function (res) {
+
+                    if (res.data == 1) {
+                        Metro.toast.create('Suggestion sent!', null, 5000, 'success');
+                        Metro.dialog.close('#suggest');
+                        Metro.activity.close(activity);
+                    }
+                }).catch(function (error) {
+                    Metro.activity.close(activity);
+                    console.log(error);
+                });
+            } else {} //if error
+            //error is auto shown, dont worry
+            //if error
+        }); //val
+    }), _methods)
 
 });
 
@@ -57128,7 +57163,159 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(5),
+        _c(
+          "div",
+          {
+            staticClass: "dialog ",
+            attrs: { "data-role": "dialog", id: "suggest" }
+          },
+          [
+            _c(
+              "form",
+              { attrs: { method: "post", "data-vv-scope": "suggForm" } },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "dialog-title white-color",
+                    staticStyle: { "background-color": "#07557B" }
+                  },
+                  [_vm._v("Suggest a Dare")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dialog-content" }, [
+                  _c("p", [_vm._v("User name:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.username,
+                        expression: "username"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required|max:15",
+                        expression: '"required|max:15"'
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      "data-role": "input",
+                      "data-history": "true",
+                      name: "Username"
+                    },
+                    domProps: { value: _vm.username },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.username = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("suggForm.Username"),
+                          expression: "errors.has('suggForm.Username')"
+                        }
+                      ],
+                      staticClass: "fg-red shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("suggForm.Username")))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Add Description:")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.description,
+                        expression: "description"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required|max:255",
+                        expression: '"required|max:255"'
+                      }
+                    ],
+                    attrs: {
+                      "data-role": "textarea",
+                      "data-history": "true",
+                      name: "Description"
+                    },
+                    domProps: { value: _vm.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.description = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("suggForm.Description"),
+                          expression: "errors.has('suggForm.Description')"
+                        }
+                      ],
+                      staticClass: "fg-red shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("suggForm.Description")))]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dialog-actions" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button primary",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.suggest()
+                        }
+                      }
+                    },
+                    [_vm._v("Send")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button alert js-dialog-close",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                        }
+                      }
+                    },
+                    [_vm._v("Close")]
+                  )
+                ])
+              ]
+            )
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -57532,7 +57719,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(6)
+        _vm._m(5)
       ])
     ],
     1
@@ -57622,54 +57809,6 @@ var staticRenderFns = [
         _vm._v(" Contact Us")
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "dialog ",
-        attrs: { "data-role": "dialog", id: "suggest" }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "dialog-title white-color",
-            staticStyle: { "background-color": "#07557B" }
-          },
-          [_vm._v("Suggest a Dare")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-content" }, [
-          _c("p", [_vm._v("User name:")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "text",
-              "data-role": "input",
-              "data-history": "true"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Add Description:")]),
-          _vm._v(" "),
-          _c("textarea", {
-            attrs: { "data-role": "textarea", "data-history": "true" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-actions" }, [
-          _c("button", { staticClass: "button primary" }, [_vm._v("Send")]),
-          _vm._v(" "),
-          _c("button", { staticClass: "button alert js-dialog-close" }, [
-            _vm._v("Cancel")
-          ])
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -58004,98 +58143,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            content: [],
+            empty: false,
+            loading: false
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
             $(window).scrollTop(0);
         });
+        this.get();
     },
 
 
     methods: {
-        rr: function rr(d) {
-            console.log(d);
+        get: function get() {
+            var _this = this;
+
+            this.loading = true;
+            fetch('/api/dares').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.content = res.data;
+                _this.loading = false;
+                console.log(_this.content);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this.empty = true;
+                } else {
+                    _this.empty = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading = false;
+            });
         },
         home: function home() {
             this.$router.push({ name: "index" });
@@ -58106,29 +58195,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         back: function back() {
             this.$router.go(-1);
         }
-        /*
-                    this.$validator.validateAll().then(() => {
-                   
-                   if (!this.errors.any()) {
-                    //
-                    }else{
-                    //
-                    }
-                 
-                            //
-                    })
-                    .catch(err=>{
-                        
-                    }),
-              
-                 setTimeout(func=>{
-                     //this.errors.clear()
-                    // this.$validator.reset()
-                 },1) 
-                
-                 }); //validator
-        */
-
     }
 
 });
@@ -58149,336 +58215,94 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("h3", { staticClass: "text-center" }),
         _vm._v(" "),
+        _vm.empty
+          ? _c("span", [
+              _c("div", { staticClass: "remark info text-center" }, [
+                _vm._v(
+                  "\n                       No Dare Videos Currently\n                        "
+                )
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-            [
-              [
-                _c(
-                  "v-card",
-                  { staticClass: "mx-auto" },
+          _vm.loading
+            ? _c(
+                "div",
+                { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+                [
                   [
-                    _c("video", {
-                      attrs: {
-                        "data-role": "video",
-                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                        "data-logo": "https://metroui.org.ua/images/logo4.png",
-                        "data-logo-height": "64",
-                        "data-logo-target": "https://metroui.org.ua/v4/",
-                        "data-poster":
-                          "https://metroui.org.ua/res/poster-oceans.jpg",
-                        "data-aspect-ratio": "hd",
-                        "data-on-play": "",
-                        id: "one"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("v-card-title", [
-                      _c("div", { staticClass: "card-footer" }, [
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-thumbs-up " },
-                          [_vm._v(" 47")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-comment " },
-                          [_vm._v(" 7")]
-                        ),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "flat-button mif-eye " }, [
-                          _vm._v(" 4")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-share " },
-                          [_vm._v(" 4")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("v-card-subtitle", [
-                      _c(
-                        "figcaption",
-                        { staticClass: "mt-1 text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/single-dare" } }, [
-                            _vm._v(
-                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
-                            )
-                          ])
-                        ],
-                        1
-                      )
-                    ])
-                  ],
-                  1
-                )
-              ],
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "badge inside  fg-white",
-                  staticStyle: { "background-color": "#b82943" }
-                },
-                [_vm._v("player's username")]
-              )
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-            [
-              [
-                _c(
-                  "v-card",
-                  { staticClass: "mx-auto" },
-                  [
-                    _c("video", {
-                      attrs: {
-                        "data-role": "video",
-                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                        "data-logo": "https://metroui.org.ua/images/logo4.png",
-                        "data-logo-height": "64",
-                        "data-logo-target": "https://metroui.org.ua/v4/",
-                        "data-poster":
-                          "https://metroui.org.ua/res/poster-oceans.jpg",
-                        "data-aspect-ratio": "hd",
-                        "data-on-play": "",
-                        id: "two"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("v-card-title", [
-                      _c("div", { staticClass: "card-footer" }, [
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-thumbs-up " },
-                          [_vm._v(" 47")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-comment " },
-                          [_vm._v(" 7")]
-                        ),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "flat-button mif-eye " }, [
-                          _vm._v(" 4")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-share " },
-                          [_vm._v(" 4")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("v-card-subtitle", [
-                      _c(
-                        "figcaption",
-                        { staticClass: "mt-1 text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/single-dare" } }, [
-                            _vm._v(
-                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
-                            )
-                          ])
-                        ],
-                        1
-                      )
-                    ])
-                  ],
-                  1
-                )
-              ],
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "badge inside  fg-white",
-                  staticStyle: { "background-color": "#b82943" }
-                },
-                [_vm._v("player's username")]
-              )
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-            [
-              [
-                _c(
-                  "v-card",
-                  { staticClass: "mx-auto" },
-                  [
-                    _c("video", {
-                      attrs: {
-                        "data-role": "video",
-                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                        "data-logo": "https://metroui.org.ua/images/logo4.png",
-                        "data-logo-height": "64",
-                        "data-logo-target": "https://metroui.org.ua/v4/",
-                        "data-poster":
-                          "https://metroui.org.ua/res/poster-oceans.jpg",
-                        "data-aspect-ratio": "hd"
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
                       },
-                      on: {
-                        click: function($event) {
-                          _vm.rr(_vm.d)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("v-card-title", [
-                      _c("div", { staticClass: "card-footer" }, [
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-thumbs-up " },
-                          [_vm._v(" 47")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-comment " },
-                          [_vm._v(" 7")]
-                        ),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "flat-button mif-eye " }, [
-                          _vm._v(" 4")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-share " },
-                          [_vm._v(" 4")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("v-card-subtitle", [
-                      _c(
-                        "figcaption",
-                        { staticClass: "mt-1 text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/single-dare" } }, [
-                            _vm._v(
-                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
-                            )
-                          ])
-                        ],
-                        1
-                      )
-                    ])
-                  ],
-                  1
-                )
-              ],
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "badge inside  fg-white",
-                  staticStyle: { "background-color": "#b82943" }
-                },
-                [_vm._v("player's username")]
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
+                          attrs: { "max-width": "auto", type: "card" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ],
+                2
               )
-            ],
-            2
-          ),
+            : _vm._e(),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-            [
-              [
-                _c(
-                  "v-card",
-                  { staticClass: "mx-auto" },
+          _vm.loading
+            ? _c(
+                "div",
+                { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+                [
                   [
-                    _c("video", {
-                      attrs: {
-                        "data-role": "video",
-                        "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                        "data-logo": "https://metroui.org.ua/images/logo4.png",
-                        "data-logo-height": "64",
-                        "data-logo-target": "https://metroui.org.ua/v4/",
-                        "data-poster":
-                          "https://metroui.org.ua/res/poster-oceans.jpg",
-                        "data-aspect-ratio": "hd"
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
                       },
-                      on: {
-                        click: function($event) {
-                          _vm.rr(_vm.d)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("v-card-title", [
-                      _c("div", { staticClass: "card-footer" }, [
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-thumbs-up " },
-                          [_vm._v(" 47")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-comment " },
-                          [_vm._v(" 7")]
-                        ),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "flat-button mif-eye " }, [
-                          _vm._v(" 4")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "flat-button mif-share " },
-                          [_vm._v(" 4")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("v-card-subtitle", [
-                      _c(
-                        "figcaption",
-                        { staticClass: "mt-1 text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/single-dare" } }, [
-                            _vm._v(
-                              "A full title of the dare. \n                           A full title of the dare.   A full title of the dare.\n                                                       "
-                            )
-                          ])
-                        ],
-                        1
-                      )
-                    ])
-                  ],
-                  1
-                )
-              ],
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "badge inside  fg-white",
-                  staticStyle: { "background-color": "#b82943" }
-                },
-                [_vm._v("player's username")]
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
+                          attrs: { "max-width": "auto", type: "card" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ],
+                2
               )
-            ],
-            2
-          )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.loading
+            ? _c(
+                "div",
+                { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+                [
+                  [
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
+                      },
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
+                          attrs: { "max-width": "auto", type: "card" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ],
+                2
+              )
+            : _vm._e()
         ])
       ]),
       _vm._v(" "),
@@ -59508,41 +59332,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            content: [],
+            empty: false,
+            loading: false
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
             $(window).scrollTop(0);
         });
+
+        this.get();
     },
 
 
     methods: {
-        /*
-                    this.$validator.validateAll().then(() => {
-                   
-                   if (!this.errors.any()) {
-                    //
-                    }else{
-                    //
-                    }
-                 
-                            //
-                    })
-                    .catch(err=>{
-                        
-                    }),
-              
-                 setTimeout(func=>{
-                     //this.errors.clear()
-                    // this.$validator.reset()
-                 },1) 
-                
-                 }); //validator
-        */
+        get: function get() {
+            var _this = this;
+
+            this.loading = true;
+            fetch('/api/leaderboard').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.content = res.data;
+                _this.loading = false;
+                console.log(_this.content);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this.empty = true;
+                } else {
+                    _this.empty = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading = false;
+            });
+        }
     }
 
 });
@@ -59560,7 +59395,42 @@ var render = function() {
     [
       _c("div", { staticClass: "bg-leader" }),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "container  fadeIn" },
+        [
+          _vm.empty
+            ? _c("span", [
+                _c("div", { staticClass: "remark info text-center" }, [
+                  _vm._v(
+                    "\n                Leader board is currently empty\n             "
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.loading
+            ? [
+                _c(
+                  "v-sheet",
+                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
+                  [
+                    _c("v-skeleton-loader", {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "auto", type: "table" }
+                    })
+                  ],
+                  1
+                )
+              ]
+            : _c(
+                "table",
+                { staticClass: "table row-hover table-border table-striped" },
+                [_vm._m(0), _vm._v(" "), _vm._m(1)]
+              )
+        ],
+        2
+      ),
       _vm._v(" "),
       _c("floating")
     ],
@@ -59572,66 +59442,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container  fadeIn" }, [
-      _c(
-        "table",
-        { staticClass: "table row-hover table-border table-striped " },
-        [
-          _c("thead", [
-            _c("tr", [
-              _c("th", [_vm._v("Player")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Likes")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Views")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Points")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", { staticClass: "info" }, [
-              _c("td", [_vm._v("Moby47")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("400")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("74")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("47000")])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "info" }, [
-              _c("td", [_vm._v("Aj101")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("400")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("74")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("47000")])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "info" }, [
-              _c("td", [_vm._v("Aj101")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("400")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("74")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("47000")])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "info" }, [
-              _c("td", [_vm._v("Aj101")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("400")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("74")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("47000")])
-            ])
-          ])
-        ]
-      )
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Player")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Likes")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Views")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Points")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tbody", [
+      _c("tr", { staticClass: "info" }, [
+        _c("td"),
+        _vm._v(" "),
+        _c("td"),
+        _vm._v(" "),
+        _c("td"),
+        _vm._v(" "),
+        _c("td")
+      ])
     ])
   }
 ]
@@ -59736,42 +59572,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            content: [],
+            empty: false,
+            loading: false
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
             $(window).scrollTop(0);
         });
+
+        this.get();
     },
 
 
     methods: {
+        get: function get() {
+            var _this = this;
 
-        /*
-                    this.$validator.validateAll().then(() => {
-                   
-                   if (!this.errors.any()) {
-                    //
-                    }else{
-                    //
-                    }
-                 
-                            //
-                    })
-                    .catch(err=>{
-                        
-                    }),
-              
-                 setTimeout(func=>{
-                     //this.errors.clear()
-                    // this.$validator.reset()
-                 },1) 
-                
-                 }); //validator
-        */
+            this.loading = true;
+            fetch('/api/dare-list').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.content = res.data;
+                _this.loading = false;
+                console.log(_this.content);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this.empty = true;
+                } else {
+                    _this.empty = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading = false;
+            });
+        }
     }
 
 });
@@ -59789,7 +59648,44 @@ var render = function() {
     [
       _c("div", { staticClass: "bg-darelist" }),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "container fadeIn" },
+        [
+          _c("h3", { staticClass: "text-center" }),
+          _vm._v(" "),
+          _vm.empty
+            ? _c("span", [
+                _c("div", { staticClass: "remark info text-center" }, [
+                  _vm._v(
+                    "\n                        Dare list is currently empty\n                     "
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.loading
+            ? [
+                _c(
+                  "v-sheet",
+                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
+                  [
+                    _c("v-skeleton-loader", {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "auto", type: "table" }
+                    })
+                  ],
+                  1
+                )
+              ]
+            : _c("table", { staticClass: "table row-hover table-border" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+        ],
+        2
+      ),
       _vm._v(" "),
       _c("floating")
     ],
@@ -59801,37 +59697,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container fadeIn" }, [
-      _c("h3", { staticClass: "text-center" }),
-      _vm._v(" "),
-      _c("table", { staticClass: "table row-hover table-border" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", [_vm._v("Dare")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Players Played")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Points")])
-          ])
-        ]),
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Dare")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", { staticClass: "info" }, [
-            _c("td", [_vm._v("learn a javascript programming syntax")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("400")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("74")])
-          ]),
-          _vm._v(" "),
-          _c("tr", { staticClass: "info" }, [
-            _c("td", [_vm._v("watch a scary movie")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("40")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("74")])
-          ])
-        ])
+        _c("th", [_vm._v("Players Played")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Points")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tbody", [
+      _c("tr", { staticClass: "info" }, [
+        _c("td"),
+        _vm._v(" "),
+        _c("td"),
+        _vm._v(" "),
+        _c("td")
       ])
     ])
   }

@@ -6,8 +6,27 @@
         <div class="container fadeIn">
         
                 <h3 class="text-center"> </h3>
+
+                <span v-if='empty'>
+                        <div class="remark info text-center">
+                                Dare list is currently empty
+                             </div>
+                </span>
+        
+                <template v-if='loading'>
+                        <v-sheet
+                          :color="`grey`"
+                          class="px-3 pt-3 pb-3"
+                        >
+                          <v-skeleton-loader
+                            class="mx-auto"
+                            max-width="auto"
+                            type="table"
+                          ></v-skeleton-loader>
+                        </v-sheet>
+                      </template>
             
-                <table class="table row-hover table-border">
+                <table class="table row-hover table-border" v-else>
                         <thead>
                         <tr>
                              <th>Dare</th>
@@ -17,15 +36,11 @@
                         </thead>
                         <tbody>
                                 <tr class="info">
-                                        <td>learn a javascript programming syntax</td>
-                                        <td>400</td>
-                                        <td>74</td>
+                                        <td> </td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
-                                    <tr class="info">
-                                            <td>watch a scary movie</td>
-                                            <td>40</td>
-                                            <td>74</td>
-                                    </tr>
+                                   
                         </tbody>
                     </table>
 
@@ -42,7 +57,9 @@
     
             data(){
                 return {
-    
+                    content:[],
+                    empty:false,
+                    loading:false,    
                 }
             },
     
@@ -50,33 +67,38 @@
             $(document).ready(function(){
                 $(window).scrollTop(0);
             });
+
+            this.get()
         },
         
             methods: {
 
-            
-    /*
-                this.$validator.validateAll().then(() => {
-               
-               if (!this.errors.any()) {
-                //
-                }else{
-                //
-                }
-             
-                        //
+                get(){
+                    this.loading = true
+                fetch('/api/dare-list')
+                .then(res => res.json())
+                .then(res=>{
+                   this.content = res.data;
+                  this.loading = false
+                 console.log(this.content)
+                
+                  //to determine if obj is empty 
+                          console.log(res.data[0]);
+                          if(res.data[0] == undefined){
+                              this.empty = true;
+                          }else{
+                              this.empty = false;
+                          }
+                  //to determine if obj is empty
+                  
                 })
-                .catch(err=>{
-                    
-                }),
-          
-             setTimeout(func=>{
-                 //this.errors.clear()
-                // this.$validator.reset()
-             },1) 
-            
-             }); //validator
-    */
+                .catch(error =>{
+                  console.log(error)
+                    //off loader
+                    this.loading = false
+                    })
+                },
+
             },
     
         }

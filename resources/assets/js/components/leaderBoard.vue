@@ -3,8 +3,27 @@
                         <div class='bg-leader'></div>
 
         <div class="container  fadeIn">
-            
-                <table class="table row-hover table-border table-striped ">
+
+        <span v-if='empty'>
+                <div class="remark info text-center">
+                        Leader board is currently empty
+                     </div>
+        </span>
+
+        <template v-if='loading'>
+                <v-sheet
+                  :color="`grey`"
+                  class="px-3 pt-3 pb-3"
+                >
+                  <v-skeleton-loader
+                    class="mx-auto"
+                    max-width="auto"
+                    type="table"
+                  ></v-skeleton-loader>
+                </v-sheet>
+              </template>
+
+                <table class="table row-hover table-border table-striped" v-else>
                         <thead>
                         <tr >
                              <th>Player</th>
@@ -15,32 +34,15 @@
                         </thead>
                         <tbody>
                                 <tr class="info">
-                                        <td>Moby47</td>
-                                        <td>400</td>
-                                        <td>74</td>
-                                        <td>47000</td>
-                                    </tr>
-                                    <tr class="info">
-                                            <td>Aj101</td>
-                                            <td>400</td>
-                                            <td>74</td>
-                                            <td>47000</td>
-                                    </tr>
-                                    <tr class="info">
-                                            <td>Aj101</td>
-                                            <td>400</td>
-                                            <td>74</td>
-                                            <td>47000</td>
-                                    </tr>
-                                    <tr class="info">
-                                            <td>Aj101</td>
-                                            <td>400</td>
-                                            <td>74</td>
-                                            <td>47000</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                    
                         </tbody>
                     </table>
+
     
                     </div>
 
@@ -56,7 +58,9 @@
     
             data(){
                 return {
-    
+                    content:[],
+                    empty:false,
+                    loading:false,
                 }
             },
             
@@ -64,31 +68,42 @@
             $(document).ready(function(){
                 $(window).scrollTop(0);
             });
-        },
+
+            this.get()
+
+           },
 
             methods: {
-    /*
-                this.$validator.validateAll().then(() => {
-               
-               if (!this.errors.any()) {
-                //
-                }else{
-                //
-                }
-             
-                        //
+
+                get(){
+                    this.loading = true
+                fetch('/api/leaderboard')
+                .then(res => res.json())
+                .then(res=>{
+                   this.content = res.data;
+                  this.loading = false
+                 console.log(this.content)
+                
+                  //to determine if obj is empty 
+                          console.log(res.data[0]);
+                          if(res.data[0] == undefined){
+                              this.empty = true;
+                          }else{
+                              this.empty = false;
+                          }
+                  //to determine if obj is empty
+                  
                 })
-                .catch(err=>{
-                    
-                }),
-          
-             setTimeout(func=>{
-                 //this.errors.clear()
-                // this.$validator.reset()
-             },1) 
-            
-             }); //validator
-    */
+                .catch(error =>{
+                  console.log(error)
+                    //off loader
+                    this.loading = false
+                    })
+                },
+
+
+
+
             },
     
           

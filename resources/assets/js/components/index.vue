@@ -150,7 +150,7 @@
                 })
 
                     var input = {'username':this.username, 'password':this.password};
-                    axios.post('/login-user',input)
+                    axios.post('/api/login-user',input)
                     .then(res => {
                     var result = res.data.result;
 
@@ -198,7 +198,7 @@
           'password':this.password };
       
       //send to database with axios
-          axios.post('/register-user',input)
+          axios.post('/api/register-user',input)
           .then(res=>{
               console.log(res)
         if(res.data == 1){

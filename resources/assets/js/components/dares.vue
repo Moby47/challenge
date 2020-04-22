@@ -7,8 +7,59 @@
         
                 <h3 class="text-center">  </h3>
 
+                <span v-if='empty'>
+                    <div class="remark info text-center">
+                        No Dare Videos Currently
+                         </div>
+            </span>
+    
+         
+
                 <div class="row">
 
+                    <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                    <template >
+                        <v-sheet
+                          :color="`grey`"
+                          class="px-3 pt-3 pb-3"
+                        >
+                          <v-skeleton-loader
+                            class="mx-auto"
+                            max-width="auto"
+                            type="card"
+                          ></v-skeleton-loader>
+                        </v-sheet>
+                      </template>
+                    </div>
+                    <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                        <template >
+                            <v-sheet
+                              :color="`grey`"
+                              class="px-3 pt-3 pb-3"
+                            >
+                              <v-skeleton-loader
+                                class="mx-auto"
+                                max-width="auto"
+                                type="card"
+                              ></v-skeleton-loader>
+                            </v-sheet>
+                          </template>
+                        </div>
+                        <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                            <template >
+                                <v-sheet
+                                  :color="`grey`"
+                                  class="px-3 pt-3 pb-3"
+                                >
+                                  <v-skeleton-loader
+                                    class="mx-auto"
+                                    max-width="auto"
+                                    type="card"
+                                  ></v-skeleton-loader>
+                                </v-sheet>
+                              </template>
+                            </div>
+                  <!--
                         <div class="cell-sm-full cell-md-one-third cell-lg-4">
                             
                                 <template>
@@ -49,135 +100,7 @@
                                       <span class="badge inside  fg-white"
                                       style="background-color: #b82943">player's username</span>
                         </div>
-
-
-                        <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                            
-                                <template>
-                                        <v-card
-                                          class="mx-auto"
-                                          
-                                        >
-                                        <video data-role="video"
-                                data-src="https://metroui.org.ua/res/oceans.mp4"
-                                data-logo="https://metroui.org.ua/images/logo4.png"
-                                data-logo-height="64"
-                                data-logo-target="https://metroui.org.ua/v4/"
-                                data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
-                                data-aspect-ratio="hd"
-                                data-on-play
-                                id='two'
-                                 ></video>
-                                      
-                                          <v-card-title>
-                                                <div class="card-footer">
-                                                        <button class="flat-button mif-thumbs-up "> 47</button>
-                                                        <button class="flat-button mif-comment "> 7</button>
-                                                        <button class="flat-button mif-eye "> 4</button>
-                                                        <button class="flat-button mif-share "> 4</button>
-                                                    </div>
-                                          </v-card-title>
-                                      
-                                          <v-card-subtitle>
-                                                <figcaption class="mt-1 text-center">
-                         <router-link to='/single-dare' class=''>A full title of the dare. 
-                            A full title of the dare.   A full title of the dare.
-                                                        </router-link> 
-                                               </figcaption>
-                                          </v-card-subtitle>
-                                      
-                                        </v-card>
-                                      </template>
-                                      <span class="badge inside  fg-white"
-                                      style="background-color: #b82943">player's username</span>
-                        </div>
-
-
-
-
-
-                        <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                            
-                                <template>
-                                        <v-card
-                                          class="mx-auto"
-                                          
-                                        >
-                                        <video data-role="video"
-                                data-src="https://metroui.org.ua/res/oceans.mp4"
-                                data-logo="https://metroui.org.ua/images/logo4.png"
-                                data-logo-height="64"
-                                data-logo-target="https://metroui.org.ua/v4/"
-                                data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
-                                data-aspect-ratio="hd"
-                                v-on:click='rr(d)'
-                                 ></video>
-                                      
-                                          <v-card-title>
-                                                <div class="card-footer">
-                                                        <button class="flat-button mif-thumbs-up "> 47</button>
-                                                        <button class="flat-button mif-comment "> 7</button>
-                                                        <button class="flat-button mif-eye "> 4</button>
-                                                        <button class="flat-button mif-share "> 4</button>
-                                                    </div>
-                                          </v-card-title>
-                                      
-                                          <v-card-subtitle>
-                                                <figcaption class="mt-1 text-center">
-                         <router-link to='/single-dare' class=''>A full title of the dare. 
-                            A full title of the dare.   A full title of the dare.
-                                                        </router-link> 
-                                               </figcaption>
-                                          </v-card-subtitle>
-                                      
-                                        </v-card>
-                                      </template>
-                                      <span class="badge inside  fg-white"
-                                      style="background-color: #b82943">player's username</span>
-                        </div>
-
-
-
-                        <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                            
-                                <template>
-                                        <v-card
-                                          class="mx-auto"
-                                          
-                                        >
-                                        <video data-role="video"
-                                data-src="https://metroui.org.ua/res/oceans.mp4"
-                                data-logo="https://metroui.org.ua/images/logo4.png"
-                                data-logo-height="64"
-                                data-logo-target="https://metroui.org.ua/v4/"
-                                data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
-                                data-aspect-ratio="hd"
-                                v-on:click='rr(d)'
-                                 ></video>
-                                      
-                                          <v-card-title>
-                                                <div class="card-footer">
-                                                        <button class="flat-button mif-thumbs-up "> 47</button>
-                                                        <button class="flat-button mif-comment "> 7</button>
-                                                        <button class="flat-button mif-eye "> 4</button>
-                                                        <button class="flat-button mif-share "> 4</button>
-                                                    </div>
-                                          </v-card-title>
-                                      
-                                          <v-card-subtitle>
-                                                <figcaption class="mt-1 text-center">
-                         <router-link to='/single-dare' class=''>A full title of the dare. 
-                            A full title of the dare.   A full title of the dare.
-                                                        </router-link> 
-                                               </figcaption>
-                                          </v-card-subtitle>
-                                      
-                                        </v-card>
-                                      </template>
-                                      <span class="badge inside  fg-white"
-                                      style="background-color: #b82943">player's username</span>
-                        </div>
-
+                      -->
 
                         
 
@@ -290,7 +213,9 @@
     
             data(){
                 return {
-    
+                  content:[],
+                    empty:false,
+                    loading:false, 
                 }
             },
     
@@ -298,14 +223,36 @@
             $(document).ready(function(){
                 $(window).scrollTop(0);
             });
-
+            this.get()
         },
-
+        
             methods: {
 
-              rr(d){
-                console.log(d)
-              },
+                get(){
+                    this.loading = true
+                fetch('/api/dares')
+                .then(res => res.json())
+                .then(res=>{
+                   this.content = res.data;
+                  this.loading = false
+                 console.log(this.content)
+                
+                  //to determine if obj is empty 
+                          console.log(res.data[0]);
+                          if(res.data[0] == undefined){
+                              this.empty = true;
+                          }else{
+                              this.empty = false;
+                          }
+                  //to determine if obj is empty
+                  
+                })
+                .catch(error =>{
+                  console.log(error)
+                    //off loader
+                    this.loading = false
+                    })
+                },
 
                 home(){
                     this.$router.push({name: "index"});
@@ -318,28 +265,7 @@
                 back(){
                     this.$router.go(-1)
                 }
-    /*
-                this.$validator.validateAll().then(() => {
-               
-               if (!this.errors.any()) {
-                //
-                }else{
-                //
-                }
-             
-                        //
-                })
-                .catch(err=>{
-                    
-                }),
-          
-             setTimeout(func=>{
-                 //this.errors.clear()
-                // this.$validator.reset()
-             },1) 
-            
-             }); //validator
-    */
+   
             },
     
           

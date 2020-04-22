@@ -99,17 +99,23 @@
 
                 <!--dialogs suggest-->
                 <div class="dialog " data-role="dialog" id='suggest' >
-                        <div class="dialog-title white-color" style="background-color: #07557B">Suggest a Dare</div>
+                        <form method="post" data-vv-scope='suggForm'>
+                              <div class="dialog-title white-color" style="background-color: #07557B">Suggest a Dare</div>
                         <div class="dialog-content">
                                 <p>User name:</p>    
-                            <input type="text" data-role="input" data-history="true">
+                                <input type="text" data-role="input" data-history="true" name="Username"
+                                v-model='username' v-validate='"required|max:15"'>
+                                <p class='fg-red shake' v-show="errors.has('suggForm.Username')">{{ errors.first('suggForm.Username') }}</p>
                             <p>Add Description:</p>    
-                     <textarea data-role="textarea" data-history="true"></textarea>
+                     <textarea data-role="textarea" data-history="true" name="Description"
+                     v-model='description' v-validate='"required|max:255"'></textarea>
+                     <p class='fg-red shake' v-show="errors.has('suggForm.Description')">{{ errors.first('suggForm.Description') }}</p>
                         </div>
                         <div class="dialog-actions">
-                            <button class="button primary">Send</button>
-                            <button class="button alert js-dialog-close">Cancel</button>
+                            <button class="button primary" @click.prevent='suggest()'>Send</button>
+                            <button class="button alert js-dialog-close" @click.prevent=''>Close</button>
                         </div>
+                        </form>
                     </div>
 
 
@@ -220,6 +226,7 @@
                 email:'',
                 password:'',
                 username:'',
+                description:'',
             }
         },
         mounted() {
@@ -304,7 +311,7 @@
                 })
 
                     var input = {'username':this.username, 'password':this.password};
-                    axios.post('/login-user',input)
+                    axios.post('/api/login-user',input)
                     .then(res => {
                     var result = res.data.result;
 
@@ -352,7 +359,7 @@
           'password':this.password };
       
       //send to database with axios
-          axios.post('/register-user',input)
+          axios.post('/api/register-user',input)
           .then(res=>{
               console.log(res)
         if(res.data == 1){
@@ -408,6 +415,39 @@
                           return false;
                     }
                      },
+
+
+
+                     suggest(){
+                          //validate specific reg fields
+        this.$validator.validateAll('suggForm').then(() => {
+             if (!this.errors.any()) {
+            var activity =  Metro.activity.open({
+                    type: 'metro',
+                })
+
+                    var input = {'username':this.username, 'description':this.description};
+                    axios.post('/api/suggest-dare',input)
+                    .then(res => {
+                
+                          if(res.data == 1){
+                            Metro.toast.create('Suggestion sent!',
+                             null, 5000, 'success');
+                             Metro.dialog.close('#suggest')
+                             Metro.activity.close(activity);
+                          }
+                    })
+                    .catch(error =>{
+                        Metro.activity.close(activity);
+                      console.log(error)
+                    })
+                  }else{ //if error
+                    //error is auto shown, dont worry
+                  } //if error
+                })//val
+              
+                   }, //suggest
+
 
 
         },

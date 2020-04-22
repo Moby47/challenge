@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Route::apiResource('/leaderboard', 'leaderController');
 
+Route::Post('/login-user', 'customauthcontroller@login');
+Route::Post('/register-user', 'customauthcontroller@reg');
+
 
 Route::get('/leaderboard', 'dareController@scores'); //->middleware('auth.apikey');
 
