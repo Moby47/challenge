@@ -36,6 +36,8 @@ Route::get('/dare-list', 'dareController@dare_list'); //->middleware('auth.apike
 
 Route::post('/suggest-dare', 'dareController@suggestion'); //->middleware('auth.apikey');
 
+Route::post('/add-mydare', 'dareController@add_mydare'); //->middleware('auth.apikey');
+
 Route::get('/dropdown-dare-list', 'dareController@dropdown_dare_list'); //->middleware('auth.apikey');
 
 //For Admin Via API

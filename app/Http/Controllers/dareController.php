@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\dare;
+use App\mydare;
 use App\darelist;
 use App\suggestion;
 
@@ -50,6 +51,30 @@ class dareController extends Controller
     {
       $scores = darelist::orderby('id','desc')->select('dare_name','points','play_count')->paginate(10);
       return darelistres::collection($scores);
+    }
+
+    public function add_mydare(Request $request)
+    {
+        $check = mydare::where('user_id','=',$request->input('userid'))->count();
+
+        if($check < 5){
+
+            $check2 = mydare::where('user_id','=',$request->input('userid'))->where('dare_id','=',$request->input('dareid'))->first();
+           
+            if($check2){
+                return 3;
+            }else{
+                $save = new mydare();
+                $save->dare_id = $request->input('dareid');
+                $save->user_id = $request->input('userid');
+                $save->save();
+                return 1;
+            }
+        }else{
+            return 2;
+        }
+
+      
     }
 
     public function dropdown_dare_list()

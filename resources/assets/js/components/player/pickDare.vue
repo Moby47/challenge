@@ -159,15 +159,50 @@
 
               console.log('selected vendor')
 
-              var dia = confirm('You are about to add the selected Dare to your list')
+              var dia = confirm('Add the selected Dare to your list?')
 
               if (dia){
-                  
-              }
+
+                var activity =  Metro.activity.open({
+                    type: 'metro',
+                    overlayClickClose: false,
+                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
+                })
+
+                var input = {'dareid':this.selected, 'userid':Metro.session.getItem('userId')};
+                    axios.post('/api/add-mydare',input)
+                    .then(res => {
+                    var result = res.data;
+
+                    
+                         if(result == 1){
+                            Metro.toast.create(' Dare added  Successfuly!',
+                             null, 5000, 'success');
+                               Metro.activity.close(activity);
+                          }else if(result == 2){
+                            Metro.toast.create('Complete your 5 selected dares to select more',
+                             null, 5000, 'yellow');
+                             Metro.activity.close(activity);
+                          }else if(result == 3){
+                            Metro.toast.create('You added this dare already',
+                             null, 5000, 'info');
+                             Metro.activity.close(activity);
+                          }else{
+                            Metro.toast.create('Adding failed. Refresh and try again',
+                             null, 5000, 'alert');
+                             Metro.activity.close(activity); 
+                          }
+                    })
+                    .catch(error =>{
+                        Metro.activity.close(activity);
+                      console.log(error)
+                    })
+              }//if yes
                
               }
-             },
-            }
+             }, //selected meth
+
+            }//watcher
            
         }
     </script>
