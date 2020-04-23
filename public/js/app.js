@@ -62541,6 +62541,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62556,6 +62565,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
 
         this.get();
+
+        var notify = Metro.notify;
+        notify.setup({
+            width: 300,
+            duration: 1000,
+            timeout: 12000,
+            animation: 'easeOutBounce'
+        });
+        notify.create("Complete the Dare before it timesout or you fail. Failed Dares can't be selected again");
+        notify.reset();
     },
 
 
@@ -62665,14 +62684,27 @@ var render = function() {
                       return _c("tr", { key: con.id }, [
                         _c("td", [_vm._v(_vm._s(con.dare_name))]),
                         _vm._v(" "),
-                        _c("td", [
-                          _c("div", {
-                            attrs: {
-                              "data-role": "countdown",
-                              "data-date": con.expire
-                            }
-                          })
-                        ])
+                        con.status == 1
+                          ? _c("td", [
+                              _c("div", {
+                                attrs: {
+                                  "data-role": "countdown",
+                                  "data-date": con.expire
+                                }
+                              })
+                            ])
+                          : _c("td", [
+                              _c("div", {
+                                attrs: {
+                                  "data-role": "countdown",
+                                  "data-date": con.expire,
+                                  "data-cls-days": "bg-red fg-white",
+                                  "data-cls-hours": "bg-red fg-white",
+                                  "data-cls-minutes": "bg-red fg-white",
+                                  "data-cls-seconds": "bg-red fg-white"
+                                }
+                              })
+                            ])
                       ])
                     }),
                     0

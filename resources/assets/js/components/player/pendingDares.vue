@@ -41,13 +41,22 @@
                         </thead>
                         <tbody>
                                 <tr v-for='con in content' v-bind:key='con.id'>
+                                    
                          <td>{{con.dare_name}}</td>
-                                <td> 
-                              <div data-role="countdown"  
-                              :data-date="con.expire"
-                                >
-                            </div>
-                            </td>
+
+                         <td v-if='con.status == 1'> 
+                                <div data-role="countdown" :data-date="con.expire">
+                               </div>
+                               </td>
+                               <td v-else> 
+                              <div data-role="countdown" :data-date="con.expire" 
+                               data-cls-days="bg-red fg-white"
+                               data-cls-hours="bg-red fg-white"
+                               data-cls-minutes="bg-red fg-white"
+                               data-cls-seconds="bg-red fg-white"
+                               >
+                                   </div>
+                                   </td>
                                     </tr>
                                   
                         </tbody>
@@ -107,6 +116,16 @@
                 });
 
                 this.get()
+
+                var notify = Metro.notify;
+                        notify.setup({
+                            width: 300,
+                            duration: 1000,
+                            timeout: 12000,
+                            animation: 'easeOutBounce'
+                        });
+                        notify.create("Complete the Dare before it timesout or you fail. Failed Dares can't be selected again");
+                        notify.reset();
             },
             
             methods: {
