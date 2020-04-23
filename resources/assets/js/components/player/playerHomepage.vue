@@ -94,7 +94,8 @@
     
             data(){
                 return {
-    
+                    dare_count:'',
+                    pending_dares_count:'',
                 }
             },
             mounted() {
@@ -104,6 +105,9 @@
     
                 //notification for neebies
                 this.notify()
+
+                this.get_dare_count()
+                this.get_pending_dare_count()
                
             },
             
@@ -160,6 +164,15 @@
                    Metro.activity.close(activity);
                     this.$router.push({name: "homepage"});
                     },
+
+
+                    get_dare_count(){
+
+                    },
+
+                    get_pending_dare_count(){
+                        
+                    }
             },
     
            

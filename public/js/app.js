@@ -61569,7 +61569,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            dare_count: '',
+            pending_dares_count: ''
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
@@ -61578,6 +61581,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         //notification for neebies
         this.notify();
+
+        this.get_dare_count();
+        this.get_pending_dare_count();
     },
 
 
@@ -61630,7 +61636,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             Metro.activity.close(activity);
             this.$router.push({ name: "homepage" });
-        }
+        },
+        get_dare_count: function get_dare_count() {},
+        get_pending_dare_count: function get_pending_dare_count() {}
     }
 
 });
