@@ -35,7 +35,7 @@
                data-hint-text="Select Dares you want to attempt, to add them to your Dare list."
                 data-hint-position="top">
                 <select data-role="select" v-model='selected'>
-                        <option selected class="text-bold" :value='con.id'
+                        <option selected class="text-bold" :value='con.dare_name'
                         v-for='con in content' v-bind:key='con.id'>
                         {{con.dare_name}}</option>
                     </select></p>
@@ -159,7 +159,7 @@
 
               console.log('selected vendor')
 
-              var dia = confirm('Add the selected Dare to your list?')
+              var dia = confirm('Add the Dare: ' + this.selected + '?')
 
               if (dia){
 
@@ -169,7 +169,7 @@
                     text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
                 })
 
-                var input = {'dareid':this.selected, 'userid':Metro.session.getItem('userId')};
+                var input = {'darename':this.selected, 'userid':Metro.session.getItem('userId')};
                     axios.post('/api/add-mydare',input)
                     .then(res => {
                     var result = res.data;

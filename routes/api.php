@@ -40,6 +40,8 @@ Route::post('/add-mydare', 'dareController@add_mydare'); //->middleware('auth.ap
 
 Route::get('/dropdown-dare-list', 'dareController@dropdown_dare_list'); //->middleware('auth.apikey');
 
+Route::get('/pending-dares/{userid}', 'dareController@pending_dares'); //->middleware('auth.apikey');
+
 //For Admin Via API
 Route::post('/create-darelist', 'dareController@create_darelist'); //->middleware('auth.apikey');
 //params: dare_name and points

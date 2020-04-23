@@ -17,7 +17,7 @@ class dareController extends Controller
 {
     public function dares()
     {
-        //fetch data (last 15) from dares model. 
+        //fetch data (last 15) from dares model. (method needs work)
          //demo
          $scores = dare::all();
          return dareres::collection($scores);
@@ -25,7 +25,7 @@ class dareController extends Controller
 
     public function search()
     {
-        //search username from dare model 
+        //search by dare name from dare model (method needs work)
             //demo
       $scores = dare::all();
       return dareres::collection($scores);
@@ -33,7 +33,7 @@ class dareController extends Controller
 
     public function filter_dare()
     {
-        //search username from dare model 
+        //search by username from dare model (method needs work)
              //demo
       $scores = dare::all();
       return dareres::collection($scores);
@@ -41,7 +41,7 @@ class dareController extends Controller
 
     public function scores()
     {
-        //fetch data (last 10) from dares model, order from highest likes. 
+        //fetch data (last 10) from dares model, order from highest likes. (method needs work)
         //demo
       $scores = dare::all();
       return dareres::collection($scores);
@@ -55,18 +55,21 @@ class dareController extends Controller
 
     public function add_mydare(Request $request)
     {
-        $check = mydare::where('user_id','=',$request->input('userid'))->count();
+        //check that > 5 dares are not selected
+        $check = mydare::where('user_id','=',$request->input('userid'))->where('status','=',1)->count();
 
         if($check < 5){
-
-            $check2 = mydare::where('user_id','=',$request->input('userid'))->where('dare_id','=',$request->input('dareid'))->first();
+            //prevent duplicate selection
+            $check2 = mydare::where('user_id','=',$request->input('userid'))
+            ->where('dare_name','=',$request->input('darename'))->first();
            
             if($check2){
                 return 3;
             }else{
                 $save = new mydare();
-                $save->dare_id = $request->input('dareid');
+                $save->dare_name = $request->input('darename');
                 $save->user_id = $request->input('userid');
+                $save->expire = \carbon\carbon::now()->addDays(6);
                 $save->save();
                 return 1;
             }
@@ -106,4 +109,18 @@ class dareController extends Controller
         $data = suggestion::orderby('id','desc')->select('username','dare','created_at')->paginate(15);
         return suggestionres::collection($data);
     }
+
+    public function pending_dares($userid)
+    {
+        //check and expire
+      return  $data = mydare::orderby('status',1)->where('user_id','=',$userid)
+        ->whereDate('expire','<=', \carbon\carbon::now())
+        ->select('dare_name','expire','status')->get();
+
+        //fetch
+      $data = mydare::orderby('status',1)->where('user_id','=',$userid)
+      ->select('dare_name','expire','status')->get();
+      return darelistres::collection($data);
+    }
+
 }

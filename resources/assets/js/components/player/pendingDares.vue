@@ -10,9 +10,29 @@
     
         <div class="container fadeIn">
         
-                <h3 class="text-center white-color"> Selected Dares</h3>
+                <h3 class="text-center white-color"> Pending Dares</h3>
     
-                <table class="table row-hover table-border white-color">
+
+                <span v-if='empty'>
+                        <div class="remark info text-center">
+                                Dare list is currently empty
+                             </div>
+                </span>
+        
+                <template v-if='loading'>
+                        <v-sheet
+                          :color="`grey`"
+                          class="px-3 pt-3 pb-3"
+                        >
+                          <v-skeleton-loader
+                            class="mx-auto"
+                            max-width="auto"
+                            type="table-tbody"
+                          ></v-skeleton-loader>
+                        </v-sheet>
+                      </template>
+
+                <table class="table row-hover table-border white-color" v-else>
                         <thead>
                         <tr>
                              <th class='white-color'>Dare</th>
@@ -20,26 +40,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                                <tr>
-                                        <td>learn a javascript programming syntax</td>
-                                        <td> 
-                              <div data-role="countdown"  data-date="18/04/2020"
-                            data-days="1"
-                            data-hours="2"
-                            data-minutes="3"
-                            data-seconds="4"></div>
-                        </td>
+                                <tr v-for='con in content' v-bind:key='con.id'>
+                         <td>{{con.dare_name}}</td>
+                                <td> 
+                              <div data-role="countdown"  
+                              :data-date="con.expire"
+                                >
+                            </div>
+                            </td>
                                     </tr>
-                                    <tr>
-                                            <td>watch a scary movie</td>
-                                            <td> 
-                                                    <div data-role="countdown"  data-date="18/04/2020"
-                                                  data-days="1"
-                                                  data-hours="2"
-                                                  data-minutes="3"
-                                                  data-seconds="4"></div>
-                                              </td>
-                                    </tr>
+                                  
                         </tbody>
                     </table>
 
@@ -86,13 +96,17 @@
     
             data(){
                 return {
-    
+                    content:[],
+                    empty:false,
+                    loading:false,
                 }
             },
             mounted() {
                 $(document).ready(function(){
                     $(window).scrollTop(0);
                 });
+
+                this.get()
             },
             
             methods: {
@@ -110,30 +124,33 @@
 
                 back(){
                     this.$router.go(-1)
-                }
+                },
                 
-    /*
-                this.$validator.validateAll().then(() => {
-               
-               if (!this.errors.any()) {
-                //
-                }else{
-                //
-                }
-             
-                        //
-                })
-                .catch(err=>{
+                get(){
+                        this.loading = true
+                    fetch('/api/pending-dares/'+Metro.session.getItem('userId'))
+                    .then(res => res.json())
+                    .then(res=>{
+                        this.content = res.data;
+                    this.loading = false
+                    console.log(this.content)
                     
-                }),
-          
-             setTimeout(func=>{
-                 //this.errors.clear()
-                // this.$validator.reset()
-             },1) 
-            
-             }); //validator
-    */
+                    //to determine if obj is empty 
+                            console.log(res.data[0]);
+                            if(res.data[0] == undefined){
+                                this.empty = true;
+                            }else{
+                                this.empty = false;
+                            }
+                    //to determine if obj is empty
+                    
+                    })
+                    .catch(error =>{
+                    console.log(error)
+                        //off loader
+                        this.loading = false
+                        })
+                    },
             },
     
            

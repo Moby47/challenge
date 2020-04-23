@@ -62125,7 +62125,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 console.log('selected vendor');
 
-                var dia = confirm('Add the selected Dare to your list?');
+                var dia = confirm('Add the Dare: ' + this.selected + '?');
 
                 if (dia) {
 
@@ -62135,7 +62135,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                     });
 
-                    var input = { 'dareid': this.selected, 'userid': Metro.session.getItem('userId') };
+                    var input = { 'darename': this.selected, 'userid': Metro.session.getItem('userId') };
                     axios.post('/api/add-mydare', input).then(function (res) {
                         var result = res.data;
 
@@ -62261,7 +62261,7 @@ var render = function() {
                           key: con.id,
                           staticClass: "text-bold",
                           attrs: { selected: "" },
-                          domProps: { value: con.id }
+                          domProps: { value: con.dare_name }
                         },
                         [_vm._v("\n                " + _vm._s(con.dare_name))]
                       )
@@ -62531,15 +62531,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            content: [],
+            empty: false,
+            loading: false
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
             $(window).scrollTop(0);
         });
+
+        this.get();
     },
 
 
@@ -62555,31 +62571,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         back: function back() {
             this.$router.go(-1);
+        },
+        get: function get() {
+            var _this = this;
+
+            this.loading = true;
+            fetch('/api/pending-dares/' + Metro.session.getItem('userId')).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.content = res.data;
+                _this.loading = false;
+                console.log(_this.content);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this.empty = true;
+                } else {
+                    _this.empty = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading = false;
+            });
         }
-
-        /*
-                    this.$validator.validateAll().then(() => {
-                   
-                   if (!this.errors.any()) {
-                    //
-                    }else{
-                    //
-                    }
-                 
-                            //
-                    })
-                    .catch(err=>{
-                        
-                    }),
-              
-                 setTimeout(func=>{
-                     //this.errors.clear()
-                    // this.$validator.reset()
-                 },1) 
-                
-                 }); //validator
-        */
-
     }
 
 });
@@ -62609,10 +62626,59 @@ var render = function() {
         { staticClass: "container fadeIn" },
         [
           _c("h3", { staticClass: "text-center white-color" }, [
-            _vm._v(" Selected Dares")
+            _vm._v(" Pending Dares")
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm.empty
+            ? _c("span", [
+                _c("div", { staticClass: "remark info text-center" }, [
+                  _vm._v(
+                    "\n                        Dare list is currently empty\n                     "
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.loading
+            ? [
+                _c(
+                  "v-sheet",
+                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
+                  [
+                    _c("v-skeleton-loader", {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "auto", type: "table-tbody" }
+                    })
+                  ],
+                  1
+                )
+              ]
+            : _c(
+                "table",
+                { staticClass: "table row-hover table-border white-color" },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.content, function(con) {
+                      return _c("tr", { key: con.id }, [
+                        _c("td", [_vm._v(_vm._s(con.dare_name))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("div", {
+                            attrs: {
+                              "data-role": "countdown",
+                              "data-date": con.expire
+                            }
+                          })
+                        ])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              ),
           _vm._v(" "),
           _c(
             "div",
@@ -62722,55 +62788,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "table",
-      { staticClass: "table row-hover table-border white-color" },
-      [
-        _c("thead", [
-          _c("tr", [
-            _c("th", { staticClass: "white-color" }, [_vm._v("Dare")]),
-            _vm._v(" "),
-            _c("th", { staticClass: "white-color" }, [_vm._v("Countdown")])
-          ])
-        ]),
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "white-color" }, [_vm._v("Dare")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("td", [_vm._v("learn a javascript programming syntax")]),
-            _vm._v(" "),
-            _c("td", [
-              _c("div", {
-                attrs: {
-                  "data-role": "countdown",
-                  "data-date": "18/04/2020",
-                  "data-days": "1",
-                  "data-hours": "2",
-                  "data-minutes": "3",
-                  "data-seconds": "4"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_vm._v("watch a scary movie")]),
-            _vm._v(" "),
-            _c("td", [
-              _c("div", {
-                attrs: {
-                  "data-role": "countdown",
-                  "data-date": "18/04/2020",
-                  "data-days": "1",
-                  "data-hours": "2",
-                  "data-minutes": "3",
-                  "data-seconds": "4"
-                }
-              })
-            ])
-          ])
-        ])
-      ]
-    )
+        _c("th", { staticClass: "white-color" }, [_vm._v("Countdown")])
+      ])
+    ])
   }
 ]
 render._withStripped = true
