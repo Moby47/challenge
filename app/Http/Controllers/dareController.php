@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\dare;
+use App\darelist;
+use App\suggestion;
 
 //Api resource
 use App\Http\Resources\dareResource as dareres;
+use App\Http\Resources\darelistResource as darelistres;
+use App\Http\Resources\suggestionResource as suggestionres;
 
 class dareController extends Controller
 {
@@ -44,16 +48,37 @@ class dareController extends Controller
 
     public function dare_list()
     {
-        //fetch data (last 10) from darelist model, paginate
-        //demo
-      $scores = dare::all();
-      return dareres::collection($scores);
+      $scores = darelist::orderby('id','desc')->select('dare_name','points','play_count')->paginate(10);
+      return darelistres::collection($scores);
+    }
+
+    public function dropdown_dare_list()
+    {
+      $data = darelist::orderby('id','desc')->select('dare_name','points','id')->get();
+      return darelistres::collection($data);
     }
 
     public function suggestion(Request $request)
     {
-        //save to suggestion model, request fields from front end are username and description
-        //return 1 as success
+        $save = new suggestion();
+        $save->username = $request->input('username');
+        $save->dare = $request->input('description');
+        $save->save();
         return 1;
+    }
+
+    public function create_darelist(Request $request)
+    {
+        $save = new darelist();
+        $save->dare_name = $request->input('dare_name');
+        $save->points = $request->input('points');
+        $save->save();
+        return 1;
+    }
+
+    public function suggestions()
+    {
+        $data = suggestion::orderby('id','desc')->select('username','dare','created_at')->paginate(15);
+        return suggestionres::collection($data);
     }
 }

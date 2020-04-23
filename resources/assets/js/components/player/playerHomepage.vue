@@ -150,6 +150,8 @@
                 logout(){
                     var activity =  Metro.activity.open({
                     type: 'metro',
+                    overlayClickClose: false,
+                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
                 })
                 Metro.session.delItem('userToken');
                                Metro.session.delItem('userId');

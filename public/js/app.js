@@ -55812,7 +55812,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$validator.validateAll('loginForm').then(function () {
                 if (!_this.errors.any()) {
                     var activity = Metro.activity.open({
-                        type: 'metro'
+                        type: 'metro',
+                        overlayClickClose: false,
+                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                     });
 
                     var input = { 'username': _this.username, 'password': _this.password };
@@ -55852,7 +55854,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (!_this2.errors.any()) {
 
                     var activity = Metro.activity.open({
-                        type: 'metro'
+                        type: 'metro',
+                        overlayClickClose: false,
+                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                     });
 
                     //start registeration
@@ -55864,9 +55868,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         console.log(res);
                         if (res.data == 1) {
                             Metro.activity.close(activity);
-                            Metro.toast.create('Signup was Successful! Please Login', null, 5000, 'success');
+                            Metro.toast.create('Signup was Successful!', null, 5000, 'success');
                             Metro.dialog.close('#newPlayer');
-                            Metro.dialog.open('#oldPlayer');
+                            // Metro.dialog.open('#oldPlayer')
+                            _this2.login();
                         } else {
                             Metro.toast.create('An error occured!', null, 5000, 'alert');
                             Metro.activity.close(activity);
@@ -56782,7 +56787,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             this.$validator.validateAll('loginForm').then(function () {
                 if (!_this.errors.any()) {
                     var activity = Metro.activity.open({
-                        type: 'metro'
+                        type: 'metro',
+                        overlayClickClose: false,
+                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                     });
 
                     var input = { 'username': _this.username, 'password': _this.password };
@@ -56822,7 +56829,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 if (!_this2.errors.any()) {
 
                     var activity = Metro.activity.open({
-                        type: 'metro'
+                        type: 'metro',
+                        overlayClickClose: false,
+                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                     });
 
                     //start registeration
@@ -56834,9 +56843,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         console.log(res);
                         if (res.data == 1) {
                             Metro.activity.close(activity);
-                            Metro.toast.create('Signup was Successful! Please Login', null, 5000, 'success');
+                            Metro.toast.create('Signup was Successful!', null, 5000, 'success');
                             Metro.dialog.close('#newPlayer');
-                            Metro.dialog.open('#oldPlayer');
+                            // Metro.dialog.open('#oldPlayer')
+                            _this2.login();
                         } else {
                             Metro.toast.create('An error occured!', null, 5000, 'alert');
                             Metro.activity.close(activity);
@@ -56879,7 +56889,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.$validator.validateAll('suggForm').then(function () {
             if (!_this3.errors.any()) {
                 var activity = Metro.activity.open({
-                    type: 'metro'
+                    type: 'metro',
+                    overlayClickClose: false,
+                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                 });
 
                 var input = { 'username': _this3.username, 'description': _this3.description };
@@ -56889,6 +56901,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         Metro.toast.create('Suggestion sent!', null, 5000, 'success');
                         Metro.dialog.close('#suggest');
                         Metro.activity.close(activity);
+
+                        setTimeout(function (func) {
+                            _this3.username = '';
+                            _this3.description = '';
+
+                            //   setTimeout(func=>{
+                            //     this.errors.clear();
+                            //   },5)
+                        }, 2000);
                     }
                 }).catch(function (error) {
                     Metro.activity.close(activity);
@@ -59417,7 +59438,7 @@ var render = function() {
                   [
                     _c("v-skeleton-loader", {
                       staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "table" }
+                      attrs: { "max-width": "auto", type: "table-tbody" }
                     })
                   ],
                   1
@@ -59587,13 +59608,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             content: [],
             empty: false,
-            loading: false
+            loading: false,
+            pagination: [],
+            count: '0'
         };
     },
     mounted: function mounted() {
@@ -59606,15 +59639,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        get: function get() {
+        get: function get(page_url) {
             var _this = this;
 
             this.loading = true;
-            fetch('/api/dare-list').then(function (res) {
+
+            var page_url = page_url || '/api/dare-list';
+
+            fetch(page_url).then(function (res) {
                 return res.json();
             }).then(function (res) {
                 _this.content = res.data;
-                _this.loading = false;
+                _this.count = res.meta.total;
                 console.log(_this.content);
 
                 //to determine if obj is empty 
@@ -59625,13 +59661,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this.empty = false;
                 }
                 //to determine if obj is empty
+                _this.makePagination(res.meta, res.links);
+                _this.loading = false;
             }).catch(function (error) {
                 console.log(error);
                 //off loader
                 _this.loading = false;
             });
+        },
+        makePagination: function makePagination(meta, links) {
+            var pagination = {
+                current_page: meta.current_page,
+                last_page: meta.last_page,
+                next_page_url: links.next,
+                prev_page_url: links.prev
+            };
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            this.pagination = pagination;
         }
-    }
+    } //meth end
+
 
 });
 
@@ -59672,16 +59722,90 @@ var render = function() {
                   [
                     _c("v-skeleton-loader", {
                       staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "table" }
+                      attrs: { "max-width": "auto", type: "table-tbody" }
                     })
                   ],
                   1
                 )
               ]
-            : _c("table", { staticClass: "table row-hover table-border" }, [
-                _vm._m(0),
+            : _c("span", [
+                _c("table", { staticClass: "table row-hover table-border" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.content, function(con) {
+                      return _c("tr", { key: con.id, staticClass: "info" }, [
+                        _c("td", [_vm._v(_vm._s(con.dare_name) + " ")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(con.play_count))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(con.points))])
+                      ])
+                    }),
+                    0
+                  )
+                ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm.count > 9
+                  ? _c("ul", { staticClass: "pagination" }, [
+                      _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: {
+                              href: "#",
+                              disabled: !_vm.pagination.prev_page_url
+                            },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.get(_vm.pagination.prev_page_url)
+                              }
+                            }
+                          },
+                          [_vm._v(" Prev ")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          { staticClass: "page-link", attrs: { href: "#" } },
+                          [
+                            _c("span", [
+                              _vm._v(
+                                _vm._s(_vm.pagination.current_page) +
+                                  " of " +
+                                  _vm._s(_vm.pagination.last_page)
+                              )
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: {
+                              href: "#",
+                              disabled: !_vm.pagination.next_page_url
+                            },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.get(_vm.pagination.next_page_url)
+                              }
+                            }
+                          },
+                          [_vm._v("Next ")]
+                        )
+                      ])
+                    ])
+                  : _vm._e()
               ])
         ],
         2
@@ -59704,20 +59828,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Players Played")]),
         _vm._v(" "),
         _c("th", [_vm._v("Points")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tbody", [
-      _c("tr", { staticClass: "info" }, [
-        _c("td"),
-        _vm._v(" "),
-        _c("td"),
-        _vm._v(" "),
-        _c("td")
       ])
     ])
   }
@@ -61510,7 +61620,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         logout: function logout() {
             var activity = Metro.activity.open({
-                type: 'metro'
+                type: 'metro',
+                overlayClickClose: false,
+                text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
             });
             Metro.session.delItem('userToken');
             Metro.session.delItem('userId');
@@ -61929,19 +62041,70 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            content: [],
+            empty: false,
+            loading: false,
+            selected: ''
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
             $(window).scrollTop(0);
         });
+
+        this.get();
     },
 
 
     methods: {
+        get: function get() {
+            var _this = this;
+
+            this.loading = true;
+            fetch('/api/dropdown-dare-list').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.content = res.data;
+                _this.loading = false;
+                console.log(_this.content);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this.empty = true;
+                } else {
+                    _this.empty = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading = false;
+            });
+        },
         home: function home() {
             this.$router.push({ name: "index" });
         },
@@ -61954,30 +62117,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         back: function back() {
             this.$router.go(-1);
         }
+    },
 
-        /*
-                    this.$validator.validateAll().then(() => {
-                   
-                   if (!this.errors.any()) {
-                    //
-                    }else{
-                    //
-                    }
-                 
-                            //
-                    })
-                    .catch(err=>{
-                        
-                    }),
-              
-                 setTimeout(func=>{
-                     //this.errors.clear()
-                    // this.$validator.reset()
-                 },1) 
-                
-                 }); //validator
-        */
+    watch: {
+        selected: function selected(a, b) {
+            if (a) {
 
+                console.log('selected vendor');
+
+                var dia = confirm('You are about to add the selected Dare to your list');
+
+                if (dia) {}
+            }
+        }
     }
 
 });
@@ -62010,7 +62162,85 @@ var render = function() {
             _vm._v(" Select Dares to Add")
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm.empty
+            ? _c("span", [
+                _c("div", { staticClass: "remark info text-center" }, [
+                  _vm._v(
+                    "\n                        Dare list is currently empty\n                     "
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.loading
+            ? [
+                _c(
+                  "v-sheet",
+                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
+                  [
+                    _c("v-skeleton-loader", {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "auto", type: "sentences" }
+                    })
+                  ],
+                  1
+                )
+              ]
+            : _c(
+                "p",
+                {
+                  attrs: {
+                    "data-role": "hint",
+                    "data-hint-text":
+                      "Select Dares you want to attempt, to add them to your Dare list.",
+                    "data-hint-position": "top"
+                  }
+                },
+                [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selected,
+                          expression: "selected"
+                        }
+                      ],
+                      attrs: { "data-role": "select" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.selected = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    _vm._l(_vm.content, function(con) {
+                      return _c(
+                        "option",
+                        {
+                          key: con.id,
+                          staticClass: "text-bold",
+                          attrs: { selected: "" },
+                          domProps: { value: con.id }
+                        },
+                        [_vm._v("\n                " + _vm._s(con.dare_name))]
+                      )
+                    }),
+                    0
+                  )
+                ]
+              ),
           _vm._v(" "),
           _c(
             "div",
@@ -62126,37 +62356,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      {
-        attrs: {
-          "data-role": "hint",
-          "data-hint-text":
-            "Select Dares you want to attempt, to add them to your Dare list.",
-          "data-hint-position": "top"
-        }
-      },
-      [
-        _c("select", { attrs: { "data-role": "select" } }, [
-          _c("option", { staticClass: "fg-cyan" }, [_vm._v("One")]),
-          _vm._v(" "),
-          _c(
-            "option",
-            { staticClass: "text-bold fg-red", attrs: { selected: "" } },
-            [_vm._v("Two")]
-          ),
-          _vm._v(" "),
-          _c("option", { staticClass: "fg-green" }, [_vm._v("Three")])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

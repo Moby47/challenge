@@ -12,13 +12,32 @@
         
                 <h3 class="text-center white-color"> Select Dares to Add</h3>
     
-               <p data-role="hint"
+                <span v-if='empty'>
+                        <div class="remark info text-center">
+                                Dare list is currently empty
+                             </div>
+                </span>
+        
+                <template v-if='loading'>
+                        <v-sheet
+                          :color="`grey`"
+                          class="px-3 pt-3 pb-3"
+                        >
+                          <v-skeleton-loader
+                            class="mx-auto"
+                            max-width="auto"
+                            type="sentences"
+                          ></v-skeleton-loader>
+                        </v-sheet>
+                      </template>
+
+               <p data-role="hint" v-else
                data-hint-text="Select Dares you want to attempt, to add them to your Dare list."
                 data-hint-position="top">
-                <select data-role="select">
-                        <option class="fg-cyan">One</option>
-                        <option selected class="text-bold fg-red">Two</option>
-                        <option class="fg-green">Three</option>
+                <select data-role="select" v-model='selected'>
+                        <option selected class="text-bold" :value='con.id'
+                        v-for='con in content' v-bind:key='con.id'>
+                        {{con.dare_name}}</option>
                     </select></p>
 
 
@@ -71,16 +90,51 @@
     
             data(){
                 return {
-    
+                    content:[],
+                    empty:false,
+                    loading:false,
+                    selected:'',
                 }
             },
             mounted() {
                 $(document).ready(function(){
                     $(window).scrollTop(0);
                 });
-            },
-            
-            methods: {
+                
+                this.get()
+
+                },
+
+                methods: {
+
+        
+
+                    get(){
+                        this.loading = true
+                    fetch('/api/dropdown-dare-list')
+                    .then(res => res.json())
+                    .then(res=>{
+                        this.content = res.data;
+                    this.loading = false
+                    console.log(this.content)
+                    
+                    //to determine if obj is empty 
+                            console.log(res.data[0]);
+                            if(res.data[0] == undefined){
+                                this.empty = true;
+                            }else{
+                                this.empty = false;
+                            }
+                    //to determine if obj is empty
+                    
+                    })
+                    .catch(error =>{
+                    console.log(error)
+                        //off loader
+                        this.loading = false
+                        })
+                    },
+
                 home(){
                     this.$router.push({name: "index"});
                 },
@@ -96,31 +150,24 @@
                 back(){
                     this.$router.go(-1)
                 }
-                
-    /*
-                this.$validator.validateAll().then(() => {
-               
-               if (!this.errors.any()) {
-                //
-                }else{
-                //
-                }
-             
-                        //
-                })
-                .catch(err=>{
-                    
-                }),
-          
-             setTimeout(func=>{
-                 //this.errors.clear()
-                // this.$validator.reset()
-             },1) 
-            
-             }); //validator
-    */
+
             },
     
+            watch:{
+                selected(a,b){
+             if(a){
+
+              console.log('selected vendor')
+
+              var dia = confirm('You are about to add the selected Dare to your list')
+
+              if (dia){
+                  
+              }
+               
+              }
+             },
+            }
            
         }
     </script>

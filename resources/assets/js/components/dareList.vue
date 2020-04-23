@@ -21,12 +21,13 @@
                           <v-skeleton-loader
                             class="mx-auto"
                             max-width="auto"
-                            type="table"
+                            type="table-tbody"
                           ></v-skeleton-loader>
                         </v-sheet>
                       </template>
-            
-                <table class="table row-hover table-border" v-else>
+                      
+                      <span v-else>
+                <table class="table row-hover table-border" >
                         <thead>
                         <tr>
                              <th>Dare</th>
@@ -35,14 +36,23 @@
                         </tr>
                         </thead>
                         <tbody>
-                                <tr class="info">
-                                        <td> </td>
-                                        <td></td>
-                                        <td></td>
+                                <tr class="info" v-for='con in content' v-bind:key='con.id'>
+                                        <td>{{con.dare_name}} </td>
+                                        <td>{{con.play_count}}</td>
+                                        <td>{{con.points}}</td>
                                     </tr>
                                    
                         </tbody>
                     </table>
+
+                    <ul class="pagination" v-if='count > 9'>
+                            <li class="page-item"><a class="page-link" href="#" @click.prevent="get(pagination.prev_page_url)" :disabled="!pagination.prev_page_url"> Prev </a></li>
+
+                            <li class="page-item"><a class="page-link" href="#"><span>{{pagination.current_page}} of {{pagination.last_page}}</span></a></li>
+                            
+                  <li class="page-item"><a class="page-link" href="#" @click.prevent="get(pagination.next_page_url)" :disabled="!pagination.next_page_url">Next </a></li>
+                        </ul>
+                </span>
 
                 </div>
     
@@ -60,6 +70,8 @@
                     content:[],
                     empty:false,
                     loading:false,    
+                    pagination: [],
+                    count:'0',
                 }
             },
     
@@ -73,13 +85,16 @@
         
             methods: {
 
-                get(){
+                get(page_url){
                     this.loading = true
-                fetch('/api/dare-list')
+
+                    var   page_url = page_url || '/api/dare-list';
+
+                fetch(page_url)
                 .then(res => res.json())
                 .then(res=>{
                    this.content = res.data;
-                  this.loading = false
+                    this.count = res.meta.total
                  console.log(this.content)
                 
                   //to determine if obj is empty 
@@ -90,7 +105,8 @@
                               this.empty = false;
                           }
                   //to determine if obj is empty
-                  
+                  this.makePagination(res.meta, res.links);
+                  this.loading = false
                 })
                 .catch(error =>{
                   console.log(error)
@@ -99,8 +115,23 @@
                     })
                 },
 
-            },
+
+                makePagination(meta, links){
+          var pagination = {
+                          current_page: meta.current_page,
+                          last_page: meta.last_page,
+                          next_page_url: links.next,
+                          prev_page_url: links.prev
+                           }
+            document.body.scrollTop = 0;
+           document.documentElement.scrollTop = 0;
+          this.pagination = pagination;
+              },
+
+
+            },//meth end
     
+           
         }
     </script>
     

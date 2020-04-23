@@ -35,3 +35,10 @@ Route::get('/filter-dare', 'dareController@filter_dare'); //->middleware('auth.a
 Route::get('/dare-list', 'dareController@dare_list'); //->middleware('auth.apikey');
 
 Route::post('/suggest-dare', 'dareController@suggestion'); //->middleware('auth.apikey');
+
+Route::get('/dropdown-dare-list', 'dareController@dropdown_dare_list'); //->middleware('auth.apikey');
+
+//For Admin Via API
+Route::post('/create-darelist', 'dareController@create_darelist'); //->middleware('auth.apikey');
+//params: dare_name and points
+Route::get('/view-suggestions', 'dareController@suggestions'); //->middleware('auth.apikey');

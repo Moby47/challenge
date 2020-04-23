@@ -308,6 +308,8 @@
              if (!this.errors.any()) {
             var activity =  Metro.activity.open({
                     type: 'metro',
+                    overlayClickClose: false,
+                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
                 })
 
                     var input = {'username':this.username, 'password':this.password};
@@ -352,6 +354,8 @@
               
               var activity =  Metro.activity.open({
                     type: 'metro',
+                    overlayClickClose: false,
+                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
                 })
 
           //start registeration
@@ -364,11 +368,12 @@
               console.log(res)
         if(res.data == 1){
             Metro.activity.close(activity);
-                Metro.toast.create('Signup was Successful! Please Login',
+                Metro.toast.create('Signup was Successful!',
                              null, 5000, 'success');
                              Metro.dialog.close('#newPlayer')
-                             Metro.dialog.open('#oldPlayer')
-  
+                            // Metro.dialog.open('#oldPlayer')
+                            this.login()
+
 
         }else{
             Metro.toast.create('An error occured!',
@@ -424,6 +429,8 @@
              if (!this.errors.any()) {
             var activity =  Metro.activity.open({
                     type: 'metro',
+                    overlayClickClose: false,
+                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
                 })
 
                     var input = {'username':this.username, 'description':this.description};
@@ -435,6 +442,15 @@
                              null, 5000, 'success');
                              Metro.dialog.close('#suggest')
                              Metro.activity.close(activity);
+
+                             setTimeout(func=>{
+                                this.username = '';
+                                this.description = '';
+                                
+                             //   setTimeout(func=>{
+                               //     this.errors.clear();
+                               //   },5)
+                                },2000)
                           }
                     })
                     .catch(error =>{

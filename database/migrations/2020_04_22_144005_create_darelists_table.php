@@ -17,7 +17,7 @@ class CreateDarelistsTable extends Migration
             $table->increments('id');
             $table->string('dare_name');
             $table->integer('points');
-            $table->integer('play_count');
+            $table->integer('play_count')->default(0);
             $table->timestamps();
         });
     }
