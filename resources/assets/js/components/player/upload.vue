@@ -25,14 +25,14 @@
                           <v-skeleton-loader
                             class="mx-auto"
                             max-width="auto"
-                            type="article"
+                            type="action, article@2"
                           ></v-skeleton-loader>
                         </v-sheet>
                       </template>
 
-                
-        <form v-else enctype="multipart/form-data" method="POST">
-        <p>Select Dare</p>
+                <span v-else>
+        <form  enctype="multipart/form-data" method="POST">
+        <p class='text-white'>Select Dare</p>
                <p data-role="hint"
                data-hint-text="Select Dare you want to upload its video"
                 data-hint-position="top">
@@ -43,7 +43,7 @@
                     </select></p>
                     <p class='fg-yellow shake' v-show="errors.has('dare')">{{ errors.first('dare') }}</p>
 
-                <p>Video upload</p>
+                <p class='text-white'>Video upload</p>
                 <input type="file" data-role="file" data-mode="drop" name='video'
                 @change='videoSelect' v-validate='"required|ext:mp4,3gp|size:50000"'>
                 <p class='fg-yellow shake' v-show="errors.has('video')">{{ errors.first('video') }}</p>
@@ -53,10 +53,10 @@
                 </form>
 
                     <div class="remark info text-center">
-                           <router-link to='/pending-dares'> Click here to view your pending Dares</router-link>
+                           <router-link to='/pending-dares'> Click here to view your Dares</router-link>
                           
                         </div>
-
+                    </span>
 
                        
                              <template>
@@ -156,7 +156,11 @@
          this.$validator.validateAll().then(() => {
            
            if (!this.errors.any()) {
-            //run code
+
+            var dia = confirm("Upload the selected video? this can't be undone")
+
+                if (dia){
+                                //run code
             var activity =  Metro.activity.open({
                     type: 'metro',
                     overlayClickClose: false,
@@ -164,9 +168,11 @@
                 })
 
             const formdata  = new FormData();
+
     //append form data to formdata
     formdata.append('selected',  this.selected);
     formdata.append('video', this.video);
+    formdata.append('userid', Metro.session.getItem('userId'));
 
         axios.post('/api/upload-dare',formdata)
         .then(res=>{
@@ -174,7 +180,7 @@
 
 			if(res.data == 1){
         Metro.activity.close(activity);
- 
+        this.get()
       //  document.getElementById("addForm").reset();
       Metro.toast.create('Upload Successful!',
         null, 5000, 'success');
@@ -190,6 +196,8 @@
         console.log(err)
         Metro.activity.close(activity);
       })
+
+                }
       
             }else{
             //do nothing, v validate will work

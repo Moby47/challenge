@@ -17,6 +17,7 @@ class CreateMydaresTable extends Migration
             $table->increments('id');
             $table->string('dare_name');
             $table->integer('user_id');
+            $table->integer('darelist_id');
             $table->dateTime('expire');
             $table->integer('status')->default(1);
             $table->timestamps();

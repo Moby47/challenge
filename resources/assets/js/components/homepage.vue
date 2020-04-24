@@ -34,7 +34,7 @@
                           <span  @click.prevent='dares()'>  <span class="mif-file-video icon"></span>
                             <span class="branding-bar">Watch Dares</span>
                        
-                            <span class="badge-bottom">1047</span>
+                            <span class="badge-bottom">{{dare_vids_count}}</span>
                         </span>
                     </div>
 
@@ -62,7 +62,7 @@
                     class='fadeIn ani-hover-horizontal'>
                             <span @click.prevent='list()'>  <span class="mif-list icon"></span>
                             <span class="branding-bar">Dare List</span>
-                            <span class="badge-bottom">106</span>
+                            <span class="badge-bottom">{{dare_count}}</span>
                         </span>
                     </div>
                 </div>
@@ -222,6 +222,8 @@
                 password:'',
                 username:'',
                 description:'',
+                dare_count:'',
+                dare_vids_count:'',
             }
         },
         mounted() {
@@ -231,10 +233,38 @@
 
             //notification for neebies
             this.notify()
+
+            this.get_dare_count()
            
+           this.get_dare_vids_count()
         },
         
         methods: {
+
+            get_dare_count(){
+                    fetch('/api/count-dares')
+                    .then(res => res.json())
+                    .then(res=>{
+                        this.dare_count = res//res.data;
+                    
+                    
+                    })
+                    .catch(error =>{
+                    console.log(error)
+                        })
+                    },
+
+                    get_dare_vids_count(){
+                    fetch('/api/count-dare-vids')
+                    .then(res => res.json())
+                    .then(res=>{
+                        this.dare_vids_count = res//res.data;
+                    
+                    })
+                    .catch(error =>{
+                    console.log(error)
+                        })
+                    },
 
             guest(){
                 Metro.charms.toggle('#charm')

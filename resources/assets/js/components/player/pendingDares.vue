@@ -10,7 +10,7 @@
     
         <div class="container fadeIn">
         
-                <h3 class="text-center white-color"> Pending Dares</h3>
+                <h3 class="text-center white-color"> My Dares</h3>
     
 
                 <span v-if='empty'>
@@ -48,7 +48,8 @@
                                 <div data-role="countdown" :data-date="con.expire">
                                </div>
                                </td>
-                               <td v-else> 
+
+                               <td v-if='con.status == 0'> 
                               <div data-role="countdown" :data-date="con.expire" 
                                data-cls-days="bg-red fg-white"
                                data-cls-hours="bg-red fg-white"
@@ -57,6 +58,11 @@
                                >
                                    </div>
                                    </td>
+
+                                   <td v-if='con.status == 3'> 
+                                    <p class='text-green pl-4'>DARE COMPLETED!</p>
+                                         </td>
+
                                     </tr>
                                   
                         </tbody>

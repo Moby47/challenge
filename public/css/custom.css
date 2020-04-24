@@ -157,3 +157,11 @@
     background-image:url('/images/home.svg');
     background-color: #e9f6fc;
   }
+
+  .text-green{
+    color: green;
+  }
+
+  .text-white{
+    color:white;
+  }

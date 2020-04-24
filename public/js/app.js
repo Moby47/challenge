@@ -56704,7 +56704,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             email: '',
             password: '',
             username: '',
-            description: ''
+            description: '',
+            dare_count: '',
+            dare_vids_count: ''
         };
     },
     mounted: function mounted() {
@@ -56714,10 +56716,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         //notification for neebies
         this.notify();
+
+        this.get_dare_count();
+
+        this.get_dare_vids_count();
     },
 
 
     methods: (_methods = {
+        get_dare_count: function get_dare_count() {
+            var _this = this;
+
+            fetch('/api/count-dares').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.dare_count = res; //res.data;
+
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        get_dare_vids_count: function get_dare_vids_count() {
+            var _this2 = this;
+
+            fetch('/api/count-dare-vids').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this2.dare_vids_count = res; //res.data;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
         guest: function guest() {
             Metro.charms.toggle('#charm');
             Metro.dialog.open('#oldPlayer');
@@ -56776,18 +56805,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
         },
         login: function login() {
-            var _this = this;
+            var _this3 = this;
 
             //validate specific reg fields
             this.$validator.validateAll('loginForm').then(function () {
-                if (!_this.errors.any()) {
+                if (!_this3.errors.any()) {
                     var activity = Metro.activity.open({
                         type: 'metro',
                         overlayClickClose: false,
                         text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                     });
 
-                    var input = { 'username': _this.username, 'password': _this.password };
+                    var input = { 'username': _this3.username, 'password': _this3.password };
                     axios.post('/api/login-user', input).then(function (res) {
                         var result = res.data.result;
 
@@ -56802,7 +56831,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             Metro.session.setItem('userId', res.data.id);
                             Metro.session.setItem('userName', res.data.username);
                             Metro.activity.close(activity);
-                            _this.$router.push({ name: "playerHomepage" });
+                            _this3.$router.push({ name: "playerHomepage" });
                         }
                     }).catch(function (error) {
                         Metro.activity.close(activity);
@@ -56817,11 +56846,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
         reg: function reg() {
-            var _this2 = this;
+            var _this4 = this;
 
             //validate
             this.$validator.validateAll('regForm').then(function () {
-                if (!_this2.errors.any()) {
+                if (!_this4.errors.any()) {
 
                     var activity = Metro.activity.open({
                         type: 'metro',
@@ -56830,8 +56859,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     });
 
                     //start registeration
-                    var input = { 'username': _this2.username, 'email': _this2.email,
-                        'password': _this2.password };
+                    var input = { 'username': _this4.username, 'email': _this4.email,
+                        'password': _this4.password };
 
                     //send to database with axios
                     axios.post('/api/register-user', input).then(function (res) {
@@ -56841,7 +56870,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             Metro.toast.create('Signup was Successful!', null, 5000, 'success');
                             Metro.dialog.close('#newPlayer');
                             // Metro.dialog.open('#oldPlayer')
-                            _this2.login();
+                            _this4.login();
                         } else {
                             Metro.toast.create('An error occured!', null, 5000, 'alert');
                             Metro.activity.close(activity);
@@ -56878,18 +56907,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             return false;
         }
     }), _defineProperty(_methods, 'suggest', function suggest() {
-        var _this3 = this;
+        var _this5 = this;
 
         //validate specific reg fields
         this.$validator.validateAll('suggForm').then(function () {
-            if (!_this3.errors.any()) {
+            if (!_this5.errors.any()) {
                 var activity = Metro.activity.open({
                     type: 'metro',
                     overlayClickClose: false,
                     text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
                 });
 
-                var input = { 'username': _this3.username, 'description': _this3.description };
+                var input = { 'username': _this5.username, 'description': _this5.description };
                 axios.post('/api/suggest-dare', input).then(function (res) {
 
                     if (res.data == 1) {
@@ -56898,8 +56927,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         Metro.activity.close(activity);
 
                         setTimeout(function (func) {
-                            _this3.username = '';
-                            _this3.description = '';
+                            _this5.username = '';
+                            _this5.description = '';
 
                             //   setTimeout(func=>{
                             //     this.errors.clear();
@@ -56995,7 +57024,9 @@ var render = function() {
                   _vm._v("Watch Dares")
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "badge-bottom" }, [_vm._v("1047")])
+                _c("span", { staticClass: "badge-bottom" }, [
+                  _vm._v(_vm._s(_vm.dare_vids_count))
+                ])
               ]
             )
           ]
@@ -57067,7 +57098,9 @@ var render = function() {
                   _vm._v("Dare List")
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "badge-bottom" }, [_vm._v("106")])
+                _c("span", { staticClass: "badge-bottom" }, [
+                  _vm._v(_vm._s(_vm.dare_count))
+                ])
               ]
             )
           ]
@@ -58150,11 +58183,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58237,85 +58265,175 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _vm.loading
-            ? _c(
+        _c(
+          "div",
+          { staticClass: "row" },
+          [
+            _vm.loading
+              ? _c(
+                  "div",
+                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+                  [
+                    [
+                      _c(
+                        "v-sheet",
+                        {
+                          staticClass: "px-3 pt-3 pb-3",
+                          attrs: { color: "grey" }
+                        },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "mx-auto",
+                            attrs: { "max-width": "auto", type: "card" }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  ],
+                  2
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.loading
+              ? _c(
+                  "div",
+                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+                  [
+                    [
+                      _c(
+                        "v-sheet",
+                        {
+                          staticClass: "px-3 pt-3 pb-3",
+                          attrs: { color: "grey" }
+                        },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "mx-auto",
+                            attrs: { "max-width": "auto", type: "card" }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  ],
+                  2
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.loading
+              ? _c(
+                  "div",
+                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+                  [
+                    [
+                      _c(
+                        "v-sheet",
+                        {
+                          staticClass: "px-3 pt-3 pb-3",
+                          attrs: { color: "grey" }
+                        },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "mx-auto",
+                            attrs: { "max-width": "auto", type: "card" }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  ],
+                  2
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.content, function(con) {
+              return _c(
                 "div",
-                { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
+                {
+                  key: con.id,
+                  staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
+                },
                 [
                   [
                     _c(
-                      "v-sheet",
-                      {
-                        staticClass: "px-3 pt-3 pb-3",
-                        attrs: { color: "grey" }
-                      },
+                      "v-card",
+                      { staticClass: "mx-auto" },
                       [
-                        _c("v-skeleton-loader", {
-                          staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "card" }
-                        })
+                        _c("video", {
+                          attrs: {
+                            "data-role": "video",
+                            "data-src": con.url,
+                            "data-logo-height": "64",
+                            "data-poster": "/images/home.svg",
+                            "data-aspect-ratio": "hd",
+                            "data-on-play": "",
+                            id: "one"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("v-card-title", [
+                          _c("div", { staticClass: "card-footer" }, [
+                            _c(
+                              "button",
+                              { staticClass: "flat-button mif-thumbs-up " },
+                              [_vm._v(" 47")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              { staticClass: "flat-button mif-comment " },
+                              [_vm._v(" 7")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              { staticClass: "flat-button mif-eye " },
+                              [_vm._v(" 4")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              { staticClass: "flat-button mif-share " },
+                              [_vm._v(" 4")]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("v-card-subtitle", [
+                          _c(
+                            "figcaption",
+                            { staticClass: "mt-1 text-center" },
+                            [
+                              _c(
+                                "router-link",
+                                { attrs: { to: "/single-dare" } },
+                                [_vm._v(" " + _vm._s(con.dare_name) + "  ")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
                       ],
                       1
                     )
-                  ]
+                  ],
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "badge inside  fg-white",
+                      staticStyle: { "background-color": "#b82943" }
+                    },
+                    [_vm._v("player's username")]
+                  )
                 ],
                 2
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.loading
-            ? _c(
-                "div",
-                { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-                [
-                  [
-                    _c(
-                      "v-sheet",
-                      {
-                        staticClass: "px-3 pt-3 pb-3",
-                        attrs: { color: "grey" }
-                      },
-                      [
-                        _c("v-skeleton-loader", {
-                          staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "card" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                ],
-                2
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.loading
-            ? _c(
-                "div",
-                { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-                [
-                  [
-                    _c(
-                      "v-sheet",
-                      {
-                        staticClass: "px-3 pt-3 pb-3",
-                        attrs: { color: "grey" }
-                      },
-                      [
-                        _c("v-skeleton-loader", {
-                          staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "card" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                ],
-                2
-              )
-            : _vm._e()
-        ])
+            })
+          ],
+          2
+        )
       ]),
       _vm._v(" "),
       _vm._m(0),
@@ -61634,7 +61752,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fetch('/api/count-dares').then(function (res) {
                 return res.json();
             }).then(function (res) {
-                _this.dare_count = 47; //res.data;
+                _this.dare_count = res; //res.data;
 
             }).catch(function (error) {
                 console.log(error);
@@ -61646,7 +61764,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fetch('/api/count-my-pending-dares/' + Metro.session.getItem('userId')).then(function (res) {
                 return res.json();
             }).then(function (res) {
-                _this2.pending_dares_count = 47; //res.data;
+                _this2.pending_dares_count = res; //res.data;
 
             }).catch(function (error) {
                 console.log(error);
@@ -61768,7 +61886,7 @@ var render = function() {
                   _c("span", { staticClass: "mif-alarm icon" }),
                   _vm._v(" "),
                   _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Pending dares")
+                    _vm._v("My dares")
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "badge-bottom" }, [
@@ -62085,6 +62203,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62234,67 +62354,72 @@ var render = function() {
                   [
                     _c("v-skeleton-loader", {
                       staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "sentences" }
+                      attrs: {
+                        "max-width": "auto",
+                        type: "action, sentences@4"
+                      }
                     })
                   ],
                   1
                 )
               ]
-            : _c(
-                "p",
-                {
-                  attrs: {
-                    "data-role": "hint",
-                    "data-hint-text":
-                      "Select Dares you want to attempt, to add them to your Dare list.",
-                    "data-hint-position": "top"
-                  }
-                },
-                [
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.selected,
-                          expression: "selected"
+            : _c("span", [
+                _c(
+                  "p",
+                  {
+                    attrs: {
+                      "data-role": "hint",
+                      "data-hint-text":
+                        "Select Dares you want to attempt, to add them to your Dare list.",
+                      "data-hint-position": "top"
+                    }
+                  },
+                  [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selected,
+                            expression: "selected"
+                          }
+                        ],
+                        attrs: { "data-role": "select" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.selected = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
                         }
-                      ],
-                      attrs: { "data-role": "select" },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.selected = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        }
-                      }
-                    },
-                    _vm._l(_vm.content, function(con) {
-                      return _c(
-                        "option",
-                        {
-                          key: con.id,
-                          staticClass: "text-bold",
-                          attrs: { selected: "" },
-                          domProps: { value: con.dare_name }
-                        },
-                        [_vm._v("\n                " + _vm._s(con.dare_name))]
-                      )
-                    }),
-                    0
-                  )
-                ]
-              ),
+                      },
+                      _vm._l(_vm.content, function(con) {
+                        return _c(
+                          "option",
+                          {
+                            key: con.id,
+                            staticClass: "text-bold",
+                            attrs: { selected: "" },
+                            domProps: { value: con.dare_name }
+                          },
+                          [_vm._v("\n                " + _vm._s(con.dare_name))]
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ]),
           _vm._v(" "),
           _c(
             "div",
@@ -62575,6 +62700,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62670,7 +62801,7 @@ var render = function() {
         { staticClass: "container fadeIn" },
         [
           _c("h3", { staticClass: "text-center white-color" }, [
-            _vm._v(" Pending Dares")
+            _vm._v(" My Dares")
           ]),
           _vm._v(" "),
           _vm.empty
@@ -62718,7 +62849,10 @@ var render = function() {
                                 }
                               })
                             ])
-                          : _c("td", [
+                          : _vm._e(),
+                        _vm._v(" "),
+                        con.status == 0
+                          ? _c("td", [
                               _c("div", {
                                 attrs: {
                                   "data-role": "countdown",
@@ -62730,6 +62864,15 @@ var render = function() {
                                 }
                               })
                             ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        con.status == 3
+                          ? _c("td", [
+                              _c("p", { staticClass: "text-green pl-4" }, [
+                                _vm._v("DARE COMPLETED!")
+                              ])
+                            ])
+                          : _vm._e()
                       ])
                     }),
                     0
@@ -63075,34 +63218,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$validator.validateAll().then(function () {
 
                 if (!_this.errors.any()) {
-                    //run code
-                    var activity = Metro.activity.open({
-                        type: 'metro',
-                        overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
-                    });
 
-                    var formdata = new FormData();
-                    //append form data to formdata
-                    formdata.append('selected', _this.selected);
-                    formdata.append('video', _this.video);
+                    var dia = confirm("Upload the selected video? this can't be undone");
 
-                    axios.post('/api/upload-dare', formdata).then(function (res) {
-                        console.log(res);
+                    if (dia) {
+                        //run code
+                        var activity = Metro.activity.open({
+                            type: 'metro',
+                            overlayClickClose: false,
+                            text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                        });
 
-                        if (res.data == 1) {
+                        var formdata = new FormData();
+
+                        //append form data to formdata
+                        formdata.append('selected', _this.selected);
+                        formdata.append('video', _this.video);
+                        formdata.append('userid', Metro.session.getItem('userId'));
+
+                        axios.post('/api/upload-dare', formdata).then(function (res) {
+                            console.log(res);
+
+                            if (res.data == 1) {
+                                Metro.activity.close(activity);
+                                _this.get();
+                                //  document.getElementById("addForm").reset();
+                                Metro.toast.create('Upload Successful!', null, 5000, 'success');
+                            } else {
+                                Metro.activity.close(activity);
+                                Metro.toast.create('An error occured, refresh and try again', null, 5000, 'alert');
+                            }
+                        }).catch(function (err) {
+                            console.log(err);
                             Metro.activity.close(activity);
-
-                            //  document.getElementById("addForm").reset();
-                            Metro.toast.create('Upload Successful!', null, 5000, 'success');
-                        } else {
-                            Metro.activity.close(activity);
-                            Metro.toast.create('An error occured, refresh and try again', null, 5000, 'alert');
-                        }
-                    }).catch(function (err) {
-                        console.log(err);
-                        Metro.activity.close(activity);
-                    });
+                        });
+                    }
                 } else {}
                 //do nothing, v validate will work
 
@@ -63201,164 +63351,170 @@ var render = function() {
                   [
                     _c("v-skeleton-loader", {
                       staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "article" }
+                      attrs: { "max-width": "auto", type: "action, article@2" }
                     })
                   ],
                   1
                 )
               ]
-            : _c(
-                "form",
-                { attrs: { enctype: "multipart/form-data", method: "POST" } },
-                [
-                  _c("p", [_vm._v("Select Dare")]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      attrs: {
-                        "data-role": "hint",
-                        "data-hint-text":
-                          "Select Dare you want to upload its video",
-                        "data-hint-position": "top"
-                      }
-                    },
-                    [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.selected,
-                              expression: "selected"
-                            },
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: '"required"'
-                            }
-                          ],
-                          attrs: { "data-role": "select", name: "dare" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.selected = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            }
-                          }
-                        },
-                        _vm._l(_vm.content, function(con) {
-                          return _c(
-                            "option",
-                            {
-                              key: con.id,
-                              staticClass: "text-bold",
-                              attrs: { selected: "" },
-                              domProps: { value: con.id }
-                            },
-                            [
-                              _vm._v(
-                                "\n                " + _vm._s(con.dare_name)
-                              )
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("dare"),
-                          expression: "errors.has('dare')"
-                        }
-                      ],
-                      staticClass: "fg-yellow shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("dare")))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Video upload")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
+            : _c("span", [
+                _c(
+                  "form",
+                  { attrs: { enctype: "multipart/form-data", method: "POST" } },
+                  [
+                    _c("p", { staticClass: "text-white" }, [
+                      _vm._v("Select Dare")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
                       {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required|ext:mp4,3gp|size:50000",
-                        expression: '"required|ext:mp4,3gp|size:50000"'
-                      }
-                    ],
-                    attrs: {
-                      type: "file",
-                      "data-role": "file",
-                      "data-mode": "drop",
-                      name: "video"
-                    },
-                    on: { change: _vm.videoSelect }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
+                        attrs: {
+                          "data-role": "hint",
+                          "data-hint-text":
+                            "Select Dare you want to upload its video",
+                          "data-hint-position": "top"
+                        }
+                      },
+                      [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selected,
+                                expression: "selected"
+                              },
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required",
+                                expression: '"required"'
+                              }
+                            ],
+                            attrs: { "data-role": "select", name: "dare" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.selected = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          _vm._l(_vm.content, function(con) {
+                            return _c(
+                              "option",
+                              {
+                                key: con.id,
+                                staticClass: "text-bold",
+                                attrs: { selected: "" },
+                                domProps: { value: con.id }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                " + _vm._s(con.dare_name)
+                                )
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("dare"),
+                            expression: "errors.has('dare')"
+                          }
+                        ],
+                        staticClass: "fg-yellow shake"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("dare")))]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-white" }, [
+                      _vm._v("Video upload")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
                       directives: [
                         {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("video"),
-                          expression: "errors.has('video')"
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|ext:mp4,3gp|size:50000",
+                          expression: '"required|ext:mp4,3gp|size:50000"'
                         }
                       ],
-                      staticClass: "fg-yellow shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("video")))]
-                  ),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button primary",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.send()
+                      attrs: {
+                        type: "file",
+                        "data-role": "file",
+                        "data-mode": "drop",
+                        name: "video"
+                      },
+                      on: { change: _vm.videoSelect }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("video"),
+                            expression: "errors.has('video')"
+                          }
+                        ],
+                        staticClass: "fg-yellow shake"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("video")))]
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button primary",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.send()
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Done")]
-                  )
-                ]
-              ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "remark info text-center" },
-            [
-              _c("router-link", { attrs: { to: "/pending-dares" } }, [
-                _vm._v(" Click here to view your pending Dares")
-              ])
-            ],
-            1
-          ),
+                      },
+                      [_vm._v("Done")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "remark info text-center" },
+                  [
+                    _c("router-link", { attrs: { to: "/pending-dares" } }, [
+                      _vm._v(" Click here to view your Dares")
+                    ])
+                  ],
+                  1
+                )
+              ]),
           _vm._v(" "),
           [
             _c("div", { staticClass: "container fadeIn index" }, [

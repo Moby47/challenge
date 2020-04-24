@@ -44,6 +44,8 @@ Route::get('/pending-dares/{userid}', 'dareController@pending_dares'); //->middl
 
 Route::get('/count-dares', 'dareController@count_dares'); //->middleware('auth.apikey');
 
+Route::get('/count-dare-vids', 'dareController@count_dare_vids'); //->middleware('auth.apikey');
+
 Route::get('/count-my-pending-dares/{userid}', 'dareController@count_mydares'); //->middleware('auth.apikey');
 
 Route::get('/upload-dare-list/{userid}', 'dareController@upload_dare_list'); //->middleware('auth.apikey');

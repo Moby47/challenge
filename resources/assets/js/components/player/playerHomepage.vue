@@ -37,7 +37,7 @@
               <div data-role="tile" data-size="large" class=" fadeIn ani-hover-horizontal"
                data-effect="hover-slide-left"  style="background-color: #b82943">
                               <span  @click.prevent='pendingDares()'>  <span class="mif-alarm icon"></span>
-                                <span class="branding-bar">Pending dares</span>
+                                <span class="branding-bar">My dares</span>
                            
                                 <span class="badge-bottom">{{pending_dares_count}}</span>
                             </span>
@@ -170,7 +170,7 @@
                     fetch('/api/count-dares')
                     .then(res => res.json())
                     .then(res=>{
-                        this.dare_count = 47//res.data;
+                        this.dare_count = res//res.data;
                     
                     
                     })
@@ -183,7 +183,7 @@
                         fetch('/api/count-my-pending-dares/'+Metro.session.getItem('userId'))
                     .then(res => res.json())
                     .then(res=>{
-                        this.pending_dares_count = 47//res.data;
+                        this.pending_dares_count = res//res.data;
                     
                     
                     })

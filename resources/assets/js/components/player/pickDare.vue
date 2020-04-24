@@ -26,12 +26,13 @@
                           <v-skeleton-loader
                             class="mx-auto"
                             max-width="auto"
-                            type="sentences"
+                            type="action, sentences@4"
                           ></v-skeleton-loader>
                         </v-sheet>
                       </template>
 
-               <p data-role="hint" v-else
+                      <span v-else>
+               <p data-role="hint" 
                data-hint-text="Select Dares you want to attempt, to add them to your Dare list."
                 data-hint-position="top">
                 <select data-role="select" v-model='selected'>
@@ -40,6 +41,7 @@
                         {{con.dare_name}}</option>
                     </select></p>
 
+                </span>
 
                     <div class="remark info text-center">
                            <router-link to='/pending-dares'> Click here to view your pending Dares</router-link>

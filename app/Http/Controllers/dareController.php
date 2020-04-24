@@ -7,11 +7,14 @@ use App\dare;
 use App\mydare;
 use App\darelist;
 use App\suggestion;
+use App\User;
 
 //Api resource
 use App\Http\Resources\dareResource as dareres;
 use App\Http\Resources\darelistResource as darelistres;
 use App\Http\Resources\suggestionResource as suggestionres;
+
+use JD\Cloudder\Facades\Cloudder;
 
 class dareController extends Controller
 {
@@ -41,26 +44,29 @@ class dareController extends Controller
 
     public function scores()
     {
-        //fetch data (last 10) from dares model, order from highest likes. (method needs work)
-        //demo. delete the belows lines of code.
-      $scores = dare::all();
-      return dareres::collection($scores);
+        //fetch data (last 10) from dare model, order from highest likes. (method needs work)
+     // $scores = dare::orderby('likes','desc')->select('likes','views')->take(10)->get();
+     // join to user model to get user and points
+     $scores = dare::all();
+     return dareres::collection($scores);
+    }
+
+    public function count_dare_vids()
+    {
+        //count and return the dares in the darelist model. (Done! was blocking pro)
+     return $count = dare::select('id')->count();
     }
 
     public function count_dares()
     {
-        //count and return the dares in the darelist model. (method needs work)
-        //demo. delete the belows lines of code.
-      $scores = dare::all();
-      return dareres::collection($scores);
+        //count and return the dares in the darelist model. (Done! was blocking pro)
+     return $count = darelist::select('id')->count();
     }
 
     public function count_mydares($userid)
     {
-        //count and return the value for dares in the mydare model based on the recived userid (method needs work)
-        //demo. delete the belows lines of code.
-      $scores = dare::all();
-      return dareres::collection($scores);
+        //count and return the value for dares in the mydare model based on the recived userid (Done! was blocking pro)
+        return $count = mydare::where('user_id','=',$userid)->select('id')->count();
     }
 
 
@@ -83,9 +89,11 @@ class dareController extends Controller
             if($check2){
                 return 3;
             }else{
+              
                 $save = new mydare();
                 $save->dare_name = $request->input('darename');
                 $save->user_id = $request->input('userid');
+                $save->darelist_id = darelist::where('dare_name','=',$request->input('darename'))->pluck('id')->first();
                 $save->expire = \carbon\carbon::now()->addDays(6);
                 $save->save();
                 return 1;
@@ -140,6 +148,7 @@ class dareController extends Controller
             $d->save();
         }
        }
+       //check and expire
 
         //fetch
       $data = mydare::orderby('status',1)->where('user_id','=',$userid)
@@ -147,19 +156,64 @@ class dareController extends Controller
       return darelistres::collection($data);
     }
 
+
     public function upload_dare_list($userid)
     {
-     
-          $ex_data = mydare::orderby('status',1)->where('user_id','=',$userid)
+        //check and expire
+        $ex_data = mydare::orderby('status',1)->where('user_id','=',$userid)
         ->whereDate('expire','<=', \carbon\carbon::now())
+        ->select('id','status')->get();
+
+       if($ex_data){
+        foreach($ex_data as $d){
+            $d->status = 0;
+            $d->save();
+        }
+       }
+       //check and expire
+     
+          $ex_data = mydare::orderby('id','desc')->where('user_id','=',$userid)
+        ->whereDate('expire','>=', \carbon\carbon::now())->where('status','=',1)
         ->select('id','dare_name')->get();
 
       return darelistres::collection($ex_data);
     }
 
+
     public function upload_dare(Request $request)
     {
+        $this->validate($request,[
+            'video'=>'required|mimes:mp4,3gp|between:1, 50000',
+        ]);
+
+        //push to cloud
+        $video = $request->file('video')->getRealPath();;
+        Cloudder::uploadVideo($video, null);
+                    //return Cloudder::getResult();
         
+        //change daree status to 3, meaning done!
+        $dare = mydare::findorfail($request->input('selected'));
+        $dare->status = 3;
+        $dare->save();
+
+        //update user point
+          $darelistID = $dare->darelist_id;
+          $darelisContent = darelist::findorfail($darelistID);
+          $point = $darelisContent->points;
+
+          $user = user::findorfail($request->input('userid'));
+          $user->points = $user->points + $point;
+          $user->save();
+
+        //save required intel
+        $cloundary_upload = Cloudder::getResult();
+
+        $save = new dare();
+        $save->user_id = $request->input('userid');
+        $save->url = $cloundary_upload['url'];
+        $save->dare_name = $dare->dare_name;
+        $save->save();
+
         return 1;
     }
 

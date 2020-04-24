@@ -59,20 +59,17 @@
                                 </v-sheet>
                               </template>
                             </div>
-                  <!--
-                        <div class="cell-sm-full cell-md-one-third cell-lg-4">
+                  
+                    <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
                             
                                 <template>
                                         <v-card
                                           class="mx-auto"
-                                          
                                         >
                                         <video data-role="video"
-                                data-src="https://metroui.org.ua/res/oceans.mp4"
-                                data-logo="https://metroui.org.ua/images/logo4.png"
+                                :data-src="con.url"
                                 data-logo-height="64"
-                                data-logo-target="https://metroui.org.ua/v4/"
-                                data-poster="https://metroui.org.ua/res/poster-oceans.jpg"
+                                data-poster="/images/home.svg"
                                 data-aspect-ratio="hd"
                                 data-on-play
                                 id='one'
@@ -89,9 +86,7 @@
                                       
                                           <v-card-subtitle>
                                                 <figcaption class="mt-1 text-center">
-                         <router-link to='/single-dare' class=''>A full title of the dare. 
-                            A full title of the dare.   A full title of the dare.
-                                                        </router-link> 
+                         <router-link to='/single-dare' class=''> {{con.dare_name}}  </router-link> 
                                                </figcaption>
                                           </v-card-subtitle>
                                       
@@ -100,7 +95,7 @@
                                       <span class="badge inside  fg-white"
                                       style="background-color: #b82943">player's username</span>
                         </div>
-                      -->
+                      
 
                         
 
