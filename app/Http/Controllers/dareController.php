@@ -159,7 +159,7 @@ class dareController extends Controller
 
     public function upload_dare(Request $request)
     {
-       // return $request;
+        
         return 1;
     }
 

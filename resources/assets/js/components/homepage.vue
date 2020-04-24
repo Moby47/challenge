@@ -1,11 +1,6 @@
 <template>
     <div>
-            <vue-particles 
-            color="#9E9E9E"
-            shapeType="edge"
-            >
-            </vue-particles>
-            
+            <div class='bg-homepage'></div>
 
     <div class="container">
     

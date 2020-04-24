@@ -168,8 +168,10 @@
     formdata.append('selected',  this.selected);
     formdata.append('video', this.video);
 
-        axios.post('/upload-dare',formdata).then(res=>{
+        axios.post('/api/upload-dare',formdata)
+        .then(res=>{
             console.log(res)
+
 			if(res.data == 1){
         Metro.activity.close(activity);
  

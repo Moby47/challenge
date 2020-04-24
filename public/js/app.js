@@ -56697,11 +56697,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56931,820 +56926,816 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("vue-particles", { attrs: { color: "#9E9E9E", shapeType: "edge" } }),
+  return _c("div", [
+    _c("div", { staticClass: "bg-homepage" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("h3", { staticClass: "text-center" }),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("h3", { staticClass: "text-center" }),
+      _c("div", { staticClass: "tiles-grid mt-5" }, [
+        _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "tiles-grid mt-5" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "fadeIn ani-hover-horizontal",
-              attrs: { "data-role": "tile", "data-size": "wide" }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.board()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-clipboard icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Leader Board")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [_vm._v("10")])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "bg-orange fadeIn ani-hover-horizontal",
-              attrs: {
-                "data-role": "tile",
-                "data-size": "large",
-                "data-effect": "hover-slide-left"
-              }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.dares()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-file-video icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Watch Dares")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [_vm._v("1047")])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm.isAuth()
-            ? _c(
-                "div",
-                {
-                  staticClass: "fadeIn ani-hover-horizontal",
-                  staticStyle: { "background-color": "#b82943" },
-                  attrs: { "data-role": "tile", "data-size": "medium" }
-                },
-                [
-                  _c(
-                    "span",
-                    {
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.player()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "mif-gamepad icon" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "branding-bar" }, [
-                        _vm._v("Play")
-                      ])
-                    ]
-                  )
-                ]
-              )
-            : _c(
-                "div",
-                {
-                  staticClass: "fadeIn ani-hover-horizontal",
-                  staticStyle: { "background-color": "#b82943" },
-                  attrs: { "data-role": "tile", "data-size": "medium" }
-                },
-                [_vm._m(3)]
-              ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "fadeIn ani-hover-horizontal",
-              staticStyle: { "background-color": "#b82943" },
-              attrs: { "data-role": "tile", "data-size": "wide" }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.list()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-list icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Dare List")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [_vm._v("106")])
-                ]
-              )
-            ]
-          )
-        ]),
+        _vm._m(1),
         _vm._v(" "),
         _c(
           "div",
           {
+            staticClass: "fadeIn ani-hover-horizontal",
+            attrs: { "data-role": "tile", "data-size": "wide" }
+          },
+          [
+            _c(
+              "span",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.board()
+                  }
+                }
+              },
+              [
+                _c("span", { staticClass: "mif-clipboard icon" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "branding-bar" }, [
+                  _vm._v("Leader Board")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "badge-bottom" }, [_vm._v("10")])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "bg-orange fadeIn ani-hover-horizontal",
             attrs: {
-              "data-role": "charms",
-              "data-opacity": "0.8",
-              id: "charm",
-              "data-position": "right"
+              "data-role": "tile",
+              "data-size": "large",
+              "data-effect": "hover-slide-left"
             }
           },
           [
-            _c("ul", { staticClass: "sidebar-menu white-color" }, [
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/store" } }, [
-                    _c("span", { staticClass: "mif-cart icon" }),
-                    _vm._v(" Store")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/help" } }, [
-                    _c("span", { staticClass: "mif-help icon" }),
-                    _vm._v(" How to Play")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/rules" } }, [
-                    _c("span", { staticClass: "mif-books icon" }),
-                    _vm._v(" Rules")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
-              _vm.isAuth()
-                ? _c(
-                    "li",
+            _c(
+              "span",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.dares()
+                  }
+                }
+              },
+              [
+                _c("span", { staticClass: "mif-file-video icon" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "branding-bar" }, [
+                  _vm._v("Watch Dares")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "badge-bottom" }, [_vm._v("1047")])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm.isAuth()
+          ? _c(
+              "div",
+              {
+                staticClass: "fadeIn ani-hover-horizontal",
+                staticStyle: { "background-color": "#b82943" },
+                attrs: { "data-role": "tile", "data-size": "medium" }
+              },
+              [
+                _c(
+                  "span",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.player()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "mif-gamepad icon" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "branding-bar" }, [
+                      _vm._v("Play")
+                    ])
+                  ]
+                )
+              ]
+            )
+          : _c(
+              "div",
+              {
+                staticClass: "fadeIn ani-hover-horizontal",
+                staticStyle: { "background-color": "#b82943" },
+                attrs: { "data-role": "tile", "data-size": "medium" }
+              },
+              [_vm._m(3)]
+            ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "fadeIn ani-hover-horizontal",
+            staticStyle: { "background-color": "#b82943" },
+            attrs: { "data-role": "tile", "data-size": "wide" }
+          },
+          [
+            _c(
+              "span",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.list()
+                  }
+                }
+              },
+              [
+                _c("span", { staticClass: "mif-list icon" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "branding-bar" }, [
+                  _vm._v("Dare List")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "badge-bottom" }, [_vm._v("106")])
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          attrs: {
+            "data-role": "charms",
+            "data-opacity": "0.8",
+            id: "charm",
+            "data-position": "right"
+          }
+        },
+        [
+          _c("ul", { staticClass: "sidebar-menu white-color" }, [
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: "/store" } }, [
+                  _c("span", { staticClass: "mif-cart icon" }),
+                  _vm._v(" Store")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("li", { staticClass: "divider" }),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: "/help" } }, [
+                  _c("span", { staticClass: "mif-help icon" }),
+                  _vm._v(" How to Play")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("li", { staticClass: "divider" }),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: "/rules" } }, [
+                  _c("span", { staticClass: "mif-books icon" }),
+                  _vm._v(" Rules")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("li", { staticClass: "divider" }),
+            _vm._v(" "),
+            _vm.isAuth()
+              ? _c(
+                  "li",
+                  [
+                    _c("router-link", { attrs: { to: "/player-homepage" } }, [
+                      _c("span", { staticClass: "mif-menu icon" }),
+                      _vm._v(" \n                                Player Menu")
+                    ])
+                  ],
+                  1
+                )
+              : _c("li", [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.guest()
+                        }
+                      }
+                    },
                     [
-                      _c("router-link", { attrs: { to: "/player-homepage" } }, [
-                        _c("span", { staticClass: "mif-menu icon" }),
-                        _vm._v(" \n                                Player Menu")
-                      ])
-                    ],
-                    1
+                      _c("span", { staticClass: "mif-menu icon" }),
+                      _vm._v(
+                        " \n                                    Player Menu"
+                      )
+                    ]
                   )
-                : _c("li", [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.guest()
-                          }
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "mif-menu icon" }),
-                        _vm._v(
-                          " \n                                    Player Menu"
-                        )
-                      ]
-                    )
-                  ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
+                ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "divider" }),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _c("li", { staticClass: "divider" }),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: "/" } }, [
+                  _c("span", { staticClass: "mif-home icon" }),
+                  _vm._v(" Home Screen")
+                ])
+              ],
+              1
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "dialog ",
+          attrs: { "data-role": "dialog", id: "suggest" }
+        },
+        [
+          _c(
+            "form",
+            { attrs: { method: "post", "data-vv-scope": "suggForm" } },
+            [
               _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
-                    _c("span", { staticClass: "mif-home icon" }),
-                    _vm._v(" Home Screen")
-                  ])
-                ],
-                1
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dialog ",
-            attrs: { "data-role": "dialog", id: "suggest" }
-          },
-          [
-            _c(
-              "form",
-              { attrs: { method: "post", "data-vv-scope": "suggForm" } },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "dialog-title white-color",
-                    staticStyle: { "background-color": "#07557B" }
+                "div",
+                {
+                  staticClass: "dialog-title white-color",
+                  staticStyle: { "background-color": "#07557B" }
+                },
+                [_vm._v("Suggest a Dare")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialog-content" }, [
+                _c("p", [_vm._v("User name:")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.username,
+                      expression: "username"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|max:15",
+                      expression: '"required|max:15"'
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    "data-role": "input",
+                    "data-history": "true",
+                    name: "Username"
                   },
-                  [_vm._v("Suggest a Dare")]
+                  domProps: { value: _vm.username },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.username = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("suggForm.Username"),
+                        expression: "errors.has('suggForm.Username')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("suggForm.Username")))]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "dialog-content" }, [
-                  _c("p", [_vm._v("User name:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.username,
-                        expression: "username"
-                      },
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required|max:15",
-                        expression: '"required|max:15"'
-                      }
-                    ],
-                    attrs: {
-                      type: "text",
-                      "data-role": "input",
-                      "data-history": "true",
-                      name: "Username"
-                    },
-                    domProps: { value: _vm.username },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.username = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("suggForm.Username"),
-                          expression: "errors.has('suggForm.Username')"
-                        }
-                      ],
-                      staticClass: "fg-red shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("suggForm.Username")))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Add Description:")]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.description,
-                        expression: "description"
-                      },
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required|max:255",
-                        expression: '"required|max:255"'
-                      }
-                    ],
-                    attrs: {
-                      "data-role": "textarea",
-                      "data-history": "true",
-                      name: "Description"
-                    },
-                    domProps: { value: _vm.description },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.description = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("suggForm.Description"),
-                          expression: "errors.has('suggForm.Description')"
-                        }
-                      ],
-                      staticClass: "fg-red shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("suggForm.Description")))]
-                  )
-                ]),
+                _c("p", [_vm._v("Add Description:")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "dialog-actions" }, [
-                  _c(
-                    "button",
+                _c("textarea", {
+                  directives: [
                     {
-                      staticClass: "button primary",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.suggest()
-                        }
-                      }
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.description,
+                      expression: "description"
                     },
-                    [_vm._v("Send")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
                     {
-                      staticClass: "button alert js-dialog-close",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                        }
-                      }
-                    },
-                    [_vm._v("Close")]
-                  )
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dialog",
-            attrs: { "data-role": "dialog", id: "oldPlayer" }
-          },
-          [
-            _c(
-              "form",
-              { attrs: { method: "post", "data-vv-scope": "loginForm" } },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "dialog-title white-color",
-                    staticStyle: { "background-color": "#07557B" }
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|max:255",
+                      expression: '"required|max:255"'
+                    }
+                  ],
+                  attrs: {
+                    "data-role": "textarea",
+                    "data-history": "true",
+                    name: "Description"
                   },
-                  [_vm._v("Login To Continue")]
+                  domProps: { value: _vm.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.description = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("suggForm.Description"),
+                        expression: "errors.has('suggForm.Description')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("suggForm.Description")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialog-actions" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button primary",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.suggest()
+                      }
+                    }
+                  },
+                  [_vm._v("Send")]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "dialog-content" }, [
-                  _c("p", [_vm._v("User name:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.username,
-                        expression: "username"
-                      },
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required|max:15",
-                        expression: '"required|max:15"'
-                      }
-                    ],
-                    attrs: {
-                      type: "text",
-                      "data-role": "input",
-                      "data-history": "true",
-                      name: "Username"
-                    },
-                    domProps: { value: _vm.username },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.username = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("loginForm.Username"),
-                          expression: "errors.has('loginForm.Username')"
-                        }
-                      ],
-                      staticClass: "fg-red shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("loginForm.Username")))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Password:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.password,
-                        expression: "password"
-                      },
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: '"required"'
-                      }
-                    ],
-                    attrs: {
-                      type: "password",
-                      "data-role": "input",
-                      name: "Password"
-                    },
-                    domProps: { value: _vm.password },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.password = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("loginForm.Password"),
-                          expression: "errors.has('loginForm.Password')"
-                        }
-                      ],
-                      staticClass: "fg-red shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("loginForm.Password")))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-right" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "image-button",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.newPlayer()
-                          }
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "mif-user-plus icon" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "caption" }, [
-                          _vm._v("New Player?")
-                        ])
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "dialog-actions" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button primary",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.login()
-                        }
-                      }
-                    },
-                    [_vm._v("Ok")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button alert js-dialog-close",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                        }
-                      }
-                    },
-                    [_vm._v("Cancel")]
-                  )
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dialog",
-            attrs: { "data-role": "dialog", id: "newPlayer" }
-          },
-          [
-            _c(
-              "form",
-              { attrs: { method: "post", "data-vv-scope": "regForm" } },
-              [
                 _c(
-                  "div",
+                  "button",
                   {
-                    staticClass: "dialog-title white-color",
-                    staticStyle: { "background-color": "#07557B" }
+                    staticClass: "button alert js-dialog-close",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                      }
+                    }
                   },
-                  [_vm._v("Start New Game")]
+                  [_vm._v("Close")]
+                )
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "dialog",
+          attrs: { "data-role": "dialog", id: "oldPlayer" }
+        },
+        [
+          _c(
+            "form",
+            { attrs: { method: "post", "data-vv-scope": "loginForm" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "dialog-title white-color",
+                  staticStyle: { "background-color": "#07557B" }
+                },
+                [_vm._v("Login To Continue")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialog-content" }, [
+                _c("p", [_vm._v("User name:")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.username,
+                      expression: "username"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|max:15",
+                      expression: '"required|max:15"'
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    "data-role": "input",
+                    "data-history": "true",
+                    name: "Username"
+                  },
+                  domProps: { value: _vm.username },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.username = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("loginForm.Username"),
+                        expression: "errors.has('loginForm.Username')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Username")))]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "dialog-content" }, [
-                  _c("p", [_vm._v("User name:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.username,
-                        expression: "username"
-                      },
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required|max:15",
-                        expression: '"required|max:15"'
-                      }
-                    ],
-                    attrs: {
-                      type: "text",
-                      "data-role": "input",
-                      "data-history": "true",
-                      name: "Username"
-                    },
-                    domProps: { value: _vm.username },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.username = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("regForm.Username"),
-                          expression: "errors.has('regForm.Username')"
-                        }
-                      ],
-                      staticClass: "fg-red shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("regForm.Username")))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Email:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.email,
-                        expression: "email"
-                      },
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required|email|max:100",
-                        expression: '"required|email|max:100"'
-                      }
-                    ],
-                    attrs: {
-                      type: "email",
-                      "data-role": "input",
-                      "data-history": "true",
-                      name: "Email"
-                    },
-                    domProps: { value: _vm.email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.email = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("regForm.Email"),
-                          expression: "errors.has('regForm.Email')"
-                        }
-                      ],
-                      staticClass: "fg-red shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("regForm.Email")))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Password:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.password,
-                        expression: "password"
-                      },
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: '"required"'
-                      }
-                    ],
-                    attrs: {
-                      type: "password",
-                      "data-role": "input",
-                      name: "Password"
-                    },
-                    domProps: { value: _vm.password },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.password = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("regForm.Password"),
-                          expression: "errors.has('regForm.Password')"
-                        }
-                      ],
-                      staticClass: "fg-red shake"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("regForm.Password")))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-right" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "image-button",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.oldPlayer()
-                          }
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "mif-user icon" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "caption" }, [
-                          _vm._v("Old Player?")
-                        ])
-                      ]
-                    )
-                  ])
-                ]),
+                _c("p", [_vm._v("Password:")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "dialog-actions" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: '"required"'
+                    }
+                  ],
+                  attrs: {
+                    type: "password",
+                    "data-role": "input",
+                    name: "Password"
+                  },
+                  domProps: { value: _vm.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("loginForm.Password"),
+                        expression: "errors.has('loginForm.Password')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Password")))]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-right" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "button primary",
+                      staticClass: "image-button",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
-                          _vm.reg()
+                          _vm.newPlayer()
                         }
                       }
                     },
-                    [_vm._v("Ok")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button alert js-dialog-close",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                        }
-                      }
-                    },
-                    [_vm._v("Cancel")]
+                    [
+                      _c("span", { staticClass: "mif-user-plus icon" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("New Player?")
+                      ])
+                    ]
                   )
                 ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(5)
-      ])
-    ],
-    1
-  )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialog-actions" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button primary",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.login()
+                      }
+                    }
+                  },
+                  [_vm._v("Ok")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button alert js-dialog-close",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                )
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "dialog",
+          attrs: { "data-role": "dialog", id: "newPlayer" }
+        },
+        [
+          _c(
+            "form",
+            { attrs: { method: "post", "data-vv-scope": "regForm" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "dialog-title white-color",
+                  staticStyle: { "background-color": "#07557B" }
+                },
+                [_vm._v("Start New Game")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialog-content" }, [
+                _c("p", [_vm._v("User name:")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.username,
+                      expression: "username"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|max:15",
+                      expression: '"required|max:15"'
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    "data-role": "input",
+                    "data-history": "true",
+                    name: "Username"
+                  },
+                  domProps: { value: _vm.username },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.username = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("regForm.Username"),
+                        expression: "errors.has('regForm.Username')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("regForm.Username")))]
+                ),
+                _vm._v(" "),
+                _c("p", [_vm._v("Email:")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|email|max:100",
+                      expression: '"required|email|max:100"'
+                    }
+                  ],
+                  attrs: {
+                    type: "email",
+                    "data-role": "input",
+                    "data-history": "true",
+                    name: "Email"
+                  },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("regForm.Email"),
+                        expression: "errors.has('regForm.Email')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("regForm.Email")))]
+                ),
+                _vm._v(" "),
+                _c("p", [_vm._v("Password:")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: '"required"'
+                    }
+                  ],
+                  attrs: {
+                    type: "password",
+                    "data-role": "input",
+                    name: "Password"
+                  },
+                  domProps: { value: _vm.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("regForm.Password"),
+                        expression: "errors.has('regForm.Password')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("regForm.Password")))]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "image-button",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.oldPlayer()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "mif-user icon" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Old Player?")
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialog-actions" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button primary",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.reg()
+                      }
+                    }
+                  },
+                  [_vm._v("Ok")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button alert js-dialog-close",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                )
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(5)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -63096,8 +63087,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     formdata.append('selected', _this.selected);
                     formdata.append('video', _this.video);
 
-                    axios.post('/upload-dare', formdata).then(function (res) {
+                    axios.post('/api/upload-dare', formdata).then(function (res) {
                         console.log(res);
+
                         if (res.data == 1) {
                             Metro.activity.close(activity);
 
