@@ -8,6 +8,7 @@ use App\mydare;
 use App\darelist;
 use App\suggestion;
 use App\User;
+use DB;
 
 //Api resource
 use App\Http\Resources\dareResource as dareres;
@@ -20,15 +21,15 @@ class dareController extends Controller
 {
     public function dares()
     {
-        //fetch data (last 15) from dares model. (method needs work)
-         //demo. delete the belows lines of code.
-         $scores = dare::all();
+        //fetch data (last 15) from dares model. (Done! was blocking pro)
+         $scores = dare::orderby('id','desc')
+         ->select('id','url','dare_name','username','likes','shares','views')->paginate(15);
          return dareres::collection($scores);
     }
 
     public function search()
     {
-        //search by dare name from dare model (method needs work)
+        //search by dare name from dare model ...........................(method needs work)
             //demo. delete the belows lines of code.
       $scores = dare::all();
       return dareres::collection($scores);
@@ -36,7 +37,7 @@ class dareController extends Controller
 
     public function filter_dare()
     {
-        //search by username from dare model (method needs work)
+        //search by username from dare model ............................(method needs work)
              //demo. delete the belows lines of code.
       $scores = dare::all();
       return dareres::collection($scores);
@@ -44,11 +45,10 @@ class dareController extends Controller
 
     public function scores()
     {
-        //fetch data (last 10) from dare model, order from highest likes. (method needs work)
-     // $scores = dare::orderby('likes','desc')->select('likes','views')->take(10)->get();
-     // join to user model to get user and points
-     $scores = dare::all();
-     return dareres::collection($scores);
+        //fetch data (last 10) from dare model, order from highest points. (Done! was blocking pro)
+        return $scores= \DB::table('dares')
+        ->select('username','likes','views','point', \DB::raw('sum(point) as point'))
+        ->groupBy('username','likes','views','point')->paginate(10);
     }
 
     public function count_dare_vids()
@@ -212,6 +212,8 @@ class dareController extends Controller
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
         $save->dare_name = $dare->dare_name;
+        $save->username = $user->username;
+        $save->point = $point;
         $save->save();
 
         return 1;

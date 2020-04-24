@@ -33,11 +33,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                                <tr class="info">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                <tr class="info" v-for='con in content' v-bind:key='con.id'>
+                                        <td>{{con.username}}</td>
+                                        <td>{{con.likes}}</td>
+                                        <td>{{con.views}}</td>
+                                        <td>{{con.point}}</td>
                                     </tr>
                                    
                         </tbody>

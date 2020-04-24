@@ -32,7 +32,8 @@
                         </v-sheet>
                       </template>
 
-                <table class="table row-hover table-border white-color" v-else>
+                      <span v-else>
+                <table class="table row-hover table-border white-color" >
                         <thead>
                         <tr>
                              <th class='white-color'>Dare</th>
@@ -68,10 +69,14 @@
                         </tbody>
                     </table>
 
+                    <div class="remark info text-center">
+                        <router-link to='/pick-dare'> Click here to add another dare</router-link>
+                     </div>
+
                     <div class="remark success text-center">
                             <router-link to='/upload-dare'> Click here to upload a Dare</router-link>
                          </div>
-
+                        </span>
                          
                              <template>
      

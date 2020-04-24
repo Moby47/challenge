@@ -41,16 +41,17 @@
                         {{con.dare_name}}</option>
                     </select></p>
 
+                    <div class="remark info text-center">
+                        <router-link to='/pending-dares'> Click here to view your Dare list</router-link>
+                     </div>
+
+
+                     <div class="remark success text-center">
+                             <router-link to='/upload-dare'> Click here to upload a Dare</router-link>
+                          </div>
                 </span>
 
-                    <div class="remark info text-center">
-                           <router-link to='/pending-dares'> Click here to view your pending Dares</router-link>
-                        </div>
-
-
-                        <div class="remark success text-center">
-                                <router-link to='/upload-dare'> Click here to upload a Dare</router-link>
-                             </div>
+                   
                        
 
 

@@ -58425,7 +58425,7 @@ var render = function() {
                       staticClass: "badge inside  fg-white",
                       staticStyle: { "background-color": "#b82943" }
                     },
-                    [_vm._v("player's username")]
+                    [_vm._v(_vm._s(con.username))]
                   )
                 ],
                 2
@@ -59556,7 +59556,25 @@ var render = function() {
             : _c(
                 "table",
                 { staticClass: "table row-hover table-border table-striped" },
-                [_vm._m(0), _vm._v(" "), _vm._m(1)]
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.content, function(con) {
+                      return _c("tr", { key: con.id, staticClass: "info" }, [
+                        _c("td", [_vm._v(_vm._s(con.username))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(con.likes))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(con.views))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(con.point))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
               )
         ],
         2
@@ -59581,22 +59599,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Views")]),
         _vm._v(" "),
         _c("th", [_vm._v("Points")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tbody", [
-      _c("tr", { staticClass: "info" }, [
-        _c("td"),
-        _vm._v(" "),
-        _c("td"),
-        _vm._v(" "),
-        _c("td"),
-        _vm._v(" "),
-        _c("td")
       ])
     ])
   }
@@ -61680,7 +61682,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             dare_count: '',
-            pending_dares_count: ''
+            pending_dares_count: '',
+            dare_vids_count: ''
         };
     },
     mounted: function mounted() {
@@ -61693,6 +61696,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.get_dare_count();
         this.get_pending_dare_count();
+        this.get_dare_vids_count();
     },
 
 
@@ -61758,13 +61762,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
             });
         },
-        get_pending_dare_count: function get_pending_dare_count() {
+        get_dare_vids_count: function get_dare_vids_count() {
             var _this2 = this;
+
+            fetch('/api/count-dare-vids').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this2.dare_vids_count = res; //res.data;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        get_pending_dare_count: function get_pending_dare_count() {
+            var _this3 = this;
 
             fetch('/api/count-my-pending-dares/' + Metro.session.getItem('userId')).then(function (res) {
                 return res.json();
             }).then(function (res) {
-                _this2.pending_dares_count = res; //res.data;
+                _this3.pending_dares_count = res; //res.data;
 
             }).catch(function (error) {
                 console.log(error);
@@ -61949,7 +61964,9 @@ var render = function() {
                     _vm._v("Watch Dares")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [_vm._v("106")])
+                  _c("span", { staticClass: "badge-bottom" }, [
+                    _vm._v(_vm._s(_vm.dare_vids_count))
+                  ])
                 ]
               )
             ]
@@ -62116,6 +62133,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -62418,30 +62436,30 @@ var render = function() {
                       0
                     )
                   ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "remark info text-center" },
+                  [
+                    _c("router-link", { attrs: { to: "/pending-dares" } }, [
+                      _vm._v(" Click here to view your Dare list")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "remark success text-center" },
+                  [
+                    _c("router-link", { attrs: { to: "/upload-dare" } }, [
+                      _vm._v(" Click here to upload a Dare")
+                    ])
+                  ],
+                  1
                 )
               ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "remark info text-center" },
-            [
-              _c("router-link", { attrs: { to: "/pending-dares" } }, [
-                _vm._v(" Click here to view your pending Dares")
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "remark success text-center" },
-            [
-              _c("router-link", { attrs: { to: "/upload-dare" } }, [
-                _vm._v(" Click here to upload a Dare")
-              ])
-            ],
-            1
-          ),
           _vm._v(" "),
           [
             _c("div", { staticClass: "container fadeIn index" }, [
@@ -62706,6 +62724,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62828,68 +62851,81 @@ var render = function() {
                   1
                 )
               ]
-            : _c(
-                "table",
-                { staticClass: "table row-hover table-border white-color" },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.content, function(con) {
-                      return _c("tr", { key: con.id }, [
-                        _c("td", [_vm._v(_vm._s(con.dare_name))]),
-                        _vm._v(" "),
-                        con.status == 1
-                          ? _c("td", [
-                              _c("div", {
-                                attrs: {
-                                  "data-role": "countdown",
-                                  "data-date": con.expire
-                                }
-                              })
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        con.status == 0
-                          ? _c("td", [
-                              _c("div", {
-                                attrs: {
-                                  "data-role": "countdown",
-                                  "data-date": con.expire,
-                                  "data-cls-days": "bg-red fg-white",
-                                  "data-cls-hours": "bg-red fg-white",
-                                  "data-cls-minutes": "bg-red fg-white",
-                                  "data-cls-seconds": "bg-red fg-white"
-                                }
-                              })
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        con.status == 3
-                          ? _c("td", [
-                              _c("p", { staticClass: "text-green pl-4" }, [
-                                _vm._v("DARE COMPLETED!")
+            : _c("span", [
+                _c(
+                  "table",
+                  { staticClass: "table row-hover table-border white-color" },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.content, function(con) {
+                        return _c("tr", { key: con.id }, [
+                          _c("td", [_vm._v(_vm._s(con.dare_name))]),
+                          _vm._v(" "),
+                          con.status == 1
+                            ? _c("td", [
+                                _c("div", {
+                                  attrs: {
+                                    "data-role": "countdown",
+                                    "data-date": con.expire
+                                  }
+                                })
                               ])
-                            ])
-                          : _vm._e()
-                      ])
-                    }),
-                    0
-                  )
-                ]
-              ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "remark success text-center" },
-            [
-              _c("router-link", { attrs: { to: "/upload-dare" } }, [
-                _vm._v(" Click here to upload a Dare")
-              ])
-            ],
-            1
-          ),
+                            : _vm._e(),
+                          _vm._v(" "),
+                          con.status == 0
+                            ? _c("td", [
+                                _c("div", {
+                                  attrs: {
+                                    "data-role": "countdown",
+                                    "data-date": con.expire,
+                                    "data-cls-days": "bg-red fg-white",
+                                    "data-cls-hours": "bg-red fg-white",
+                                    "data-cls-minutes": "bg-red fg-white",
+                                    "data-cls-seconds": "bg-red fg-white"
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          con.status == 3
+                            ? _c("td", [
+                                _c("p", { staticClass: "text-green pl-4" }, [
+                                  _vm._v("DARE COMPLETED!")
+                                ])
+                              ])
+                            : _vm._e()
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "remark info text-center" },
+                  [
+                    _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                      _vm._v(" Click here to add another dare")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "remark success text-center" },
+                  [
+                    _c("router-link", { attrs: { to: "/upload-dare" } }, [
+                      _vm._v(" Click here to upload a Dare")
+                    ])
+                  ],
+                  1
+                )
+              ]),
           _vm._v(" "),
           [
             _c("div", { staticClass: "container fadeIn index" }, [
@@ -63059,6 +63095,10 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -63502,6 +63542,17 @@ var render = function() {
                       [_vm._v("Done")]
                     )
                   ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "remark info text-center" },
+                  [
+                    _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                      _vm._v(" Click here to add another dare")
+                    ])
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(

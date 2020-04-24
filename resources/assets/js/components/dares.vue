@@ -93,7 +93,7 @@
                                         </v-card>
                                       </template>
                                       <span class="badge inside  fg-white"
-                                      style="background-color: #b82943">player's username</span>
+                                      style="background-color: #b82943">{{con.username}}</span>
                         </div>
                       
 

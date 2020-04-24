@@ -59,7 +59,7 @@
                         class='fadeIn ani-hover-horizontal bg-orange'>
                         <span  @click.prevent='dares()'>  <span class="mif-file-video icon"></span>
                                 <span class="branding-bar">Watch Dares</span>
-                                <span class="badge-bottom">106</span>
+                                <span class="badge-bottom">{{dare_vids_count}}</span>
                             </span>
                         </div>
                     </div>
@@ -96,6 +96,7 @@
                 return {
                     dare_count:'',
                     pending_dares_count:'',
+                    dare_vids_count:'',
                 }
             },
             mounted() {
@@ -108,7 +109,7 @@
 
                 this.get_dare_count()
                 this.get_pending_dare_count()
-               
+                this.get_dare_vids_count()
             },
             
             methods: {
@@ -172,6 +173,18 @@
                     .then(res=>{
                         this.dare_count = res//res.data;
                     
+                    
+                    })
+                    .catch(error =>{
+                    console.log(error)
+                        })
+                    },
+
+                    get_dare_vids_count(){
+                    fetch('/api/count-dare-vids')
+                    .then(res => res.json())
+                    .then(res=>{
+                        this.dare_vids_count = res//res.data;
                     
                     })
                     .catch(error =>{

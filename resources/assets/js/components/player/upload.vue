@@ -52,6 +52,10 @@
                 <button class="button primary" @click.prevent='send()'>Done</button>
                 </form>
 
+                <div class="remark info text-center">
+                    <router-link to='/pick-dare'> Click here to add another dare</router-link>
+                 </div>
+                 
                     <div class="remark info text-center">
                            <router-link to='/pending-dares'> Click here to view your Dares</router-link>
                           
