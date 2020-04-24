@@ -61637,8 +61637,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             Metro.activity.close(activity);
             this.$router.push({ name: "homepage" });
         },
-        get_dare_count: function get_dare_count() {},
-        get_pending_dare_count: function get_pending_dare_count() {}
+        get_dare_count: function get_dare_count() {
+            var _this = this;
+
+            fetch('/api/count-dares').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.dare_count = 47; //res.data;
+
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        get_pending_dare_count: function get_pending_dare_count() {
+            var _this2 = this;
+
+            fetch('/api/count-my-pending-dares/' + Metro.session.getItem('userId')).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this2.pending_dares_count = 47; //res.data;
+
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
 });
@@ -61721,7 +61743,9 @@ var render = function() {
                     _vm._v("Pick a Dare")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [_vm._v("10")])
+                  _c("span", { staticClass: "badge-bottom" }, [
+                    _vm._v(_vm._s(_vm.dare_count))
+                  ])
                 ]
               )
             ]
@@ -61756,7 +61780,9 @@ var render = function() {
                     _vm._v("Pending dares")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [_vm._v("1047")])
+                  _c("span", { staticClass: "badge-bottom" }, [
+                    _vm._v(_vm._s(_vm.pending_dares_count))
+                  ])
                 ]
               )
             ]
@@ -63003,10 +63029,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            content: [],
+            empty: false,
+            loading: false,
+            selected: '',
+            video: ''
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
@@ -63016,10 +63072,81 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         setTimeout(function () {
             Metro.infobox.open('#ad');
         }, 5000);
+
+        this.get();
     },
 
 
     methods: {
+        send: function send() {
+            var _this = this;
+
+            this.$validator.validateAll().then(function () {
+
+                if (!_this.errors.any()) {
+                    //run code
+                    var activity = Metro.activity.open({
+                        type: 'metro',
+                        overlayClickClose: false,
+                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                    });
+
+                    var formdata = new FormData();
+                    //append form data to formdata
+                    formdata.append('selected', _this.selected);
+                    formdata.append('video', _this.video);
+
+                    axios.post('/upload-dare', formdata).then(function (res) {
+                        console.log(res);
+                        if (res.data == 1) {
+                            Metro.activity.close(activity);
+
+                            //  document.getElementById("addForm").reset();
+                            Metro.toast.create('Upload Successful!', null, 5000, 'success');
+                        } else {
+                            Metro.activity.close(activity);
+                            Metro.toast.create('An error occured, refresh and try again', null, 5000, 'alert');
+                        }
+                    }).catch(function (err) {
+                        console.log(err);
+                        Metro.activity.close(activity);
+                    });
+                } else {}
+                //do nothing, v validate will work
+
+
+                //
+            });
+        },
+        videoSelect: function videoSelect(event) {
+            this.video = event.target.files[0];
+            console.log(this.video);
+        },
+        get: function get() {
+            var _this2 = this;
+
+            this.loading = true;
+            fetch('/api/upload-dare-list/' + Metro.session.getItem('userId')).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this2.content = res.data;
+                _this2.loading = false;
+                console.log(_this2.content);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this2.empty = true;
+                } else {
+                    _this2.empty = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this2.loading = false;
+            });
+        },
         home: function home() {
             this.$router.push({ name: "index" });
         },
@@ -63032,30 +63159,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         back: function back() {
             this.$router.go(-1);
         }
-
-        /*
-                    this.$validator.validateAll().then(() => {
-                   
-                   if (!this.errors.any()) {
-                    //
-                    }else{
-                    //
-                    }
-                 
-                            //
-                    })
-                    .catch(err=>{
-                        
-                    }),
-              
-                 setTimeout(func=>{
-                     //this.errors.clear()
-                    // this.$validator.reset()
-                 },1) 
-                
-                 }); //validator
-        */
-
     }
 
 });
@@ -63088,19 +63191,171 @@ var render = function() {
             _vm._v(" Upload Dare")
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v("Select Dare")]),
+          _vm.empty
+            ? _c("span", [
+                _c("div", { staticClass: "remark info text-center" }, [
+                  _vm._v(
+                    "\n                        Dare list is currently empty\n                     "
+                  )
+                ])
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("p", [_vm._v("Video upload")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "file", "data-role": "file", "data-mode": "drop" }
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("button", { staticClass: "button primary" }, [_vm._v("Done")]),
+          _vm.loading
+            ? [
+                _c(
+                  "v-sheet",
+                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
+                  [
+                    _c("v-skeleton-loader", {
+                      staticClass: "mx-auto",
+                      attrs: { "max-width": "auto", type: "article" }
+                    })
+                  ],
+                  1
+                )
+              ]
+            : _c(
+                "form",
+                { attrs: { enctype: "multipart/form-data", method: "POST" } },
+                [
+                  _c("p", [_vm._v("Select Dare")]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      attrs: {
+                        "data-role": "hint",
+                        "data-hint-text":
+                          "Select Dare you want to upload its video",
+                        "data-hint-position": "top"
+                      }
+                    },
+                    [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selected,
+                              expression: "selected"
+                            },
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: '"required"'
+                            }
+                          ],
+                          attrs: { "data-role": "select", name: "dare" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.selected = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        _vm._l(_vm.content, function(con) {
+                          return _c(
+                            "option",
+                            {
+                              key: con.id,
+                              staticClass: "text-bold",
+                              attrs: { selected: "" },
+                              domProps: { value: con.id }
+                            },
+                            [
+                              _vm._v(
+                                "\n                " + _vm._s(con.dare_name)
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("dare"),
+                          expression: "errors.has('dare')"
+                        }
+                      ],
+                      staticClass: "fg-yellow shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("dare")))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Video upload")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required|ext:mp4,3gp|size:50000",
+                        expression: '"required|ext:mp4,3gp|size:50000"'
+                      }
+                    ],
+                    attrs: {
+                      type: "file",
+                      "data-role": "file",
+                      "data-mode": "drop",
+                      name: "video"
+                    },
+                    on: { change: _vm.videoSelect }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("video"),
+                          expression: "errors.has('video')"
+                        }
+                      ],
+                      staticClass: "fg-yellow shake"
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("video")))]
+                  ),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button primary",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.send()
+                        }
+                      }
+                    },
+                    [_vm._v("Done")]
+                  )
+                ]
+              ),
           _vm._v(" "),
           _c(
             "div",
@@ -63199,7 +63454,7 @@ var render = function() {
             ])
           ],
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ],
         2
       )
@@ -63208,34 +63463,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      {
-        attrs: {
-          "data-role": "hint",
-          "data-hint-text": "Select Dare you want to upload its video",
-          "data-hint-position": "top"
-        }
-      },
-      [
-        _c("select", { attrs: { "data-role": "select" } }, [
-          _c("option", { staticClass: "fg-cyan" }, [_vm._v("One")]),
-          _vm._v(" "),
-          _c(
-            "option",
-            { staticClass: "text-bold fg-red", attrs: { selected: "" } },
-            [_vm._v("Two")]
-          ),
-          _vm._v(" "),
-          _c("option", { staticClass: "fg-green" }, [_vm._v("Three")])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -30,7 +30,7 @@
                         <div data-role="tile" data-size="wide"  class='fadeIn ani-hover-horizontal'>
                                 <span @click.prevent='pick()'>  <span class="mif-add icon"></span>
                                 <span class="branding-bar">Pick a Dare</span>
-                                <span class="badge-bottom">10</span>
+                                <span class="badge-bottom">{{dare_count}}</span>
                             </span>
                         </div>
     
@@ -39,7 +39,7 @@
                               <span  @click.prevent='pendingDares()'>  <span class="mif-alarm icon"></span>
                                 <span class="branding-bar">Pending dares</span>
                            
-                                <span class="badge-bottom">1047</span>
+                                <span class="badge-bottom">{{pending_dares_count}}</span>
                             </span>
                         </div>
     
@@ -167,11 +167,29 @@
 
 
                     get_dare_count(){
-
+                    fetch('/api/count-dares')
+                    .then(res => res.json())
+                    .then(res=>{
+                        this.dare_count = 47//res.data;
+                    
+                    
+                    })
+                    .catch(error =>{
+                    console.log(error)
+                        })
                     },
 
                     get_pending_dare_count(){
-                        
+                        fetch('/api/count-my-pending-dares/'+Metro.session.getItem('userId'))
+                    .then(res => res.json())
+                    .then(res=>{
+                        this.pending_dares_count = 47//res.data;
+                    
+                    
+                    })
+                    .catch(error =>{
+                    console.log(error)
+                        })
                     }
             },
     

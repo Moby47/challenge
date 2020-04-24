@@ -147,4 +147,20 @@ class dareController extends Controller
       return darelistres::collection($data);
     }
 
+    public function upload_dare_list($userid)
+    {
+     
+          $ex_data = mydare::orderby('status',1)->where('user_id','=',$userid)
+        ->whereDate('expire','<=', \carbon\carbon::now())
+        ->select('id','dare_name')->get();
+
+      return darelistres::collection($ex_data);
+    }
+
+    public function upload_dare(Request $request)
+    {
+       // return $request;
+        return 1;
+    }
+
 }
