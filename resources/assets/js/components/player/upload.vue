@@ -3,22 +3,22 @@
 
             
         <div class="desktop">
-                <div class="window-area">
-                    <!-- content here-->
-                    <vue-particles 
+                <div class="window-area scroll">
+                    <!-- content here  <vue-particles 
                     color="#00B0FF"
                     shapeType="star"
                     linesColor="#00B0FF"
                     :particleSize="5"
                     >
-                    </vue-particles>
+                    </vue-particles>-->
+                   
         
             <div class="container fadeIn">
             
                     <h3 class="text-center white-color"> Upload Dare</h3>
                     <span v-if='empty'>
                             <div class="remark info text-center">
-                                    Dare list is currently empty
+                                    Your Dare list is currently empty. <router-link to='/pick-dare'> Click here to add one</router-link>
                                  </div>
                     </span>
             
@@ -37,9 +37,9 @@
     
                     <span v-else>
             <form  enctype="multipart/form-data" method="POST">
-            <p class='text-white'>Select Dare</p>
+            <p class='white-color'>Select Dare</p>
                    <p data-role="hint"
-                   data-hint-text="Select Dare you want to upload its video"
+                   data-hint-text="Select a Dare you want to upload its video"
                     data-hint-position="top">
                     <select data-role="select" v-model='selected' v-validate='"required"' name='dare'>
                             <option selected class="text-bold" :value='con.id'
@@ -48,7 +48,7 @@
                         </select></p>
                         <p class='fg-yellow shake' v-show="errors.has('dare')">{{ errors.first('dare') }}</p>
     
-                    <p class='text-white'>Video upload</p>
+                    <p class='white-color'>Video upload</p>
                     <input type="file" data-role="file" data-mode="drop" name='video'
                     @change='videoSelect' v-validate='"required|ext:mp4,3gp|size:50000"'>
                     <p class='fg-yellow shake' v-show="errors.has('video')">{{ errors.first('video') }}</p>
@@ -58,13 +58,12 @@
                     </form>
     
                     <div class="remark info text-center">
-                        <router-link to='/pick-dare'> Click here to add another dare</router-link>
-                     </div>
-                     
-                        <div class="remark info text-center">
-                               <router-link to='/pending-dares'> Click here to view your Dares</router-link>
-                              
-                            </div>
+                            <router-link to='/pick-dare'> Click here to add another dare</router-link>
+                         </div>
+                         
+                         <div class="remark info text-center">
+                                <router-link to='/pending-dares'> Click here to view your Dare list</router-link>
+                             </div>
                         </span>
     
                            
@@ -164,18 +163,22 @@
         axios.post('/api/upload-dare',formdata)
         .then(res=>{
             console.log(res)
+            var options = {
+                                showTop: true,
+                            }
 
 			if(res.data == 1){
         Metro.activity.close(activity);
         this.get()
       //  document.getElementById("addForm").reset();
+    
       Metro.toast.create('Upload Successful!',
-        null, 5000, 'success');
+        null, 5000, 'success', options);
 			
 			}else{
         Metro.activity.close(activity);
         Metro.toast.create('An error occured, refresh and try again',
-         null, 5000, 'alert');
+         null, 5000, 'alert', options);
 			}
 				
 			})
@@ -224,6 +227,11 @@
                     console.log(error)
                         //off loader
                         this.loading = false
+                        var options = {
+                                showTop: true,
+                            }
+                         Metro.toast.create('A temporary network error occured...',
+                         null, 5000, 'yellow', options);
                         })
                     },
 

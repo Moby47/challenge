@@ -198,12 +198,16 @@ class dareController extends Controller
 
         //update user point
           $darelistID = $dare->darelist_id;
-          $darelisContent = darelist::findorfail($darelistID);
-          $point = $darelisContent->points;
+          $darelistContent = darelist::findorfail($darelistID);
+          $point = $darelistContent->points;
 
           $user = user::findorfail($request->input('userid'));
           $user->points = $user->points + $point;
           $user->save();
+
+          //update count for user played on darelist
+          $darelistContent->play_count = $darelistContent->play_count + 1;
+          $darelistContent->save();
 
         //save required intel
         $cloundary_upload = Cloudder::getResult();

@@ -167,9 +167,9 @@
   }
 
   .window-area {
-    background: url("/images/leader.svg") center center no-repeat;
+    background: url("/images/bg-dare.jpg") center center no-repeat;
     background-size: cover;
-    background-color: #e9f6fc;
+    background-color: grey;
 }
 #charm {
     height: calc(100vh - 40px);
@@ -177,10 +177,16 @@
     background-color: rgba(0, 0, 0, 0.42);
 }
 
+.home-title{
+  height: calc(100vh - 480px);
+  width: 396px;
+  background-color: rgba(0, 0, 0, 0.42);
+}
 
 .link{
   text-decoration: none;
   color:white;
+  text-decoration-line: none !important;
 }
 
 .login-form {
@@ -188,4 +194,16 @@
   height: auto;
   top: 50%;
   margin-top: -160px;
+}
+
+.scroll{
+  overflow: auto !important;
+}
+
+.table-dark,.table-dark>td,.table-dark>th{background-color:#c6c8ca}.table-dark tbody+tbody,.table-dark td,.table-dark th,.table-dark thead th{border-color:#95999c}.table-hover .table-dark:hover{background-color:#b9bbbe}.table-hover .table-dark:hover>td,.table-hover .table-dark:hover>th{background-color:#b9bbbe}.table-active,.table-active>td,.table-active>th{background-color:rgba(0,0,0,.075)}.table-hover .table-active:hover{background-color:rgba(0,0,0,.075)}.table-hover .table-active:hover>td,.table-hover .table-active:hover>th{background-color:rgba(0,0,0,.075)}.table .thead-dark th{color:#fff;background-color:#343a40;border-color:#454d55}.table .thead-light th{color:#495057;background-color:#e9ecef;border-color:#dee2e6}.table-dark{color:#fff;background-color:#343a40}.table-dark td,.table-dark th,.table-dark thead th{border-color:#454d55}.table-dark.table-bordered{border:0}.table-dark.table-striped tbody tr:nth-of-type(odd){background-color:rgba(255,255,255,.05)}
+
+.thead-dark th{color:inherit;border-color:#dee2e6}
+
+.bold{
+  font-weight: bolder;
 }

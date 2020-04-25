@@ -5,9 +5,9 @@
             
         <div class="desktop">
                 <div class="window-area">
-                    <!-- content here-->
+                    <!-- content here  <div class='bg-help'></div>-->
 
-                    <div class='bg-help'></div>
+                   
     
                     <div class="container fadeIn">
                    

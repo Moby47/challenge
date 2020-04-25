@@ -4,9 +4,9 @@
 
             
         <div class="desktop">
-                <div class="window-area">
-                    <!-- content here-->
-                    <div class='bg-darelist'></div>
+                <div class="window-area scroll">
+                    <!-- content here 
+                    <div class='bg-darelist'></div>-->
 
         <div class="container fadeIn">
         
@@ -32,8 +32,8 @@
                       </template>
                       
                       <span v-else>
-                <table class="table row-hover table-border" >
-                        <thead>
+                <table class="table row-hover table-border table-striped table-dark">
+                        <thead class="thead-dark">
                         <tr>
                              <th>Dare</th>
                             <th>Players Played</th>
@@ -41,7 +41,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                                <tr class="info" v-for='con in content' v-bind:key='con.id'>
+                                <tr v-for='con in content' v-bind:key='con.id'>
                                         <td>{{con.dare_name}} </td>
                                         <td>{{con.play_count}}</td>
                                         <td>{{con.points}}</td>
@@ -70,6 +70,10 @@
         </div>
     </template>
     
+    <style scoped>
+      
+            </style>
+
     <script>
         export default {
     
@@ -120,6 +124,12 @@
                   console.log(error)
                     //off loader
                     this.loading = false
+                    var options = {
+                                showTop: true,
+                            }
+                         Metro.toast.create('A temporary network error occured...',
+                         null, 5000, 'yellow', options);
+                       
                     })
                 },
 

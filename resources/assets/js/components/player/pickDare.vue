@@ -4,15 +4,15 @@
             
         <div class="desktop">
                 <div class="window-area">
-                    <!-- content here-->
-
-                    <vue-particles 
+                    <!-- content here   <vue-particles 
                     color="#00B0FF"
                     shapeType="star"
                     linesColor="#00B0FF"
                     :particleSize="5"
                     >
-                    </vue-particles>
+                    </vue-particles>-->
+
+                  
         
             <div class="container fadeIn">
             
@@ -39,7 +39,7 @@
     
                           <span v-else>
                    <p data-role="hint" 
-                   data-hint-text="Select Dares you want to attempt, to add them to your Dare list."
+                   data-hint-text="Select Dares you want to attempt. Selected dares are added to your Dare list."
                     data-hint-position="top">
                     <select data-role="select" v-model='selected'>
                             <option selected class="text-bold" :value='con.dare_name'
@@ -119,6 +119,12 @@
                     console.log(error)
                         //off loader
                         this.loading = false
+                        var options = {
+                                showTop: true,
+                            }
+                         Metro.toast.create('A temporary network error occured...',
+                         null, 5000, 'yellow', options);
+                    
                         })
                     },
 
@@ -155,28 +161,37 @@
                     .then(res => {
                     var result = res.data;
 
-                    
+                    var options = {
+                                showTop: true,
+                            }
+
                          if(result == 1){
                             Metro.toast.create(' Dare added  Successfuly!',
-                             null, 5000, 'success');
+                             null, 5000, 'success', options);
                                Metro.activity.close(activity);
                           }else if(result == 2){
                             Metro.toast.create('Complete your 5 selected dares to select more',
-                             null, 5000, 'yellow');
+                             null, 5000, 'yellow', options);
                              Metro.activity.close(activity);
                           }else if(result == 3){
                             Metro.toast.create('You added this dare already',
-                             null, 5000, 'info');
+                             null, 5000, 'info', options);
                              Metro.activity.close(activity);
                           }else{
                             Metro.toast.create('Adding failed. Refresh and try again',
-                             null, 5000, 'alert');
+                             null, 5000, 'alert', options);
                              Metro.activity.close(activity); 
                           }
                     })
                     .catch(error =>{
                         Metro.activity.close(activity);
                       console.log(error)
+                      var options = {
+                                showTop: true,
+                            }
+                         Metro.toast.create('A temporary network error occured...',
+                         null, 5000, 'yellow', options);
+                       
                     })
               }//if yes
                

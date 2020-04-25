@@ -3,7 +3,7 @@
 
           
         <div class="desktop">
-            <div class="window-area">
+            <div class="window-area scroll">
                 <!-- content here-->
 
                 <div class='bg-dare'></div>
@@ -31,12 +31,39 @@
                                   <v-skeleton-loader
                                     class="mx-auto"
                                     max-width="auto"
-                                    type="card@6"
+                                    type="card"
                                   ></v-skeleton-loader>
                                 </v-sheet>
                               </template>
                             </div>
-                           
+                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                                <template >
+                                    <v-sheet
+                                      :color="`grey`"
+                                      class="px-3 pt-3 pb-3"
+                                    >
+                                      <v-skeleton-loader
+                                        class="mx-auto"
+                                        max-width="auto"
+                                        type="card"
+                                      ></v-skeleton-loader>
+                                    </v-sheet>
+                                  </template>
+                                </div>
+                                <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                                    <template >
+                                        <v-sheet
+                                          :color="`grey`"
+                                          class="px-3 pt-3 pb-3"
+                                        >
+                                          <v-skeleton-loader
+                                            class="mx-auto"
+                                            max-width="auto"
+                                            type="card"
+                                          ></v-skeleton-loader>
+                                        </v-sheet>
+                                      </template>
+                                    </div>
                           
                             <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
                                     
@@ -82,15 +109,7 @@
         
             
         
-            
-
-        
-            </div>
-            <taskbar></taskbar>
-        </div>
-
-              
- <!--dialogs search-->
+             <!--dialogs search-->
              <div class="dialog" data-role="dialog" id='search'>
                               
                     <div class="dialog-title fg-white" style="background-color: #07557B">
@@ -121,6 +140,14 @@
                             <button class="button alert js-dialog-close">Close</button>
                         </div>
                     </div>
+
+        
+            </div>
+            <taskbar></taskbar>
+        </div>
+
+              
+
 
 
         </div>
@@ -169,6 +196,12 @@
                   console.log(error)
                     //off loader
                     this.loading = false
+                    var options = {
+                                showTop: true,
+                            }
+                         Metro.toast.create('A temporary network error occured...',
+                         null, 5000, 'yellow', options);
+                       
                     })
                 },
 

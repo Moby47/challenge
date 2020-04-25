@@ -11,15 +11,15 @@
                                  
                                     <div class="charm-bottom mt-auto">
                                         <div class="d-flex">
-                                            <div class="charm-tile bg-orange" @click.prevent='dares()'>
+                                            <div class="charm-tile ani-hover-horizontal bg-orange" @click.prevent='dares()'>
                                                 <span class="icon mif-file-video"></span>
                                                 <span class="caption">Watch Dares</span>
                                             </div>
-                                            <div class="charm-tile" @click.prevent='list()' style="background-color: #1ba1e2">
+                                            <div class="charm-tile ani-hover-horizontal" @click.prevent='list()' style="background-color: #1ba1e2">
                                                 <span class="icon mif-list"></span>
                                                 <span class="caption">Dare List</span>
                                             </div>
-                                            <div class="charm-tile" @click.prevent='board()' style="background-color: #b82943">
+                                            <div class="charm-tile ani-hover-horizontal" @click.prevent='board()' style="background-color: #b82943">
                                                 <span class="icon mif-clipboard"></span>
                                                 <span class="caption">Dare Leaderboard</span>
                                             </div>
@@ -36,25 +36,25 @@
                                  
                                     <div class="charm-bottom mt-auto">
                                         <div class="d-flex">
-                                            <div class="charm-tile" @click.prevent='pickDare()'
+                                            <div class="charm-tile ani-hover-horizontal" @click.prevent='pickDare()'
                                              style="background-color: #1ba1e2">
                                                 <span class="icon mif-add"></span>
                                                 <span class="caption">Pick a Dare</span>
                                             </div>
-                                            <div class="charm-tile bg-teal" @click.prevent='myDare()' 
+                                            <div class="charm-tile ani-hover-horizontal bg-teal" @click.prevent='myDare()' 
                                             >
                                                 <span class="icon mif-alarm"></span>
                                                 <span class="caption">My Dares</span>
                                             </div>
-                                            <div class="charm-tile " @click.prevent='upload()'>
+                                            <div class="charm-tile ani-hover-horizontal " @click.prevent='upload()'>
                                                 <span class="icon mif-file-upload"></span>
                                                 <span class="caption">Upload Dare</span>
                                             </div>
-                                            <div class="charm-tile " @click.prevent='logout()'v-if='isAuth()' style="background-color: #b82943">
+                                            <div class="charm-tile ani-hover-horizontal " @click.prevent='logout()'v-if='isAuth()' style="background-color: #b82943">
                                                 <span class="icon mif-power"></span>
                                                 <span class="caption">Logout</span>
                                             </div>
-                                            <div class="charm-tile " @click.prevent='upload()' v-else style="background-color: #b82943">
+                                            <div class="charm-tile ani-hover-horizontal " @click.prevent='upload()' v-else style="background-color: #b82943">
                                                     <span class="icon mif-gamepad"></span>
                                                     <span class="caption">Start Playing</span>
                                                 </div>
@@ -70,15 +70,15 @@
                                      
                                         <div class="charm-bottom mt-auto">
                                             <div class="d-flex">
-                                                <div class="charm-tile bg-purple">
+                                                <div class="charm-tile ani-hover-horizontal bg-purple">
                                                     <span class="icon mif-cart"></span>
                                                     <span class="caption">Store</span>
                                                 </div>
-                                                <div class="charm-tile bg-orange" >
+                                                <div class="charm-tile ani-hover-horizontal bg-orange" >
                                                     <span class="icon mif-move_to_inbox"></span>
                                                     <span class="caption">Suggest Dare</span>
                                                 </div>
-                                       <div class="charm-tile" style="background-color: #b82943" @click.prevent='help()'>
+                                       <div class="charm-tile ani-hover-horizontal" style="background-color: #b82943" @click.prevent='help()'>
                                                     <span class="icon mif-help"></span>
                                                     <span class="caption">How to Play</span>
                                                 </div>
@@ -87,20 +87,21 @@
                                             </div>
                 
                                             <div class="d-flex">
-                                                    <div class="charm-tile bg-teal" @click.prevent='rules()'>
+                                                    <div class="charm-tile ani-hover-horizontal bg-teal" @click.prevent='rules()'>
                                                             <span class="icon mif-books"></span>
                                                             <span class="caption">Rules</span>
                                                         </div>
-                                                        <div class="charm-tile"  style="background-color: #1ba1e2">
+                                                        <a href='mailto:honred47@yahoo.com' class='link'>
+                                                                <div class="charm-tile ani-hover-horizontal"  style="background-color: #1ba1e2">
                                                                 <span class="icon mif-phone"></span>
-                                                                <a href='mailto:honred47@yahoo.com' class='link'>
-                                                                       <span class="caption">Contact Support</span> </a>
-                                                              </div>
-                                                    <div class="charm-tile" @click.prevent='menu()'>
+                                                                
+                                                                       <span class="caption">Contact Support</span>
+                                                              </div></a>
+                                                    <div class="charm-tile ani-hover-horizontal" @click.prevent='menu()'>
                                                         <span class="icon mif-home"></span>
                                                         <span class="caption">Home</span>
                                                     </div>
-                                                    <div class="charm-tile" @click.prevent='home()' style="background-color: #7e07ff">
+                                                    <div class="charm-tile ani-hover-horizontal" @click.prevent='home()' style="background-color: #7e07ff">
                                                         <span class="icon mif-settings-power"></span>
                                                         <span class="caption">Exit</span>
                                                     </div>
@@ -120,7 +121,12 @@
             
             
                 <div class="task-bar-section">
-                    <button class="task-bar-item" onclick="Metro.charms.toggle('#charm')"><span class="mif-windows"></span></button>
+                    <button class="task-bar-item" onclick="Metro.charms.toggle('#charm')" 
+                    data-role="popover"
+                    data-popover-text="Start"
+                    data-popover-position="right" 
+                    data-popover-hide="5000">
+                    <span class="mif-windows"></span></button>
             
                   
                 </div>
@@ -192,6 +198,11 @@
                     if(this.isAuth()){
                         this.$router.push({name: "pickDare"});
                     }else{
+                        var options = {
+                                showTop: true,
+                            }
+                            Metro.toast.create('Login to continue',
+                             null, 5000, 'info', options);
                         this.$router.push({name: "login"});
                     }
                     
@@ -200,6 +211,11 @@
                     if(this.isAuth()){
                         this.$router.push({name: "pendingDares"});
                     }else{
+                        var options = {
+                                showTop: true,
+                            }
+                            Metro.toast.create('Login to continue',
+                             null, 5000, 'info', options);
                         this.$router.push({name: "login"});
                     }
                     
@@ -208,6 +224,11 @@
                     if(this.isAuth()){
                         this.$router.push({name: "upload"});
                     }else{
+                        var options = {
+                                showTop: true,
+                            }
+                            Metro.toast.create('Login to continue',
+                             null, 5000, 'info', options);
                         this.$router.push({name: "login"});
                     }
                     

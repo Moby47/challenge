@@ -55788,11 +55788,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {
-            email: '',
-            password: '',
-            username: ''
-        };
+        return {};
     },
 
 
@@ -55805,112 +55801,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.$router.push({ name: "homepage" });
         },
-        newPlayer: function newPlayer() {
-            Metro.dialog.close('#oldPlayer');
-            Metro.dialog.open('#newPlayer');
-        },
-        oldPlayer: function oldPlayer() {
-            Metro.dialog.close('#newPlayer');
-            Metro.dialog.open('#oldPlayer');
+        login: function login() {
+            this.$router.push({ name: "login" });
         },
         player: function player() {
             this.$router.push({ name: "playerHomepage" });
         },
-        login: function login() {
-            var _this = this;
 
-            //validate specific reg fields
-            this.$validator.validateAll('loginForm').then(function () {
-                if (!_this.errors.any()) {
-                    var activity = Metro.activity.open({
-                        type: 'square',
-                        overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
-                    });
-
-                    var input = { 'username': _this.username, 'password': _this.password };
-                    axios.post('/api/login-user', input).then(function (res) {
-                        var result = res.data.result;
-
-                        if (result == 2) {
-                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 5000, 'yellow');
-                            Metro.activity.close(activity);
-                        } else {
-                            Metro.toast.create('Login Successful!', null, 5000, 'success');
-                            Metro.dialog.close('#oldPlayer');
-                            //start login 
-                            Metro.session.setItem('userToken', res.data.token);
-                            Metro.session.setItem('userId', res.data.id);
-                            Metro.session.setItem('userName', res.data.username);
-                            Metro.activity.close(activity);
-                            _this.$router.push({ name: "playerHomepage" });
-                        }
-                    }).catch(function (error) {
-                        Metro.activity.close(activity);
-                        console.log(error);
-                    });
-                } else {} //if error
-                //error is auto shown, dont worry
-                //if error
-            }); //val
-        },
-        //login
-
-
-        reg: function reg() {
-            var _this2 = this;
-
-            //validate
-            this.$validator.validateAll('regForm').then(function () {
-                if (!_this2.errors.any()) {
-
-                    var activity = Metro.activity.open({
-                        type: 'square',
-                        overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
-                    });
-
-                    //start registeration
-                    var input = { 'username': _this2.username, 'email': _this2.email,
-                        'password': _this2.password };
-
-                    //send to database with axios
-                    axios.post('/api/register-user', input).then(function (res) {
-                        console.log(res);
-                        if (res.data == 1) {
-                            Metro.activity.close(activity);
-                            Metro.toast.create('Signup was Successful!', null, 5000, 'success');
-                            Metro.dialog.close('#newPlayer');
-                            // Metro.dialog.open('#oldPlayer')
-                            _this2.login();
-                        } else {
-                            Metro.toast.create('An error occured!', null, 5000, 'alert');
-                            Metro.activity.close(activity);
-                        }
-                    }).catch(function (error) {
-                        console.log(error);
-                        Metro.activity.close(activity);
-
-                        if (error.response.status == 422) {
-
-                            Metro.toast.create('This Email has been taken.', null, 5000, 'yellow');
-                        } else {
-                            Metro.toast.create('Please verify that your inputs are correct', null, 5000, 'alert');
-                        }
-                    });
-                    //start registeration - end
-
-                    // }
-
-                    //read pId for saving on reg
-                } else {
-                    console.log('vee errors exist');
-                    //val err
-                    //do nothing, vee val got u
-                }
-            }); //val
-        },
-        //reg
 
         //meth to check Auth
         isAuth: function isAuth() {
@@ -55937,9 +55834,9 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-particles", { attrs: { color: "#ffffff" } }),
+      _c("vue-particles", { attrs: { color: "#fdf9c6" } }),
       _vm._v(" "),
-      _c("h1", { staticClass: "text-center white-color ani-heartbeat" }, [
+      _c("h1", { staticClass: "text-center white-color" }, [
         _vm._v("CHALLENGE")
       ]),
       _vm._v(" "),
@@ -55948,7 +55845,7 @@ var render = function() {
         attrs: {
           "data-role": "cube",
           "data-color": "black",
-          "data-flash-color": "#00B0FF"
+          "data-flash-color": "#fdf9c6"
         }
       }),
       _vm._v(" "),
@@ -55988,7 +55885,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      _vm.player()
+                      _vm.homepage()
                     }
                   }
                 },
@@ -55999,434 +55896,32 @@ var render = function() {
                 ]
               )
             ])
-          : _c("div", { staticClass: "cell order-2" }, [_vm._m(0)])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dialog",
-          attrs: { "data-role": "dialog", id: "oldPlayer" }
-        },
-        [
-          _c(
-            "form",
-            { attrs: { method: "post", "data-vv-scope": "loginForm" } },
-            [
+          : _c("div", { staticClass: "cell order-2" }, [
               _c(
-                "div",
+                "button",
                 {
-                  staticClass: "dialog-title white-color",
-                  staticStyle: { "background-color": "#07557B" }
+                  staticClass: "shortcut rounded primary ani-hover-horizontal",
+                  staticStyle: { "background-color": "#00B0FF" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.login()
+                    }
+                  }
                 },
-                [_vm._v("Login To Continue")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-content" }, [
-                _c("p", [_vm._v("User name:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|max:15",
-                      expression: '"required|max:15"'
-                    }
-                  ],
-                  attrs: {
-                    type: "text",
-                    "data-role": "input",
-                    "data-history": "true",
-                    name: "Username"
-                  },
-                  domProps: { value: _vm.username },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.username = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("loginForm.Username"),
-                        expression: "errors.has('loginForm.Username')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Username")))]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Password:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: '"required"'
-                    }
-                  ],
-                  attrs: {
-                    type: "password",
-                    "data-role": "input",
-                    name: "Password"
-                  },
-                  domProps: { value: _vm.password },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.password = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("loginForm.Password"),
-                        expression: "errors.has('loginForm.Password')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Password")))]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "image-button",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.newPlayer()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "mif-user-plus icon" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("New Player?")
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-actions" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button primary",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.login()
-                      }
-                    }
-                  },
-                  [_vm._v("Ok")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button alert js-dialog-close",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                      }
-                    }
-                  },
-                  [_vm._v("Cancel")]
-                )
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dialog",
-          attrs: { "data-role": "dialog", id: "newPlayer" }
-        },
-        [
-          _c(
-            "form",
-            { attrs: { method: "post", "data-vv-scope": "regForm" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "dialog-title white-color",
-                  staticStyle: { "background-color": "#07557B" }
-                },
-                [_vm._v("Start New Game")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-content" }, [
-                _c("p", [_vm._v("User name:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|max:15",
-                      expression: '"required|max:15"'
-                    }
-                  ],
-                  attrs: {
-                    type: "text",
-                    "data-role": "input",
-                    "data-history": "true",
-                    name: "Username"
-                  },
-                  domProps: { value: _vm.username },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.username = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("regForm.Username"),
-                        expression: "errors.has('regForm.Username')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("regForm.Username")))]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Email:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.email,
-                      expression: "email"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|email|max:100",
-                      expression: '"required|email|max:100"'
-                    }
-                  ],
-                  attrs: {
-                    type: "email",
-                    "data-role": "input",
-                    "data-history": "true",
-                    name: "Email"
-                  },
-                  domProps: { value: _vm.email },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.email = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("regForm.Email"),
-                        expression: "errors.has('regForm.Email')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("regForm.Email")))]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Password:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: '"required"'
-                    }
-                  ],
-                  attrs: {
-                    type: "password",
-                    "data-role": "input",
-                    name: "Password"
-                  },
-                  domProps: { value: _vm.password },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.password = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("regForm.Password"),
-                        expression: "errors.has('regForm.Password')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("regForm.Password")))]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "image-button",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.oldPlayer()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "mif-user icon" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("Old Player?")
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-actions" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button primary",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.reg()
-                      }
-                    }
-                  },
-                  [_vm._v("Ok")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button alert js-dialog-close",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                      }
-                    }
-                  },
-                  [_vm._v("Cancel")]
-                )
-              ])
-            ]
-          )
-        ]
-      )
+                [
+                  _c("span", { staticClass: "caption" }, [_vm._v("Player")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "mif-gamepad icon  ani-float" })
+                ]
+              )
+            ])
+      ])
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "shortcut rounded primary ani-hover-horizontal",
-        staticStyle: { "background-color": "#00B0FF" },
-        attrs: { onclick: "Metro.dialog.open('#oldPlayer')" }
-      },
-      [
-        _c("span", { staticClass: "caption" }, [_vm._v("Player")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "mif-gamepad icon  ani-float" })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -56513,6 +56008,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56532,37 +56050,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         //notification for neebies
         this.notify();
-
-        this.get_dare_count();
-
-        this.get_dare_vids_count();
     },
 
 
     methods: (_methods = {
-        get_dare_count: function get_dare_count() {
-            var _this = this;
-
-            fetch('/api/count-dares').then(function (res) {
-                return res.json();
-            }).then(function (res) {
-                _this.dare_count = res; //res.data;
-
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        get_dare_vids_count: function get_dare_vids_count() {
-            var _this2 = this;
-
-            fetch('/api/count-dare-vids').then(function (res) {
-                return res.json();
-            }).then(function (res) {
-                _this2.dare_vids_count = res; //res.data;
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
         guest: function guest() {
             Metro.charms.toggle('#charm');
             Metro.dialog.open('#oldPlayer');
@@ -56590,10 +56081,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 notify.setup({
                     width: 300,
                     duration: 1000,
-                    timeout: 6000,
+                    timeout: 10000,
                     animation: 'easeOutBounce'
                 });
-                notify.create("Welcome to Challenge App. Explore all options from this page.");
+                notify.create("Welcome to Challenge App. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
                 notify.reset();
 
                 Metro.session.setItem('welcome', 'welcome');
@@ -56610,100 +56101,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 // this.loggedOut = true;
                 return false;
             }
-        },
-        login: function login() {
-            var _this3 = this;
-
-            //validate specific reg fields
-            this.$validator.validateAll('loginForm').then(function () {
-                if (!_this3.errors.any()) {
-                    var activity = Metro.activity.open({
-                        type: 'square',
-                        overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
-                    });
-
-                    var input = { 'username': _this3.username, 'password': _this3.password };
-                    axios.post('/api/login-user', input).then(function (res) {
-                        var result = res.data.result;
-
-                        if (result == 2) {
-                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 5000, 'yellow');
-                            Metro.activity.close(activity);
-                        } else {
-                            Metro.toast.create('Login Successful!', null, 5000, 'success');
-                            Metro.dialog.close('#oldPlayer');
-                            //start login 
-                            Metro.session.setItem('userToken', res.data.token);
-                            Metro.session.setItem('userId', res.data.id);
-                            Metro.session.setItem('userName', res.data.username);
-                            Metro.activity.close(activity);
-                            _this3.$router.push({ name: "playerHomepage" });
-                        }
-                    }).catch(function (error) {
-                        Metro.activity.close(activity);
-                        console.log(error);
-                    });
-                } else {} //if error
-                //error is auto shown, dont worry
-                //if error
-            }); //val
-        },
-        //login
-
-
-        reg: function reg() {
-            var _this4 = this;
-
-            //validate
-            this.$validator.validateAll('regForm').then(function () {
-                if (!_this4.errors.any()) {
-
-                    var activity = Metro.activity.open({
-                        type: 'square',
-                        overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
-                    });
-
-                    //start registeration
-                    var input = { 'username': _this4.username, 'email': _this4.email,
-                        'password': _this4.password };
-
-                    //send to database with axios
-                    axios.post('/api/register-user', input).then(function (res) {
-                        console.log(res);
-                        if (res.data == 1) {
-                            Metro.activity.close(activity);
-                            Metro.toast.create('Signup was Successful!', null, 5000, 'success');
-                            Metro.dialog.close('#newPlayer');
-                            // Metro.dialog.open('#oldPlayer')
-                            _this4.login();
-                        } else {
-                            Metro.toast.create('An error occured!', null, 5000, 'alert');
-                            Metro.activity.close(activity);
-                        }
-                    }).catch(function (error) {
-                        console.log(error);
-                        Metro.activity.close(activity);
-
-                        if (error.response.status == 422) {
-
-                            Metro.toast.create('This Email has been taken.', null, 5000, 'yellow');
-                        } else {
-                            Metro.toast.create('Please verify that your inputs are correct', null, 5000, 'alert');
-                        }
-                    });
-                    //start registeration - end
-
-                    // }
-
-                    //read pId for saving on reg
-                } else {
-                    console.log('vee errors exist');
-                    //val err
-                    //do nothing, vee val got u
-                }
-            }); //val
         }
     }, _defineProperty(_methods, 'isAuth', function isAuth() {
         if (Metro.session.getItem('userToken')) {
@@ -56714,28 +56111,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             return false;
         }
     }), _defineProperty(_methods, 'suggest', function suggest() {
-        var _this5 = this;
+        var _this = this;
 
         //validate specific reg fields
         this.$validator.validateAll('suggForm').then(function () {
-            if (!_this5.errors.any()) {
+            if (!_this.errors.any()) {
                 var activity = Metro.activity.open({
                     type: 'square',
                     overlayClickClose: false,
                     text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
                 });
 
-                var input = { 'username': _this5.username, 'description': _this5.description };
+                var input = { 'username': _this.username, 'description': _this.description };
                 axios.post('/api/suggest-dare', input).then(function (res) {
 
+                    var options = {
+                        showTop: true
+                    };
                     if (res.data == 1) {
-                        Metro.toast.create('Suggestion sent!', null, 5000, 'success');
+                        Metro.toast.create('Suggestion sent!', null, 5000, 'success', options);
                         Metro.dialog.close('#suggest');
                         Metro.activity.close(activity);
 
                         setTimeout(function (func) {
-                            _this5.username = '';
-                            _this5.description = '';
+                            _this.username = '';
+                            _this.description = '';
 
                             //   setTimeout(func=>{
                             //     this.errors.clear();
@@ -56745,6 +56145,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 }).catch(function (error) {
                     Metro.activity.close(activity);
                     console.log(error);
+                    var options = {
+                        showTop: true
+                    };
+                    Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
                 });
             } else {} //if error
             //error is auto shown, dont worry
@@ -56770,7 +56174,13 @@ var render = function() {
         _c(
           "div",
           { staticClass: "window-area" },
-          [_c("vue-particles", { attrs: { color: "#ffffff" } })],
+          [
+            _c("vue-particles", {
+              attrs: { color: "#fdf9c6", particleSize: 5 }
+            }),
+            _vm._v(" "),
+            _vm._m(0)
+          ],
           1
         ),
         _vm._v(" "),
@@ -56780,7 +56190,20 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row flex-align-center" }, [
+      _c("div", { staticClass: "cell" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "cell mt-4" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "cell" })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -56971,6 +56394,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57012,6 +56462,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
                 //off loader
                 _this.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
             });
         },
         home: function home() {
@@ -57040,7 +56494,7 @@ var render = function() {
       "div",
       { staticClass: "desktop" },
       [
-        _c("div", { staticClass: "window-area" }, [
+        _c("div", { staticClass: "window-area scroll" }, [
           _c("div", { staticClass: "bg-dare" }),
           _vm._v(" "),
           _c("div", { staticClass: "container" }, [
@@ -57050,7 +56504,7 @@ var render = function() {
               ? _c("span", [
                   _c("div", { staticClass: "remark info text-center" }, [
                     _vm._v(
-                      "\n                               No Dare Videos Currently\n                                "
+                      "\n                        No Dare Videos Currently\n                         "
                     )
                   ])
                 ])
@@ -57077,7 +56531,63 @@ var render = function() {
                             [
                               _c("v-skeleton-loader", {
                                 staticClass: "mx-auto",
-                                attrs: { "max-width": "auto", type: "card@6" }
+                                attrs: { "max-width": "auto", type: "card" }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.loading
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
+                      },
+                      [
+                        [
+                          _c(
+                            "v-sheet",
+                            {
+                              staticClass: "px-3 pt-3 pb-3",
+                              attrs: { color: "grey" }
+                            },
+                            [
+                              _c("v-skeleton-loader", {
+                                staticClass: "mx-auto",
+                                attrs: { "max-width": "auto", type: "card" }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.loading
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
+                      },
+                      [
+                        [
+                          _c(
+                            "v-sheet",
+                            {
+                              staticClass: "px-3 pt-3 pb-3",
+                              attrs: { color: "grey" }
+                            },
+                            [
+                              _c("v-skeleton-loader", {
+                                staticClass: "mx-auto",
+                                attrs: { "max-width": "auto", type: "card" }
                               })
                             ],
                             1
@@ -57175,15 +56685,15 @@ var render = function() {
               ],
               2
             )
-          ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
         ]),
         _vm._v(" "),
         _c("taskbar")
       ],
       1
-    ),
-    _vm._v(" "),
-    _vm._m(0)
+    )
   ])
 }
 var staticRenderFns = [
@@ -57201,7 +56711,7 @@ var staticRenderFns = [
             staticClass: "dialog-title fg-white",
             staticStyle: { "background-color": "#07557B" }
           },
-          [_vm._v("\n                       Search")]
+          [_vm._v("\n                Search")]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "dialog-content" }, [
@@ -58217,6 +57727,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
                 //off loader
                 _this.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
             });
         }
     }
@@ -58236,9 +57750,7 @@ var render = function() {
       "div",
       { staticClass: "desktop" },
       [
-        _c("div", { staticClass: "window-area" }, [
-          _c("div", { staticClass: "bg-leader" }),
-          _vm._v(" "),
+        _c("div", { staticClass: "window-area scroll" }, [
           _c(
             "div",
             { staticClass: "container  fadeIn" },
@@ -58273,7 +57785,8 @@ var render = function() {
                 : _c(
                     "table",
                     {
-                      staticClass: "table row-hover table-border table-striped"
+                      staticClass:
+                        "table row-hover table-border table-striped table-dark"
                     },
                     [
                       _vm._m(0),
@@ -58315,7 +57828,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
+    return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
         _c("th", [_vm._v("Player")]),
         _vm._v(" "),
@@ -58342,17 +57855,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(118)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(64)
 /* template */
-var __vue_template__ = __webpack_require__(65)
+var __vue_template__ = __webpack_require__(122)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-30ed8b76"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -58390,6 +57907,10 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -58511,6 +58032,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
                 //off loader
                 _this.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
             });
         },
         makePagination: function makePagination(meta, links) {
@@ -58530,181 +58055,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "desktop" },
-      [
-        _c("div", { staticClass: "window-area" }, [
-          _c("div", { staticClass: "bg-darelist" }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "container fadeIn" },
-            [
-              _c("h3", { staticClass: "text-center" }),
-              _vm._v(" "),
-              _vm.empty
-                ? _c("span", [
-                    _c("div", { staticClass: "remark info text-center" }, [
-                      _vm._v(
-                        "\n                        Dare list is currently empty\n                     "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.loading
-                ? [
-                    _c(
-                      "v-sheet",
-                      {
-                        staticClass: "px-3 pt-3 pb-3",
-                        attrs: { color: "grey" }
-                      },
-                      [
-                        _c("v-skeleton-loader", {
-                          staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "table-tbody" }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                : _c("span", [
-                    _c(
-                      "table",
-                      { staticClass: "table row-hover table-border" },
-                      [
-                        _vm._m(0),
-                        _vm._v(" "),
-                        _c(
-                          "tbody",
-                          _vm._l(_vm.content, function(con) {
-                            return _c(
-                              "tr",
-                              { key: con.id, staticClass: "info" },
-                              [
-                                _c("td", [_vm._v(_vm._s(con.dare_name) + " ")]),
-                                _vm._v(" "),
-                                _c("td", [_vm._v(_vm._s(con.play_count))]),
-                                _vm._v(" "),
-                                _c("td", [_vm._v(_vm._s(con.points))])
-                              ]
-                            )
-                          }),
-                          0
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm.count > 9
-                      ? _c("ul", { staticClass: "pagination" }, [
-                          _c("li", { staticClass: "page-item" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: {
-                                  href: "#",
-                                  disabled: !_vm.pagination.prev_page_url
-                                },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    _vm.get(_vm.pagination.prev_page_url)
-                                  }
-                                }
-                              },
-                              [_vm._v(" Prev ")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "page-item" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _c("span", [
-                                  _vm._v(
-                                    _vm._s(_vm.pagination.current_page) +
-                                      " of " +
-                                      _vm._s(_vm.pagination.last_page)
-                                  )
-                                ])
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "page-item" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: {
-                                  href: "#",
-                                  disabled: !_vm.pagination.next_page_url
-                                },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    _vm.get(_vm.pagination.next_page_url)
-                                  }
-                                }
-                              },
-                              [_vm._v("Next ")]
-                            )
-                          ])
-                        ])
-                      : _vm._e()
-                  ])
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("taskbar")
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Dare")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Players Played")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Points")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-30ed8b76", module.exports)
-  }
-}
-
-/***/ }),
+/* 65 */,
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -59900,8 +59251,6 @@ var render = function() {
       { staticClass: "desktop" },
       [
         _c("div", { staticClass: "window-area" }, [
-          _c("div", { staticClass: "bg-help" }),
-          _vm._v(" "),
           _c("div", { staticClass: "container fadeIn" }, [
             _c(
               "div",
@@ -60234,8 +59583,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "window-area" }, [
-      _c("div", { staticClass: "bg-rules" }),
-      _vm._v(" "),
       _c("div", { staticClass: "container fadeIn" }, [
         _c(
           "div",
@@ -60491,6 +59838,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
                 //off loader
                 _this.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
             });
         },
         Pmenu: function Pmenu() {
@@ -60521,22 +59872,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     axios.post('/api/add-mydare', input).then(function (res) {
                         var result = res.data;
 
+                        var options = {
+                            showTop: true
+                        };
+
                         if (result == 1) {
-                            Metro.toast.create(' Dare added  Successfuly!', null, 5000, 'success');
+                            Metro.toast.create(' Dare added  Successfuly!', null, 5000, 'success', options);
                             Metro.activity.close(activity);
                         } else if (result == 2) {
-                            Metro.toast.create('Complete your 5 selected dares to select more', null, 5000, 'yellow');
+                            Metro.toast.create('Complete your 5 selected dares to select more', null, 5000, 'yellow', options);
                             Metro.activity.close(activity);
                         } else if (result == 3) {
-                            Metro.toast.create('You added this dare already', null, 5000, 'info');
+                            Metro.toast.create('You added this dare already', null, 5000, 'info', options);
                             Metro.activity.close(activity);
                         } else {
-                            Metro.toast.create('Adding failed. Refresh and try again', null, 5000, 'alert');
+                            Metro.toast.create('Adding failed. Refresh and try again', null, 5000, 'alert', options);
                             Metro.activity.close(activity);
                         }
                     }).catch(function (error) {
                         Metro.activity.close(activity);
                         console.log(error);
+                        var options = {
+                            showTop: true
+                        };
+                        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
                     });
                 } //if yes
             }
@@ -60558,150 +59917,133 @@ var render = function() {
       "div",
       { staticClass: "desktop" },
       [
-        _c(
-          "div",
-          { staticClass: "window-area" },
-          [
-            _c("vue-particles", {
-              attrs: {
-                color: "#00B0FF",
-                shapeType: "star",
-                linesColor: "#00B0FF",
-                particleSize: 5
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "container fadeIn" },
-              [
-                _c("h3", { staticClass: "text-center white-color" }, [
-                  _vm._v(" Select Dares to Add")
-                ]),
-                _vm._v(" "),
-                _vm.empty
-                  ? _c("span", [
-                      _c("div", { staticClass: "remark info text-center" }, [
-                        _vm._v(
-                          "\n                            Dare list is currently empty\n                         "
-                        )
-                      ])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? [
-                      _c(
-                        "v-sheet",
-                        {
-                          staticClass: "px-3 pt-3 pb-3",
-                          attrs: { color: "grey" }
-                        },
-                        [
-                          _c("v-skeleton-loader", {
-                            staticClass: "mx-auto",
-                            attrs: {
-                              "max-width": "auto",
-                              type: "action, sentences@4"
-                            }
-                          })
-                        ],
-                        1
+        _c("div", { staticClass: "window-area" }, [
+          _c(
+            "div",
+            { staticClass: "container fadeIn" },
+            [
+              _c("h3", { staticClass: "text-center white-color" }, [
+                _vm._v(" Select Dares to Add")
+              ]),
+              _vm._v(" "),
+              _vm.empty
+                ? _c("span", [
+                    _c("div", { staticClass: "remark info text-center" }, [
+                      _vm._v(
+                        "\n                            Dare list is currently empty\n                         "
                       )
-                    ]
-                  : _c("span", [
-                      _c(
-                        "p",
-                        {
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? [
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
+                      },
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
                           attrs: {
-                            "data-role": "hint",
-                            "data-hint-text":
-                              "Select Dares you want to attempt, to add them to your Dare list.",
-                            "data-hint-position": "top"
+                            "max-width": "auto",
+                            type: "action, sentences@4"
                           }
-                        },
-                        [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.selected,
-                                  expression: "selected"
-                                }
-                              ],
-                              attrs: { "data-role": "select" },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.selected = $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                : _c("span", [
+                    _c(
+                      "p",
+                      {
+                        attrs: {
+                          "data-role": "hint",
+                          "data-hint-text":
+                            "Select Dares you want to attempt. Selected dares are added to your Dare list.",
+                          "data-hint-position": "top"
+                        }
+                      },
+                      [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selected,
+                                expression: "selected"
                               }
-                            },
-                            _vm._l(_vm.content, function(con) {
-                              return _c(
-                                "option",
-                                {
-                                  key: con.id,
-                                  staticClass: "text-bold",
-                                  attrs: { selected: "" },
-                                  domProps: { value: con.dare_name }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                    " +
-                                      _vm._s(con.dare_name)
-                                  )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "remark info text-center" },
-                        [
-                          _c(
-                            "router-link",
-                            { attrs: { to: "/pending-dares" } },
-                            [_vm._v(" Click here to view your Dare list")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "remark success text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/upload-dare" } }, [
-                            _vm._v(" Click here to upload a Dare")
-                          ])
-                        ],
-                        1
-                      )
-                    ])
-              ],
-              2
-            )
-          ],
-          1
-        ),
+                            ],
+                            attrs: { "data-role": "select" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.selected = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          _vm._l(_vm.content, function(con) {
+                            return _c(
+                              "option",
+                              {
+                                key: con.id,
+                                staticClass: "text-bold",
+                                attrs: { selected: "" },
+                                domProps: { value: con.dare_name }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(con.dare_name)
+                                )
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "remark info text-center" },
+                      [
+                        _c("router-link", { attrs: { to: "/pending-dares" } }, [
+                          _vm._v(" Click here to view your Dare list")
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "remark success text-center" },
+                      [
+                        _c("router-link", { attrs: { to: "/upload-dare" } }, [
+                          _vm._v(" Click here to upload a Dare")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
+            ],
+            2
+          )
+        ]),
         _vm._v(" "),
         _c("taskbar")
       ],
@@ -60871,32 +60213,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -60920,7 +60236,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             timeout: 12000,
             animation: 'easeOutBounce'
         });
-        notify.create("Complete the Dare before it timesout or you fail. Failed Dares can't be selected again");
+        notify.create("Timed out Dares can not be played/completed again.");
         notify.reset();
     },
 
@@ -60961,6 +60277,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
                 //off loader
                 _this.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
             });
         }
     }
@@ -60980,228 +60300,136 @@ var render = function() {
       "div",
       { staticClass: "desktop" },
       [
-        _c(
-          "div",
-          { staticClass: "window-area" },
-          [
-            _c("vue-particles", {
-              attrs: {
-                color: "#00B0FF",
-                shapeType: "star",
-                linesColor: "#00B0FF",
-                particleSize: 5
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "container fadeIn" },
-              [
-                _c("h3", { staticClass: "text-center white-color" }, [
-                  _vm._v(" My Dares")
-                ]),
-                _vm._v(" "),
-                _vm.empty
-                  ? _c("span", [
-                      _c("div", { staticClass: "remark info text-center" }, [
+        _c("div", { staticClass: "window-area scroll" }, [
+          _c(
+            "div",
+            { staticClass: "container fadeIn" },
+            [
+              _c("h3", { staticClass: "text-center white-color" }, [
+                _vm._v(" My Dares")
+              ]),
+              _vm._v(" "),
+              _vm.empty
+                ? _c("span", [
+                    _c(
+                      "div",
+                      { staticClass: "remark info text-center" },
+                      [
                         _vm._v(
-                          "\n                            Dare list is currently empty\n                         "
-                        )
-                      ])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? [
-                      _c(
-                        "v-sheet",
-                        {
-                          staticClass: "px-3 pt-3 pb-3",
-                          attrs: { color: "grey" }
-                        },
-                        [
-                          _c("v-skeleton-loader", {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "auto", type: "table-tbody" }
-                          })
-                        ],
-                        1
-                      )
-                    ]
-                  : _c("span", [
-                      _c(
-                        "table",
-                        {
-                          staticClass:
-                            "table row-hover table-border white-color"
-                        },
-                        [
-                          _vm._m(0),
-                          _vm._v(" "),
-                          _c(
-                            "tbody",
-                            _vm._l(_vm.content, function(con) {
-                              return _c("tr", { key: con.id }, [
-                                _c("td", [_vm._v(_vm._s(con.dare_name))]),
-                                _vm._v(" "),
-                                con.status == 1
-                                  ? _c("td", [
-                                      _c("div", {
-                                        attrs: {
-                                          "data-role": "countdown",
-                                          "data-date": con.expire
-                                        }
-                                      })
-                                    ])
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                con.status == 0
-                                  ? _c("td", [
-                                      _c("div", {
-                                        attrs: {
-                                          "data-role": "countdown",
-                                          "data-date": con.expire,
-                                          "data-cls-days": "bg-red fg-white",
-                                          "data-cls-hours": "bg-red fg-white",
-                                          "data-cls-minutes": "bg-red fg-white",
-                                          "data-cls-seconds": "bg-red fg-white"
-                                        }
-                                      })
-                                    ])
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                con.status == 3
-                                  ? _c("td", [
-                                      _c(
-                                        "p",
-                                        { staticClass: "text-green pl-4" },
-                                        [_vm._v("DARE COMPLETED!")]
-                                      )
-                                    ])
-                                  : _vm._e()
-                              ])
-                            }),
-                            0
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "remark info text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/pick-dare" } }, [
-                            _vm._v(" Click here to add another dare")
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "remark success text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/upload-dare" } }, [
-                            _vm._v(" Click here to upload a Dare")
-                          ])
-                        ],
-                        1
-                      )
-                    ]),
-                _vm._v(" "),
-                [
-                  _c("div", { staticClass: "container fadeIn index" }, [
-                    _c("div", { staticClass: "bottom-nav pos-fixed" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "button",
-                          staticStyle: { "background-color": "#ebebeb" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.home()
-                            }
-                          }
-                        },
-                        [
-                          _c("span", { staticClass: "icon mif-home" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "label" }, [
-                            _vm._v("Home Screen")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "button",
-                          staticStyle: { "background-color": "#ebebeb" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.menu()
-                            }
-                          }
-                        },
-                        [
-                          _c("span", { staticClass: "icon mif-menu" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "label" }, [
-                            _vm._v("Main Menu")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "button",
-                          staticStyle: { "background-color": "#ebebeb" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.Pmenu()
-                            }
-                          }
-                        },
-                        [
-                          _c("span", { staticClass: "icon mif-menu" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "label" }, [
-                            _vm._v("Player Menu")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "button",
-                          staticStyle: { "background-color": "#ebebeb" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.back()
-                            }
-                          }
-                        },
-                        [
-                          _c("span", { staticClass: "icon mif-backspace" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "label" }, [_vm._v("Back")])
-                        ]
-                      )
-                    ])
+                          "\n                           Your Dare list is currently empty. "
+                        ),
+                        _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                          _vm._v(" Click here to add one")
+                        ])
+                      ],
+                      1
+                    )
                   ])
-                ]
-              ],
-              2
-            )
-          ],
-          1
-        ),
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? [
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
+                      },
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
+                          attrs: { "max-width": "auto", type: "table-tbody" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                : _c("span", [
+                    _c(
+                      "table",
+                      {
+                        staticClass: "table row-hover table-border table-dark"
+                      },
+                      [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.content, function(con) {
+                            return _c("tr", { key: con.id }, [
+                              _c("td", [_vm._v(_vm._s(con.dare_name))]),
+                              _vm._v(" "),
+                              con.status == 1
+                                ? _c("td", [
+                                    _c("div", {
+                                      attrs: {
+                                        "data-role": "countdown",
+                                        "data-date": con.expire
+                                      }
+                                    })
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              con.status == 0
+                                ? _c("td", [
+                                    _c("div", {
+                                      attrs: {
+                                        "data-role": "countdown",
+                                        "data-date": con.expire,
+                                        "data-cls-days": "bg-red fg-white",
+                                        "data-cls-hours": "bg-red fg-white",
+                                        "data-cls-minutes": "bg-red fg-white",
+                                        "data-cls-seconds": "bg-red fg-white"
+                                      }
+                                    })
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              con.status == 3
+                                ? _c("td", [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "text-green pl-4 text-center bold"
+                                      },
+                                      [_vm._v("DARE COMPLETED!")]
+                                    )
+                                  ])
+                                : _vm._e()
+                            ])
+                          }),
+                          0
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "remark info text-center" },
+                      [
+                        _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                          _vm._v(" Click here to add another dare")
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "remark success text-center" },
+                      [
+                        _c("router-link", { attrs: { to: "/upload-dare" } }, [
+                          _vm._v(" Click here to upload a Dare")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
+            ],
+            2
+          )
+        ]),
         _vm._v(" "),
         _c("taskbar")
       ],
@@ -61214,11 +60442,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
+    return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
-        _c("th", { staticClass: "white-color" }, [_vm._v("Dare")]),
+        _c("th", [_vm._v("Dare")]),
         _vm._v(" "),
-        _c("th", { staticClass: "white-color" }, [_vm._v("Countdown")])
+        _c("th", { staticClass: "text-center" }, [_vm._v("Countdown")])
       ])
     ])
   }
@@ -61399,7 +60627,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -61451,15 +60678,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         axios.post('/api/upload-dare', formdata).then(function (res) {
                             console.log(res);
+                            var options = {
+                                showTop: true
+                            };
 
                             if (res.data == 1) {
                                 Metro.activity.close(activity);
                                 _this.get();
                                 //  document.getElementById("addForm").reset();
-                                Metro.toast.create('Upload Successful!', null, 5000, 'success');
+
+                                Metro.toast.create('Upload Successful!', null, 5000, 'success', options);
                             } else {
                                 Metro.activity.close(activity);
-                                Metro.toast.create('An error occured, refresh and try again', null, 5000, 'alert');
+                                Metro.toast.create('An error occured, refresh and try again', null, 5000, 'alert', options);
                             }
                         }).catch(function (err) {
                             console.log(err);
@@ -61500,6 +60731,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
                 //off loader
                 _this2.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
             });
         },
         home: function home() {
@@ -61531,248 +60766,235 @@ var render = function() {
       "div",
       { staticClass: "desktop" },
       [
-        _c(
-          "div",
-          { staticClass: "window-area" },
-          [
-            _c("vue-particles", {
-              attrs: {
-                color: "#00B0FF",
-                shapeType: "star",
-                linesColor: "#00B0FF",
-                particleSize: 5
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "container fadeIn" },
-              [
-                _c("h3", { staticClass: "text-center white-color" }, [
-                  _vm._v(" Upload Dare")
-                ]),
-                _vm._v(" "),
-                _vm.empty
-                  ? _c("span", [
-                      _c("div", { staticClass: "remark info text-center" }, [
+        _c("div", { staticClass: "window-area scroll" }, [
+          _c(
+            "div",
+            { staticClass: "container fadeIn" },
+            [
+              _c("h3", { staticClass: "text-center white-color" }, [
+                _vm._v(" Upload Dare")
+              ]),
+              _vm._v(" "),
+              _vm.empty
+                ? _c("span", [
+                    _c(
+                      "div",
+                      { staticClass: "remark info text-center" },
+                      [
                         _vm._v(
-                          "\n                            Dare list is currently empty\n                         "
-                        )
-                      ])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? [
-                      _c(
-                        "v-sheet",
-                        {
-                          staticClass: "px-3 pt-3 pb-3",
-                          attrs: { color: "grey" }
-                        },
-                        [
-                          _c("v-skeleton-loader", {
-                            staticClass: "mx-auto",
-                            attrs: {
-                              "max-width": "auto",
-                              type: "action, article@2"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ]
-                  : _c("span", [
-                      _c(
-                        "form",
-                        {
+                          "\n                            Your Dare list is currently empty. "
+                        ),
+                        _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                          _vm._v(" Click here to add one")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? [
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
+                      },
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
                           attrs: {
-                            enctype: "multipart/form-data",
-                            method: "POST"
+                            "max-width": "auto",
+                            type: "action, article@2"
                           }
-                        },
-                        [
-                          _c("p", { staticClass: "text-white" }, [
-                            _vm._v("Select Dare")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              attrs: {
-                                "data-role": "hint",
-                                "data-hint-text":
-                                  "Select Dare you want to upload its video",
-                                "data-hint-position": "top"
-                              }
-                            },
-                            [
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.selected,
-                                      expression: "selected"
-                                    },
-                                    {
-                                      name: "validate",
-                                      rawName: "v-validate",
-                                      value: "required",
-                                      expression: '"required"'
-                                    }
-                                  ],
-                                  attrs: {
-                                    "data-role": "select",
-                                    name: "dare"
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                : _c("span", [
+                    _c(
+                      "form",
+                      {
+                        attrs: {
+                          enctype: "multipart/form-data",
+                          method: "POST"
+                        }
+                      },
+                      [
+                        _c("p", { staticClass: "white-color" }, [
+                          _vm._v("Select Dare")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            attrs: {
+                              "data-role": "hint",
+                              "data-hint-text":
+                                "Select a Dare you want to upload its video",
+                              "data-hint-position": "top"
+                            }
+                          },
+                          [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.selected,
+                                    expression: "selected"
                                   },
-                                  on: {
-                                    change: function($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
-                                          var val =
-                                            "_value" in o ? o._value : o.value
-                                          return val
-                                        })
-                                      _vm.selected = $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    }
+                                  {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required",
+                                    expression: '"required"'
                                   }
-                                },
-                                _vm._l(_vm.content, function(con) {
-                                  return _c(
-                                    "option",
-                                    {
-                                      key: con.id,
-                                      staticClass: "text-bold",
-                                      attrs: { selected: "" },
-                                      domProps: { value: con.id }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                    " +
-                                          _vm._s(con.dare_name)
-                                      )
-                                    ]
-                                  )
-                                }),
-                                0
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              directives: [
-                                {
-                                  name: "show",
-                                  rawName: "v-show",
-                                  value: _vm.errors.has("dare"),
-                                  expression: "errors.has('dare')"
+                                ],
+                                attrs: { "data-role": "select", name: "dare" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.selected = $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  }
                                 }
-                              ],
-                              staticClass: "fg-yellow shake"
-                            },
-                            [_vm._v(_vm._s(_vm.errors.first("dare")))]
-                          ),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "text-white" }, [
-                            _vm._v("Video upload")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
+                              },
+                              _vm._l(_vm.content, function(con) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: con.id,
+                                    staticClass: "text-bold",
+                                    attrs: { selected: "" },
+                                    domProps: { value: con.id }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s(con.dare_name)
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
                             directives: [
                               {
-                                name: "validate",
-                                rawName: "v-validate",
-                                value: "required|ext:mp4,3gp|size:50000",
-                                expression: '"required|ext:mp4,3gp|size:50000"'
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("dare"),
+                                expression: "errors.has('dare')"
                               }
                             ],
-                            attrs: {
-                              type: "file",
-                              "data-role": "file",
-                              "data-mode": "drop",
-                              name: "video"
-                            },
-                            on: { change: _vm.videoSelect }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "p",
+                            staticClass: "fg-yellow shake"
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("dare")))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "white-color" }, [
+                          _vm._v("Video upload")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
                             {
-                              directives: [
-                                {
-                                  name: "show",
-                                  rawName: "v-show",
-                                  value: _vm.errors.has("video"),
-                                  expression: "errors.has('video')"
-                                }
-                              ],
-                              staticClass: "fg-yellow shake"
-                            },
-                            [_vm._v(_vm._s(_vm.errors.first("video")))]
-                          ),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "button primary",
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  _vm.send()
-                                }
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required|ext:mp4,3gp|size:50000",
+                              expression: '"required|ext:mp4,3gp|size:50000"'
+                            }
+                          ],
+                          attrs: {
+                            type: "file",
+                            "data-role": "file",
+                            "data-mode": "drop",
+                            name: "video"
+                          },
+                          on: { change: _vm.videoSelect }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("video"),
+                                expression: "errors.has('video')"
                               }
-                            },
-                            [_vm._v("Done")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "remark info text-center" },
-                        [
-                          _c("router-link", { attrs: { to: "/pick-dare" } }, [
-                            _vm._v(" Click here to add another dare")
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "remark info text-center" },
-                        [
-                          _c(
-                            "router-link",
-                            { attrs: { to: "/pending-dares" } },
-                            [_vm._v(" Click here to view your Dares")]
-                          )
-                        ],
-                        1
-                      )
-                    ]),
-                _vm._v(" "),
-                _vm._m(0)
-              ],
-              2
-            )
-          ],
-          1
-        ),
+                            ],
+                            staticClass: "fg-yellow shake"
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("video")))]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "button primary",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.send()
+                              }
+                            }
+                          },
+                          [_vm._v("Done")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "remark info text-center" },
+                      [
+                        _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                          _vm._v(" Click here to add another dare")
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "remark info text-center" },
+                      [
+                        _c("router-link", { attrs: { to: "/pending-dares" } }, [
+                          _vm._v(" Click here to view your Dare list")
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ],
+            2
+          )
+        ]),
         _vm._v(" "),
         _c("taskbar")
       ],
@@ -105478,6 +104700,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -105512,6 +104740,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.isAuth()) {
                 this.$router.push({ name: "pickDare" });
             } else {
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('Login to continue', null, 5000, 'info', options);
                 this.$router.push({ name: "login" });
             }
         },
@@ -105519,6 +104751,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.isAuth()) {
                 this.$router.push({ name: "pendingDares" });
             } else {
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('Login to continue', null, 5000, 'info', options);
                 this.$router.push({ name: "login" });
             }
         },
@@ -105526,6 +104762,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.isAuth()) {
                 this.$router.push({ name: "upload" });
             } else {
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('Login to continue', null, 5000, 'info', options);
                 this.$router.push({ name: "login" });
             }
         },
@@ -105585,7 +104825,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile bg-orange",
+                      staticClass: "charm-tile ani-hover-horizontal bg-orange",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -105605,7 +104845,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile",
+                      staticClass: "charm-tile ani-hover-horizontal",
                       staticStyle: { "background-color": "#1ba1e2" },
                       on: {
                         click: function($event) {
@@ -105626,7 +104866,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile",
+                      staticClass: "charm-tile ani-hover-horizontal",
                       staticStyle: { "background-color": "#b82943" },
                       on: {
                         click: function($event) {
@@ -105653,7 +104893,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile",
+                      staticClass: "charm-tile ani-hover-horizontal",
                       staticStyle: { "background-color": "#1ba1e2" },
                       on: {
                         click: function($event) {
@@ -105674,7 +104914,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile bg-teal",
+                      staticClass: "charm-tile ani-hover-horizontal bg-teal",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -105694,7 +104934,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile ",
+                      staticClass: "charm-tile ani-hover-horizontal ",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -105715,7 +104955,7 @@ var render = function() {
                     ? _c(
                         "div",
                         {
-                          staticClass: "charm-tile ",
+                          staticClass: "charm-tile ani-hover-horizontal ",
                           staticStyle: { "background-color": "#b82943" },
                           on: {
                             click: function($event) {
@@ -105735,7 +104975,7 @@ var render = function() {
                     : _c(
                         "div",
                         {
-                          staticClass: "charm-tile ",
+                          staticClass: "charm-tile ani-hover-horizontal ",
                           staticStyle: { "background-color": "#b82943" },
                           on: {
                             click: function($event) {
@@ -105766,7 +105006,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile",
+                      staticClass: "charm-tile ani-hover-horizontal",
                       staticStyle: { "background-color": "#b82943" },
                       on: {
                         click: function($event) {
@@ -105789,7 +105029,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile bg-teal",
+                      staticClass: "charm-tile ani-hover-horizontal bg-teal",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -105809,7 +105049,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile",
+                      staticClass: "charm-tile ani-hover-horizontal",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -105827,7 +105067,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile",
+                      staticClass: "charm-tile ani-hover-horizontal",
                       staticStyle: { "background-color": "#7e07ff" },
                       on: {
                         click: function($event) {
@@ -105886,21 +105126,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "charm-tile bg-purple" }, [
-      _c("span", { staticClass: "icon mif-cart" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "caption" }, [_vm._v("Store")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "charm-tile bg-orange" }, [
-      _c("span", { staticClass: "icon mif-move_to_inbox" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "caption" }, [_vm._v("Suggest Dare")])
-    ])
+    return _c(
+      "div",
+      { staticClass: "charm-tile ani-hover-horizontal bg-purple" },
+      [
+        _c("span", { staticClass: "icon mif-cart" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "caption" }, [_vm._v("Store")])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -105908,17 +105142,33 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass: "charm-tile",
-        staticStyle: { "background-color": "#1ba1e2" }
-      },
+      { staticClass: "charm-tile ani-hover-horizontal bg-orange" },
       [
-        _c("span", { staticClass: "icon mif-phone" }),
+        _c("span", { staticClass: "icon mif-move_to_inbox" }),
         _vm._v(" "),
+        _c("span", { staticClass: "caption" }, [_vm._v("Suggest Dare")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "link", attrs: { href: "mailto:honred47@yahoo.com" } },
+      [
         _c(
-          "a",
-          { staticClass: "link", attrs: { href: "mailto:honred47@yahoo.com" } },
-          [_c("span", { staticClass: "caption" }, [_vm._v("Contact Support")])]
+          "div",
+          {
+            staticClass: "charm-tile ani-hover-horizontal",
+            staticStyle: { "background-color": "#1ba1e2" }
+          },
+          [
+            _c("span", { staticClass: "icon mif-phone" }),
+            _vm._v(" "),
+            _c("span", { staticClass: "caption" }, [_vm._v("Contact Support")])
+          ]
         )
       ]
     )
@@ -105932,7 +105182,13 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "task-bar-item",
-          attrs: { onclick: "Metro.charms.toggle('#charm')" }
+          attrs: {
+            onclick: "Metro.charms.toggle('#charm')",
+            "data-role": "popover",
+            "data-popover-text": "Start",
+            "data-popover-position": "right",
+            "data-popover-hide": "5000"
+          }
         },
         [_c("span", { staticClass: "mif-windows" })]
       )
@@ -106131,7 +105387,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     timeout: 6000,
                     animation: 'easeOutBounce'
                 });
-                notify.create("Welcome, Player! Explore more options on this page.");
+                notify.create("Welcome, Player!");
                 notify.reset();
 
                 Metro.session.setItem('player', 'player');
@@ -106153,11 +105409,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     axios.post('/api/login-user', input).then(function (res) {
                         var result = res.data.result;
 
+                        var options = {
+                            showTop: true
+                        };
+
                         if (result == 2) {
-                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 9000, 'yellow');
+                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 9000, 'yellow', options);
                             Metro.activity.close(activity);
                         } else {
-                            Metro.toast.create('Login Successful!', null, 9000, 'success');
+
+                            Metro.toast.create('Login Successful!', null, 9000, 'success', options);
 
                             //start login 
                             Metro.session.setItem('userToken', res.data.token);
@@ -106209,7 +105470,7 @@ var render = function() {
       "div",
       { staticClass: "desktop" },
       [
-        _c("div", { staticClass: "window-area" }, [
+        _c("div", { staticClass: "window-area scroll" }, [
           _c(
             "form",
             {
@@ -106223,9 +105484,7 @@ var render = function() {
                 staticStyle: { "margin-top": "-10px" }
               }),
               _vm._v(" "),
-              _c("h2", { staticClass: "text-light" }, [
-                _vm._v("Login to continue")
-              ]),
+              _c("h2", { staticClass: "text-light" }, [_vm._v("Login")]),
               _vm._v(" "),
               _c("hr", { staticClass: "thin mt-4 mb-4 bg-white" }),
               _vm._v(" "),
@@ -106548,7 +105807,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     timeout: 6000,
                     animation: 'easeOutBounce'
                 });
-                notify.create("Welcome, Player! Explore more options on this page.");
+                notify.create("Welcome, Player!");
                 notify.reset();
 
                 Metro.session.setItem('player', 'player');
@@ -106580,11 +105839,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             axios.post('/api/login-user', input).then(function (res) {
                                 var result = res.data.result;
 
+                                var options = {
+                                    showTop: true
+                                };
+
                                 if (result == 2) {
-                                    Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 9000, 'yellow');
+                                    Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 9000, 'yellow', options);
                                     Metro.activity.close(activity);
                                 } else {
-                                    Metro.toast.create('Registeration Successful! You are Logged in...', null, 9000, 'success');
+                                    Metro.toast.create('Registeration Successful! You are Logged in...', null, 9000, 'success', options);
 
                                     //start login 
                                     Metro.session.setItem('userToken', res.data.token);
@@ -106598,7 +105861,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 console.log(error);
                             });
                         } else {
-                            Metro.toast.create('An error occured!', null, 9000, 'alert');
+                            var options = {
+                                showTop: true
+                            };
+                            Metro.toast.create('An error occured!', null, 9000, 'alert', options);
                             Metro.activity.close(activity);
                         }
                     }).catch(function (error) {
@@ -106653,7 +105919,7 @@ var render = function() {
       "div",
       { staticClass: "desktop" },
       [
-        _c("div", { staticClass: "window-area" }, [
+        _c("div", { staticClass: "window-area scroll" }, [
           _c(
             "form",
             {
@@ -106879,6 +106145,479 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-79ef4a3a", module.exports)
+  }
+}
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(119);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(120)("e8c5a53a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-30ed8b76\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./dareList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-30ed8b76\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./dareList.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(121)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area scroll" }, [
+          _c(
+            "div",
+            { staticClass: "container fadeIn" },
+            [
+              _c("h3", { staticClass: "text-center" }),
+              _vm._v(" "),
+              _vm.empty
+                ? _c("span", [
+                    _c("div", { staticClass: "remark info text-center" }, [
+                      _vm._v(
+                        "\n                        Dare list is currently empty\n                     "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? [
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
+                      },
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
+                          attrs: { "max-width": "auto", type: "table-tbody" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                : _c("span", [
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table row-hover table-border table-striped table-dark"
+                      },
+                      [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.content, function(con) {
+                            return _c("tr", { key: con.id }, [
+                              _c("td", [_vm._v(_vm._s(con.dare_name) + " ")]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(con.play_count))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(con.points))])
+                            ])
+                          }),
+                          0
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.count > 9
+                      ? _c("ul", { staticClass: "pagination" }, [
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  disabled: !_vm.pagination.prev_page_url
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.get(_vm.pagination.prev_page_url)
+                                  }
+                                }
+                              },
+                              [_vm._v(" Prev ")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [
+                                _c("span", [
+                                  _vm._v(
+                                    _vm._s(_vm.pagination.current_page) +
+                                      " of " +
+                                      _vm._s(_vm.pagination.last_page)
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  disabled: !_vm.pagination.next_page_url
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.get(_vm.pagination.next_page_url)
+                                  }
+                                }
+                              },
+                              [_vm._v("Next ")]
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  ])
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", [_vm._v("Dare")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Players Played")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Points")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-30ed8b76", module.exports)
   }
 }
 

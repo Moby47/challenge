@@ -3,16 +3,16 @@
 
             
         <div class="desktop">
-                <div class="window-area">
-                    <!-- content here-->
-
-                    <vue-particles 
+                <div class="window-area scroll">
+                    <!-- content here <vue-particles 
                     color="#00B0FF"
                     shapeType="star"
                     linesColor="#00B0FF"
                     :particleSize="5"
                     >
-                    </vue-particles>
+                    </vue-particles>-->
+
+                    
         
             <div class="container fadeIn">
             
@@ -21,7 +21,7 @@
     
                     <span v-if='empty'>
                             <div class="remark info text-center">
-                                    Dare list is currently empty
+                                   Your Dare list is currently empty. <router-link to='/pick-dare'> Click here to add one</router-link>
                                  </div>
                     </span>
             
@@ -39,11 +39,11 @@
                           </template>
     
                           <span v-else>
-                    <table class="table row-hover table-border white-color" >
-                            <thead>
+                    <table class="table row-hover table-border table-dark" >
+                            <thead class="thead-dark">
                             <tr>
-                                 <th class='white-color'>Dare</th>
-                                <th class='white-color'>Countdown</th>
+                                 <th>Dare</th>
+                                <th class='text-center'>Countdown</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -67,7 +67,7 @@
                                        </td>
     
                                        <td v-if='con.status == 3'> 
-                                        <p class='text-green pl-4'>DARE COMPLETED!</p>
+                                        <p class='text-green pl-4 text-center bold'>DARE COMPLETED!</p>
                                              </td>
     
                                         </tr>
@@ -84,33 +84,7 @@
                              </div>
                             </span>
                              
-                                 <template>
-         
-                                        <div class="container fadeIn index">
-                                        
-                                                <div class="bottom-nav pos-fixed">
-                                                        <button class="button"  @click.prevent='home()' style="background-color: #ebebeb">
-                                                                <span class="icon mif-home"></span>
-                                                                <span class="label">Home Screen</span>
-                                                            </button>
-                                                        <button class="button"  @click.prevent='menu()' style="background-color: #ebebeb">
-                                                            <span class="icon mif-menu"></span>
-                                                            <span class="label">Main Menu</span>
-                                                        </button>
-                                                       
-                                                        <button class="button" @click.prevent='Pmenu()'  style="background-color: #ebebeb">
-                                                            <span class="icon mif-menu"></span>
-                                                            <span class="label">Player Menu</span>
-                                                        </button>
-                                            
-                                                        <button class="button" style="background-color: #ebebeb"  @click.prevent='back()'>
-                                                                <span class="icon mif-backspace"></span>
-                                                                <span class="label">Back</span>
-                                                            </button>
-                                                    </div>
-                                
-                                        </div>
-                                    </template>
+                               
                     
             </div>
             
@@ -147,7 +121,7 @@
                             timeout: 12000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Complete the Dare before it timesout or you fail. Failed Dares can't be selected again");
+                        notify.create("Timed out Dares can not be played/completed again.");
                         notify.reset();
             },
             
@@ -191,6 +165,12 @@
                     console.log(error)
                         //off loader
                         this.loading = false
+                        var options = {
+                                showTop: true,
+                            }
+                         Metro.toast.create('A temporary network error occured...',
+                         null, 5000, 'yellow', options);
+                    
                         })
                     },
             },

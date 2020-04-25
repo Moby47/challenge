@@ -2,7 +2,7 @@
         <div>
             
                 <div class="desktop">
-                        <div class="window-area">
+                        <div class="window-area scroll">
                             <!-- content here-->
                             <form class="login-form bg-white p-6 mx-auto border bd-default win-shadow" 
                             method="post" data-vv-scope='regForm'>
@@ -106,7 +106,7 @@
                                 timeout: 6000,
                                 animation: 'easeOutBounce'
                             });
-                            notify.create("Welcome, Player! Explore more options on this page.");
+                            notify.create("Welcome, Player!");
                             notify.reset();
     
                             Metro.session.setItem('player','player')
@@ -141,13 +141,17 @@
                     .then(res => {
                     var result = res.data.result;
 
+                    var options = {
+                                showTop: true,
+                            }
+
                          if(result == 2){
                             Metro.toast.create('Login failed. Invalid credentials. Refresh and try again',
-                             null, 9000, 'yellow');
+                             null, 9000, 'yellow', options);
                              Metro.activity.close(activity);
                           }else{
                             Metro.toast.create('Registeration Successful! You are Logged in...',
-                             null, 9000, 'success');
+                             null, 9000, 'success', options);
                              
                             //start login 
                                Metro.session.setItem('userToken',res.data.token);
@@ -163,8 +167,11 @@
                     })
 
         }else{
+            var options = {
+                                showTop: true,
+                            }
             Metro.toast.create('An error occured!',
-                             null, 9000, 'alert');
+                             null, 9000, 'alert', options);
                              Metro.activity.close(activity);
         }
 

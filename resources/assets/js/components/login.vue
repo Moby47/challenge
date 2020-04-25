@@ -2,12 +2,12 @@
         <div>
             
                 <div class="desktop">
-                        <div class="window-area">
+                        <div class="window-area scroll">
                             <!-- content here-->
                             <form class="login-form bg-white p-6 mx-auto border bd-default win-shadow" 
                             method="post" data-vv-scope='loginForm'>
                           <span class="mif-gamepad mif-4x place-right" style="margin-top: -10px;"></span>
-                          <h2 class="text-light">Login to continue</h2>
+                          <h2 class="text-light">Login</h2>
                           <hr class="thin mt-4 mb-4 bg-white">
                           <div class="form-group">
                               <input type="text" data-role="input" data-prepend="<span class='mif-user'>" placeholder="Enter your username..." 
@@ -97,7 +97,7 @@
                                 timeout: 6000,
                                 animation: 'easeOutBounce'
                             });
-                            notify.create("Welcome, Player! Explore more options on this page.");
+                            notify.create("Welcome, Player!");
                             notify.reset();
     
                             Metro.session.setItem('player','player')
@@ -119,14 +119,18 @@
                     .then(res => {
                     var result = res.data.result;
 
+                    var options = {
+                                showTop: true,
+                            }
                     
                          if(result == 2){
                             Metro.toast.create('Login failed. Invalid credentials. Refresh and try again',
-                             null, 9000, 'yellow');
+                             null, 9000, 'yellow', options);
                              Metro.activity.close(activity);
                           }else{
+                         
                             Metro.toast.create('Login Successful!',
-                             null, 9000, 'success');
+                             null, 9000, 'success', options);
                              
                             //start login 
                                Metro.session.setItem('userToken',res.data.token);

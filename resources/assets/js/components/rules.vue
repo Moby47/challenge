@@ -4,8 +4,8 @@
             
         <div class="desktop">
                 <div class="window-area">
-                    <!-- content here-->
-                    <div class='bg-rules'></div>
+                    <!-- content here  <div class='bg-rules'></div>-->
+                   
     
                     <div class="container fadeIn">
                    

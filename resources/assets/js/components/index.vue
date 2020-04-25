@@ -1,13 +1,13 @@
 <template>
         <div>
 
-    <vue-particles color="#ffffff">
+    <vue-particles color="#fdf9c6">
     </vue-particles>
 
     
-    <h1 class="text-center white-color ani-heartbeat">CHALLENGE</h1>
+    <h1 class="text-center white-color">CHALLENGE</h1>
     <div data-role="cube" data-color="black"
-    data-flash-color="#00B0FF" class='zoomer'></div>
+    data-flash-color="#fdf9c6" class='zoomer'></div>
 
 <h3 class="text-center white-color fadeIn">Choose a Character</h3>
 
@@ -22,7 +22,7 @@
     </div>
 
     <div class="cell order-2" v-if='isAuth()'>
-        <button class="shortcut rounded primary ani-hover-horizontal" @click.prevent='player()'
+        <button class="shortcut rounded primary ani-hover-horizontal" @click.prevent='homepage()' 
         style="background-color: #00B0FF">
             <span class="caption">Player</span>
             <span class="mif-gamepad icon  ani-float"></span>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="cell order-2" v-else>
-            <button class="shortcut rounded primary ani-hover-horizontal" onclick="Metro.dialog.open('#oldPlayer')"
+            <button class="shortcut rounded primary ani-hover-horizontal" @click.prevent='login()' 
             style="background-color: #00B0FF">
                 <span class="caption">Player</span>
                 <span class="mif-gamepad icon  ani-float"></span>
@@ -40,7 +40,7 @@
 </div>
 
 
-<!--dialogs login-->
+<!--dialogs login-
 <div class="dialog" data-role="dialog" id='oldPlayer'>
   
     <form method="post" data-vv-scope='loginForm'>
@@ -68,7 +68,7 @@
     </form>
 </div>
 
-  <!--dialogs reg-->
+  -dialogs reg--
 <div class="dialog" data-role="dialog" id='newPlayer'>
         <form method="post" data-vv-scope='regForm'>
     <div class="dialog-title white-color" style="background-color: #07557B">Start New Game</div>
@@ -97,7 +97,7 @@
     </div>
     </form>
 </div>
-
+-->
 
 </div>
 
@@ -109,9 +109,7 @@
 
         data(){
             return {
-                email:'',
-                password:'',
-                username:'',
+               
             }
         },
 
@@ -131,124 +129,14 @@
 
                 this.$router.push({name: "homepage"});
             },
-            newPlayer(){
-                Metro.dialog.close('#oldPlayer')
-                Metro.dialog.open('#newPlayer')
-            },
-            oldPlayer(){
-                Metro.dialog.close('#newPlayer')
-                Metro.dialog.open('#oldPlayer')
-            },
+            login(){
+                this.$router.push({name: "login"});
+                },
             player(){
                 this.$router.push({name: "playerHomepage"});
             },
 
-            login(){
-                          //validate specific reg fields
-        this.$validator.validateAll('loginForm').then(() => {
-             if (!this.errors.any()) {
-            var activity =  Metro.activity.open({
-                    type: 'square',
-                    overlayClickClose: false,
-                    text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>',
-                })
-
-                    var input = {'username':this.username, 'password':this.password};
-                    axios.post('/api/login-user',input)
-                    .then(res => {
-                    var result = res.data.result;
-
-                    
-                         if(result == 2){
-                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again',
-                             null, 5000, 'yellow');
-                             Metro.activity.close(activity);
-                          }else{
-                            Metro.toast.create('Login Successful!',
-                             null, 5000, 'success');
-                             Metro.dialog.close('#oldPlayer')
-                            //start login 
-                               Metro.session.setItem('userToken',res.data.token);
-                               Metro.session.setItem('userId',res.data.id);
-                               Metro.session.setItem('userName',res.data.username);
-                               Metro.activity.close(activity);
-                               this.$router.push({name: "playerHomepage"});
-                          }
-                    })
-                    .catch(error =>{
-                        Metro.activity.close(activity);
-                      console.log(error)
-                    })
-                  }else{ //if error
-                    //error is auto shown, dont worry
-                  } //if error
-                })//val
-              
-                   }, //login
-
-
-
-                   reg(){
-                          //validate
-            this.$validator.validateAll('regForm').then(() => {
-             if (!this.errors.any()) {
-              
-              var activity =  Metro.activity.open({
-                    type: 'square',
-                    overlayClickClose: false,
-                    text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>',
-                })
-
-          //start registeration
-          var input = {'username':this.username,'email':this.email,
-          'password':this.password };
-      
-      //send to database with axios
-          axios.post('/api/register-user',input)
-          .then(res=>{
-              console.log(res)
-        if(res.data == 1){
-            Metro.activity.close(activity);
-                Metro.toast.create('Signup was Successful!',
-                             null, 5000, 'success');
-                             Metro.dialog.close('#newPlayer')
-                            // Metro.dialog.open('#oldPlayer')
-                            this.login()
-
-        }else{
-            Metro.toast.create('An error occured!',
-                             null, 5000, 'alert');
-                             Metro.activity.close(activity);
-        }
-
-        })
-        .catch(error=>{
-          console.log(error)
-          Metro.activity.close(activity);
-
-          if(error.response.status == 422){
-           
-            Metro.toast.create('This Email has been taken.',
-                             null, 5000, 'yellow');
-          }else{
-    Metro.toast.create('Please verify that your inputs are correct',
-                             null, 5000, 'alert');
-          } 
-        })
-          //start registeration - end
-         
-        // }
-    
-//read pId for saving on reg
- 
-             }else{
-               console.log('vee errors exist')
-               //val err
-               //do nothing, vee val got u
-             }
-             })//val
-            
-                  }, //reg
+        
 
                   //meth to check Auth
                   isAuth(){

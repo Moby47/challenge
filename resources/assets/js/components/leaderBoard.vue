@@ -3,10 +3,10 @@
 
             
         <div class="desktop">
-                <div class="window-area">
-                    <!-- content here-->
+                <div class="window-area scroll">
+                    <!-- content here     <div class='bg-leader'></div>-->
 
-                    <div class='bg-leader'></div>
+                
 
         <div class="container  fadeIn">
 
@@ -29,8 +29,8 @@
                 </v-sheet>
               </template>
 
-                <table class="table row-hover table-border table-striped" v-else>
-                        <thead>
+                <table class="table row-hover table-border table-striped table-dark" v-else>
+                        <thead class="thead-dark">
                         <tr >
                              <th>Player</th>
                             <th>Likes</th>
@@ -108,6 +108,12 @@
                   console.log(error)
                     //off loader
                     this.loading = false
+                    var options = {
+                                showTop: true,
+                            }
+                         Metro.toast.create('A temporary network error occured...',
+                         null, 5000, 'yellow', options);
+                       
                     })
                 },
 
