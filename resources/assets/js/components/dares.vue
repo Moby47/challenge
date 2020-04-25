@@ -31,39 +31,12 @@
                                   <v-skeleton-loader
                                     class="mx-auto"
                                     max-width="auto"
-                                    type="card"
+                                    type="card@6"
                                   ></v-skeleton-loader>
                                 </v-sheet>
                               </template>
                             </div>
-                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
-                                <template >
-                                    <v-sheet
-                                      :color="`grey`"
-                                      class="px-3 pt-3 pb-3"
-                                    >
-                                      <v-skeleton-loader
-                                        class="mx-auto"
-                                        max-width="auto"
-                                        type="card"
-                                      ></v-skeleton-loader>
-                                    </v-sheet>
-                                  </template>
-                                </div>
-                                <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
-                                    <template >
-                                        <v-sheet
-                                          :color="`grey`"
-                                          class="px-3 pt-3 pb-3"
-                                        >
-                                          <v-skeleton-loader
-                                            class="mx-auto"
-                                            max-width="auto"
-                                            type="card"
-                                          ></v-skeleton-loader>
-                                        </v-sheet>
-                                      </template>
-                                    </div>
+                           
                           
                             <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
                                     
@@ -109,7 +82,15 @@
         
             
         
-             <!--dialogs search-->
+            
+
+        
+            </div>
+            <taskbar></taskbar>
+        </div>
+
+              
+ <!--dialogs search-->
              <div class="dialog" data-role="dialog" id='search'>
                               
                     <div class="dialog-title fg-white" style="background-color: #07557B">
@@ -140,14 +121,6 @@
                             <button class="button alert js-dialog-close">Close</button>
                         </div>
                     </div>
-
-        
-            </div>
-            <taskbar></taskbar>
-        </div>
-
-              
-
 
 
         </div>

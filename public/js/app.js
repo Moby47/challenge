@@ -12657,7 +12657,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(103);
+module.exports = __webpack_require__(101);
 
 
 /***/ }),
@@ -12779,8 +12779,8 @@ __WEBPACK_IMPORTED_MODULE_3__router__["a" /* default */].beforeEach(function (to
  */
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('index', __webpack_require__(13));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('floating', __webpack_require__(98));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('taskbar', __webpack_require__(101));
+//Vue.component('floating', require('./components/includes/floating.vue'));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('taskbar', __webpack_require__(98));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
@@ -52903,19 +52903,22 @@ module.exports = function (css) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_help_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_help_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_rules_vue__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_rules_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_rules_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_player_playerHomepage_vue__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_player_playerHomepage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_player_playerHomepage_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_player_pickDare_vue__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_player_pickDare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_player_pickDare_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_player_pendingDares_vue__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_player_pendingDares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_player_pendingDares_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_player_upload_vue__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_player_upload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_player_upload_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_vue__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_login_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_register_vue__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_register_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_register_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_player_pickDare_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_player_pickDare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_player_pickDare_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_player_pendingDares_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_player_pendingDares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_player_pendingDares_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_player_upload_vue__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_player_upload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_player_upload_vue__);
 
 
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
 
 
 
@@ -53008,30 +53011,37 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
             //  auth: true
         }
     }, {
-        path: '/player-homepage',
-        name: 'playerHomepage',
-        component: __WEBPACK_IMPORTED_MODULE_12__components_player_playerHomepage_vue___default.a,
+        path: '/login',
+        name: 'login',
+        component: __WEBPACK_IMPORTED_MODULE_12__components_login_vue___default.a,
         meta: {
-            auth: true
+            //  auth: true
+        }
+    }, {
+        path: '/register',
+        name: 'register',
+        component: __WEBPACK_IMPORTED_MODULE_13__components_register_vue___default.a,
+        meta: {
+            //  auth: true
         }
     }, {
         path: '/pick-dare',
         name: 'pickDare',
-        component: __WEBPACK_IMPORTED_MODULE_13__components_player_pickDare_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_14__components_player_pickDare_vue___default.a,
         meta: {
             auth: true
         }
     }, {
         path: '/pending-dares',
         name: 'pendingDares',
-        component: __WEBPACK_IMPORTED_MODULE_14__components_player_pendingDares_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_15__components_player_pendingDares_vue___default.a,
         meta: {
             auth: true
         }
     }, {
         path: '/upload-dare',
         name: 'upload',
-        component: __WEBPACK_IMPORTED_MODULE_15__components_player_upload_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_16__components_player_upload_vue___default.a,
         meta: {
             auth: true
         }
@@ -55813,9 +55823,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$validator.validateAll('loginForm').then(function () {
                 if (!_this.errors.any()) {
                     var activity = Metro.activity.open({
-                        type: 'metro',
+                        type: 'square',
                         overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
                     });
 
                     var input = { 'username': _this.username, 'password': _this.password };
@@ -55855,9 +55865,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (!_this2.errors.any()) {
 
                     var activity = Metro.activity.open({
-                        type: 'metro',
+                        type: 'square',
                         overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
                     });
 
                     //start registeration
@@ -56500,6 +56510,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56605,9 +56618,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             this.$validator.validateAll('loginForm').then(function () {
                 if (!_this3.errors.any()) {
                     var activity = Metro.activity.open({
-                        type: 'metro',
+                        type: 'square',
                         overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
                     });
 
                     var input = { 'username': _this3.username, 'password': _this3.password };
@@ -56647,9 +56660,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 if (!_this4.errors.any()) {
 
                     var activity = Metro.activity.open({
-                        type: 'metro',
+                        type: 'square',
                         overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
                     });
 
                     //start registeration
@@ -56707,9 +56720,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.$validator.validateAll('suggForm').then(function () {
             if (!_this5.errors.any()) {
                 var activity = Metro.activity.open({
-                    type: 'metro',
+                    type: 'square',
                     overlayClickClose: false,
-                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                    text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
                 });
 
                 var input = { 'username': _this5.username, 'description': _this5.description };
@@ -56753,7 +56766,16 @@ var render = function() {
     _c(
       "div",
       { staticClass: "desktop" },
-      [_c("div", { staticClass: "window-area" }), _vm._v(" "), _c("taskbar")],
+      [
+        _c(
+          "div",
+          { staticClass: "window-area" },
+          [_c("vue-particles", { attrs: { color: "#ffffff" } })],
+          1
+        ),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
       1
     )
   ])
@@ -56821,33 +56843,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -57055,7 +57050,7 @@ var render = function() {
               ? _c("span", [
                   _c("div", { staticClass: "remark info text-center" }, [
                     _vm._v(
-                      "\n                        No Dare Videos Currently\n                         "
+                      "\n                               No Dare Videos Currently\n                                "
                     )
                   ])
                 ])
@@ -57082,63 +57077,7 @@ var render = function() {
                             [
                               _c("v-skeleton-loader", {
                                 staticClass: "mx-auto",
-                                attrs: { "max-width": "auto", type: "card" }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      ],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
-                      },
-                      [
-                        [
-                          _c(
-                            "v-sheet",
-                            {
-                              staticClass: "px-3 pt-3 pb-3",
-                              attrs: { color: "grey" }
-                            },
-                            [
-                              _c("v-skeleton-loader", {
-                                staticClass: "mx-auto",
-                                attrs: { "max-width": "auto", type: "card" }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      ],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
-                      },
-                      [
-                        [
-                          _c(
-                            "v-sheet",
-                            {
-                              staticClass: "px-3 pt-3 pb-3",
-                              attrs: { color: "grey" }
-                            },
-                            [
-                              _c("v-skeleton-loader", {
-                                staticClass: "mx-auto",
-                                attrs: { "max-width": "auto", type: "card" }
+                                attrs: { "max-width": "auto", type: "card@6" }
                               })
                             ],
                             1
@@ -57236,15 +57175,15 @@ var render = function() {
               ],
               2
             )
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
+          ])
         ]),
         _vm._v(" "),
         _c("taskbar")
       ],
       1
-    )
+    ),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
 var staticRenderFns = [
@@ -57262,7 +57201,7 @@ var staticRenderFns = [
             staticClass: "dialog-title fg-white",
             staticStyle: { "background-color": "#07557B" }
           },
-          [_vm._v("\n                Search")]
+          [_vm._v("\n                       Search")]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "dialog-content" }, [
@@ -60380,553 +60319,9 @@ if (false) {
 }
 
 /***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(79)
-/* template */
-var __vue_template__ = __webpack_require__(80)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/player/playerHomepage.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-48be5254", Component.options)
-  } else {
-    hotAPI.reload("data-v-48be5254", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 79 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            dare_count: '',
-            pending_dares_count: '',
-            dare_vids_count: ''
-        };
-    },
-    mounted: function mounted() {
-        $(document).ready(function () {
-            $(window).scrollTop(0);
-        });
-
-        //notification for neebies
-        this.notify();
-
-        this.get_dare_count();
-        this.get_pending_dare_count();
-        this.get_dare_vids_count();
-    },
-
-
-    methods: {
-        dares: function dares() {
-            this.$router.push({ name: "dares" });
-        },
-        board: function board() {
-            this.$router.push({ name: "leaderBoard" });
-        },
-        pick: function pick() {
-            this.$router.push({ name: "pickDare" });
-        },
-        pendingDares: function pendingDares() {
-            this.$router.push({ name: "pendingDares" });
-        },
-        upload: function upload() {
-            this.$router.push({ name: "upload" });
-        },
-        notify: function notify() {
-            var wel = Metro.session.getItem('player');
-
-            if (wel) {
-                //old guest, do nothing
-            } else {
-                //new guest:
-                //notify and save key
-                var notify = Metro.notify;
-                notify.setup({
-                    width: 300,
-                    duration: 1000,
-                    timeout: 6000,
-                    animation: 'easeOutBounce'
-                });
-                notify.create("Welcome, Player! Explore more options on this page.");
-                notify.reset();
-
-                Metro.session.setItem('player', 'player');
-            }
-        },
-        logout: function logout() {
-            var activity = Metro.activity.open({
-                type: 'metro',
-                overlayClickClose: false,
-                text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
-            });
-            Metro.session.delItem('userToken');
-            Metro.session.delItem('userId');
-            Metro.session.delItem('userName');
-
-            Metro.activity.close(activity);
-            this.$router.push({ name: "homepage" });
-        },
-        get_dare_count: function get_dare_count() {
-            var _this = this;
-
-            fetch('/api/count-dares').then(function (res) {
-                return res.json();
-            }).then(function (res) {
-                _this.dare_count = res; //res.data;
-
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        get_dare_vids_count: function get_dare_vids_count() {
-            var _this2 = this;
-
-            fetch('/api/count-dare-vids').then(function (res) {
-                return res.json();
-            }).then(function (res) {
-                _this2.dare_vids_count = res; //res.data;
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        get_pending_dare_count: function get_pending_dare_count() {
-            var _this3 = this;
-
-            fetch('/api/count-my-pending-dares/' + Metro.session.getItem('userId')).then(function (res) {
-                return res.json();
-            }).then(function (res) {
-                _this3.pending_dares_count = res; //res.data;
-
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
-    }
-
-});
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("vue-particles", {
-        attrs: {
-          color: "#00B0FF",
-          shapeType: "star",
-          linesColor: "#00B0FF",
-          particleSize: 5
-        }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("h3", { staticClass: "text-center" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "tiles-grid mt-5" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col-3 bg-teal row-11 fadeIn ani-hover-horizontal",
-              attrs: { "data-role": "tile", "data-size": "medium" }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.board()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-clipboard icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Leader Board")
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "fadeIn ani-hover-horizontal",
-              attrs: { "data-role": "tile", "data-size": "wide" }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.pick()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-add icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Pick a Dare")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [
-                    _vm._v(_vm._s(_vm.dare_count))
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: " fadeIn ani-hover-horizontal",
-              staticStyle: { "background-color": "#b82943" },
-              attrs: {
-                "data-role": "tile",
-                "data-size": "large",
-                "data-effect": "hover-slide-left"
-              }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.pendingDares()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-alarm icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("My dares")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [
-                    _vm._v(_vm._s(_vm.pending_dares_count))
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "bg-teal fadeIn ani-hover-horizontal",
-              attrs: { "data-role": "tile", "data-size": "wide" }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.upload()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-file-upload icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Upload Dare")
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "fadeIn ani-hover-horizontal bg-orange",
-              attrs: { "data-role": "tile", "data-size": "wide" }
-            },
-            [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.dares()
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "mif-file-video icon" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "branding-bar" }, [
-                    _vm._v("Watch Dares")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "badge-bottom" }, [
-                    _vm._v(_vm._s(_vm.dare_vids_count))
-                  ])
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            attrs: {
-              "data-role": "charms",
-              "data-opacity": "0.8",
-              id: "charm",
-              "data-position": "right"
-            }
-          },
-          [
-            _c("ul", { staticClass: "sidebar-menu white-color" }, [
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/store" } }, [
-                    _c("span", { staticClass: "mif-cart icon" }),
-                    _vm._v(" Store")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.logout()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "mif-settings-power icon" }),
-                    _vm._v(" Logout")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/homepage" } }, [
-                    _c("span", { staticClass: "mif-menu icon" }),
-                    _vm._v(" \n                                Main Menu")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "divider" }),
-              _vm._v(" "),
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
-                    _c("span", { staticClass: "mif-home icon" }),
-                    _vm._v(" Home Screen")
-                  ])
-                ],
-                1
-              )
-            ])
-          ]
-        )
-      ])
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "col-1 row-11 fadeIn ani-hover-horizontal",
-        attrs: { "data-role": "tile", "data-size": "medium" }
-      },
-      [
-        _c("span", { attrs: { onclick: "Metro.charms.toggle('#charm')" } }, [
-          _c("span", { staticClass: "mif-more-vert icon" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "branding-bar" }, [_vm._v("More Options")])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-48be5254", module.exports)
-  }
-}
-
-/***/ }),
+/* 78 */,
+/* 79 */,
+/* 80 */,
 /* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61117,9 +60512,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (dia) {
 
                     var activity = Metro.activity.open({
-                        type: 'metro',
+                        type: 'square',
                         overlayClickClose: false,
-                        text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                        text: '<div class=\'mt-2 text-small  text-white\'>Please, wait...</div>'
                     });
 
                     var input = { 'darename': this.selected, 'userid': Metro.session.getItem('userId') };
@@ -61490,6 +60885,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -61568,217 +60975,239 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("vue-particles", {
-        attrs: {
-          color: "#00B0FF",
-          shapeType: "star",
-          linesColor: "#00B0FF",
-          particleSize: 5
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container fadeIn" },
-        [
-          _c("h3", { staticClass: "text-center white-color" }, [
-            _vm._v(" My Dares")
-          ]),
-          _vm._v(" "),
-          _vm.empty
-            ? _c("span", [
-                _c("div", { staticClass: "remark info text-center" }, [
-                  _vm._v(
-                    "\n                        Dare list is currently empty\n                     "
-                  )
-                ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.loading
-            ? [
-                _c(
-                  "v-sheet",
-                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
-                  [
-                    _c("v-skeleton-loader", {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "table-tbody" }
-                    })
-                  ],
-                  1
-                )
-              ]
-            : _c("span", [
-                _c(
-                  "table",
-                  { staticClass: "table row-hover table-border white-color" },
-                  [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.content, function(con) {
-                        return _c("tr", { key: con.id }, [
-                          _c("td", [_vm._v(_vm._s(con.dare_name))]),
-                          _vm._v(" "),
-                          con.status == 1
-                            ? _c("td", [
-                                _c("div", {
-                                  attrs: {
-                                    "data-role": "countdown",
-                                    "data-date": con.expire
-                                  }
-                                })
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          con.status == 0
-                            ? _c("td", [
-                                _c("div", {
-                                  attrs: {
-                                    "data-role": "countdown",
-                                    "data-date": con.expire,
-                                    "data-cls-days": "bg-red fg-white",
-                                    "data-cls-hours": "bg-red fg-white",
-                                    "data-cls-minutes": "bg-red fg-white",
-                                    "data-cls-seconds": "bg-red fg-white"
-                                  }
-                                })
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          con.status == 3
-                            ? _c("td", [
-                                _c("p", { staticClass: "text-green pl-4" }, [
-                                  _vm._v("DARE COMPLETED!")
-                                ])
-                              ])
-                            : _vm._e()
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "remark info text-center" },
-                  [
-                    _c("router-link", { attrs: { to: "/pick-dare" } }, [
-                      _vm._v(" Click here to add another dare")
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "remark success text-center" },
-                  [
-                    _c("router-link", { attrs: { to: "/upload-dare" } }, [
-                      _vm._v(" Click here to upload a Dare")
-                    ])
-                  ],
-                  1
-                )
-              ]),
-          _vm._v(" "),
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c(
+          "div",
+          { staticClass: "window-area" },
           [
-            _c("div", { staticClass: "container fadeIn index" }, [
-              _c("div", { staticClass: "bottom-nav pos-fixed" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.home()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-home" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [
-                      _vm._v("Home Screen")
+            _c("vue-particles", {
+              attrs: {
+                color: "#00B0FF",
+                shapeType: "star",
+                linesColor: "#00B0FF",
+                particleSize: 5
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "container fadeIn" },
+              [
+                _c("h3", { staticClass: "text-center white-color" }, [
+                  _vm._v(" My Dares")
+                ]),
+                _vm._v(" "),
+                _vm.empty
+                  ? _c("span", [
+                      _c("div", { staticClass: "remark info text-center" }, [
+                        _vm._v(
+                          "\n                            Dare list is currently empty\n                         "
+                        )
+                      ])
                     ])
-                  ]
-                ),
+                  : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.menu()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-menu" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [_vm._v("Main Menu")])
-                  ]
-                ),
+                _vm.loading
+                  ? [
+                      _c(
+                        "v-sheet",
+                        {
+                          staticClass: "px-3 pt-3 pb-3",
+                          attrs: { color: "grey" }
+                        },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "mx-auto",
+                            attrs: { "max-width": "auto", type: "table-tbody" }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  : _c("span", [
+                      _c(
+                        "table",
+                        {
+                          staticClass:
+                            "table row-hover table-border white-color"
+                        },
+                        [
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.content, function(con) {
+                              return _c("tr", { key: con.id }, [
+                                _c("td", [_vm._v(_vm._s(con.dare_name))]),
+                                _vm._v(" "),
+                                con.status == 1
+                                  ? _c("td", [
+                                      _c("div", {
+                                        attrs: {
+                                          "data-role": "countdown",
+                                          "data-date": con.expire
+                                        }
+                                      })
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                con.status == 0
+                                  ? _c("td", [
+                                      _c("div", {
+                                        attrs: {
+                                          "data-role": "countdown",
+                                          "data-date": con.expire,
+                                          "data-cls-days": "bg-red fg-white",
+                                          "data-cls-hours": "bg-red fg-white",
+                                          "data-cls-minutes": "bg-red fg-white",
+                                          "data-cls-seconds": "bg-red fg-white"
+                                        }
+                                      })
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                con.status == 3
+                                  ? _c("td", [
+                                      _c(
+                                        "p",
+                                        { staticClass: "text-green pl-4" },
+                                        [_vm._v("DARE COMPLETED!")]
+                                      )
+                                    ])
+                                  : _vm._e()
+                              ])
+                            }),
+                            0
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "remark info text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                            _vm._v(" Click here to add another dare")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "remark success text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/upload-dare" } }, [
+                            _vm._v(" Click here to upload a Dare")
+                          ])
+                        ],
+                        1
+                      )
+                    ]),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.Pmenu()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-menu" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [
-                      _vm._v("Player Menu")
+                [
+                  _c("div", { staticClass: "container fadeIn index" }, [
+                    _c("div", { staticClass: "bottom-nav pos-fixed" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button",
+                          staticStyle: { "background-color": "#ebebeb" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.home()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "icon mif-home" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "label" }, [
+                            _vm._v("Home Screen")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button",
+                          staticStyle: { "background-color": "#ebebeb" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.menu()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "icon mif-menu" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "label" }, [
+                            _vm._v("Main Menu")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button",
+                          staticStyle: { "background-color": "#ebebeb" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.Pmenu()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "icon mif-menu" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "label" }, [
+                            _vm._v("Player Menu")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button",
+                          staticStyle: { "background-color": "#ebebeb" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.back()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "icon mif-backspace" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "label" }, [_vm._v("Back")])
+                        ]
+                      )
                     ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.back()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-backspace" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [_vm._v("Back")])
-                  ]
-                )
-              ])
-            ])
-          ]
-        ],
-        2
-      )
-    ],
-    1
-  )
+                  ])
+                ]
+              ],
+              2
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -61971,23 +61400,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62025,9 +61437,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     if (dia) {
                         //run code
                         var activity = Metro.activity.open({
-                            type: 'metro',
+                            type: 'square',
                             overlayClickClose: false,
-                            text: '<div class=\'mt-2 text-small\'>Please, wait...</div>'
+                            text: '<div class=\'mt-2 text-small  text-white\'>Please, wait...</div>'
                         });
 
                         var formdata = new FormData();
@@ -62114,313 +61526,259 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("vue-particles", {
-        attrs: {
-          color: "#00B0FF",
-          shapeType: "star",
-          linesColor: "#00B0FF",
-          particleSize: 5
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container fadeIn" },
-        [
-          _c("h3", { staticClass: "text-center white-color" }, [
-            _vm._v(" Upload Dare")
-          ]),
-          _vm._v(" "),
-          _vm.empty
-            ? _c("span", [
-                _c("div", { staticClass: "remark info text-center" }, [
-                  _vm._v(
-                    "\n                        Dare list is currently empty\n                     "
-                  )
-                ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.loading
-            ? [
-                _c(
-                  "v-sheet",
-                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
-                  [
-                    _c("v-skeleton-loader", {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "action, article@2" }
-                    })
-                  ],
-                  1
-                )
-              ]
-            : _c("span", [
-                _c(
-                  "form",
-                  { attrs: { enctype: "multipart/form-data", method: "POST" } },
-                  [
-                    _c("p", { staticClass: "text-white" }, [
-                      _vm._v("Select Dare")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        attrs: {
-                          "data-role": "hint",
-                          "data-hint-text":
-                            "Select Dare you want to upload its video",
-                          "data-hint-position": "top"
-                        }
-                      },
-                      [
-                        _c(
-                          "select",
-                          {
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c(
+          "div",
+          { staticClass: "window-area" },
+          [
+            _c("vue-particles", {
+              attrs: {
+                color: "#00B0FF",
+                shapeType: "star",
+                linesColor: "#00B0FF",
+                particleSize: 5
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "container fadeIn" },
+              [
+                _c("h3", { staticClass: "text-center white-color" }, [
+                  _vm._v(" Upload Dare")
+                ]),
+                _vm._v(" "),
+                _vm.empty
+                  ? _c("span", [
+                      _c("div", { staticClass: "remark info text-center" }, [
+                        _vm._v(
+                          "\n                            Dare list is currently empty\n                         "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.loading
+                  ? [
+                      _c(
+                        "v-sheet",
+                        {
+                          staticClass: "px-3 pt-3 pb-3",
+                          attrs: { color: "grey" }
+                        },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "mx-auto",
+                            attrs: {
+                              "max-width": "auto",
+                              type: "action, article@2"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  : _c("span", [
+                      _c(
+                        "form",
+                        {
+                          attrs: {
+                            enctype: "multipart/form-data",
+                            method: "POST"
+                          }
+                        },
+                        [
+                          _c("p", { staticClass: "text-white" }, [
+                            _vm._v("Select Dare")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              attrs: {
+                                "data-role": "hint",
+                                "data-hint-text":
+                                  "Select Dare you want to upload its video",
+                                "data-hint-position": "top"
+                              }
+                            },
+                            [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.selected,
+                                      expression: "selected"
+                                    },
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: '"required"'
+                                    }
+                                  ],
+                                  attrs: {
+                                    "data-role": "select",
+                                    name: "dare"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.selected = $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    }
+                                  }
+                                },
+                                _vm._l(_vm.content, function(con) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: con.id,
+                                      staticClass: "text-bold",
+                                      attrs: { selected: "" },
+                                      domProps: { value: con.id }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                    " +
+                                          _vm._s(con.dare_name)
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.errors.has("dare"),
+                                  expression: "errors.has('dare')"
+                                }
+                              ],
+                              staticClass: "fg-yellow shake"
+                            },
+                            [_vm._v(_vm._s(_vm.errors.first("dare")))]
+                          ),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "text-white" }, [
+                            _vm._v("Video upload")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
                             directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.selected,
-                                expression: "selected"
-                              },
                               {
                                 name: "validate",
                                 rawName: "v-validate",
-                                value: "required",
-                                expression: '"required"'
+                                value: "required|ext:mp4,3gp|size:50000",
+                                expression: '"required|ext:mp4,3gp|size:50000"'
                               }
                             ],
-                            attrs: { "data-role": "select", name: "dare" },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.selected = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              }
-                            }
-                          },
-                          _vm._l(_vm.content, function(con) {
-                            return _c(
-                              "option",
-                              {
-                                key: con.id,
-                                staticClass: "text-bold",
-                                attrs: { selected: "" },
-                                domProps: { value: con.id }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                " + _vm._s(con.dare_name)
-                                )
-                              ]
-                            )
+                            attrs: {
+                              type: "file",
+                              "data-role": "file",
+                              "data-mode": "drop",
+                              name: "video"
+                            },
+                            on: { change: _vm.videoSelect }
                           }),
-                          0
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.errors.has("dare"),
-                            expression: "errors.has('dare')"
-                          }
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.errors.has("video"),
+                                  expression: "errors.has('video')"
+                                }
+                              ],
+                              staticClass: "fg-yellow shake"
+                            },
+                            [_vm._v(_vm._s(_vm.errors.first("video")))]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button primary",
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.send()
+                                }
+                              }
+                            },
+                            [_vm._v("Done")]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "remark info text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/pick-dare" } }, [
+                            _vm._v(" Click here to add another dare")
+                          ])
                         ],
-                        staticClass: "fg-yellow shake"
-                      },
-                      [_vm._v(_vm._s(_vm.errors.first("dare")))]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "text-white" }, [
-                      _vm._v("Video upload")
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "remark info text-center" },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: "/pending-dares" } },
+                            [_vm._v(" Click here to view your Dares")]
+                          )
+                        ],
+                        1
+                      )
                     ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required|ext:mp4,3gp|size:50000",
-                          expression: '"required|ext:mp4,3gp|size:50000"'
-                        }
-                      ],
-                      attrs: {
-                        type: "file",
-                        "data-role": "file",
-                        "data-mode": "drop",
-                        name: "video"
-                      },
-                      on: { change: _vm.videoSelect }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.errors.has("video"),
-                            expression: "errors.has('video')"
-                          }
-                        ],
-                        staticClass: "fg-yellow shake"
-                      },
-                      [_vm._v(_vm._s(_vm.errors.first("video")))]
-                    ),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "button primary",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.send()
-                          }
-                        }
-                      },
-                      [_vm._v("Done")]
-                    )
-                  ]
-                ),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "remark info text-center" },
-                  [
-                    _c("router-link", { attrs: { to: "/pick-dare" } }, [
-                      _vm._v(" Click here to add another dare")
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "remark info text-center" },
-                  [
-                    _c("router-link", { attrs: { to: "/pending-dares" } }, [
-                      _vm._v(" Click here to view your Dares")
-                    ])
-                  ],
-                  1
-                )
-              ]),
-          _vm._v(" "),
-          [
-            _c("div", { staticClass: "container fadeIn index" }, [
-              _c("div", { staticClass: "bottom-nav pos-fixed" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.home()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-home" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [
-                      _vm._v("Home Screen")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.menu()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-menu" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [_vm._v("Main Menu")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.Pmenu()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-menu" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [
-                      _vm._v("Player Menu")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.back()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-backspace" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [_vm._v("Back")])
-                  ]
-                )
-              ])
-            ])
+                _vm._m(0)
+              ],
+              2
+            )
           ],
-          _vm._v(" "),
-          _vm._m(0)
-        ],
-        2
-      )
-    ],
-    1
-  )
+          1
+        ),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -105946,7 +105304,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/includes/floating.vue"
+Component.options.__file = "resources/assets/js/components/includes/taskbar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -105955,9 +105313,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-fe5ff27a", Component.options)
+    hotAPI.createRecord("data-v-80f29f7e", Component.options)
   } else {
-    hotAPI.reload("data-v-fe5ff27a", Component.options)
+    hotAPI.reload("data-v-80f29f7e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -105989,552 +105347,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {};
-    },
-
-
-    methods: {
-        home: function home() {
-            this.$router.push({ name: "homepage" });
-        },
-        back: function back() {
-            this.$router.go(-1);
-        }
-        /*
-                    this.$validator.validateAll().then(() => {
-                   
-                   if (!this.errors.any()) {
-                    //
-                    }else{
-                    //
-                    }
-                 
-                            //
-                    })
-                    .catch(err=>{
-                        
-                    }),
-              
-                 setTimeout(func=>{
-                     //this.errors.clear()
-                    // this.$validator.reset()
-                 },1) 
-                
-                 }); //validator
-        */
-
-    },
-
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container fadeIn index" },
-    [
-      _c(
-        "v-btn",
-        {
-          attrs: {
-            fab: "",
-            dark: "",
-            color: "#1ba1e2",
-            small: "",
-            relative: "",
-            bottom: "",
-            left: "",
-            fixed: ""
-          },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              _vm.home()
-            }
-          }
-        },
-        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("apps")])],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-btn",
-        {
-          attrs: {
-            fab: "",
-            dark: "",
-            color: "#b82943",
-            small: "",
-            relative: "",
-            bottom: "",
-            right: "",
-            fixed: ""
-          },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              _vm.back()
-            }
-          }
-        },
-        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("arrow_back")])],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-fe5ff27a", module.exports)
-  }
-}
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(111)
-/* template */
-var __vue_template__ = __webpack_require__(102)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/includes/taskbar.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-80f29f7e", Component.options)
-  } else {
-    hotAPI.reload("data-v-80f29f7e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 102 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "task-bar" }, [
-      _c(
-        "div",
-        {
-          staticClass: "p-4",
-          attrs: { "data-role": "charms", "data-position": "left", id: "charm" }
-        },
-        [
-          _c("div", { staticClass: "h-100 d-flex flex-column" }, [
-            _c("div", { staticClass: "charm-top" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "charm-bottom mt-auto" }, [
-                _c("div", { staticClass: "d-flex" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile bg-orange",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.dares()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-file-video" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("Watch Dares")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile",
-                      staticStyle: { "background-color": "#1ba1e2" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.list()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-list" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("Dare List")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile",
-                      staticStyle: { "background-color": "#b82943" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.board()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-clipboard" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("Dare Leaderboard")
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "charm-bottom mt-auto" }, [
-                _c("div", { staticClass: "d-flex" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile",
-                      staticStyle: { "background-color": "#1ba1e2" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.pickDare()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-add" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("Pick a Dare")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _vm._m(3)
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _c("div", { staticClass: "charm-bottom mt-auto" }, [
-                _c("div", { staticClass: "d-flex" }, [
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile",
-                      staticStyle: { "background-color": "#b82943" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.help()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-cog" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("How to Play")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "d-flex" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile bg-teal",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.rules()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-cog" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [_vm._v("Rules")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile bg-orange",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.menu()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-home" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [_vm._v("Home")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile bg-purple",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.home()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-settings-power" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [_vm._v("Exit")])
-                    ]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _vm._m(7),
-      _vm._v(" "),
-      _c("div", { staticClass: "task-bar-section tasks" }),
-      _vm._v(" "),
-      _vm._m(8)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center m-4" }, [
-      _c("span", [_vm._v("Watcher")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center m-4" }, [
-      _c("span", [_vm._v("Player")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "charm-tile",
-        staticStyle: { "background-color": "#7e07ff" }
-      },
-      [
-        _c("span", { staticClass: "icon mif-wifi-full" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "caption" }, [_vm._v("My Dares")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "charm-tile bg-teal" }, [
-      _c("span", { staticClass: "icon mif-cog" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "caption" }, [_vm._v("Upload Dare")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center m-4" }, [
-      _c("span", [_vm._v("General Options")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "charm-tile bg-purple" }, [
-      _c("span", { staticClass: "icon mif-tablet-landscape" }),
-      _vm._v(" "),
-      _c("span", { staticClass: "caption" }, [_vm._v("Store")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "charm-tile",
-        staticStyle: { "background-color": "#7e07ff" }
-      },
-      [
-        _c("span", { staticClass: "icon mif-wifi-full" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "caption" }, [_vm._v("Suggest Dare")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "task-bar-section" }, [
-      _c(
-        "button",
-        {
-          staticClass: "task-bar-item",
-          attrs: { onclick: "Metro.charms.toggle('#charm')" }
-        },
-        [_c("span", { staticClass: "mif-windows" })]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "task-bar-section system-tray ml-auto" }, [
-      _c(
-        "span",
-        { staticClass: "pr-4", staticStyle: { "line-height": "40px" } },
-        [
-          _c("span", {
-            staticClass: "w-auto fg-white reduce-1",
-            attrs: { "data-role": "clock", "data-show-date": "false" }
-          })
-        ]
-      )
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-80f29f7e", module.exports)
-  }
-}
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -106700,7 +105512,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.isAuth()) {
                 this.$router.push({ name: "pickDare" });
             } else {
-                alert('send to login page');
+                this.$router.push({ name: "login" });
+            }
+        },
+        myDare: function myDare() {
+            if (this.isAuth()) {
+                this.$router.push({ name: "pendingDares" });
+            } else {
+                this.$router.push({ name: "login" });
+            }
+        },
+        upload: function upload() {
+            if (this.isAuth()) {
+                this.$router.push({ name: "upload" });
+            } else {
+                this.$router.push({ name: "login" });
             }
         },
 
@@ -106714,10 +105540,1347 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 // this.loggedOut = true;
                 return false;
             }
+        },
+        logout: function logout() {
+            var activity = Metro.activity.open({
+                type: 'square',
+                overlayClickClose: false,
+                text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
+            });
+            Metro.session.delItem('userToken');
+            Metro.session.delItem('userId');
+            Metro.session.delItem('userName');
+            this.isAuth();
+            Metro.activity.close(activity);
+            Metro.charms.close('#charm');
+            this.$router.push({ name: "homepage" });
         }
     }
 
 });
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "task-bar" }, [
+      _c(
+        "div",
+        {
+          staticClass: "p-4",
+          attrs: { "data-role": "charms", "data-position": "left", id: "charm" }
+        },
+        [
+          _c("div", { staticClass: "h-100 d-flex flex-column" }, [
+            _c("div", { staticClass: "charm-top" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile bg-orange",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.dares()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-file-video" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Watch Dares")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#1ba1e2" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.list()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-list" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Dare List")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#b82943" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.board()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-clipboard" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Dare Leaderboard")
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#1ba1e2" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.pickDare()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-add" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Pick a Dare")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile bg-teal",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.myDare()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-alarm" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("My Dares")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile ",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.upload()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-file-upload" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Upload Dare")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm.isAuth()
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "charm-tile ",
+                          staticStyle: { "background-color": "#b82943" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.logout()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "icon mif-power" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "caption" }, [
+                            _vm._v("Logout")
+                          ])
+                        ]
+                      )
+                    : _c(
+                        "div",
+                        {
+                          staticClass: "charm-tile ",
+                          staticStyle: { "background-color": "#b82943" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.upload()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "icon mif-gamepad" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "caption" }, [
+                            _vm._v("Start Playing")
+                          ])
+                        ]
+                      )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#b82943" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.help()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-help" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("How to Play")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile bg-teal",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.rules()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-books" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Rules")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.menu()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-home" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Home")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#7e07ff" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.home()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-settings-power" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Exit")])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(6),
+      _vm._v(" "),
+      _c("div", { staticClass: "task-bar-section tasks" }),
+      _vm._v(" "),
+      _vm._m(7)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center m-4" }, [
+      _c("span", [_vm._v("Watcher")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center m-4" }, [
+      _c("span", [_vm._v("Player")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center m-4" }, [
+      _c("span", [_vm._v("General Options")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "charm-tile bg-purple" }, [
+      _c("span", { staticClass: "icon mif-cart" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "caption" }, [_vm._v("Store")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "charm-tile bg-orange" }, [
+      _c("span", { staticClass: "icon mif-move_to_inbox" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "caption" }, [_vm._v("Suggest Dare")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "charm-tile",
+        staticStyle: { "background-color": "#1ba1e2" }
+      },
+      [
+        _c("span", { staticClass: "icon mif-phone" }),
+        _vm._v(" "),
+        _c(
+          "a",
+          { staticClass: "link", attrs: { href: "mailto:honred47@yahoo.com" } },
+          [_c("span", { staticClass: "caption" }, [_vm._v("Contact Support")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "task-bar-section" }, [
+      _c(
+        "button",
+        {
+          staticClass: "task-bar-item",
+          attrs: { onclick: "Metro.charms.toggle('#charm')" }
+        },
+        [_c("span", { staticClass: "mif-windows" })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "task-bar-section system-tray ml-auto" }, [
+      _c(
+        "span",
+        { staticClass: "pr-4", staticStyle: { "line-height": "40px" } },
+        [
+          _c("span", {
+            staticClass: "w-auto fg-white reduce-1",
+            attrs: { "data-role": "clock", "data-show-date": "false" }
+          })
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-80f29f7e", module.exports)
+  }
+}
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(113)
+/* template */
+var __vue_template__ = __webpack_require__(114)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/login.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-69787b62", Component.options)
+  } else {
+    hotAPI.reload("data-v-69787b62", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 113 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            password: '',
+            username: ''
+        };
+    },
+    mounted: function mounted() {
+
+        this.loggedIn();
+
+        $(document).ready(function () {
+            $(window).scrollTop(0);
+        });
+
+        //notification for neebies
+        this.notify();
+    },
+
+
+    methods: {
+        newPlayer: function newPlayer() {
+            this.$router.push({ name: "register" });
+        },
+        dares: function dares() {
+            this.$router.push({ name: "dares" });
+        },
+        board: function board() {
+            this.$router.push({ name: "leaderBoard" });
+        },
+        pick: function pick() {
+            this.$router.push({ name: "pickDare" });
+        },
+        pendingDares: function pendingDares() {
+            this.$router.push({ name: "pendingDares" });
+        },
+        upload: function upload() {
+            this.$router.push({ name: "upload" });
+        },
+        notify: function notify() {
+            var wel = Metro.session.getItem('player');
+
+            if (wel) {
+                //old guest, do nothing
+            } else {
+                //new guest:
+                //notify and save key
+                var notify = Metro.notify;
+                notify.setup({
+                    width: 300,
+                    duration: 1000,
+                    timeout: 6000,
+                    animation: 'easeOutBounce'
+                });
+                notify.create("Welcome, Player! Explore more options on this page.");
+                notify.reset();
+
+                Metro.session.setItem('player', 'player');
+            }
+        },
+        login: function login() {
+            var _this = this;
+
+            //validate specific reg fields
+            this.$validator.validateAll('loginForm').then(function () {
+                if (!_this.errors.any()) {
+                    var activity = Metro.activity.open({
+                        type: 'square',
+                        overlayClickClose: false,
+                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
+                    });
+
+                    var input = { 'username': _this.username, 'password': _this.password };
+                    axios.post('/api/login-user', input).then(function (res) {
+                        var result = res.data.result;
+
+                        if (result == 2) {
+                            Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 9000, 'yellow');
+                            Metro.activity.close(activity);
+                        } else {
+                            Metro.toast.create('Login Successful!', null, 9000, 'success');
+
+                            //start login 
+                            Metro.session.setItem('userToken', res.data.token);
+                            Metro.session.setItem('userId', res.data.id);
+                            Metro.session.setItem('userName', res.data.username);
+                            Metro.activity.close(activity);
+                            _this.$router.push({ name: "homepage" });
+                        }
+                    }).catch(function (error) {
+                        Metro.activity.close(activity);
+                        console.log(error);
+                    });
+                } else {} //if error
+                //error is auto shown, dont worry
+                //if error
+            }); //val
+        },
+        //login
+
+
+        loggedIn: function loggedIn() {
+            if (Metro.session.getItem('userToken')) {
+                var notify = Metro.notify;
+                notify.setup({
+                    width: 300,
+                    duration: 1000,
+                    timeout: 6000,
+                    animation: 'easeOutBounce'
+                });
+                notify.create("You are already logged in.");
+                notify.reset();
+                this.$router.push({ name: "homepage" });
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area" }, [
+          _c(
+            "form",
+            {
+              staticClass:
+                "login-form bg-white p-6 mx-auto border bd-default win-shadow",
+              attrs: { method: "post", "data-vv-scope": "loginForm" }
+            },
+            [
+              _c("span", {
+                staticClass: "mif-gamepad mif-4x place-right",
+                staticStyle: { "margin-top": "-10px" }
+              }),
+              _vm._v(" "),
+              _c("h2", { staticClass: "text-light" }, [
+                _vm._v("Login to continue")
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "thin mt-4 mb-4 bg-white" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.username,
+                      expression: "username"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|max:15",
+                      expression: '"required|max:15"'
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    "data-role": "input",
+                    "data-prepend": "<span class='mif-user'>",
+                    placeholder: "Enter your username...",
+                    name: "Username"
+                  },
+                  domProps: { value: _vm.username },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.username = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("loginForm.Username"),
+                        expression: "errors.has('loginForm.Username')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Username")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: '"required"'
+                    }
+                  ],
+                  attrs: {
+                    type: "password",
+                    "data-role": "input",
+                    "data-prepend": "<span class='mif-key'>",
+                    placeholder: "Enter your password...",
+                    name: "Password"
+                  },
+                  domProps: { value: _vm.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("loginForm.Password"),
+                        expression: "errors.has('loginForm.Password')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Password")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mt-10" }, [
+                _c("p", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "image-button",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.newPlayer()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "mif-user-plus icon" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("New Player?")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button text-white",
+                    staticStyle: { "background-color": "#1ba1e2" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.login()
+                      }
+                    }
+                  },
+                  [_vm._v("Continue")]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-69787b62", module.exports)
+  }
+}
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(116)
+/* template */
+var __vue_template__ = __webpack_require__(117)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/register.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-79ef4a3a", Component.options)
+  } else {
+    hotAPI.reload("data-v-79ef4a3a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            email: '',
+            password: '',
+            username: ''
+        };
+    },
+    mounted: function mounted() {
+
+        this.loggedIn();
+
+        $(document).ready(function () {
+            $(window).scrollTop(0);
+        });
+
+        //notification for neebies
+        this.notify();
+    },
+
+
+    methods: {
+        newPlayer: function newPlayer() {
+            this.$router.push({ name: "register" });
+        },
+        oldPlayer: function oldPlayer() {
+            this.$router.push({ name: "login" });
+        },
+        dares: function dares() {
+            this.$router.push({ name: "dares" });
+        },
+        board: function board() {
+            this.$router.push({ name: "leaderBoard" });
+        },
+        pick: function pick() {
+            this.$router.push({ name: "pickDare" });
+        },
+        pendingDares: function pendingDares() {
+            this.$router.push({ name: "pendingDares" });
+        },
+        upload: function upload() {
+            this.$router.push({ name: "upload" });
+        },
+        notify: function notify() {
+            var wel = Metro.session.getItem('player');
+
+            if (wel) {
+                //old guest, do nothing
+            } else {
+                //new guest:
+                //notify and save key
+                var notify = Metro.notify;
+                notify.setup({
+                    width: 300,
+                    duration: 1000,
+                    timeout: 6000,
+                    animation: 'easeOutBounce'
+                });
+                notify.create("Welcome, Player! Explore more options on this page.");
+                notify.reset();
+
+                Metro.session.setItem('player', 'player');
+            }
+        },
+        reg: function reg() {
+            var _this = this;
+
+            //validate
+            this.$validator.validateAll('regForm').then(function () {
+                if (!_this.errors.any()) {
+
+                    var activity = Metro.activity.open({
+                        type: 'square',
+                        overlayClickClose: false,
+                        text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>'
+                    });
+
+                    //start registeration
+                    var input = { 'username': _this.username, 'email': _this.email,
+                        'password': _this.password };
+
+                    //send to database with axios
+                    axios.post('/api/register-user', input).then(function (res) {
+                        console.log(res);
+                        if (res.data == 1) {
+
+                            //login
+                            axios.post('/api/login-user', input).then(function (res) {
+                                var result = res.data.result;
+
+                                if (result == 2) {
+                                    Metro.toast.create('Login failed. Invalid credentials. Refresh and try again', null, 9000, 'yellow');
+                                    Metro.activity.close(activity);
+                                } else {
+                                    Metro.toast.create('Registeration Successful! You are Logged in...', null, 9000, 'success');
+
+                                    //start login 
+                                    Metro.session.setItem('userToken', res.data.token);
+                                    Metro.session.setItem('userId', res.data.id);
+                                    Metro.session.setItem('userName', res.data.username);
+                                    Metro.activity.close(activity);
+                                    _this.$router.push({ name: "homepage" });
+                                }
+                            }).catch(function (error) {
+                                Metro.activity.close(activity);
+                                console.log(error);
+                            });
+                        } else {
+                            Metro.toast.create('An error occured!', null, 9000, 'alert');
+                            Metro.activity.close(activity);
+                        }
+                    }).catch(function (error) {
+                        console.log(error);
+                        Metro.activity.close(activity);
+
+                        if (error.response.status == 422) {
+
+                            Metro.toast.create('This Email has been taken.', null, 9000, 'yellow');
+                        } else {
+                            Metro.toast.create('Please verify that your inputs are correct', null, 9000, 'alert');
+                        }
+                    });
+                } else {
+                    console.log('vee errors exist');
+                    //val err
+                    //do nothing, vee val got u
+                }
+            }); //val
+        },
+        //reg
+
+
+        loggedIn: function loggedIn() {
+            if (Metro.session.getItem('userToken')) {
+                var notify = Metro.notify;
+                notify.setup({
+                    width: 300,
+                    duration: 1000,
+                    timeout: 6000,
+                    animation: 'easeOutBounce'
+                });
+                notify.create("You are already logged in.");
+                notify.reset();
+                this.$router.push({ name: "homepage" });
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area" }, [
+          _c(
+            "form",
+            {
+              staticClass:
+                "login-form bg-white p-6 mx-auto border bd-default win-shadow",
+              attrs: { method: "post", "data-vv-scope": "regForm" }
+            },
+            [
+              _c("span", {
+                staticClass: "mif-gamepad mif-4x place-right",
+                staticStyle: { "margin-top": "-10px" }
+              }),
+              _vm._v(" "),
+              _c("h2", { staticClass: "text-light" }, [_vm._v("New Player")]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "thin mt-4 mb-4 bg-white" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.username,
+                      expression: "username"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|max:15",
+                      expression: '"required|max:15"'
+                    }
+                  ],
+                  attrs: {
+                    type: "text",
+                    "data-role": "input",
+                    "data-prepend": "<span class='mif-user'>",
+                    placeholder: "Enter your username...",
+                    name: "Username"
+                  },
+                  domProps: { value: _vm.username },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.username = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("regForm.Username"),
+                        expression: "errors.has('regForm.Username')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("regForm.Username")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|email|max:100",
+                      expression: '"required|email|max:100"'
+                    }
+                  ],
+                  attrs: {
+                    type: "email",
+                    "data-role": "input",
+                    name: "Email",
+                    "data-prepend": "<span class='mif-envelop'>",
+                    placeholder: "Enter your email..."
+                  },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("regForm.Email"),
+                        expression: "errors.has('regForm.Email')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("regForm.Email")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: '"required"'
+                    }
+                  ],
+                  attrs: {
+                    type: "password",
+                    "data-role": "input",
+                    "data-prepend": "<span class='mif-key'>",
+                    placeholder: "Enter your password...",
+                    name: "Password"
+                  },
+                  domProps: { value: _vm.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("regForm.Password"),
+                        expression: "errors.has('regForm.Password')"
+                      }
+                    ],
+                    staticClass: "fg-red shake"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("regForm.Password")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mt-10" }, [
+                _c("p", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "image-button",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.oldPlayer()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "mif-user-plus icon" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Old Player?")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button text-white",
+                    staticStyle: { "background-color": "#1ba1e2" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.reg()
+                      }
+                    }
+                  },
+                  [_vm._v("Start")]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-79ef4a3a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

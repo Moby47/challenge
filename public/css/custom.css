@@ -169,6 +169,7 @@
   .window-area {
     background: url("/images/leader.svg") center center no-repeat;
     background-size: cover;
+    background-color: #e9f6fc;
 }
 #charm {
     height: calc(100vh - 40px);
@@ -177,3 +178,14 @@
 }
 
 
+.link{
+  text-decoration: none;
+  color:white;
+}
+
+.login-form {
+  width: 350px;
+  height: auto;
+  top: 50%;
+  margin-top: -160px;
+}

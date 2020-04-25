@@ -145,9 +145,9 @@
               if (dia){
 
                 var activity =  Metro.activity.open({
-                    type: 'metro',
+                    type: 'square',
                     overlayClickClose: false,
-                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
+                    text: '<div class=\'mt-2 text-small  text-white\'>Please, wait...</div>',
                 })
 
                 var input = {'darename':this.selected, 'userid':Metro.session.getItem('userId')};

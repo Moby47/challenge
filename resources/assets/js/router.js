@@ -14,9 +14,10 @@ import playerProfile from './components/playerProfile.vue'
 import store from './components/store.vue'
 import help from './components/help.vue'
 import rules from './components/rules.vue'
+import login from './components/login.vue'
+import register from './components/register.vue'
 
 
-import playerHomepage from './components/player/playerHomepage.vue'
 import pickDare from './components/player/pickDare.vue'
 import pendingDares from './components/player/pendingDares.vue'
 import upload from './components/player/upload.vue'
@@ -107,20 +108,30 @@ export default new Router({
             }
         },
 
-
-
-
-
-
-
         {
-            path: '/player-homepage',
-            name: 'playerHomepage',
-            component: playerHomepage,
+            path: '/login',
+            name: 'login',
+            component: login,
              meta:{
-                auth: true
+              //  auth: true
             }
         },
+
+        {
+            path: '/register',
+            name: 'register',
+            component: register,
+             meta:{
+              //  auth: true
+            }
+        },
+
+
+
+
+
+
+
         
         {
             path: '/pick-dare',

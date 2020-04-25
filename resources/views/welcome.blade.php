@@ -34,7 +34,7 @@
           
         </style>
     </head>
-    <body class="m4-cloak">
+    <body>
         <div id='app' v-cloak>
 
     <!-- <transition name='anime' enter-active-class='animated fadeIn' :duration='200' leave-active-class='animated fadeOut'>

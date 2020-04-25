@@ -1,112 +1,124 @@
 <template>
         <div>
-                <vue-particles 
-                color="#00B0FF"
-                shapeType="star"
-                linesColor="#00B0FF"
-                :particleSize="5"
-                >
-                </vue-particles>
-    
-        <div class="container fadeIn">
+
+            
+        <div class="desktop">
+                <div class="window-area">
+                    <!-- content here-->
+
+                    <vue-particles 
+                    color="#00B0FF"
+                    shapeType="star"
+                    linesColor="#00B0FF"
+                    :particleSize="5"
+                    >
+                    </vue-particles>
         
-                <h3 class="text-center white-color"> My Dares</h3>
-    
-
-                <span v-if='empty'>
-                        <div class="remark info text-center">
-                                Dare list is currently empty
-                             </div>
-                </span>
+            <div class="container fadeIn">
+            
+                    <h3 class="text-center white-color"> My Dares</h3>
         
-                <template v-if='loading'>
-                        <v-sheet
-                          :color="`grey`"
-                          class="px-3 pt-3 pb-3"
-                        >
-                          <v-skeleton-loader
-                            class="mx-auto"
-                            max-width="auto"
-                            type="table-tbody"
-                          ></v-skeleton-loader>
-                        </v-sheet>
-                      </template>
-
-                      <span v-else>
-                <table class="table row-hover table-border white-color" >
-                        <thead>
-                        <tr>
-                             <th class='white-color'>Dare</th>
-                            <th class='white-color'>Countdown</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                                <tr v-for='con in content' v-bind:key='con.id'>
-                                    
-                         <td>{{con.dare_name}}</td>
-
-                         <td v-if='con.status == 1'> 
-                                <div data-role="countdown" :data-date="con.expire">
-                               </div>
-                               </td>
-
-                               <td v-if='con.status == 0'> 
-                              <div data-role="countdown" :data-date="con.expire" 
-                               data-cls-days="bg-red fg-white"
-                               data-cls-hours="bg-red fg-white"
-                               data-cls-minutes="bg-red fg-white"
-                               data-cls-seconds="bg-red fg-white"
-                               >
+    
+                    <span v-if='empty'>
+                            <div class="remark info text-center">
+                                    Dare list is currently empty
+                                 </div>
+                    </span>
+            
+                    <template v-if='loading'>
+                            <v-sheet
+                              :color="`grey`"
+                              class="px-3 pt-3 pb-3"
+                            >
+                              <v-skeleton-loader
+                                class="mx-auto"
+                                max-width="auto"
+                                type="table-tbody"
+                              ></v-skeleton-loader>
+                            </v-sheet>
+                          </template>
+    
+                          <span v-else>
+                    <table class="table row-hover table-border white-color" >
+                            <thead>
+                            <tr>
+                                 <th class='white-color'>Dare</th>
+                                <th class='white-color'>Countdown</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                    <tr v-for='con in content' v-bind:key='con.id'>
+                                        
+                             <td>{{con.dare_name}}</td>
+    
+                             <td v-if='con.status == 1'> 
+                                    <div data-role="countdown" :data-date="con.expire">
                                    </div>
                                    </td>
-
-                                   <td v-if='con.status == 3'> 
-                                    <p class='text-green pl-4'>DARE COMPLETED!</p>
-                                         </td>
-
-                                    </tr>
-                                  
-                        </tbody>
-                    </table>
-
-                    <div class="remark info text-center">
-                        <router-link to='/pick-dare'> Click here to add another dare</router-link>
-                     </div>
-
-                    <div class="remark success text-center">
-                            <router-link to='/upload-dare'> Click here to upload a Dare</router-link>
+    
+                                   <td v-if='con.status == 0'> 
+                                  <div data-role="countdown" :data-date="con.expire" 
+                                   data-cls-days="bg-red fg-white"
+                                   data-cls-hours="bg-red fg-white"
+                                   data-cls-minutes="bg-red fg-white"
+                                   data-cls-seconds="bg-red fg-white"
+                                   >
+                                       </div>
+                                       </td>
+    
+                                       <td v-if='con.status == 3'> 
+                                        <p class='text-green pl-4'>DARE COMPLETED!</p>
+                                             </td>
+    
+                                        </tr>
+                                      
+                            </tbody>
+                        </table>
+    
+                        <div class="remark info text-center">
+                            <router-link to='/pick-dare'> Click here to add another dare</router-link>
                          </div>
-                        </span>
-                         
-                             <template>
-     
-                                    <div class="container fadeIn index">
-                                    
-                                            <div class="bottom-nav pos-fixed">
-                                                    <button class="button"  @click.prevent='home()' style="background-color: #ebebeb">
-                                                            <span class="icon mif-home"></span>
-                                                            <span class="label">Home Screen</span>
-                                                        </button>
-                                                    <button class="button"  @click.prevent='menu()' style="background-color: #ebebeb">
-                                                        <span class="icon mif-menu"></span>
-                                                        <span class="label">Main Menu</span>
-                                                    </button>
-                                                   
-                                                    <button class="button" @click.prevent='Pmenu()'  style="background-color: #ebebeb">
-                                                        <span class="icon mif-menu"></span>
-                                                        <span class="label">Player Menu</span>
-                                                    </button>
+    
+                        <div class="remark success text-center">
+                                <router-link to='/upload-dare'> Click here to upload a Dare</router-link>
+                             </div>
+                            </span>
+                             
+                                 <template>
+         
+                                        <div class="container fadeIn index">
                                         
-                                                    <button class="button" style="background-color: #ebebeb"  @click.prevent='back()'>
-                                                            <span class="icon mif-backspace"></span>
-                                                            <span class="label">Back</span>
+                                                <div class="bottom-nav pos-fixed">
+                                                        <button class="button"  @click.prevent='home()' style="background-color: #ebebeb">
+                                                                <span class="icon mif-home"></span>
+                                                                <span class="label">Home Screen</span>
+                                                            </button>
+                                                        <button class="button"  @click.prevent='menu()' style="background-color: #ebebeb">
+                                                            <span class="icon mif-menu"></span>
+                                                            <span class="label">Main Menu</span>
                                                         </button>
-                                                </div>
-                            
-                                    </div>
-                                </template>
-                
-        </div>
+                                                       
+                                                        <button class="button" @click.prevent='Pmenu()'  style="background-color: #ebebeb">
+                                                            <span class="icon mif-menu"></span>
+                                                            <span class="label">Player Menu</span>
+                                                        </button>
+                                            
+                                                        <button class="button" style="background-color: #ebebeb"  @click.prevent='back()'>
+                                                                <span class="icon mif-backspace"></span>
+                                                                <span class="label">Back</span>
+                                                            </button>
+                                                    </div>
+                                
+                                        </div>
+                                    </template>
+                    
+            </div>
+            
+                </div>
+                <taskbar></taskbar>
+            </div>
+    
+              
         </div>
     </template>
     

@@ -107,7 +107,7 @@ if(Metro.session.getItem('userToken')){
  */
 
 Vue.component('index', require('./components/index.vue'));
-Vue.component('floating', require('./components/includes/floating.vue'));
+//Vue.component('floating', require('./components/includes/floating.vue'));
 Vue.component('taskbar', require('./components/includes/taskbar.vue'));
 
 const app = new Vue({

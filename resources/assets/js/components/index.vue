@@ -148,9 +148,9 @@
         this.$validator.validateAll('loginForm').then(() => {
              if (!this.errors.any()) {
             var activity =  Metro.activity.open({
-                    type: 'metro',
+                    type: 'square',
                     overlayClickClose: false,
-                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
+                    text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>',
                 })
 
                     var input = {'username':this.username, 'password':this.password};
@@ -194,9 +194,9 @@
              if (!this.errors.any()) {
               
               var activity =  Metro.activity.open({
-                    type: 'metro',
+                    type: 'square',
                     overlayClickClose: false,
-                    text: '<div class=\'mt-2 text-small\'>Please, wait...</div>',
+                    text: '<div class=\'mt-2 text-small text-white\'>Please, wait...</div>',
                 })
 
           //start registeration
