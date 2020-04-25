@@ -7,8 +7,9 @@
        -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="metro4:init" content="false">
-        <title>LaraVue</title>
+        <title>Challenge</title>
 
+        
     <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">   
 
@@ -24,7 +25,7 @@
 <link href="/css/wicked.min.css" rel="stylesheet" />
 
 <link href="/css/custom.css" rel="stylesheet" />
-
+<link href="/css/home.css" rel="stylesheet" />
 
  <!--fav icon -->
  <link rel="icon" href="{{ asset('images/fav.jpg') }}">
@@ -33,7 +34,7 @@
           
         </style>
     </head>
-    <body>
+    <body class="m4-cloak">
         <div id='app' v-cloak>
 
     <!-- <transition name='anime' enter-active-class='animated fadeIn' :duration='200' leave-active-class='animated fadeOut'>
@@ -53,7 +54,7 @@
                 $(window).scrollTop(0);
             });
              </script>
-             
+              <script src="{{asset('/js/home.js')}}"></script>
         <script src="{{asset('/js/app.js')}}"></script>
 
     </body>

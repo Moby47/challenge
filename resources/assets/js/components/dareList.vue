@@ -1,7 +1,12 @@
 <template>
         <div>
 
-                <div class='bg-darelist'></div>
+
+            
+        <div class="desktop">
+                <div class="window-area">
+                    <!-- content here-->
+                    <div class='bg-darelist'></div>
 
         <div class="container fadeIn">
         
@@ -55,9 +60,12 @@
                 </span>
 
                 </div>
+                </div>
+                <taskbar></taskbar>
+            </div>
     
-            <floating></floating>
-           
+                
+    
 
         </div>
     </template>

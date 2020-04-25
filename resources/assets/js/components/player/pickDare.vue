@@ -1,89 +1,73 @@
 <template>
         <div>
-                <vue-particles 
-                color="#00B0FF"
-                shapeType="star"
-                linesColor="#00B0FF"
-                :particleSize="5"
-                >
-                </vue-particles>
-    
-        <div class="container fadeIn">
+
+            
+        <div class="desktop">
+                <div class="window-area">
+                    <!-- content here-->
+
+                    <vue-particles 
+                    color="#00B0FF"
+                    shapeType="star"
+                    linesColor="#00B0FF"
+                    :particleSize="5"
+                    >
+                    </vue-particles>
         
-                <h3 class="text-center white-color"> Select Dares to Add</h3>
+            <div class="container fadeIn">
+            
+                    <h3 class="text-center white-color"> Select Dares to Add</h3>
+        
+                    <span v-if='empty'>
+                            <div class="remark info text-center">
+                                    Dare list is currently empty
+                                 </div>
+                    </span>
+            
+                    <template v-if='loading'>
+                            <v-sheet
+                              :color="`grey`"
+                              class="px-3 pt-3 pb-3"
+                            >
+                              <v-skeleton-loader
+                                class="mx-auto"
+                                max-width="auto"
+                                type="action, sentences@4"
+                              ></v-skeleton-loader>
+                            </v-sheet>
+                          </template>
     
-                <span v-if='empty'>
+                          <span v-else>
+                   <p data-role="hint" 
+                   data-hint-text="Select Dares you want to attempt, to add them to your Dare list."
+                    data-hint-position="top">
+                    <select data-role="select" v-model='selected'>
+                            <option selected class="text-bold" :value='con.dare_name'
+                            v-for='con in content' v-bind:key='con.id'>
+                            {{con.dare_name}}</option>
+                        </select></p>
+    
                         <div class="remark info text-center">
-                                Dare list is currently empty
-                             </div>
-                </span>
-        
-                <template v-if='loading'>
-                        <v-sheet
-                          :color="`grey`"
-                          class="px-3 pt-3 pb-3"
-                        >
-                          <v-skeleton-loader
-                            class="mx-auto"
-                            max-width="auto"
-                            type="action, sentences@4"
-                          ></v-skeleton-loader>
-                        </v-sheet>
-                      </template>
-
-                      <span v-else>
-               <p data-role="hint" 
-               data-hint-text="Select Dares you want to attempt, to add them to your Dare list."
-                data-hint-position="top">
-                <select data-role="select" v-model='selected'>
-                        <option selected class="text-bold" :value='con.dare_name'
-                        v-for='con in content' v-bind:key='con.id'>
-                        {{con.dare_name}}</option>
-                    </select></p>
-
-                    <div class="remark info text-center">
-                        <router-link to='/pending-dares'> Click here to view your Dare list</router-link>
-                     </div>
-
-
-                     <div class="remark success text-center">
-                             <router-link to='/upload-dare'> Click here to upload a Dare</router-link>
-                          </div>
-                </span>
-
-                   
+                            <router-link to='/pending-dares'> Click here to view your Dare list</router-link>
+                         </div>
+    
+    
+                         <div class="remark success text-center">
+                                 <router-link to='/upload-dare'> Click here to upload a Dare</router-link>
+                              </div>
+                    </span>
+    
                        
+    
+                                
+                    
+            </div>
 
-
-                             <template>
-     
-                                    <div class="container fadeIn index">
-                                    
-                                            <div class="bottom-nav pos-fixed">
-                                                    <button class="button"  @click.prevent='home()' style="background-color: #ebebeb">
-                                                            <span class="icon mif-home"></span>
-                                                            <span class="label">Home Screen</span>
-                                                        </button>
-                                                    <button class="button"  @click.prevent='menu()' style="background-color: #ebebeb">
-                                                        <span class="icon mif-menu"></span>
-                                                        <span class="label">Main Menu</span>
-                                                    </button>
-                                                   
-                                                    <button class="button" @click.prevent='Pmenu()'  style="background-color: #ebebeb">
-                                                        <span class="icon mif-menu"></span>
-                                                        <span class="label">Player Menu</span>
-                                                    </button>
-                                        
-                                                    <button class="button" style="background-color: #ebebeb"  @click.prevent='back()'>
-                                                            <span class="icon mif-backspace"></span>
-                                                            <span class="label">Back</span>
-                                                        </button>
-                                                </div>
-                            
-                                    </div>
-                                </template>
-                
-        </div>
+                </div>
+                <taskbar></taskbar>
+            </div>
+    
+             
         </div>
     </template>
     
@@ -138,13 +122,7 @@
                         })
                     },
 
-                home(){
-                    this.$router.push({name: "index"});
-                },
-
-                menu(){
-                    this.$router.push({name: "homepage"});
-                },
+                
 
                 Pmenu(){
                     this.$router.push({name: "playerHomepage"});

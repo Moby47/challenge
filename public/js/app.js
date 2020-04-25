@@ -12657,7 +12657,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(101);
+module.exports = __webpack_require__(103);
 
 
 /***/ }),
@@ -12780,6 +12780,7 @@ __WEBPACK_IMPORTED_MODULE_3__router__["a" /* default */].beforeEach(function (to
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('index', __webpack_require__(13));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('floating', __webpack_require__(98));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('taskbar', __webpack_require__(101));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
@@ -56499,204 +56500,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56750,15 +56553,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         guest: function guest() {
             Metro.charms.toggle('#charm');
             Metro.dialog.open('#oldPlayer');
-        },
-        dares: function dares() {
-            this.$router.push({ name: "dares" });
-        },
-        board: function board() {
-            this.$router.push({ name: "leaderBoard" });
-        },
-        list: function list() {
-            this.$router.push({ name: "dareList" });
         },
         newPlayer: function newPlayer() {
             Metro.dialog.close('#oldPlayer');
@@ -56956,966 +56750,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "bg-homepage" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("h3", { staticClass: "text-center" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "tiles-grid mt-5" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "fadeIn ani-hover-horizontal",
-            attrs: { "data-role": "tile", "data-size": "wide" }
-          },
-          [
-            _c(
-              "span",
-              {
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.board()
-                  }
-                }
-              },
-              [
-                _c("span", { staticClass: "mif-clipboard icon" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "branding-bar" }, [
-                  _vm._v("Leader Board")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "badge-bottom" }, [_vm._v("10")])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "bg-orange fadeIn ani-hover-horizontal",
-            attrs: {
-              "data-role": "tile",
-              "data-size": "large",
-              "data-effect": "hover-slide-left"
-            }
-          },
-          [
-            _c(
-              "span",
-              {
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.dares()
-                  }
-                }
-              },
-              [
-                _c("span", { staticClass: "mif-file-video icon" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "branding-bar" }, [
-                  _vm._v("Watch Dares")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "badge-bottom" }, [
-                  _vm._v(_vm._s(_vm.dare_vids_count))
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm.isAuth()
-          ? _c(
-              "div",
-              {
-                staticClass: "fadeIn ani-hover-horizontal",
-                staticStyle: { "background-color": "#b82943" },
-                attrs: { "data-role": "tile", "data-size": "medium" }
-              },
-              [
-                _c(
-                  "span",
-                  {
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.player()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "mif-gamepad icon" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "branding-bar" }, [
-                      _vm._v("Play")
-                    ])
-                  ]
-                )
-              ]
-            )
-          : _c(
-              "div",
-              {
-                staticClass: "fadeIn ani-hover-horizontal",
-                staticStyle: { "background-color": "#b82943" },
-                attrs: { "data-role": "tile", "data-size": "medium" }
-              },
-              [_vm._m(3)]
-            ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "fadeIn ani-hover-horizontal",
-            staticStyle: { "background-color": "#b82943" },
-            attrs: { "data-role": "tile", "data-size": "wide" }
-          },
-          [
-            _c(
-              "span",
-              {
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.list()
-                  }
-                }
-              },
-              [
-                _c("span", { staticClass: "mif-list icon" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "branding-bar" }, [
-                  _vm._v("Dare List")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "badge-bottom" }, [
-                  _vm._v(_vm._s(_vm.dare_count))
-                ])
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          attrs: {
-            "data-role": "charms",
-            "data-opacity": "0.8",
-            id: "charm",
-            "data-position": "right"
-          }
-        },
-        [
-          _c("ul", { staticClass: "sidebar-menu white-color" }, [
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/store" } }, [
-                  _c("span", { staticClass: "mif-cart icon" }),
-                  _vm._v(" Store")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("li", { staticClass: "divider" }),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/help" } }, [
-                  _c("span", { staticClass: "mif-help icon" }),
-                  _vm._v(" How to Play")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("li", { staticClass: "divider" }),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/rules" } }, [
-                  _c("span", { staticClass: "mif-books icon" }),
-                  _vm._v(" Rules")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("li", { staticClass: "divider" }),
-            _vm._v(" "),
-            _vm.isAuth()
-              ? _c(
-                  "li",
-                  [
-                    _c("router-link", { attrs: { to: "/player-homepage" } }, [
-                      _c("span", { staticClass: "mif-menu icon" }),
-                      _vm._v(" \n                                Player Menu")
-                    ])
-                  ],
-                  1
-                )
-              : _c("li", [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.guest()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "mif-menu icon" }),
-                      _vm._v(
-                        " \n                                    Player Menu"
-                      )
-                    ]
-                  )
-                ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "divider" }),
-            _vm._v(" "),
-            _vm._m(4),
-            _vm._v(" "),
-            _c("li", { staticClass: "divider" }),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/" } }, [
-                  _c("span", { staticClass: "mif-home icon" }),
-                  _vm._v(" Home Screen")
-                ])
-              ],
-              1
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dialog ",
-          attrs: { "data-role": "dialog", id: "suggest" }
-        },
-        [
-          _c(
-            "form",
-            { attrs: { method: "post", "data-vv-scope": "suggForm" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "dialog-title white-color",
-                  staticStyle: { "background-color": "#07557B" }
-                },
-                [_vm._v("Suggest a Dare")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-content" }, [
-                _c("p", [_vm._v("User name:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|max:15",
-                      expression: '"required|max:15"'
-                    }
-                  ],
-                  attrs: {
-                    type: "text",
-                    "data-role": "input",
-                    "data-history": "true",
-                    name: "Username"
-                  },
-                  domProps: { value: _vm.username },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.username = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("suggForm.Username"),
-                        expression: "errors.has('suggForm.Username')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("suggForm.Username")))]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Add Description:")]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.description,
-                      expression: "description"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|max:255",
-                      expression: '"required|max:255"'
-                    }
-                  ],
-                  attrs: {
-                    "data-role": "textarea",
-                    "data-history": "true",
-                    name: "Description"
-                  },
-                  domProps: { value: _vm.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.description = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("suggForm.Description"),
-                        expression: "errors.has('suggForm.Description')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("suggForm.Description")))]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-actions" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button primary",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.suggest()
-                      }
-                    }
-                  },
-                  [_vm._v("Send")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button alert js-dialog-close",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                      }
-                    }
-                  },
-                  [_vm._v("Close")]
-                )
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dialog",
-          attrs: { "data-role": "dialog", id: "oldPlayer" }
-        },
-        [
-          _c(
-            "form",
-            { attrs: { method: "post", "data-vv-scope": "loginForm" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "dialog-title white-color",
-                  staticStyle: { "background-color": "#07557B" }
-                },
-                [_vm._v("Login To Continue")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-content" }, [
-                _c("p", [_vm._v("User name:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|max:15",
-                      expression: '"required|max:15"'
-                    }
-                  ],
-                  attrs: {
-                    type: "text",
-                    "data-role": "input",
-                    "data-history": "true",
-                    name: "Username"
-                  },
-                  domProps: { value: _vm.username },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.username = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("loginForm.Username"),
-                        expression: "errors.has('loginForm.Username')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Username")))]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Password:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: '"required"'
-                    }
-                  ],
-                  attrs: {
-                    type: "password",
-                    "data-role": "input",
-                    name: "Password"
-                  },
-                  domProps: { value: _vm.password },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.password = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("loginForm.Password"),
-                        expression: "errors.has('loginForm.Password')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("loginForm.Password")))]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "image-button",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.newPlayer()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "mif-user-plus icon" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("New Player?")
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-actions" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button primary",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.login()
-                      }
-                    }
-                  },
-                  [_vm._v("Ok")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button alert js-dialog-close",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                      }
-                    }
-                  },
-                  [_vm._v("Cancel")]
-                )
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dialog",
-          attrs: { "data-role": "dialog", id: "newPlayer" }
-        },
-        [
-          _c(
-            "form",
-            { attrs: { method: "post", "data-vv-scope": "regForm" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "dialog-title white-color",
-                  staticStyle: { "background-color": "#07557B" }
-                },
-                [_vm._v("Start New Game")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-content" }, [
-                _c("p", [_vm._v("User name:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|max:15",
-                      expression: '"required|max:15"'
-                    }
-                  ],
-                  attrs: {
-                    type: "text",
-                    "data-role": "input",
-                    "data-history": "true",
-                    name: "Username"
-                  },
-                  domProps: { value: _vm.username },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.username = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("regForm.Username"),
-                        expression: "errors.has('regForm.Username')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("regForm.Username")))]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Email:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.email,
-                      expression: "email"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|email|max:100",
-                      expression: '"required|email|max:100"'
-                    }
-                  ],
-                  attrs: {
-                    type: "email",
-                    "data-role": "input",
-                    "data-history": "true",
-                    name: "Email"
-                  },
-                  domProps: { value: _vm.email },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.email = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("regForm.Email"),
-                        expression: "errors.has('regForm.Email')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("regForm.Email")))]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v("Password:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: '"required"'
-                    }
-                  ],
-                  attrs: {
-                    type: "password",
-                    "data-role": "input",
-                    name: "Password"
-                  },
-                  domProps: { value: _vm.password },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.password = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("regForm.Password"),
-                        expression: "errors.has('regForm.Password')"
-                      }
-                    ],
-                    staticClass: "fg-red shake"
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("regForm.Password")))]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "image-button",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.oldPlayer()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "mif-user icon" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("Old Player?")
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dialog-actions" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button primary",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.reg()
-                      }
-                    }
-                  },
-                  [_vm._v("Ok")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button alert js-dialog-close",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                      }
-                    }
-                  },
-                  [_vm._v("Cancel")]
-                )
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _vm._m(5)
-    ])
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [_c("div", { staticClass: "window-area" }), _vm._v(" "), _c("taskbar")],
+      1
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "col-1 row-11 fadeIn ani-hover-horizontal",
-        attrs: { "data-role": "tile", "data-size": "medium" }
-      },
-      [
-        _c("span", { attrs: { onclick: "Metro.charms.toggle('#charm')" } }, [
-          _c("span", { staticClass: "mif-more-vert icon" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "branding-bar" }, [_vm._v("More Options")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "col-3 row-11 bg-teal fadeIn ani-hover-horizontal",
-        attrs: { "data-role": "tile", "data-size": "medium" }
-      },
-      [
-        _c("span", { attrs: { onclick: "Metro.dialog.open('#suggest')" } }, [
-          _c("span", { staticClass: "mif-compass2 icon" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "branding-bar" }, [
-            _vm._v("Suggest a Dare")
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "bg-teal fadeIn ani-hover-horizontal",
-        attrs: { "data-role": "tile", "data-size": "medium" }
-      },
-      [
-        _c("span", { attrs: { onclick: "Metro.dialog.open('#search')" } }, [
-          _c("span", { staticClass: "mif-search icon" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "branding-bar" }, [_vm._v("Search")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { attrs: { onclick: "Metro.dialog.open('#oldPlayer')" } },
-      [
-        _c("span", { staticClass: "mif-gamepad icon" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "branding-bar" }, [_vm._v("Become a Player")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "mailto:honred47@yahoo.com" } }, [
-        _c("span", { staticClass: "mif-mail icon" }),
-        _vm._v(" Contact Us")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dialog", attrs: { "data-role": "dialog", id: "search" } },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "dialog-title white-color",
-            staticStyle: { "background-color": "#07557B" }
-          },
-          [_vm._v("\n                        Search")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-content" }, [
-          _c("p", [_vm._v("Search by Player's username")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "text",
-              "data-role": "input",
-              placeholder: "Enter Username",
-              "data-autocomplete": "Ukraine, USA, Canada, Marokko, Singapur"
-            }
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("button", { staticClass: "button primary" }, [_vm._v("Find")])
-        ]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-content" }, [
-          _c("p", [_vm._v("Filter by Dares")]),
-          _vm._v(" "),
-          _c("select", { attrs: { "data-role": "select" } }, [
-            _c("option", { staticClass: "fg-cyan" }, [_vm._v("One")]),
-            _vm._v(" "),
-            _c(
-              "option",
-              { staticClass: "text-bold fg-red", attrs: { selected: "" } },
-              [_vm._v("Two")]
-            ),
-            _vm._v(" "),
-            _c("option", { staticClass: "fg-green" }, [_vm._v("Three")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-actions" }, [
-          _c("button", { staticClass: "button alert js-dialog-close" }, [
-            _vm._v("Close")
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -57978,56 +56821,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -58247,243 +57040,212 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "bg-dare" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("h3", { staticClass: "text-center" }),
-        _vm._v(" "),
-        _vm.empty
-          ? _c("span", [
-              _c("div", { staticClass: "remark info text-center" }, [
-                _vm._v(
-                  "\n                       No Dare Videos Currently\n                        "
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row" },
-          [
-            _vm.loading
-              ? _c(
-                  "div",
-                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-                  [
-                    [
-                      _c(
-                        "v-sheet",
-                        {
-                          staticClass: "px-3 pt-3 pb-3",
-                          attrs: { color: "grey" }
-                        },
-                        [
-                          _c("v-skeleton-loader", {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "auto", type: "card" }
-                          })
-                        ],
-                        1
-                      )
-                    ]
-                  ],
-                  2
-                )
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area" }, [
+          _c("div", { staticClass: "bg-dare" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "container" }, [
+            _c("h3", { staticClass: "text-center" }),
+            _vm._v(" "),
+            _vm.empty
+              ? _c("span", [
+                  _c("div", { staticClass: "remark info text-center" }, [
+                    _vm._v(
+                      "\n                        No Dare Videos Currently\n                         "
+                    )
+                  ])
+                ])
               : _vm._e(),
             _vm._v(" "),
-            _vm.loading
-              ? _c(
-                  "div",
-                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-                  [
-                    [
-                      _c(
-                        "v-sheet",
-                        {
-                          staticClass: "px-3 pt-3 pb-3",
-                          attrs: { color: "grey" }
-                        },
-                        [
-                          _c("v-skeleton-loader", {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "auto", type: "card" }
-                          })
-                        ],
-                        1
-                      )
-                    ]
-                  ],
-                  2
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.loading
-              ? _c(
-                  "div",
-                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-4" },
-                  [
-                    [
-                      _c(
-                        "v-sheet",
-                        {
-                          staticClass: "px-3 pt-3 pb-3",
-                          attrs: { color: "grey" }
-                        },
-                        [
-                          _c("v-skeleton-loader", {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "auto", type: "card" }
-                          })
-                        ],
-                        1
-                      )
-                    ]
-                  ],
-                  2
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._l(_vm.content, function(con) {
-              return _c(
-                "div",
-                {
-                  key: con.id,
-                  staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
-                },
-                [
-                  [
-                    _c(
-                      "v-card",
-                      { staticClass: "mx-auto" },
+            _c(
+              "div",
+              { staticClass: "row" },
+              [
+                _vm.loading
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
+                      },
                       [
-                        _c("video", {
-                          attrs: {
-                            "data-role": "video",
-                            "data-src": con.url,
-                            "data-logo-height": "64",
-                            "data-poster": "/images/home.svg",
-                            "data-aspect-ratio": "hd",
-                            "data-on-play": "",
-                            id: "one"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("v-card-title", [
-                          _c("div", { staticClass: "card-footer" }, [
-                            _c(
-                              "button",
-                              { staticClass: "flat-button mif-thumbs-up " },
-                              [_vm._v(" 47")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              { staticClass: "flat-button mif-comment " },
-                              [_vm._v(" 7")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              { staticClass: "flat-button mif-eye " },
-                              [_vm._v(" 4")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              { staticClass: "flat-button mif-share " },
-                              [_vm._v(" 4")]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("v-card-subtitle", [
+                        [
                           _c(
-                            "figcaption",
-                            { staticClass: "mt-1 text-center" },
+                            "v-sheet",
+                            {
+                              staticClass: "px-3 pt-3 pb-3",
+                              attrs: { color: "grey" }
+                            },
                             [
-                              _c(
-                                "router-link",
-                                { attrs: { to: "/single-dare" } },
-                                [_vm._v(" " + _vm._s(con.dare_name) + "  ")]
-                              )
+                              _c("v-skeleton-loader", {
+                                staticClass: "mx-auto",
+                                attrs: { "max-width": "auto", type: "card" }
+                              })
                             ],
                             1
                           )
-                        ])
+                        ]
                       ],
-                      1
+                      2
                     )
-                  ],
-                  _vm._v(" "),
-                  _c(
-                    "span",
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.loading
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
+                      },
+                      [
+                        [
+                          _c(
+                            "v-sheet",
+                            {
+                              staticClass: "px-3 pt-3 pb-3",
+                              attrs: { color: "grey" }
+                            },
+                            [
+                              _c("v-skeleton-loader", {
+                                staticClass: "mx-auto",
+                                attrs: { "max-width": "auto", type: "card" }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.loading
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
+                      },
+                      [
+                        [
+                          _c(
+                            "v-sheet",
+                            {
+                              staticClass: "px-3 pt-3 pb-3",
+                              attrs: { color: "grey" }
+                            },
+                            [
+                              _c("v-skeleton-loader", {
+                                staticClass: "mx-auto",
+                                attrs: { "max-width": "auto", type: "card" }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.content, function(con) {
+                  return _c(
+                    "div",
                     {
-                      staticClass: "badge inside  fg-white",
-                      staticStyle: { "background-color": "#b82943" }
+                      key: con.id,
+                      staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
                     },
-                    [_vm._v(_vm._s(con.username))]
+                    [
+                      [
+                        _c(
+                          "v-card",
+                          { staticClass: "mx-auto" },
+                          [
+                            _c("video", {
+                              attrs: {
+                                "data-role": "video",
+                                "data-src": con.url,
+                                "data-logo-height": "64",
+                                "data-poster": "/images/home.svg",
+                                "data-aspect-ratio": "hd",
+                                "data-on-play": "",
+                                id: "one"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("v-card-title", [
+                              _c("div", { staticClass: "card-footer" }, [
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-thumbs-up " },
+                                  [_vm._v(" 47")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-comment " },
+                                  [_vm._v(" 7")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-eye " },
+                                  [_vm._v(" 4")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  { staticClass: "flat-button mif-share " },
+                                  [_vm._v(" 4")]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("v-card-subtitle", [
+                              _c(
+                                "figcaption",
+                                { staticClass: "mt-1 text-center" },
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/single-dare" } },
+                                    [_vm._v(" " + _vm._s(con.dare_name) + "  ")]
+                                  )
+                                ],
+                                1
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "badge inside  fg-white",
+                          staticStyle: { "background-color": "#b82943" }
+                        },
+                        [_vm._v(_vm._s(con.username))]
+                      )
+                    ],
+                    2
                   )
-                ],
-                2
-              )
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "v-btn",
-        {
-          attrs: {
-            fab: "",
-            dark: "",
-            color: "#1ba1e2",
-            small: "",
-            relative: "",
-            top: "",
-            left: "",
-            fixed: ""
-          },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              _vm.home()
-            }
-          }
-        },
-        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("home")])],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-btn",
-        {
-          attrs: {
-            fab: "",
-            color: "#ebebeb",
-            small: "",
-            relative: "",
-            top: "",
-            right: "",
-            fixed: "",
-            onclick: "Metro.dialog.open('#search')"
-          }
-        },
-        [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("search")])],
-        1
-      ),
-      _vm._v(" "),
-      _c("floating")
-    ],
-    1
-  )
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -58500,7 +57262,7 @@ var staticRenderFns = [
             staticClass: "dialog-title fg-white",
             staticStyle: { "background-color": "#07557B" }
           },
-          [_vm._v("\n               Search")]
+          [_vm._v("\n                Search")]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "dialog-content" }, [
@@ -59464,6 +58226,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59520,70 +58292,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "bg-leader" }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container  fadeIn" },
-        [
-          _vm.empty
-            ? _c("span", [
-                _c("div", { staticClass: "remark info text-center" }, [
-                  _vm._v(
-                    "\n                Leader board is currently empty\n             "
-                  )
-                ])
-              ])
-            : _vm._e(),
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area" }, [
+          _c("div", { staticClass: "bg-leader" }),
           _vm._v(" "),
-          _vm.loading
-            ? [
-                _c(
-                  "v-sheet",
-                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
-                  [
-                    _c("v-skeleton-loader", {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "table-tbody" }
-                    })
-                  ],
-                  1
-                )
-              ]
-            : _c(
-                "table",
-                { staticClass: "table row-hover table-border table-striped" },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.content, function(con) {
-                      return _c("tr", { key: con.id, staticClass: "info" }, [
-                        _c("td", [_vm._v(_vm._s(con.username))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(con.likes))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(con.views))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(con.point))])
-                      ])
-                    }),
-                    0
+          _c(
+            "div",
+            { staticClass: "container  fadeIn" },
+            [
+              _vm.empty
+                ? _c("span", [
+                    _c("div", { staticClass: "remark info text-center" }, [
+                      _vm._v(
+                        "\n                Leader board is currently empty\n             "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? [
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
+                      },
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
+                          attrs: { "max-width": "auto", type: "table-tbody" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                : _c(
+                    "table",
+                    {
+                      staticClass: "table row-hover table-border table-striped"
+                    },
+                    [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.content, function(con) {
+                          return _c(
+                            "tr",
+                            { key: con.id, staticClass: "info" },
+                            [
+                              _c("td", [_vm._v(_vm._s(con.username))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(con.likes))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(con.views))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(con.point))])
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ]
                   )
-                ]
-              )
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("floating")
-    ],
-    1
-  )
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -59729,6 +58515,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -59804,128 +58598,147 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "bg-darelist" }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container fadeIn" },
-        [
-          _c("h3", { staticClass: "text-center" }),
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area" }, [
+          _c("div", { staticClass: "bg-darelist" }),
           _vm._v(" "),
-          _vm.empty
-            ? _c("span", [
-                _c("div", { staticClass: "remark info text-center" }, [
-                  _vm._v(
-                    "\n                        Dare list is currently empty\n                     "
-                  )
-                ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.loading
-            ? [
-                _c(
-                  "v-sheet",
-                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
-                  [
-                    _c("v-skeleton-loader", {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "auto", type: "table-tbody" }
-                    })
-                  ],
-                  1
-                )
-              ]
-            : _c("span", [
-                _c("table", { staticClass: "table row-hover table-border" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.content, function(con) {
-                      return _c("tr", { key: con.id, staticClass: "info" }, [
-                        _c("td", [_vm._v(_vm._s(con.dare_name) + " ")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(con.play_count))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(con.points))])
-                      ])
-                    }),
-                    0
-                  )
-                ]),
-                _vm._v(" "),
-                _vm.count > 9
-                  ? _c("ul", { staticClass: "pagination" }, [
-                      _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: {
-                              href: "#",
-                              disabled: !_vm.pagination.prev_page_url
-                            },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.get(_vm.pagination.prev_page_url)
-                              }
-                            }
-                          },
-                          [_vm._v(" Prev ")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          { staticClass: "page-link", attrs: { href: "#" } },
-                          [
-                            _c("span", [
-                              _vm._v(
-                                _vm._s(_vm.pagination.current_page) +
-                                  " of " +
-                                  _vm._s(_vm.pagination.last_page)
-                              )
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: {
-                              href: "#",
-                              disabled: !_vm.pagination.next_page_url
-                            },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.get(_vm.pagination.next_page_url)
-                              }
-                            }
-                          },
-                          [_vm._v("Next ")]
-                        )
-                      ])
+          _c(
+            "div",
+            { staticClass: "container fadeIn" },
+            [
+              _c("h3", { staticClass: "text-center" }),
+              _vm._v(" "),
+              _vm.empty
+                ? _c("span", [
+                    _c("div", { staticClass: "remark info text-center" }, [
+                      _vm._v(
+                        "\n                        Dare list is currently empty\n                     "
+                      )
                     ])
-                  : _vm._e()
-              ])
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("floating")
-    ],
-    1
-  )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? [
+                    _c(
+                      "v-sheet",
+                      {
+                        staticClass: "px-3 pt-3 pb-3",
+                        attrs: { color: "grey" }
+                      },
+                      [
+                        _c("v-skeleton-loader", {
+                          staticClass: "mx-auto",
+                          attrs: { "max-width": "auto", type: "table-tbody" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                : _c("span", [
+                    _c(
+                      "table",
+                      { staticClass: "table row-hover table-border" },
+                      [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.content, function(con) {
+                            return _c(
+                              "tr",
+                              { key: con.id, staticClass: "info" },
+                              [
+                                _c("td", [_vm._v(_vm._s(con.dare_name) + " ")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(con.play_count))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(con.points))])
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.count > 9
+                      ? _c("ul", { staticClass: "pagination" }, [
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  disabled: !_vm.pagination.prev_page_url
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.get(_vm.pagination.prev_page_url)
+                                  }
+                                }
+                              },
+                              [_vm._v(" Prev ")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [
+                                _c("span", [
+                                  _vm._v(
+                                    _vm._s(_vm.pagination.current_page) +
+                                      " of " +
+                                      _vm._s(_vm.pagination.last_page)
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  disabled: !_vm.pagination.next_page_url
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.get(_vm.pagination.next_page_url)
+                                  }
+                                }
+                              },
+                              [_vm._v("Next ")]
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  ])
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -61082,6 +59895,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -61130,84 +59955,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "bg-help" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "container fadeIn" }, [
-        _c(
-          "div",
-          {
-            attrs: {
-              "data-role": "accordion",
-              "data-active-heading-class": "bg-cyan fg-white",
-              "data-active-content-class": "bg-dark fg-white"
-            }
-          },
-          [
-            _c("div", { staticClass: "frame active" }, [
-              _c("div", { staticClass: "heading" }, [_vm._v("Challenge App")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c(
-                  "div",
-                  { staticClass: "p-2" },
-                  [
-                    _vm._v(
-                      "\n                     Challenge App is a fun game of "
-                    ),
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area" }, [
+          _c("div", { staticClass: "bg-help" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "container fadeIn" }, [
+            _c(
+              "div",
+              {
+                attrs: {
+                  "data-role": "accordion",
+                  "data-active-heading-class": "bg-cyan fg-white",
+                  "data-active-content-class": "bg-dark fg-white"
+                }
+              },
+              [
+                _c("div", { staticClass: "frame active" }, [
+                  _c("div", { staticClass: "heading" }, [
+                    _vm._v("Challenge App")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "content" }, [
                     _c(
-                      "b",
-                      [_c("strike", [_vm._v("Truth")]), _vm._v(" or Dare")],
-                      1
-                    ),
-                    _vm._v(", without the Truth.\n                    "),
-                    _c("br"),
-                    _vm._v("\n                    Play as a "),
-                    _c(
-                      "router-link",
-                      {
-                        staticStyle: {
-                          "background-color": "#b82943",
-                          color: "white",
-                          padding: "3px",
-                          "border-radius": "6px"
-                        },
-                        attrs: { to: "/dares" }
-                      },
-                      [_vm._v("Watcher")]
-                    ),
-                    _vm._v(
-                      " \n                    and watch dares completed by Players\n                     "
-                    ),
-                    _c("b", [_vm._v("OR")]),
-                    _vm._v(
-                      " be a Player \n                    and do a Dare.\n                    "
-                    )
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "frame" }, [
-              _c("div", { staticClass: "heading" }, [_vm._v("Dares")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "p-2" }, [
-                  _vm._v(
-                    "Complete a completely safe Dare listed by the Challenge App to:\n                        "
-                  ),
-                  _c("ul", [
-                    _c("li", [
-                      _vm._v("Earn gold to spend in the Challenge App store")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "li",
+                      "div",
+                      { staticClass: "p-2" },
                       [
-                        _vm._v("Get likes, views and climb the "),
+                        _vm._v(
+                          "\n                         Challenge App is a fun game of "
+                        ),
+                        _c(
+                          "b",
+                          [_c("strike", [_vm._v("Truth")]), _vm._v(" or Dare")],
+                          1
+                        ),
+                        _vm._v(
+                          ", without the Truth.\n                        "
+                        ),
+                        _c("br"),
+                        _vm._v("\n                        Play as a "),
                         _c(
                           "router-link",
                           {
@@ -61217,58 +60006,105 @@ var render = function() {
                               padding: "3px",
                               "border-radius": "6px"
                             },
-                            attrs: { to: "/leader-board" }
+                            attrs: { to: "/dares" }
                           },
-                          [
-                            _vm._v(
-                              "\n                                Leader Board"
-                            )
-                          ]
+                          [_vm._v("Watcher")]
+                        ),
+                        _vm._v(
+                          " \n                        and watch dares completed by Players\n                         "
+                        ),
+                        _c("b", [_vm._v("OR")]),
+                        _vm._v(
+                          " be a Player \n                        and do a Dare.\n                        "
                         )
                       ],
                       1
                     )
                   ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "frame" }, [
-              _c("div", { staticClass: "heading" }, [_vm._v("Store")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c(
-                  "div",
-                  { staticClass: "p-2" },
-                  [
-                    _vm._v("Browse through the Challenge App "),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "frame" }, [
+                  _c("div", { staticClass: "heading" }, [_vm._v("Dares")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "content" }, [
+                    _c("div", { staticClass: "p-2" }, [
+                      _vm._v(
+                        "Complete a completely safe Dare listed by the Challenge App to:\n                            "
+                      ),
+                      _c("ul", [
+                        _c("li", [
+                          _vm._v(
+                            "Earn gold to spend in the Challenge App store"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          [
+                            _vm._v("Get likes, views and climb the "),
+                            _c(
+                              "router-link",
+                              {
+                                staticStyle: {
+                                  "background-color": "#b82943",
+                                  color: "white",
+                                  padding: "3px",
+                                  "border-radius": "6px"
+                                },
+                                attrs: { to: "/leader-board" }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Leader Board"
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "frame" }, [
+                  _c("div", { staticClass: "heading" }, [_vm._v("Store")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "content" }, [
                     _c(
-                      "router-link",
-                      {
-                        staticStyle: {
-                          "background-color": "#b82943",
-                          color: "white",
-                          padding: "3px",
-                          "border-radius": "6px"
-                        },
-                        attrs: { to: "/store" }
-                      },
-                      [_vm._v("store")]
-                    ),
-                    _vm._v(" and spend your earned Gold.")
-                  ],
-                  1
-                )
-              ])
-            ])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("floating")
-    ],
-    1
-  )
+                      "div",
+                      { staticClass: "p-2" },
+                      [
+                        _vm._v("Browse through the Challenge App "),
+                        _c(
+                          "router-link",
+                          {
+                            staticStyle: {
+                              "background-color": "#b82943",
+                              color: "white",
+                              padding: "3px",
+                              "border-radius": "6px"
+                            },
+                            attrs: { to: "/store" }
+                          },
+                          [_vm._v("store")]
+                        ),
+                        _vm._v(" and spend your earned Gold.")
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -61387,6 +60223,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -61435,92 +60280,93 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "bg-rules" }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("floating")
-    ],
-    1
-  )
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [_vm._m(0), _vm._v(" "), _c("taskbar")],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container fadeIn" }, [
-      _c(
-        "div",
-        {
-          attrs: {
-            "data-role": "accordion",
-            "data-active-heading-class": "bg-cyan fg-white",
-            "data-active-content-class": "bg-dark fg-white"
-          }
-        },
-        [
-          _c("div", { staticClass: "frame active" }, [
-            _c("div", { staticClass: "heading" }, [
-              _vm._v("Prohibited Content")
+    return _c("div", { staticClass: "window-area" }, [
+      _c("div", { staticClass: "bg-rules" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "container fadeIn" }, [
+        _c(
+          "div",
+          {
+            attrs: {
+              "data-role": "accordion",
+              "data-active-heading-class": "bg-cyan fg-white",
+              "data-active-content-class": "bg-dark fg-white"
+            }
+          },
+          [
+            _c("div", { staticClass: "frame active" }, [
+              _c("div", { staticClass: "heading" }, [
+                _vm._v("Prohibited Content")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "p-2" }, [
+                  _c("ul", [
+                    _c("li", [_vm._v(" Sexually explicit  ")]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _vm._v(" Content depicting violence or dangerous acts")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _vm._v("Content that promotes violence or hatred")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _vm._v(
+                        "Contents containing threats, bullying and harassment"
+                      )
+                    ])
+                  ])
+                ])
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "p-2" }, [
-                _c("ul", [
-                  _c("li", [_vm._v(" Sexually explicit  ")]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _vm._v(" Content depicting violence or dangerous acts")
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _vm._v("Content that promotes violence or hatred")
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _vm._v(
-                      "Contents containing threats, bullying and harassment"
-                    )
+            _c("div", { staticClass: "frame" }, [
+              _c("div", { staticClass: "heading" }, [_vm._v("Rules")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "p-2" }, [
+                  _vm._v(
+                    "Complete a completely safe Dare listed by the App to:\n                            "
+                  ),
+                  _c("ul", [
+                    _c("li", [
+                      _vm._v("Upload accurate videos related to the Dare")
+                    ])
                   ])
                 ])
               ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "frame" }, [
-            _c("div", { staticClass: "heading" }, [_vm._v("Rules")]),
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "p-2" }, [
-                _vm._v(
-                  "Complete a completely safe Dare listed by the App to:\n                        "
-                ),
-                _c("ul", [
-                  _c("li", [
-                    _vm._v("Upload accurate videos related to the Dare")
-                  ])
+            _c("div", { staticClass: "frame" }, [
+              _c("div", { staticClass: "heading" }, [_vm._v("Conclusion")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "p-2" }, [
+                  _vm._v(
+                    "\n                       The total rules and regulations mentioned above apply to anyone on this platform.\n                       Defaulters will have their accounts shutdown immediately.\n                       By using this App, you agree to the terms and rules here.\n                       "
+                  )
                 ])
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "frame" }, [
-            _c("div", { staticClass: "heading" }, [_vm._v("Conclusion")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "p-2" }, [
-                _vm._v(
-                  "\n                   The total rules and regulations mentioned above apply to anyone on this platform.\n                   Defaulters will have their accounts shutdown immediately.\n                   By using this App, you agree to the terms and rules here.\n                   "
-                )
-              ])
-            ])
-          ])
-        ]
-      )
+          ]
+        )
+      ])
     ])
   }
 ]
@@ -62207,22 +61053,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62267,12 +61097,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 //off loader
                 _this.loading = false;
             });
-        },
-        home: function home() {
-            this.$router.push({ name: "index" });
-        },
-        menu: function menu() {
-            this.$router.push({ name: "homepage" });
         },
         Pmenu: function Pmenu() {
             this.$router.push({ name: "playerHomepage" });
@@ -62334,224 +61158,161 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("vue-particles", {
-        attrs: {
-          color: "#00B0FF",
-          shapeType: "star",
-          linesColor: "#00B0FF",
-          particleSize: 5
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container fadeIn" },
-        [
-          _c("h3", { staticClass: "text-center white-color" }, [
-            _vm._v(" Select Dares to Add")
-          ]),
-          _vm._v(" "),
-          _vm.empty
-            ? _c("span", [
-                _c("div", { staticClass: "remark info text-center" }, [
-                  _vm._v(
-                    "\n                        Dare list is currently empty\n                     "
-                  )
-                ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.loading
-            ? [
-                _c(
-                  "v-sheet",
-                  { staticClass: "px-3 pt-3 pb-3", attrs: { color: "grey" } },
-                  [
-                    _c("v-skeleton-loader", {
-                      staticClass: "mx-auto",
-                      attrs: {
-                        "max-width": "auto",
-                        type: "action, sentences@4"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]
-            : _c("span", [
-                _c(
-                  "p",
-                  {
-                    attrs: {
-                      "data-role": "hint",
-                      "data-hint-text":
-                        "Select Dares you want to attempt, to add them to your Dare list.",
-                      "data-hint-position": "top"
-                    }
-                  },
-                  [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.selected,
-                            expression: "selected"
-                          }
-                        ],
-                        attrs: { "data-role": "select" },
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.selected = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          }
-                        }
-                      },
-                      _vm._l(_vm.content, function(con) {
-                        return _c(
-                          "option",
-                          {
-                            key: con.id,
-                            staticClass: "text-bold",
-                            attrs: { selected: "" },
-                            domProps: { value: con.dare_name }
-                          },
-                          [_vm._v("\n                " + _vm._s(con.dare_name))]
-                        )
-                      }),
-                      0
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "remark info text-center" },
-                  [
-                    _c("router-link", { attrs: { to: "/pending-dares" } }, [
-                      _vm._v(" Click here to view your Dare list")
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "remark success text-center" },
-                  [
-                    _c("router-link", { attrs: { to: "/upload-dare" } }, [
-                      _vm._v(" Click here to upload a Dare")
-                    ])
-                  ],
-                  1
-                )
-              ]),
-          _vm._v(" "),
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c(
+          "div",
+          { staticClass: "window-area" },
           [
-            _c("div", { staticClass: "container fadeIn index" }, [
-              _c("div", { staticClass: "bottom-nav pos-fixed" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.home()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-home" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [
-                      _vm._v("Home Screen")
+            _c("vue-particles", {
+              attrs: {
+                color: "#00B0FF",
+                shapeType: "star",
+                linesColor: "#00B0FF",
+                particleSize: 5
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "container fadeIn" },
+              [
+                _c("h3", { staticClass: "text-center white-color" }, [
+                  _vm._v(" Select Dares to Add")
+                ]),
+                _vm._v(" "),
+                _vm.empty
+                  ? _c("span", [
+                      _c("div", { staticClass: "remark info text-center" }, [
+                        _vm._v(
+                          "\n                            Dare list is currently empty\n                         "
+                        )
+                      ])
                     ])
-                  ]
-                ),
+                  : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.menu()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-menu" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [_vm._v("Main Menu")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.Pmenu()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-menu" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [
-                      _vm._v("Player Menu")
+                _vm.loading
+                  ? [
+                      _c(
+                        "v-sheet",
+                        {
+                          staticClass: "px-3 pt-3 pb-3",
+                          attrs: { color: "grey" }
+                        },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "mx-auto",
+                            attrs: {
+                              "max-width": "auto",
+                              type: "action, sentences@4"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  : _c("span", [
+                      _c(
+                        "p",
+                        {
+                          attrs: {
+                            "data-role": "hint",
+                            "data-hint-text":
+                              "Select Dares you want to attempt, to add them to your Dare list.",
+                            "data-hint-position": "top"
+                          }
+                        },
+                        [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.selected,
+                                  expression: "selected"
+                                }
+                              ],
+                              attrs: { "data-role": "select" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.selected = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                }
+                              }
+                            },
+                            _vm._l(_vm.content, function(con) {
+                              return _c(
+                                "option",
+                                {
+                                  key: con.id,
+                                  staticClass: "text-bold",
+                                  attrs: { selected: "" },
+                                  domProps: { value: con.dare_name }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(con.dare_name)
+                                  )
+                                ]
+                              )
+                            }),
+                            0
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "remark info text-center" },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: "/pending-dares" } },
+                            [_vm._v(" Click here to view your Dare list")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "remark success text-center" },
+                        [
+                          _c("router-link", { attrs: { to: "/upload-dare" } }, [
+                            _vm._v(" Click here to upload a Dare")
+                          ])
+                        ],
+                        1
+                      )
                     ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    staticStyle: { "background-color": "#ebebeb" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.back()
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon mif-backspace" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "label" }, [_vm._v("Back")])
-                  ]
-                )
-              ])
-            ])
-          ]
-        ],
-        2
-      )
-    ],
-    1
-  )
+              ],
+              2
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -107372,9 +106133,591 @@ if (false) {
 
 /***/ }),
 /* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(111)
+/* template */
+var __vue_template__ = __webpack_require__(102)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/includes/taskbar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-80f29f7e", Component.options)
+  } else {
+    hotAPI.reload("data-v-80f29f7e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "task-bar" }, [
+      _c(
+        "div",
+        {
+          staticClass: "p-4",
+          attrs: { "data-role": "charms", "data-position": "left", id: "charm" }
+        },
+        [
+          _c("div", { staticClass: "h-100 d-flex flex-column" }, [
+            _c("div", { staticClass: "charm-top" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile bg-orange",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.dares()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-file-video" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Watch Dares")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#1ba1e2" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.list()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-list" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Dare List")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#b82943" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.board()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-clipboard" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Dare Leaderboard")
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#1ba1e2" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.pickDare()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-add" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Pick a Dare")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3)
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _vm._m(6),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile",
+                      staticStyle: { "background-color": "#b82943" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.help()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-cog" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("How to Play")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile bg-teal",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.rules()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-cog" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Rules")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile bg-orange",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.menu()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-home" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Home")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile bg-purple",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.home()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-settings-power" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Exit")])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(7),
+      _vm._v(" "),
+      _c("div", { staticClass: "task-bar-section tasks" }),
+      _vm._v(" "),
+      _vm._m(8)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center m-4" }, [
+      _c("span", [_vm._v("Watcher")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center m-4" }, [
+      _c("span", [_vm._v("Player")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "charm-tile",
+        staticStyle: { "background-color": "#7e07ff" }
+      },
+      [
+        _c("span", { staticClass: "icon mif-wifi-full" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "caption" }, [_vm._v("My Dares")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "charm-tile bg-teal" }, [
+      _c("span", { staticClass: "icon mif-cog" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "caption" }, [_vm._v("Upload Dare")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center m-4" }, [
+      _c("span", [_vm._v("General Options")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "charm-tile bg-purple" }, [
+      _c("span", { staticClass: "icon mif-tablet-landscape" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "caption" }, [_vm._v("Store")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "charm-tile",
+        staticStyle: { "background-color": "#7e07ff" }
+      },
+      [
+        _c("span", { staticClass: "icon mif-wifi-full" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "caption" }, [_vm._v("Suggest Dare")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "task-bar-section" }, [
+      _c(
+        "button",
+        {
+          staticClass: "task-bar-item",
+          attrs: { onclick: "Metro.charms.toggle('#charm')" }
+        },
+        [_c("span", { staticClass: "mif-windows" })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "task-bar-section system-tray ml-auto" }, [
+      _c(
+        "span",
+        { staticClass: "pr-4", staticStyle: { "line-height": "40px" } },
+        [
+          _c("span", {
+            staticClass: "w-auto fg-white reduce-1",
+            attrs: { "data-role": "clock", "data-show-date": "false" }
+          })
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-80f29f7e", module.exports)
+  }
+}
+
+/***/ }),
+/* 103 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {};
+    },
+    mounted: function mounted() {},
+
+
+    methods: {
+        home: function home() {
+            this.$router.push({ name: "index" });
+        },
+        menu: function menu() {
+            this.$router.push({ name: "homepage" });
+        },
+        dares: function dares() {
+            this.$router.push({ name: "dares" });
+        },
+        board: function board() {
+            this.$router.push({ name: "leaderBoard" });
+        },
+        list: function list() {
+            this.$router.push({ name: "dareList" });
+        },
+        help: function help() {
+            this.$router.push({ name: "help" });
+        },
+        rules: function rules() {
+            this.$router.push({ name: "rules" });
+        },
+        pickDare: function pickDare() {
+            if (this.isAuth()) {
+                this.$router.push({ name: "pickDare" });
+            } else {
+                alert('send to login page');
+            }
+        },
+
+
+        //meth to check Auth
+        isAuth: function isAuth() {
+            if (Metro.session.getItem('userToken')) {
+                // this.loggedOut = false;
+                return true;
+            } else {
+                // this.loggedOut = true;
+                return false;
+            }
+        }
+    }
+
+});
 
 /***/ })
 /******/ ]);

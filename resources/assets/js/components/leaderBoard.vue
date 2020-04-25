@@ -1,6 +1,12 @@
 <template>
         <div>
-                        <div class='bg-leader'></div>
+
+            
+        <div class="desktop">
+                <div class="window-area">
+                    <!-- content here-->
+
+                    <div class='bg-leader'></div>
 
         <div class="container  fadeIn">
 
@@ -45,8 +51,12 @@
 
     
                     </div>
+                    
+                </div>
+                <taskbar></taskbar>
+            </div>
 
-                    <floating></floating>
+               
 
                     
         </div>

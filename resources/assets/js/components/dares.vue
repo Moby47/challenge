@@ -1,51 +1,28 @@
 <template>
         <div>
 
+          
+        <div class="desktop">
+            <div class="window-area">
+                <!-- content here-->
+
                 <div class='bg-dare'></div>
             
-        <div class="container">
+                <div class="container">
+                
+                        <h3 class="text-center">  </h3>
         
-                <h3 class="text-center">  </h3>
-
-                <span v-if='empty'>
-                    <div class="remark info text-center">
-                        No Dare Videos Currently
-                         </div>
-            </span>
-    
-         
-
-                <div class="row">
-
-                    <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
-                    <template >
-                        <v-sheet
-                          :color="`grey`"
-                          class="px-3 pt-3 pb-3"
-                        >
-                          <v-skeleton-loader
-                            class="mx-auto"
-                            max-width="auto"
-                            type="card"
-                          ></v-skeleton-loader>
-                        </v-sheet>
-                      </template>
-                    </div>
-                    <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
-                        <template >
-                            <v-sheet
-                              :color="`grey`"
-                              class="px-3 pt-3 pb-3"
-                            >
-                              <v-skeleton-loader
-                                class="mx-auto"
-                                max-width="auto"
-                                type="card"
-                              ></v-skeleton-loader>
-                            </v-sheet>
-                          </template>
-                        </div>
-                        <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                        <span v-if='empty'>
+                            <div class="remark info text-center">
+                                No Dare Videos Currently
+                                 </div>
+                    </span>
+            
+                 
+        
+                        <div class="row">
+        
+                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
                             <template >
                                 <v-sheet
                                   :color="`grey`"
@@ -59,145 +36,118 @@
                                 </v-sheet>
                               </template>
                             </div>
-                  
-                    <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
-                            
-                                <template>
-                                        <v-card
-                                          class="mx-auto"
-                                        >
-                                        <video data-role="video"
-                                :data-src="con.url"
-                                data-logo-height="64"
-                                data-poster="/images/home.svg"
-                                data-aspect-ratio="hd"
-                                data-on-play
-                                id='one'
-                                 ></video>
-                                      
-                                          <v-card-title>
-                                                <div class="card-footer">
-                                                        <button class="flat-button mif-thumbs-up "> 47</button>
-                                                        <button class="flat-button mif-comment "> 7</button>
-                                                        <button class="flat-button mif-eye "> 4</button>
-                                                        <button class="flat-button mif-share "> 4</button>
-                                                    </div>
-                                          </v-card-title>
-                                      
-                                          <v-card-subtitle>
-                                                <figcaption class="mt-1 text-center">
-                         <router-link to='/single-dare' class=''> {{con.dare_name}}  </router-link> 
-                                               </figcaption>
-                                          </v-card-subtitle>
-                                      
-                                        </v-card>
-                                      </template>
-                                      <span class="badge inside  fg-white"
-                                      style="background-color: #b82943">{{con.username}}</span>
-                        </div>
-                      
-
-                        
-
-     </div>
-    </div>
-
-    
-
-     <!--dialogs search-->
-     <div class="dialog" data-role="dialog" id='search'>
-                      
-            <div class="dialog-title fg-white" style="background-color: #07557B">
-                Search</div>
-
-
-                <div class="dialog-content">
-                    <p>Search by Player's username</p>
-                    <input type="text" data-role="input"
-                    placeholder="Enter Username" data-autocomplete="Ukraine, USA, Canada, Marokko, Singapur">
-                        <br>
-                        <button class="button primary">Find</button>
-                </div>
-
-                <hr>
-
-                
-                <div class="dialog-content">
-                        <p>Filter by Dares</p>
-                        <select data-role="select">
-                                <option class="fg-cyan">One</option>
-                                <option selected class="text-bold fg-red">Two</option>
-                                <option class="fg-green">Three</option>
-                            </select>
-                </div>
-
-                <div class="dialog-actions">
-                    <button class="button alert js-dialog-close">Close</button>
-                </div>
-            </div>
-
-
-
- <!--floating top left --->
- <v-btn 
- fab 
- dark
- color="#1ba1e2"
- small
- relative
- top
- left
- fixed
- @click.prevent='home()'
-   >
- <v-icon dark>home</v-icon>
- </v-btn>
-
-   <!--floating top right --->
-   <v-btn 
-   fab 
-   color="#ebebeb"
-   small
-   relative
-   top
-   right
-   fixed
-   onclick="Metro.dialog.open('#search')"
-     >
-   <v-icon dark>search</v-icon>
-   </v-btn>
-
-
-
-   <floating></floating>
-
-         <!--   <template>
-     
-                    <div class="container fadeIn index">
-                    
-                            <div class="bottom-nav pos-fixed">
-                                    <button class="button"  @click.prevent='home()' style="background-color: #ebebeb">
-                                            <span class="icon mif-home"></span>
-                                            <span class="label">Home</span>
-                                        </button>
-                                    <button class="button"  @click.prevent='menu()' style="background-color: #ebebeb">
-                                        <span class="icon mif-menu"></span>
-                                        <span class="label">Menu</span>
-                                    </button>
-                                   
-                                    <button class="button" style="background-color: #ebebeb" onclick="Metro.dialog.open('#search')">
-                                        <span class="icon mif-search"></span>
-                                        <span class="label">Search</span>
-                                    </button>
-                        
-                                    <button class="button" style="background-color: #ebebeb"    @click.prevent='back()'>
-                                            <span class="icon mif-backspace"></span>
-                                            <span class="label">Back</span>
-                                        </button>
+                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                                <template >
+                                    <v-sheet
+                                      :color="`grey`"
+                                      class="px-3 pt-3 pb-3"
+                                    >
+                                      <v-skeleton-loader
+                                        class="mx-auto"
+                                        max-width="auto"
+                                        type="card"
+                                      ></v-skeleton-loader>
+                                    </v-sheet>
+                                  </template>
                                 </div>
+                                <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                                    <template >
+                                        <v-sheet
+                                          :color="`grey`"
+                                          class="px-3 pt-3 pb-3"
+                                        >
+                                          <v-skeleton-loader
+                                            class="mx-auto"
+                                            max-width="auto"
+                                            type="card"
+                                          ></v-skeleton-loader>
+                                        </v-sheet>
+                                      </template>
+                                    </div>
+                          
+                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
+                                    
+                                        <template>
+                                                <v-card
+                                                  class="mx-auto"
+                                                >
+                                                <video data-role="video"
+                                        :data-src="con.url"
+                                        data-logo-height="64"
+                                        data-poster="/images/home.svg"
+                                        data-aspect-ratio="hd"
+                                        data-on-play
+                                        id='one'
+                                         ></video>
+                                              
+                                                  <v-card-title>
+                                                        <div class="card-footer">
+                                                                <button class="flat-button mif-thumbs-up "> 47</button>
+                                                                <button class="flat-button mif-comment "> 7</button>
+                                                                <button class="flat-button mif-eye "> 4</button>
+                                                                <button class="flat-button mif-share "> 4</button>
+                                                            </div>
+                                                  </v-card-title>
+                                              
+                                                  <v-card-subtitle>
+                                                        <figcaption class="mt-1 text-center">
+                                 <router-link to='/single-dare' class=''> {{con.dare_name}}  </router-link> 
+                                                       </figcaption>
+                                                  </v-card-subtitle>
+                                              
+                                                </v-card>
+                                              </template>
+                                              <span class="badge inside  fg-white"
+                                              style="background-color: #b82943">{{con.username}}</span>
+                                </div>
+                              
+        
+                                
+        
+             </div>
+            </div>
+        
             
+        
+             <!--dialogs search-->
+             <div class="dialog" data-role="dialog" id='search'>
+                              
+                    <div class="dialog-title fg-white" style="background-color: #07557B">
+                        Search</div>
+        
+        
+                        <div class="dialog-content">
+                            <p>Search by Player's username</p>
+                            <input type="text" data-role="input"
+                            placeholder="Enter Username" data-autocomplete="Ukraine, USA, Canada, Marokko, Singapur">
+                                <br>
+                                <button class="button primary">Find</button>
+                        </div>
+        
+                        <hr>
+        
+                        
+                        <div class="dialog-content">
+                                <p>Filter by Dares</p>
+                                <select data-role="select">
+                                        <option class="fg-cyan">One</option>
+                                        <option selected class="text-bold fg-red">Two</option>
+                                        <option class="fg-green">Three</option>
+                                    </select>
+                        </div>
+        
+                        <div class="dialog-actions">
+                            <button class="button alert js-dialog-close">Close</button>
+                        </div>
                     </div>
-                </template>-->
+
+        
+            </div>
+            <taskbar></taskbar>
+        </div>
+
+              
+
 
 
         </div>
