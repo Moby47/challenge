@@ -56313,66 +56313,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56447,8 +56387,6 @@ var render = function() {
       { staticClass: "desktop" },
       [
         _c("div", { staticClass: "window-area scroll" }, [
-          _c("div", { staticClass: "bg-dare" }),
-          _vm._v(" "),
           _c("div", { staticClass: "container" }, [
             _c("h3", { staticClass: "text-center" }),
             _vm._v(" "),
@@ -56456,7 +56394,7 @@ var render = function() {
               ? _c("span", [
                   _c("div", { staticClass: "remark info text-center" }, [
                     _vm._v(
-                      "\n                        No Dare Videos Currently\n                         "
+                      "\n                                No Dare Videos Currently\n                                 "
                     )
                   ])
                 ])
@@ -56465,8 +56403,8 @@ var render = function() {
             _c(
               "div",
               { staticClass: "row" },
-              [
-                _vm.loading
+              _vm._l(6, function(i) {
+                return _vm.loading
                   ? _c(
                       "div",
                       {
@@ -56492,154 +56430,11 @@ var render = function() {
                       ],
                       2
                     )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
-                      },
-                      [
-                        [
-                          _c(
-                            "v-sheet",
-                            {
-                              staticClass: "px-3 pt-3 pb-3",
-                              attrs: { color: "grey" }
-                            },
-                            [
-                              _c("v-skeleton-loader", {
-                                staticClass: "mx-auto",
-                                attrs: { "max-width": "auto", type: "card" }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      ],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
-                      },
-                      [
-                        [
-                          _c(
-                            "v-sheet",
-                            {
-                              staticClass: "px-3 pt-3 pb-3",
-                              attrs: { color: "grey" }
-                            },
-                            [
-                              _c("v-skeleton-loader", {
-                                staticClass: "mx-auto",
-                                attrs: { "max-width": "auto", type: "card" }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      ],
-                      2
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm._l(_vm.content, function(con) {
-                  return _c(
-                    "div",
-                    {
-                      key: con.id,
-                      staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
-                    },
-                    [
-                      [
-                        _c(
-                          "v-card",
-                          { staticClass: "mx-auto" },
-                          [
-                            _c("video", {
-                              attrs: {
-                                "data-role": "video",
-                                "data-src": con.url,
-                                "data-logo-height": "64",
-                                "data-poster": "/images/home.svg",
-                                "data-aspect-ratio": "hd",
-                                "data-on-play": "",
-                                id: "one"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-card-title", [
-                              _c("div", { staticClass: "card-footer" }, [
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-thumbs-up " },
-                                  [_vm._v(" 47")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-comment " },
-                                  [_vm._v(" 7")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-eye " },
-                                  [_vm._v(" 4")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-share " },
-                                  [_vm._v(" 4")]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("v-card-subtitle", [
-                              _c(
-                                "figcaption",
-                                { staticClass: "mt-1 text-center" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    { attrs: { to: "/single-dare" } },
-                                    [_vm._v(" " + _vm._s(con.dare_name) + "  ")]
-                                  )
-                                ],
-                                1
-                              )
-                            ])
-                          ],
-                          1
-                        )
-                      ],
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "badge inside  fg-white",
-                          staticStyle: { "background-color": "#b82943" }
-                        },
-                        [_vm._v(_vm._s(con.username))]
-                      )
-                    ],
-                    2
-                  )
-                })
-              ],
-              2
+                  : _vm._e()
+              }),
+              0
             )
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
+          ])
         ]),
         _vm._v(" "),
         _c("taskbar")
@@ -56648,68 +56443,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dialog", attrs: { "data-role": "dialog", id: "search" } },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "dialog-title fg-white",
-            staticStyle: { "background-color": "#07557B" }
-          },
-          [_vm._v("\n                Search")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-content" }, [
-          _c("p", [_vm._v("Search by Player's username")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "text",
-              "data-role": "input",
-              placeholder: "Enter Username",
-              "data-autocomplete": "Ukraine, USA, Canada, Marokko, Singapur"
-            }
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("button", { staticClass: "button primary" }, [_vm._v("Find")])
-        ]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-content" }, [
-          _c("p", [_vm._v("Filter by Dares")]),
-          _vm._v(" "),
-          _c("select", { attrs: { "data-role": "select" } }, [
-            _c("option", { staticClass: "fg-cyan" }, [_vm._v("One")]),
-            _vm._v(" "),
-            _c(
-              "option",
-              { staticClass: "text-bold fg-red", attrs: { selected: "" } },
-              [_vm._v("Two")]
-            ),
-            _vm._v(" "),
-            _c("option", { staticClass: "fg-green" }, [_vm._v("Three")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-actions" }, [
-          _c("button", { staticClass: "button alert js-dialog-close" }, [
-            _vm._v("Close")
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

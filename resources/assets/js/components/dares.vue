@@ -4,9 +4,9 @@
           
         <div class="desktop">
             <div class="window-area scroll">
-                <!-- content here-->
+                <!-- content here 
+                <div class='bg-dare'></div>-->
 
-                <div class='bg-dare'></div>
             
                 <div class="container">
                 
@@ -22,7 +22,7 @@
         
                         <div class="row">
         
-                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
+                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading' v-for='i in 6'>
                             <template >
                                 <v-sheet
                                   :color="`grey`"
@@ -36,36 +36,10 @@
                                 </v-sheet>
                               </template>
                             </div>
-                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
-                                <template >
-                                    <v-sheet
-                                      :color="`grey`"
-                                      class="px-3 pt-3 pb-3"
-                                    >
-                                      <v-skeleton-loader
-                                        class="mx-auto"
-                                        max-width="auto"
-                                        type="card"
-                                      ></v-skeleton-loader>
-                                    </v-sheet>
-                                  </template>
-                                </div>
-                                <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading'>
-                                    <template >
-                                        <v-sheet
-                                          :color="`grey`"
-                                          class="px-3 pt-3 pb-3"
-                                        >
-                                          <v-skeleton-loader
-                                            class="mx-auto"
-                                            max-width="auto"
-                                            type="card"
-                                          ></v-skeleton-loader>
-                                        </v-sheet>
-                                      </template>
-                                    </div>
-                          
-                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
+                         
+                               
+<!--
+       <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
                                     
                                         <template>
                                                 <v-card
@@ -100,47 +74,13 @@
                                               <span class="badge inside  fg-white"
                                               style="background-color: #b82943">{{con.username}}</span>
                                 </div>
-                              
+                              -->
         
                                 
         
              </div>
             </div>
         
-            
-        
-             <!--dialogs search-->
-             <div class="dialog" data-role="dialog" id='search'>
-                              
-                    <div class="dialog-title fg-white" style="background-color: #07557B">
-                        Search</div>
-        
-        
-                        <div class="dialog-content">
-                            <p>Search by Player's username</p>
-                            <input type="text" data-role="input"
-                            placeholder="Enter Username" data-autocomplete="Ukraine, USA, Canada, Marokko, Singapur">
-                                <br>
-                                <button class="button primary">Find</button>
-                        </div>
-        
-                        <hr>
-        
-                        
-                        <div class="dialog-content">
-                                <p>Filter by Dares</p>
-                                <select data-role="select">
-                                        <option class="fg-cyan">One</option>
-                                        <option selected class="text-bold fg-red">Two</option>
-                                        <option class="fg-green">Three</option>
-                                    </select>
-                        </div>
-        
-                        <div class="dialog-actions">
-                            <button class="button alert js-dialog-close">Close</button>
-                        </div>
-                    </div>
-
         
             </div>
             <taskbar></taskbar>
