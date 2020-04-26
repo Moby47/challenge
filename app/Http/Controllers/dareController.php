@@ -24,7 +24,7 @@ class dareController extends Controller
     {
         //fetch data (last 15) from dares model. (Done! was blocking pro)
          $scores = dare::orderby('id','desc')
-         ->select('id','url','dare_name','username','likes','shares','views')->paginate(15);
+         ->select('id','dare_name','username','duration','likes','shares','views')->paginate(15);
          return dareres::collection($scores);
     }
 
@@ -184,7 +184,7 @@ class dareController extends Controller
         //push to cloud
         $video = $request->file('video')->getRealPath();;
         Cloudder::uploadVideo($video, null);
-                    //return Cloudder::getResult();
+                   // return Cloudder::getResult();
         
         //change daree status to 3, meaning done!
         $dare = mydare::findorfail($request->input('selected'));
@@ -206,10 +206,29 @@ class dareController extends Controller
 
         //save required intel
         $cloundary_upload = Cloudder::getResult();
+        //convert duration from sec to min
+        $seconds =  $cloundary_upload['duration'];
+            $start_seconds = round($seconds);
+            if($start_seconds <60)
+            {
+                $minutes ="";
+                $seconds = $start_seconds;
+            }
+            else
+            {
+        
+                $minutes = floor($start_seconds/60);
+                $seconds = $start_seconds - $minutes*60;
+        
+                $minutes = "$minutes"."m";
+                $seconds = $seconds."s";
+            }
+            $time = "$minutes $seconds";
 
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
+        $save->duration = $time;
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->username = $user->username;

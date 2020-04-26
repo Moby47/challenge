@@ -56313,6 +56313,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56403,36 +56436,141 @@ var render = function() {
             _c(
               "div",
               { staticClass: "row" },
-              _vm._l(6, function(i) {
-                return _vm.loading
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "cell-sm-full cell-md-one-third cell-lg-4"
-                      },
-                      [
+              [
+                _vm._l(6, function(i) {
+                  return _vm.loading
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "cell-sm-full cell-md-one-third cell-lg-4"
+                        },
                         [
-                          _c(
-                            "v-sheet",
-                            {
-                              staticClass: "px-3 pt-3 pb-3",
-                              attrs: { color: "grey" }
-                            },
+                          [
+                            _c(
+                              "v-sheet",
+                              {
+                                staticClass: "px-3 pt-3 pb-3",
+                                attrs: { color: "grey" }
+                              },
+                              [
+                                _c("v-skeleton-loader", {
+                                  staticClass: "mx-auto",
+                                  attrs: { "max-width": "auto", type: "card" }
+                                })
+                              ],
+                              1
+                            )
+                          ]
+                        ],
+                        2
+                      )
+                    : _vm._e()
+                }),
+                _vm._v(" "),
+                [
+                  _c(
+                    "v-container",
+                    { staticClass: "grey lighten-5" },
+                    [
+                      _c(
+                        "v-row",
+                        _vm._l(_vm.content, function(con) {
+                          return _c(
+                            "v-col",
+                            { key: con.id, attrs: { cols: "12", sm: "4" } },
                             [
-                              _c("v-skeleton-loader", {
-                                staticClass: "mx-auto",
-                                attrs: { "max-width": "auto", type: "card" }
-                              })
+                              _c(
+                                "v-card",
+                                {
+                                  staticClass: "pa-2",
+                                  attrs: { outlined: "", tile: "" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "card image-header" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "card-header fg-yellow",
+                                          staticStyle: {
+                                            "background-image":
+                                              "url(/images/home.svg)"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "fg-white p-1",
+                                              staticStyle: {
+                                                "background-color": "#1ba1e2",
+                                                "border-radius": "10px"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                     " +
+                                                  _vm._s(con.duration)
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "card-content p-2 text-ellipsis"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                             " +
+                                              _vm._s(con.dare_name) +
+                                              "\n                        "
+                                          ),
+                                          _c("p", { staticClass: "fg-gray" }, [
+                                            _vm._v(
+                                              _vm._s(con.views) +
+                                                " views. " +
+                                                _vm._s(con.likes) +
+                                                " likes. " +
+                                                _vm._s(con.shares) +
+                                                " shares"
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "badge inside  fg-white",
+                                      staticStyle: {
+                                        "background-color": "#b82943"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(con.username))]
+                                  )
+                                ]
+                              )
                             ],
                             1
                           )
-                        ]
-                      ],
-                      2
-                    )
-                  : _vm._e()
-              }),
-              0
+                        }),
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ],
+              2
             )
           ])
         ]),
@@ -56746,39 +56884,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56839,411 +56944,243 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "bg-dare" }),
-    _vm._v(" "),
     _c(
       "div",
-      { staticClass: "container white-color" },
+      { staticClass: "desktop" },
       [
-        _c("h3", { staticClass: "text-center" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "grid" }, [
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "cell-sm-full cell-md-one-third cell-lg-7" },
-              [
-                [
-                  _c(
-                    "v-card",
-                    { staticClass: "mx-auto" },
+        _c("div", { staticClass: "window-area scroll" }, [
+          _c("div", { staticClass: "container white-color" }, [
+            _c("h3", { staticClass: "text-center" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "grid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-7" },
+                  [
                     [
-                      _c("video", {
-                        attrs: {
-                          "data-role": "video",
-                          "data-src": "https://metroui.org.ua/res/oceans.mp4",
-                          "data-logo":
-                            "https://metroui.org.ua/images/logo4.png",
-                          "data-logo-height": "64",
-                          "data-logo-target": "https://metroui.org.ua/v4/",
-                          "data-poster":
-                            "https://metroui.org.ua/res/poster-oceans.jpg",
-                          "data-aspect-ratio": "hd",
-                          "data-autoplay": "true"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-card-title", [
-                        _c("div", { staticClass: "card-footer" }, [
+                      _c(
+                        "v-container",
+                        { staticClass: "grey lighten-5" },
+                        [
                           _c(
-                            "button",
-                            { staticClass: "flat-button mif-thumbs-up " },
-                            [_vm._v(" 47")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            { staticClass: "flat-button mif-comment " },
-                            [_vm._v(" 7")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            { staticClass: "flat-button mif-eye " },
-                            [_vm._v(" 4")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            { staticClass: "flat-button mif-share " },
-                            [_vm._v(" 4")]
+                            "v-row",
+                            { attrs: { "no-gutters": "" } },
+                            [
+                              _c(
+                                "v-col",
+                                { attrs: { cols: "12", sm: "12" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    {
+                                      staticClass: "pa-2",
+                                      attrs: { outlined: "", tile: "" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "card-header" },
+                                        [
+                                          _c("video", {
+                                            attrs: {
+                                              "data-role": "video",
+                                              "data-src":
+                                                "https://metroui.org.ua/res/oceans.mp4",
+                                              "data-poster": "/images/home.svg",
+                                              "data-aspect-ratio": "hd"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "card-content p-2" },
+                                        [
+                                          _vm._v(
+                                            "\n                                        10 push ups\n                        "
+                                          ),
+                                          _c("p", { staticClass: "fg-gray" }, [
+                                            _vm._v(
+                                              "21 views. 470 likes. 7 shares"
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "button fg-white",
+                                          staticStyle: {
+                                            "background-color": "#1ba1e2"
+                                          },
+                                          attrs: { id: "dropdown_toggle_1" }
+                                        },
+                                        [_vm._v("Comments")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "pos-relative" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              attrs: {
+                                                "data-role": "dropdown",
+                                                "data-toggle-element":
+                                                  "#dropdown_toggle_1"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "p",
+                                                {
+                                                  staticClass:
+                                                    "p-10 text-center"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                      "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "badge inside  fg-white",
+                                          staticStyle: {
+                                            "background-color": "#b82943"
+                                          }
+                                        },
+                                        [_vm._v("player's username")]
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
                           )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("v-card-subtitle", [
-                        _c("figcaption", { staticClass: "mt-1" }, [
-                          _vm._v(
-                            "\n                            A full title of the dare. \n                               A full title of the dare.   A full title of the dare. "
-                          ),
-                          _c("b", [_vm._v("4hrs ago")])
-                        ])
-                      ])
-                    ],
-                    1
-                  )
-                ],
+                        ],
+                        1
+                      )
+                    ]
+                  ],
+                  2
+                ),
                 _vm._v(" "),
                 _c(
-                  "span",
-                  {
-                    staticClass: "badge inside  fg-white",
-                    staticStyle: { "background-color": "#b82943" }
-                  },
-                  [_vm._v("player's username")]
+                  "div",
+                  { staticClass: "cell-sm-full cell-md-two-third cell-lg-4" },
+                  [
+                    [
+                      _c(
+                        "v-container",
+                        { staticClass: "grey lighten-5" },
+                        [
+                          _c(
+                            "v-row",
+                            { attrs: { "no-gutters": "" } },
+                            _vm._l(6, function(i) {
+                              return _c(
+                                "v-col",
+                                { key: i, attrs: { cols: "12", sm: "12" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    {
+                                      staticClass: "pa-2",
+                                      attrs: { outlined: "", tile: "" }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "card image-header" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "card-header fg-yellow",
+                                              staticStyle: {
+                                                "background-image":
+                                                  "url(/images/home.svg)"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                                                  4:07\n                                                              "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-content p-2" },
+                                            [
+                                              _vm._v(
+                                                "\n                                                                 10 push ups\n                                            "
+                                              ),
+                                              _c(
+                                                "p",
+                                                { staticClass: "fg-gray" },
+                                                [
+                                                  _vm._v(
+                                                    "21 views. 470 likes. 7 shares"
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "badge inside  fg-white",
+                                          staticStyle: {
+                                            "background-color": "#b82943"
+                                          }
+                                        },
+                                        [_vm._v("player's username")]
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ],
+                  2
                 )
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "cell-sm-full cell-md-two-third cell-lg-4 offset-1"
-              },
-              [
-                _c("h4", { staticClass: "text-center" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "row flex-align-center cell-lg-12" }, [
-                  _c("div", { staticClass: "cell" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "cell" },
-                    [
-                      [
-                        _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "344" }
-                          },
-                          [
-                            _c("video", {
-                              attrs: {
-                                "data-role": "video",
-                                "data-src":
-                                  "https://metroui.org.ua/res/oceans.mp4",
-                                "data-logo":
-                                  "https://metroui.org.ua/images/logo4.png",
-                                "data-logo-height": "64",
-                                "data-logo-target":
-                                  "https://metroui.org.ua/v4/",
-                                "data-poster":
-                                  "https://metroui.org.ua/res/poster-oceans.jpg",
-                                "data-aspect-ratio": "hd"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-card-title", [
-                              _c("div", { staticClass: "card-footer" }, [
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-thumbs-up " },
-                                  [_vm._v(" 47")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-comment " },
-                                  [_vm._v(" 7")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-eye " },
-                                  [_vm._v(" 4")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-share " },
-                                  [_vm._v(" 4")]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("v-card-subtitle", [
-                              _c(
-                                "figcaption",
-                                { staticClass: "mt-1 text-center" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    { attrs: { to: "/single-dare" } },
-                                    [
-                                      _vm._v(
-                                        "A full title of the dare. \n                                               A full title of the dare.   A full title of the dare.\n                                                                           "
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ])
-                          ],
-                          1
-                        )
-                      ],
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "badge inside  fg-white",
-                          staticStyle: { "background-color": "#b82943" }
-                        },
-                        [_vm._v("player's username")]
-                      )
-                    ],
-                    2
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "cell" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row flex-align-center cell-lg-12" }, [
-                  _c("div", { staticClass: "cell" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "cell" },
-                    [
-                      [
-                        _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "344" }
-                          },
-                          [
-                            _c("video", {
-                              attrs: {
-                                "data-role": "video",
-                                "data-src":
-                                  "https://metroui.org.ua/res/oceans.mp4",
-                                "data-logo":
-                                  "https://metroui.org.ua/images/logo4.png",
-                                "data-logo-height": "64",
-                                "data-logo-target":
-                                  "https://metroui.org.ua/v4/",
-                                "data-poster":
-                                  "https://metroui.org.ua/res/poster-oceans.jpg",
-                                "data-aspect-ratio": "hd"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-card-title", [
-                              _c("div", { staticClass: "card-footer" }, [
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-thumbs-up " },
-                                  [_vm._v(" 47")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-comment " },
-                                  [_vm._v(" 7")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-eye " },
-                                  [_vm._v(" 4")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  { staticClass: "flat-button mif-share " },
-                                  [_vm._v(" 4")]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("v-card-subtitle", [
-                              _c(
-                                "figcaption",
-                                { staticClass: "mt-1 text-center" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    { attrs: { to: "/single-dare" } },
-                                    [
-                                      _vm._v(
-                                        "A full title of the dare. \n                                                   A full title of the dare.   A full title of the dare.\n                                                                               "
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ])
-                          ],
-                          1
-                        )
-                      ],
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "badge inside  fg-white",
-                          staticStyle: { "background-color": "#b82943" }
-                        },
-                        [_vm._v("player's username")]
-                      )
-                    ],
-                    2
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "cell" })
-                ])
-              ]
-            )
+              ])
+            ])
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "v-btn",
-          {
-            attrs: {
-              fab: "",
-              dark: "",
-              color: "#1ba1e2",
-              small: "",
-              relative: "",
-              top: "",
-              left: "",
-              fixed: ""
-            },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.home()
-              }
-            }
-          },
-          [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("home")])],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "v-btn",
-          {
-            attrs: {
-              fab: "",
-              color: "#ebebeb",
-              small: "",
-              relative: "",
-              top: "",
-              right: "",
-              fixed: "",
-              onclick: "Metro.dialog.open('#search')"
-            }
-          },
-          [_c("v-icon", { attrs: { dark: "" } }, [_vm._v("search")])],
-          1
-        ),
-        _vm._v(" "),
-        _c("floating")
+        _c("taskbar")
       ],
       1
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dialog", attrs: { "data-role": "dialog", id: "search" } },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "dialog-title white-color",
-            staticStyle: { "background-color": "#07557B" }
-          },
-          [_vm._v("\n               Search")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-content" }, [
-          _c("p", [_vm._v("Search by Player's username")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "text",
-              "data-role": "input",
-              placeholder: "Enter Username",
-              "data-autocomplete": "Ukraine, USA, Canada, Marokko, Singapur"
-            }
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("button", { staticClass: "button primary" }, [_vm._v("Find")])
-        ]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-content" }, [
-          _c("p", [_vm._v("Filter by Dares")]),
-          _vm._v(" "),
-          _c("select", { attrs: { "data-role": "select" } }, [
-            _c("option", { staticClass: "fg-cyan" }, [_vm._v("One")]),
-            _vm._v(" "),
-            _c(
-              "option",
-              { staticClass: "text-bold fg-red", attrs: { selected: "" } },
-              [_vm._v("Two")]
-            ),
-            _vm._v(" "),
-            _c("option", { staticClass: "fg-green" }, [_vm._v("Three")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "dialog-actions" }, [
-          _c("button", { staticClass: "button alert js-dialog-close" }, [
-            _vm._v("Close")
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

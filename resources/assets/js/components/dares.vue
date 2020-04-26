@@ -37,7 +37,40 @@
                               </template>
                             </div>
                          
-                               
+                            <template>
+                                <v-container class="grey lighten-5">
+                                  <v-row>
+                                    <v-col
+                                    v-for='con in content' v-bind:key='con.id'
+                                      cols="12"
+                                      sm="4"
+                                    >
+                                      <v-card
+                                        class="pa-2"
+                                        outlined
+                                        tile
+                                      >
+
+                                      <div class="card image-header">
+                                          <div class="card-header fg-yellow"
+                                             style="background-image: url(/images/home.svg)">
+                                  <span class='fg-white p-1' style="background-color: #1ba1e2; border-radius:10px;">
+                                     {{con.duration}}</span>
+                                          </div>
+                                          <div class="card-content p-2 text-ellipsis">
+                                             {{con.dare_name}}
+                        <p class="fg-gray">{{con.views}} views. {{con.likes}} likes. {{con.shares}} shares</p>
+                                          </div>
+                                      </div>
+                                      
+                                      <span class="badge inside  fg-white"
+                                      style="background-color: #b82943">{{con.username}}</span>
+
+                                      </v-card>
+                                    </v-col>
+                                  </v-row>
+                                </v-container>
+                              </template>
 <!--
        <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
                                     
