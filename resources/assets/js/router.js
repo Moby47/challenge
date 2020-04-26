@@ -16,7 +16,9 @@ import help from './components/help.vue'
 import rules from './components/rules.vue'
 import login from './components/login.vue'
 import register from './components/register.vue'
-
+import suggest from './components/suggest.vue'
+import search from './components/search.vue'
+import result from './components/result.vue'
 
 import pickDare from './components/player/pickDare.vue'
 import pendingDares from './components/player/pendingDares.vue'
@@ -125,6 +127,31 @@ export default new Router({
               //  auth: true
             }
         },
+        {
+            path: '/suggest',
+            name: 'suggest',
+            component: suggest,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/search',
+            name: 'search',
+            component: search,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/result/:data',
+            name: 'result',
+            component: result,
+             meta:{
+              //  auth: true
+            }
+        },
+
 
 
 

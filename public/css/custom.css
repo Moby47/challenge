@@ -63,6 +63,10 @@
     z-index: 233 !important;
 }
 
+.index-low{
+  z-index: -10 !important;
+}
+
 #particles-js {
     position: fixed;
     width: 100%;
@@ -172,17 +176,17 @@
     background-color: grey;
 }
 #charm {
-    height: calc(100vh - 40px);
+    height: calc(100vh - 97px);
     width: 396px;
     background-color: rgba(0, 0, 0, 0.42);
 }
-
+/*
 .home-title{
   height: calc(100vh - 480px);
   width: 396px;
   background-color: rgba(0, 0, 0, 0.42);
 }
-
+*/
 .link{
   text-decoration: none;
   color:white;
@@ -194,6 +198,20 @@
   height: auto;
   top: 50%;
   margin-top: -160px;
+}
+
+.login-form1 {
+  width: 350px;
+  height: auto;
+  top: 50%;
+  margin-top: -220px;
+}
+
+.login-form2 {
+  width: 350px;
+  height: auto;
+  top: 50%;
+  margin-top: 10px;
 }
 
 .scroll{

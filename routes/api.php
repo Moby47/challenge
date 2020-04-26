@@ -40,6 +40,10 @@ Route::post('/add-mydare', 'dareController@add_mydare'); //->middleware('auth.ap
 
 Route::get('/dropdown-dare-list', 'dareController@dropdown_dare_list'); //->middleware('auth.apikey');
 
+Route::get('/dropdown-dare-name', 'dareController@dropdown_dare_name'); //->middleware('auth.apikey');
+
+Route::get('/username-dropdown', 'dareController@username_dropdown'); //->middleware('auth.apikey');
+
 Route::get('/pending-dares/{userid}', 'dareController@pending_dares'); //->middleware('auth.apikey');
 
 Route::get('/count-dares', 'dareController@count_dares'); //->middleware('auth.apikey');

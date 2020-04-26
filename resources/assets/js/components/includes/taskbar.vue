@@ -23,6 +23,10 @@
                                                 <span class="icon mif-clipboard"></span>
                                                 <span class="caption">Dare Leaderboard</span>
                                             </div>
+                                            <div class="charm-tile bg-teal ani-hover-horizontal" @click.prevent='search()' style="background-color: #b82943">
+                                                    <span class="icon mif-search"></span>
+                                                    <span class="caption">Search</span>
+                                                </div>
                                           
                                         </div>
                         
@@ -70,11 +74,11 @@
                                      
                                         <div class="charm-bottom mt-auto">
                                             <div class="d-flex">
-                                                <div class="charm-tile ani-hover-horizontal bg-purple">
+                                                <div class="charm-tile ani-hover-horizontal bg-purple" @click.prevent='store()'>
                                                     <span class="icon mif-cart"></span>
                                                     <span class="caption">Store</span>
                                                 </div>
-                                                <div class="charm-tile ani-hover-horizontal bg-orange" >
+                                                <div class="charm-tile ani-hover-horizontal bg-orange" @click.prevent='suggest()'>
                                                     <span class="icon mif-move_to_inbox"></span>
                                                     <span class="caption">Suggest Dare</span>
                                                 </div>
@@ -125,7 +129,7 @@
                     data-role="popover"
                     data-popover-text="Start"
                     data-popover-position="right" 
-                    data-popover-hide="5000">
+                    data-popover-hide="3000">
                     <span class="mif-windows"></span></button>
             
                   
@@ -193,6 +197,17 @@
 
                 rules(){
                     this.$router.push({name: "rules"});
+                },
+
+                store(){
+                    this.$router.push({name: "store"});
+                },
+
+                suggest(){
+                    this.$router.push({name: "suggest"});
+                },
+                search(){
+                    this.$router.push({name: "search"});
                 },
                 pickDare(){
                     if(this.isAuth()){

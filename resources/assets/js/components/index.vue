@@ -5,11 +5,11 @@
     </vue-particles>
 
     
-    <h1 class="text-center white-color">CHALLENGE</h1>
+    <h2 class="text-center white-color">CHALLENGE</h2>
     <div data-role="cube" data-color="black"
     data-flash-color="#fdf9c6" class='zoomer'></div>
 
-<h3 class="text-center white-color fadeIn">Choose a Character</h3>
+<h4 class="text-center white-color fadeIn">Choose a Character</h4>
 
 <div class="row text-center fadeIn">
    

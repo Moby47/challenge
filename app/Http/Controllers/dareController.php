@@ -14,6 +14,7 @@ use DB;
 use App\Http\Resources\dareResource as dareres;
 use App\Http\Resources\darelistResource as darelistres;
 use App\Http\Resources\suggestionResource as suggestionres;
+use App\Http\Resources\userResource as userres;
 
 use JD\Cloudder\Facades\Cloudder;
 
@@ -46,33 +47,15 @@ class dareController extends Controller
     public function scores()
     {
         //fetch data (last 10) from dare model, order from highest points. (Done! was blocking pro)
-        return $scores= \DB::table('dares')
+        return $scores= \DB::table('dares')->orderby('point','desc')
         ->select('username','likes','views','point', \DB::raw('sum(point) as point'))
         ->groupBy('username','likes','views','point')->paginate(10);
     }
 
-    public function count_dare_vids()
-    {
-        //count and return the dares in the darelist model. (Done! was blocking pro)
-     return $count = dare::select('id')->count();
-    }
-
-    public function count_dares()
-    {
-        //count and return the dares in the darelist model. (Done! was blocking pro)
-     return $count = darelist::select('id')->count();
-    }
-
-    public function count_mydares($userid)
-    {
-        //count and return the value for dares in the mydare model based on the recived userid (Done! was blocking pro)
-        return $count = mydare::where('user_id','=',$userid)->select('id')->count();
-    }
-
-
+   
     public function dare_list()
     {
-      $scores = darelist::orderby('id','desc')->select('dare_name','points','play_count')->paginate(10);
+      $scores = darelist::orderby('play_count','desc')->select('dare_name','points','play_count')->paginate(10);
       return darelistres::collection($scores);
     }
 
@@ -109,6 +92,18 @@ class dareController extends Controller
     {
       $data = darelist::orderby('id','desc')->select('dare_name','points','id')->get();
       return darelistres::collection($data);
+    }
+
+    public function dropdown_dare_name()
+    {
+      $data = dare::orderby('id','desc')->select('dare_name','dare_slug')->get();
+      return darelistres::collection($data);
+    }
+
+    public function username_dropdown()
+    {
+      $data = User::orderby('id','desc')->select('username','id')->get();
+      return userres::collection($data);
     }
 
     public function suggestion(Request $request)
@@ -216,6 +211,7 @@ class dareController extends Controller
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
         $save->dare_name = $dare->dare_name;
+        $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->username = $user->username;
         $save->point = $point;
         $save->save();

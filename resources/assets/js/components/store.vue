@@ -1,149 +1,56 @@
 <template>
         <div>
 
-                
-                        <div class='bg-store'></div>
-    
-                <div class="container">
+            <div class="desktop">
+                <div class="window-area scroll">
+                    <!-- content here-->
+                    <div class="container">
                         <div class="row">
 
-                                <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                                    
-                                        <template>
-                                                <v-card
-                                                  class="mx-auto"
-                                                  max-width="344"
-                                                  outlined
-                                                >
-                                                  <v-list-item three-line>
-                                                    <v-list-item-content>
-                                                      <div class="overline mb-4">Remove Ads</div>
-                                                      <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
-                                                    </v-list-item-content>
-                                              
-                                                    <v-list-item-avatar
-                                                      tile
-                                                      size="80"
-                                                      color="grey"
-                                                    > <v-img src="/images/store.svg"></v-img>
-                                                </v-list-item-avatar>
-                                                  </v-list-item>
-                                              
-                                                  <v-card-actions>
-                                                        <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
-                                                    <v-btn color='green'>Buy</v-btn>
-                                                  </v-card-actions>
-                                                </v-card>
-                                              </template>
+        
+                               <!-- <div class="cell-sm-full cell-md-one-third cell-lg-4">
+                                    <div class="card image-header">
+                                        <div class="card-header fg-white"
+                                             style="background-image: url(http://lorempixel.com/1000/600/)">
+                                            300 Pts
+                                        </div>
+                                        <div class="card-content p-2">
+                                            Remove ads from upload page
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="button secondary">Buy</button>
+                                        </div>
+                                    </div>
                                 </div>
-        
-        
-                                <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                                    
-                                        <template>
-                                                <v-card
-                                                  class="mx-auto"
-                                                  max-width="344"
-                                                  outlined
-                                                >
-                                                  <v-list-item three-line>
-                                                    <v-list-item-content>
-                                                      <div class="overline mb-4">Remove Ads</div>
-                                                      <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
-                                                    </v-list-item-content>
-                                              
-                                                    <v-list-item-avatar
-                                                      tile
-                                                      size="80"
-                                                      color="grey"
-                                                    > <v-img src="/images/store.svg"></v-img>
-                                                </v-list-item-avatar>
-                                                  </v-list-item>
-                                              
-                                                  <v-card-actions>
-                                                        <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
-                                                    <v-btn color='green'>Buy</v-btn>
-                                                  </v-card-actions>
-                                                </v-card>
-                                              </template>
-                                </div>
-        
-        
-        
-        
-        
-                                <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                                    
-                                        <template>
-                                                <v-card
-                                                  class="mx-auto"
-                                                  max-width="344"
-                                                  outlined
-                                                >
-                                                  <v-list-item three-line>
-                                                    <v-list-item-content>
-                                                      <div class="overline mb-4">Remove Ads</div>
-                                                      <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
-                                                    </v-list-item-content>
-                                              
-                                                    <v-list-item-avatar
-                                                      tile
-                                                      size="80"
-                                                      color="grey"
-                                                    > <v-img src="/images/store.svg"></v-img>
-                                                </v-list-item-avatar>
-                                                  </v-list-item>
-                                              
-                                                  <v-card-actions>
-                                                        <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
-                                                    <v-btn color='green'>Buy</v-btn>
-                                                  </v-card-actions>
-                                                </v-card>
-                                              </template>
-                                </div>
-        
-        
-        
-                                <div class="cell-sm-full cell-md-one-third cell-lg-4">
-                                    
-                                        <template>
-                                                <v-card
-                                                  class="mx-auto"
-                                                  max-width="344"
-                                                  outlined
-                                                >
-                                                  <v-list-item three-line>
-                                                    <v-list-item-content>
-                                                      <div class="overline mb-4">Remove Ads</div>
-                                                      <v-list-item-title class="headline mb-1">Purchase to remove Ads</v-list-item-title>
-                                                    </v-list-item-content>
-                                              
-                                                    <v-list-item-avatar
-                                                      tile
-                                                      size="80"
-                                                      color="grey"
-                                                    > <v-img src="/images/store.svg"></v-img>
-                                                </v-list-item-avatar>
-                                                  </v-list-item>
-                                              
-                                                  <v-card-actions>
-                                                        <v-list-item-subtitle>47 Pts</v-list-item-subtitle>
-                                                    <v-btn color='green'>Buy</v-btn>
-                                                  </v-card-actions>
-                                                </v-card>
-                                              </template>
-                                </div>
-        
-        
-                                
-        
-             </div>
-                
+                                -->
+
+                                <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='i in 6'>
+                                    <template >
+                                        <v-sheet
+                                          :color="`grey`"
+                                          class="px-3 pt-3 pb-3"
+                                        >
+                                          <v-skeleton-loader
+                                            class="mx-auto"
+                                            max-width="auto"
+                                            type="card"
+                                            :boilerplate="true"
+                                          ></v-skeleton-loader>
+                                        </v-sheet>
+                                      </template>
+                                  </div>
+            
+             </div>     
 </div>
+                    <!-- content here-->
+                </div>
+                <taskbar></taskbar>
+            </div>
+    
+    
+              
 
 
-
-          <floating></floating>
 
         </div>
     </template>
@@ -162,35 +69,26 @@
                 $(window).scrollTop(0);
             });
 
+            this.notify()
+
         },
 
             methods: {
-
-            
-    /*
-                this.$validator.validateAll().then(() => {
-               
-               if (!this.errors.any()) {
-                //
-                }else{
-                //
-                }
+              notify(){
              
-                        //
-                })
-                .catch(err=>{
-                    
-                }),
-          
-             setTimeout(func=>{
-                 //this.errors.clear()
-                // this.$validator.reset()
-             },1) 
-            
-             }); //validator
-    */
+                        var notify = Metro.notify;
+                        notify.setup({
+                            width: 300,
+                            duration: 1000,
+                            timeout: 10000,
+                            animation: 'easeOutBounce'
+                        });
+                        notify.create("Store coming soon... Keep winning Points.");
+                        notify.reset();
             },
-    
+
+
+          }//meth
           
         }
     </script>

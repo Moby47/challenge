@@ -18,6 +18,7 @@ class CreateDaresTable extends Migration
             $table->integer('user_id');
             $table->string('url');
             $table->string('dare_name');
+            $table->string('dare_slug');
             $table->string('username');
             $table->integer('point');
             $table->integer('likes')->default(0);
