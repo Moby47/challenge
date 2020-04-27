@@ -24,7 +24,7 @@ class dareController extends Controller
     {
         //fetch data (last 15) from dares model. (Done! was blocking pro)
          $scores = dare::orderby('id','desc')
-         ->select('id','dare_name','username','url','dare_slug','likes','shares','views')->paginate(15);
+         ->select('id','dare_name','username','url','dare_slug','likes','views')->paginate(15);
          return dareres::collection($scores);
     }
 
@@ -32,6 +32,8 @@ class dareController extends Controller
     public function single_dare_video($slug, $id)
     {
          $data = dare::findorfail($id);
+         $data->views = $data->views + 1;
+         $data->save();
          return new dareres($data);
     }
 

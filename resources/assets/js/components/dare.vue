@@ -57,7 +57,7 @@
                                                        </div>
                                                <div class="card-content p-2">
                                             {{single.dare_name}}
-               <p class="fg-gray">{{single.views}} views. {{single.likes}} likes. {{single.shares}} shares</p>
+               <p class="fg-gray">{{single.views}} views. {{single.likes}} likes.</p>
                                                                   </div>
                                            
                             <button class="button fg-white m-1"  style="background-color: #1ba1e2"
@@ -146,7 +146,7 @@
                                                           </div>
                                                           <div class="card-content p-2 text-ellipsis">
                                                              {{con.dare_name}}
-                                        <p class="fg-gray">{{con.views}} views. {{con.likes}} likes. {{con.shares}} shares</p>
+                                        <p class="fg-gray">{{con.views}} views. {{con.likes}} likes.</p>
                                                           </div>
                                                       </div>
                                                     </router-link>
@@ -195,7 +195,7 @@
     
     <script>
         export default {
-    
+       
             data(){
                 return {
                   single:[],
@@ -291,9 +291,13 @@
           this.pagination = pagination;
               },
 
+              scrollToTop() {
+                window.scrollTo(0,0);
+               },
+
               reloadVideo(){
-                  document.body.scrollTop = 0;
-		              document.documentElement.scrollTop = 0;
+               // this.scrollToTop()
+
                 this.loading = true
                 fetch('/api/single-dare-video/'+ this.$route.params.slug + '/' + this.$route.params.id)
                 .then(res => res.json())
@@ -301,7 +305,8 @@
                    this.single = res.data;
                   this.loading = false
                  console.log(this.single)
-              
+                 document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
                 })
                 .catch(error =>{
                   console.log(error)
@@ -339,7 +344,8 @@
                //watch for url param changes, meaning user clicked another video
                $route (to,from){
                 this.reloadVideo();
-                }
+                },
+                
             }
         }
     </script>

@@ -71,7 +71,7 @@
                                           </div>
                                           <div class="card-content p-2 text-ellipsis">
                                              {{con.dare_name}}
-                        <p class="fg-gray">{{con.views}} views. {{con.likes}} likes. {{con.shares}} shares</p>
+                        <p class="fg-gray">{{con.views}} views. {{con.likes}} likes.</p>
                                           </div>
                                       </div>
                                     </router-link>

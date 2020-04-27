@@ -53016,6 +53016,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
             auth: true
         }
     }]
+
 }));
 
 /***/ }),
@@ -56530,9 +56531,7 @@ var render = function() {
                                                         _vm._s(con.views) +
                                                           " views. " +
                                                           _vm._s(con.likes) +
-                                                          " likes. " +
-                                                          _vm._s(con.shares) +
-                                                          " shares"
+                                                          " likes."
                                                       )
                                                     ]
                                                   )
@@ -56989,11 +56988,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       document.documentElement.scrollTop = 0;
       this.pagination = pagination;
     },
+    scrollToTop: function scrollToTop() {
+      window.scrollTo(0, 0);
+    },
     reloadVideo: function reloadVideo() {
       var _this3 = this;
 
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
+      // this.scrollToTop()
+
       this.loading = true;
       fetch('/api/single-dare-video/' + this.$route.params.slug + '/' + this.$route.params.id).then(function (res) {
         return res.json();
@@ -57001,6 +57003,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this3.single = res.data;
         _this3.loading = false;
         console.log(_this3.single);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
       }).catch(function (error) {
         console.log(error);
         //off loader
@@ -57131,11 +57135,7 @@ var render = function() {
                                                     _vm._s(_vm.single.views) +
                                                       " views. " +
                                                       _vm._s(_vm.single.likes) +
-                                                      " likes. " +
-                                                      _vm._s(
-                                                        _vm.single.shares
-                                                      ) +
-                                                      " shares"
+                                                      " likes."
                                                   )
                                                 ]
                                               )
@@ -57342,11 +57342,7 @@ var render = function() {
                                                               _vm._s(
                                                                 con.likes
                                                               ) +
-                                                              " likes. " +
-                                                              _vm._s(
-                                                                con.shares
-                                                              ) +
-                                                              " shares"
+                                                              " likes."
                                                           )
                                                         ]
                                                       )
