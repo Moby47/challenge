@@ -17,7 +17,7 @@ class CreateDaresTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('url');
-            $table->string('duration');
+          //  $table->string('duration');
             $table->string('dare_name');
             $table->string('dare_slug');
             $table->string('username');

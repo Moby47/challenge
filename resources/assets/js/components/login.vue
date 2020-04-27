@@ -143,6 +143,13 @@
                     .catch(error =>{
                         Metro.activity.close(activity);
                       console.log(error)
+                      /*
+                      if(error.response.status == 422){
+                    this.valerror = error.response.data.errors;
+                    if(this.valerror){
+                      this.$toasted.show("Please verify your email is correct...");
+                    }
+                  }*/
                     })
                   }else{ //if error
                     //error is auto shown, dont worry

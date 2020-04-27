@@ -54,7 +54,7 @@ export default new Router({
             }
         },
         {
-            path: '/dare/:slug',
+            path: '/dare/:slug/:id',
             name: 'dare',
             component: dare,
              meta:{

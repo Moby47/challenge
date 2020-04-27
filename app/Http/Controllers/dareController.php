@@ -24,9 +24,17 @@ class dareController extends Controller
     {
         //fetch data (last 15) from dares model. (Done! was blocking pro)
          $scores = dare::orderby('id','desc')
-         ->select('id','dare_name','username','url','duration','dare_slug','likes','shares','views')->paginate(15);
+         ->select('id','dare_name','username','url','dare_slug','likes','shares','views')->paginate(15);
          return dareres::collection($scores);
     }
+
+
+    public function single_dare_video($slug, $id)
+    {
+         $data = dare::findorfail($id);
+         return new dareres($data);
+    }
+
 
     public function search()
     {
@@ -207,7 +215,7 @@ class dareController extends Controller
         //save required intel
         $cloundary_upload = Cloudder::getResult();
         //convert duration from sec to min
-        $seconds =  $cloundary_upload['duration'];
+     /*   $seconds =  $cloundary_upload['duration'];
             $start_seconds = round($seconds);
             if($start_seconds <60)
             {
@@ -224,11 +232,11 @@ class dareController extends Controller
                 $seconds = $seconds."s";
             }
             $time = "$minutes $seconds";
-
+*/
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
-        $save->duration = $time;
+       // $save->duration = $time;
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->username = $user->username;

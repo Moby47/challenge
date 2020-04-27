@@ -56,6 +56,11 @@ Route::get('/upload-dare-list/{userid}', 'dareController@upload_dare_list'); //-
 
 Route::POST('/upload-dare', 'dareController@upload_dare'); //->middleware('auth.apikey');
 
+Route::GET('/single-dare-video/{slug}/{id}', 'dareController@single_dare_video'); //->middleware('auth.apikey');
+
+
+
+
 //For Admin Via API
 Route::post('/create-darelist', 'dareController@create_darelist'); //->middleware('auth.apikey');
 //params: dare_name and points

@@ -50,7 +50,7 @@
                                         outlined
                                         tile
                                       >
-                                    <router-link :to="'/dare/'+con.dare_slug" class='remove-deco'>
+                                    <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
                                       <div class="card image-header">
                             <div>
 
