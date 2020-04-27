@@ -7,7 +7,7 @@ Vue.use(Router)
 import index from './components/index.vue'
 import homepage from './components/homepage.vue'
 import dares from './components/dares.vue'
-import singleDare from './components/singleDare.vue'
+import dare from './components/dare.vue'
 import leaderBoard from './components/leaderBoard.vue'
 import dareList from './components/dareList.vue'
 import playerProfile from './components/playerProfile.vue'
@@ -54,9 +54,9 @@ export default new Router({
             }
         },
         {
-            path: '/single-dare',
-            name: 'singleDare',
-            component: singleDare,
+            path: '/dare/:slug',
+            name: 'dare',
+            component: dare,
              meta:{
               //  auth: true
             }

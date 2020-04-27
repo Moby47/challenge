@@ -52889,8 +52889,8 @@ module.exports = function (css) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_homepage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_homepage_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_dares_vue__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_dares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_dares_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_singleDare_vue__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_singleDare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_singleDare_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dare_vue__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_dare_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_leaderBoard_vue__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_leaderBoard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_leaderBoard_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dareList_vue__ = __webpack_require__(63);
@@ -52971,9 +52971,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
             //  auth: true
         }
     }, {
-        path: '/single-dare',
-        name: 'singleDare',
-        component: __WEBPACK_IMPORTED_MODULE_5__components_singleDare_vue___default.a,
+        path: '/dare/:slug',
+        name: 'dare',
+        component: __WEBPACK_IMPORTED_MODULE_5__components_dare_vue___default.a,
         meta: {
             //  auth: true
         }
@@ -56346,13 +56346,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             content: [],
             empty: false,
-            loading: false
+            loading: false,
+            pagination: [],
+            count: '0'
         };
     },
     mounted: function mounted() {
@@ -56364,14 +56388,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        get: function get() {
+        get: function get(page_url) {
             var _this = this;
 
             this.loading = true;
-            fetch('/api/dares').then(function (res) {
+
+            var page_url = page_url || '/api/dares';
+
+            fetch(page_url).then(function (res) {
                 return res.json();
             }).then(function (res) {
                 _this.content = res.data;
+                _this.count = res.meta.total;
                 _this.loading = false;
                 console.log(_this.content);
 
@@ -56383,6 +56411,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this.empty = false;
                 }
                 //to determine if obj is empty
+                _this.makePagination(res.meta, res.links);
+                _this.loading = false;
             }).catch(function (error) {
                 console.log(error);
                 //off loader
@@ -56392,6 +56422,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 };
                 Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
             });
+        },
+        makePagination: function makePagination(meta, links) {
+            var pagination = {
+                current_page: meta.current_page,
+                last_page: meta.last_page,
+                next_page_url: links.next,
+                prev_page_url: links.prev
+            };
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            this.pagination = pagination;
         },
         home: function home() {
             this.$router.push({ name: "index" });
@@ -56468,52 +56509,90 @@ var render = function() {
                     : _vm._e()
                 }),
                 _vm._v(" "),
-                [
-                  _c(
-                    "v-container",
-                    { staticClass: "grey lighten-5" },
-                    [
+                !_vm.loading
+                  ? [
                       _c(
-                        "v-row",
-                        _vm._l(_vm.content, function(con) {
-                          return _c(
-                            "v-col",
-                            { key: con.id, attrs: { cols: "12", sm: "4" } },
-                            [
-                              _c(
-                                "v-card",
-                                {
-                                  staticClass: "pa-2",
-                                  attrs: { outlined: "", tile: "" }
-                                },
+                        "v-container",
+                        { staticClass: "grey lighten-5" },
+                        [
+                          _c(
+                            "v-row",
+                            _vm._l(_vm.content, function(con) {
+                              return _c(
+                                "v-col",
+                                { key: con.id, attrs: { cols: "12", sm: "4" } },
                                 [
                                   _c(
-                                    "div",
-                                    { staticClass: "card image-header" },
+                                    "v-card",
+                                    {
+                                      staticClass: "pa-2",
+                                      attrs: { outlined: "", tile: "" }
+                                    },
                                     [
                                       _c(
-                                        "div",
+                                        "router-link",
                                         {
-                                          staticClass: "card-header fg-yellow",
-                                          staticStyle: {
-                                            "background-image":
-                                              "url(/images/home.svg)"
+                                          staticClass: "remove-deco",
+                                          attrs: {
+                                            to: "/dare/" + con.dare_slug
                                           }
                                         },
                                         [
                                           _c(
-                                            "span",
+                                            "div",
                                             {
-                                              staticClass: "fg-white p-1",
-                                              staticStyle: {
-                                                "background-color": "#1ba1e2",
-                                                "border-radius": "10px"
-                                              }
+                                              staticClass: "card image-header"
                                             },
                                             [
-                                              _vm._v(
-                                                "\n                                     " +
-                                                  _vm._s(con.duration)
+                                              _c("div", [
+                                                _c("video", {
+                                                  attrs: {
+                                                    "data-role": "video",
+                                                    "data-src": con.url,
+                                                    "data-poster":
+                                                      "/images/poster.png",
+                                                    "data-aspect-ratio": "hd",
+                                                    "data-logo":
+                                                      "/images/play.png",
+                                                    "data-logo-height": "40",
+                                                    "data-show-loop": "false",
+                                                    "data-show-play": "false",
+                                                    "data-show-stop": "false",
+                                                    "data-show-stream": "false",
+                                                    "data-show-volume": "false",
+                                                    "data-show-mute": "false",
+                                                    "data-show-full": "false"
+                                                  }
+                                                })
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "card-content p-2 text-ellipsis"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                             " +
+                                                      _vm._s(con.dare_name) +
+                                                      "\n                        "
+                                                  ),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "fg-gray" },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(con.views) +
+                                                          " views. " +
+                                                          _vm._s(con.likes) +
+                                                          " likes. " +
+                                                          _vm._s(con.shares) +
+                                                          " shares"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
                                               )
                                             ]
                                           )
@@ -56521,54 +56600,92 @@ var render = function() {
                                       ),
                                       _vm._v(" "),
                                       _c(
-                                        "div",
+                                        "span",
                                         {
-                                          staticClass:
-                                            "card-content p-2 text-ellipsis"
+                                          staticClass: "badge inside  fg-white",
+                                          staticStyle: {
+                                            "background-color": "#b82943"
+                                          }
                                         },
-                                        [
-                                          _vm._v(
-                                            "\n                                             " +
-                                              _vm._s(con.dare_name) +
-                                              "\n                        "
-                                          ),
-                                          _c("p", { staticClass: "fg-gray" }, [
-                                            _vm._v(
-                                              _vm._s(con.views) +
-                                                " views. " +
-                                                _vm._s(con.likes) +
-                                                " likes. " +
-                                                _vm._s(con.shares) +
-                                                " shares"
-                                            )
-                                          ])
-                                        ]
+                                        [_vm._v(_vm._s(con.username))]
                                       )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "badge inside  fg-white",
-                                      staticStyle: {
-                                        "background-color": "#b82943"
-                                      }
-                                    },
-                                    [_vm._v(_vm._s(con.username))]
+                                    ],
+                                    1
                                   )
-                                ]
+                                ],
+                                1
                               )
-                            ],
+                            }),
                             1
                           )
-                        }),
+                        ],
                         1
-                      )
-                    ],
-                    1
-                  )
-                ]
+                      ),
+                      _vm._v(" "),
+                      _vm.count > 15
+                        ? _c("ul", { staticClass: "pagination" }, [
+                            _c("li", { staticClass: "page-item" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: {
+                                    href: "#",
+                                    disabled: !_vm.pagination.prev_page_url
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      _vm.get(_vm.pagination.prev_page_url)
+                                    }
+                                  }
+                                },
+                                [_vm._v(" Prev ")]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "page-item" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(_vm.pagination.current_page) +
+                                        " of " +
+                                        _vm._s(_vm.pagination.last_page)
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "page-item" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: {
+                                    href: "#",
+                                    disabled: !_vm.pagination.next_page_url
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      _vm.get(_vm.pagination.next_page_url)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Next ")]
+                              )
+                            ])
+                          ])
+                        : _vm._e()
+                    ]
+                  : _vm._e()
               ],
               2
             )
@@ -56617,7 +56734,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/singleDare.vue"
+Component.options.__file = "resources/assets/js/components/dare.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -56626,9 +56743,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-de334da2", Component.options)
+    hotAPI.createRecord("data-v-4d0df407", Component.options)
   } else {
-    hotAPI.reload("data-v-de334da2", Component.options)
+    hotAPI.reload("data-v-4d0df407", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -57186,7 +57303,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-de334da2", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4d0df407", module.exports)
   }
 }
 
@@ -58051,7 +58168,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm.count > 9
+                    _vm.count > 10
                       ? _c("ul", { staticClass: "pagination" }, [
                           _c("li", { staticClass: "page-item" }, [
                             _c(

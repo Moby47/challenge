@@ -37,7 +37,7 @@
                               </template>
                             </div>
                          
-                            <template>
+                            <template v-if='!loading'>
                                 <v-container class="grey lighten-5">
                                   <v-row>
                                     <v-col
@@ -50,19 +50,32 @@
                                         outlined
                                         tile
                                       >
-
+                                    <router-link :to="'/dare/'+con.dare_slug" class='remove-deco'>
                                       <div class="card image-header">
-                                          <div class="card-header fg-yellow"
-                                             style="background-image: url(/images/home.svg)">
-                                  <span class='fg-white p-1' style="background-color: #1ba1e2; border-radius:10px;">
-                                     {{con.duration}}</span>
+                            <div>
+
+                                <video data-role="video"
+                                :data-src="con.url"
+                                data-poster="/images/poster.png"
+                                data-aspect-ratio="hd"
+                                data-logo="/images/play.png"
+                                data-logo-height="40"
+                                data-show-loop="false"
+                                data-show-play="false"
+                                data-show-stop="false"
+                                data-show-stream="false"
+                                data-show-volume="false"
+                                data-show-mute="false"
+                                data-show-full="false"
+                                 ></video>
                                           </div>
                                           <div class="card-content p-2 text-ellipsis">
                                              {{con.dare_name}}
                         <p class="fg-gray">{{con.views}} views. {{con.likes}} likes. {{con.shares}} shares</p>
                                           </div>
                                       </div>
-                                      
+                                    </router-link>
+
                                       <span class="badge inside  fg-white"
                                       style="background-color: #b82943">{{con.username}}</span>
 
@@ -70,6 +83,15 @@
                                     </v-col>
                                   </v-row>
                                 </v-container>
+
+                                <ul class="pagination" v-if='count > 15'>
+                     <li class="page-item"><a class="page-link" href="#" @click.prevent="get(pagination.prev_page_url)" :disabled="!pagination.prev_page_url"> Prev </a></li>
+        
+                     <li class="page-item"><a class="page-link" href="#"><span>{{pagination.current_page}} of {{pagination.last_page}}</span></a></li>
+                                    
+                      <li class="page-item"><a class="page-link" href="#" @click.prevent="get(pagination.next_page_url)" :disabled="!pagination.next_page_url">Next </a></li>
+                                </ul>
+
                               </template>
 <!--
        <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
@@ -134,6 +156,8 @@
                   content:[],
                     empty:false,
                     loading:false, 
+                    pagination: [],
+                    count:'0',
                 }
             },
     
@@ -146,12 +170,16 @@
         
             methods: {
 
-                get(){
+                get(page_url){
                     this.loading = true
-                fetch('/api/dares')
+                    
+                    var   page_url = page_url || '/api/dares';
+
+                fetch(page_url)
                 .then(res => res.json())
                 .then(res=>{
                    this.content = res.data;
+                   this.count = res.meta.total
                   this.loading = false
                  console.log(this.content)
                 
@@ -163,7 +191,8 @@
                               this.empty = false;
                           }
                   //to determine if obj is empty
-                  
+                  this.makePagination(res.meta, res.links);
+                  this.loading = false
                 })
                 .catch(error =>{
                   console.log(error)
@@ -177,6 +206,18 @@
                        
                     })
                 },
+
+                makePagination(meta, links){
+          var pagination = {
+                          current_page: meta.current_page,
+                          last_page: meta.last_page,
+                          next_page_url: links.next,
+                          prev_page_url: links.prev
+                           }
+            document.body.scrollTop = 0;
+           document.documentElement.scrollTop = 0;
+          this.pagination = pagination;
+              },
 
                 home(){
                     this.$router.push({name: "index"});

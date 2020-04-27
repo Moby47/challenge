@@ -225,3 +225,8 @@
 .bold{
   font-weight: bolder;
 }
+
+.remove-deco{
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
