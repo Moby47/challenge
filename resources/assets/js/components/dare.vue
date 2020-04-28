@@ -131,7 +131,7 @@
                 
                                                 <video data-role="video"
                                                 :data-src="con.url"
-                                                data-poster="/images/poster.png"
+                                                :data-poster="con.poster"
                                                 data-aspect-ratio="hd"
                                                 data-logo="/images/play.png"
                                                 data-logo-height="40"

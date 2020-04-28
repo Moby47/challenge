@@ -24,14 +24,14 @@ class dareController extends Controller
     {
         //fetch data (last 15) from dares model. (Done! was blocking pro)
          $scores = dare::orderby('id','desc')
-         ->select('id','dare_name','username','url','dare_slug','likes','views')->paginate(15);
+         ->select('id','dare_name','username','url','poster','dare_slug','likes','views')->paginate(15);
          return dareres::collection($scores);
     }
 
 
     public function single_dare_video($slug, $id)
     {
-         $data = dare::findorfail($id);
+        $data = dare::findorfail($id);
          $data->views = $data->views + 1;
          $data->save();
          return new dareres($data);
@@ -238,7 +238,7 @@ class dareController extends Controller
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
-       // $save->duration = $time;
+        $save->poster = str_ireplace("upload/","upload/so_3,f_jpg/",$cloundary_upload['url']);;
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->username = $user->username;
