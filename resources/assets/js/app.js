@@ -20,6 +20,9 @@ Vue.use(VeeValidate);
 //vur router
 import router from './router'
 
+//dis
+import VueDisqus from 'vue-disqus'
+Vue.use(VueDisqus)
 
 //vuetify
 import Vuetify from 'vuetify'

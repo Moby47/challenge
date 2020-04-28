@@ -66,20 +66,16 @@
                                                                    id="dropdown_toggle_1">Comments</button>
                                                                   <div class="pos-relative">
                                                                       <div
-                                                                              data-role="dropdown"
-                                                                              data-toggle-element="#dropdown_toggle_1">
-                                                                          <p class="p-10 text-center">
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                              In Metro 4 you can transform any element to dropdown.
-                                                                          </p>
+                                                                      data-role="dropdown"
+                                                                       data-toggle-element="#dropdown_toggle_1">
+                                   <p class="p-5 text-center">
+
+                                      <vue-disqus shortname="challenge-app"
+                                      :identifier="id_disqus"
+                                      :url="url_disqus">
+                                     </vue-disqus>
+
+                                        </p>
                                                                       </div>
                                                                   </div>
                                                               
@@ -209,7 +205,8 @@
                   content:[],
                   count:'',
                   loading2:true,
-                  url:'',
+                  url_disqus:'',
+                  id_disqus:'',
                 }
             },
     
@@ -344,7 +341,13 @@
                 this.others()
               }, 1000);
 
-              this.url = String(window.location)
+
+              var url = String(window.location)
+              var id = this.$route.params.id
+                if(id){
+             this.url_disqus = url+`/`+id
+             this.id_disqus = id
+                }
 
             },//mount end
 

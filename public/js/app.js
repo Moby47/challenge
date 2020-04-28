@@ -12311,11 +12311,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vee_validate__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuetify__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuetify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetify_dist_vuetify_min_css__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetify_dist_vuetify_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuetify_dist_vuetify_min_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_particles__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_disqus__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_disqus___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_disqus__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetify__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuetify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuetify_dist_vuetify_min_css__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuetify_dist_vuetify_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vuetify_dist_vuetify_min_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_particles__ = __webpack_require__(106);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -12338,14 +12340,18 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vee_
 //vur router
 
 
+//dis
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_disqus___default.a);
+
 //vuetify
 
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vuetify___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vuetify___default.a);
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vue_particles__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vue_particles__["a" /* default */]);
 
 /* ------------------------- Imports -------------------- */
 
@@ -56471,10 +56477,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -56485,7 +56487,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       content: [],
       count: '',
       loading2: true,
-      url: ''
+      url_disqus: '',
+      id_disqus: ''
     };
   },
 
@@ -56608,7 +56611,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       _this4.others();
     }, 1000);
 
-    this.url = String(window.location);
+    var url = String(window.location);
+    var id = this.$route.params.id;
+    if (id) {
+      this.url_disqus = url + '/' + id;
+      this.id_disqus = id;
+    }
   },
   //mount end
 
@@ -56763,13 +56771,20 @@ var render = function() {
                                                     "p",
                                                     {
                                                       staticClass:
-                                                        "p-10 text-center"
+                                                        "p-5 text-center"
                                                     },
                                                     [
-                                                      _vm._v(
-                                                        "\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                      "
-                                                      )
-                                                    ]
+                                                      _c("vue-disqus", {
+                                                        attrs: {
+                                                          shortname:
+                                                            "challenge-app",
+                                                          identifier:
+                                                            _vm.id_disqus,
+                                                          url: _vm.url_disqus
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
                                                   )
                                                 ]
                                               )
@@ -107920,157 +107935,156 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      single: [],
-      loading: true,
-      content: [],
-      count: '',
-      loading2: true,
-      url: ''
-    };
-  },
+    data: function data() {
+        return {
+            single: [],
+            loading: true,
+            content: [],
+            count: '',
+            loading2: true,
+            url_disqus: '',
+            id_disqus: ''
+        };
+    },
 
 
-  methods: {
-    video: function video() {
-      var _this = this;
+    methods: {
+        video: function video() {
+            var _this = this;
 
-      this.loading = true;
-      fetch('/api/single-dare-video/' + this.$route.params.slug + '/' + this.$route.params.id).then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        _this.single = res.data;
-        _this.loading = false;
-        console.log(_this.single);
+            this.loading = true;
+            fetch('/api/single-dare-video/' + this.$route.params.slug + '/' + this.$route.params.id).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.single = res.data;
+                _this.loading = false;
+                console.log(_this.single);
 
-        /*to determine if obj is empty 
+                /*to determine if obj is empty 
+                        console.log(res.data[0]);
+                        if(res.data[0] == undefined){
+                            this.empty = true;
+                        }else{
+                            this.empty = false;
+                        }
+                //to determine if obj is empty */
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+            });
+        },
+        others: function others(page_url) {
+            var _this2 = this;
+
+            this.loading2 = true;
+
+            var page_url = page_url || '/api/dares';
+
+            fetch(page_url).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this2.content = res.data;
+                _this2.count = res.meta.total;
+                _this2.loading2 = false;
+                console.log(_this2.content);
+
+                //to determine if obj is empty 
                 console.log(res.data[0]);
-                if(res.data[0] == undefined){
-                    this.empty = true;
-                }else{
-                    this.empty = false;
+                if (res.data[0] == undefined) {
+                    _this2.empty = true;
+                } else {
+                    _this2.empty = false;
                 }
-        //to determine if obj is empty */
-      }).catch(function (error) {
-        console.log(error);
-        //off loader
-        _this.loading = false;
-        var options = {
-          showTop: true
-        };
-        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
-      });
-    },
-    others: function others(page_url) {
-      var _this2 = this;
+                //to determine if obj is empty
+                _this2.makePagination(res.meta, res.links);
+                _this2.loading2 = false;
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this2.loading2 = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+            });
+        },
+        makePagination: function makePagination(meta, links) {
+            var pagination = {
+                current_page: meta.current_page,
+                last_page: meta.last_page,
+                next_page_url: links.next,
+                prev_page_url: links.prev
+            };
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            this.pagination = pagination;
+        },
+        scrollToTop: function scrollToTop() {
+            window.scrollTo(0, 0);
+        },
+        reloadVideo: function reloadVideo() {
+            var _this3 = this;
 
-      this.loading2 = true;
+            // this.scrollToTop()
 
-      var page_url = page_url || '/api/dares';
-
-      fetch(page_url).then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        _this2.content = res.data;
-        _this2.count = res.meta.total;
-        _this2.loading2 = false;
-        console.log(_this2.content);
-
-        //to determine if obj is empty 
-        console.log(res.data[0]);
-        if (res.data[0] == undefined) {
-          _this2.empty = true;
-        } else {
-          _this2.empty = false;
+            this.loading = true;
+            fetch('/api/single-dare-video/' + this.$route.params.slug + '/' + this.$route.params.id).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this3.single = res.data;
+                _this3.loading = false;
+                console.log(_this3.single);
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this3.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+            });
         }
-        //to determine if obj is empty
-        _this2.makePagination(res.meta, res.links);
-        _this2.loading2 = false;
-      }).catch(function (error) {
-        console.log(error);
-        //off loader
-        _this2.loading2 = false;
-        var options = {
-          showTop: true
-        };
-        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
-      });
     },
-    makePagination: function makePagination(meta, links) {
-      var pagination = {
-        current_page: meta.current_page,
-        last_page: meta.last_page,
-        next_page_url: links.next,
-        prev_page_url: links.prev
-      };
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      this.pagination = pagination;
-    },
-    scrollToTop: function scrollToTop() {
-      window.scrollTo(0, 0);
-    },
-    reloadVideo: function reloadVideo() {
-      var _this3 = this;
 
-      // this.scrollToTop()
+    mounted: function mounted() {
+        var _this4 = this;
 
-      this.loading = true;
-      fetch('/api/single-dare-video/' + this.$route.params.slug + '/' + this.$route.params.id).then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        _this3.single = res.data;
-        _this3.loading = false;
-        console.log(_this3.single);
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }).catch(function (error) {
-        console.log(error);
-        //off loader
-        _this3.loading = false;
-        var options = {
-          showTop: true
-        };
-        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
-      });
+        this.video();
+
+        $(document).ready(function () {
+            $(window).scrollTop(0);
+        });
+
+        setTimeout(function () {
+            _this4.others();
+        }, 1000);
+
+        var url = String(window.location);
+        var id = this.$route.params.id;
+        if (id) {
+            this.url_disqus = url + '/' + id;
+            this.id_disqus = id;
+        }
+    },
+    //mount end
+
+    watch: {
+        //watch for url param changes, meaning user clicked another video
+        // $route (to,from){
+        // this.reloadVideo();
+        //},
+
     }
-  },
-
-  mounted: function mounted() {
-    var _this4 = this;
-
-    this.video();
-
-    $(document).ready(function () {
-      $(window).scrollTop(0);
-    });
-
-    setTimeout(function () {
-      _this4.others();
-    }, 1000);
-
-    this.url = String(window.location);
-  },
-  //mount end
-
-  watch: {
-    //watch for url param changes, meaning user clicked another video
-    // $route (to,from){
-    // this.reloadVideo();
-    //},
-
-  }
 });
 
 /***/ }),
@@ -108218,10 +108232,17 @@ var render = function() {
                                                         "p-10 text-center"
                                                     },
                                                     [
-                                                      _vm._v(
-                                                        "\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                      "
-                                                      )
-                                                    ]
+                                                      _c("vue-disqus", {
+                                                        attrs: {
+                                                          shortname:
+                                                            "challenge-app",
+                                                          identifier:
+                                                            _vm.id_disqus,
+                                                          url: _vm.url_disqus
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
                                                   )
                                                 ]
                                               )
@@ -108696,6 +108717,15 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-1726100f", module.exports)
   }
 }
+
+/***/ }),
+/* 128 */,
+/* 129 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(a,b){ true?module.exports=b():typeof define==='function'&&define.amd?define(b):(a.VueDisqus=b())}(this,(function(){'use strict';var a={render:function(){var a=this,b=a.$createElement,c=a._self._c||b;return c('div',{attrs:{"id":"disqus_thread"}})},staticRenderFns:[],name:'vue-disqus',props:{shortname:{type:String,required:!0},identifier:{type:String,required:!1},url:{type:String,required:!1},title:{type:String,required:!1},remote_auth_s3:{type:String,required:!1},api_key:{type:String,required:!1},sso_config:{type:Object,required:!1},language:{type:String,required:!1}},mounted(){if(window.DISQUS){this.reset(window.DISQUS);return}this.init()},methods:{reset(a){let b=this;a.reset({reload:!0,config:function(){b.setBaseConfig(this)}})},init(){let a=this;window.disqus_config=function(){a.setBaseConfig(this)};setTimeout(()=>{let a=document,b=a.createElement('script');b.setAttribute('id','embed-disqus');b.setAttribute('data-timestamp',+new Date());b.type='text/javascript';b.async=!0;b.src=`//${this.shortname}.disqus.com/embed.js`
+          ;(a.head||a.body).appendChild(b)},0)},setBaseConfig(a){a.page.identifier=this.identifier||this.$route.path||window.location.pathname;a.page.url=this.url||this.$el.baseURI;this.title&&(a.page.title=this.title);this.remote_auth_s3&&(a.page.remote_auth_s3=this.remote_auth_s3);this.api_key&&(a.page.api_key=this.api_key);this.sso_config&&(a.sso=this.sso_config);this.language&&(a.language=this.language);a.callbacks.onReady=[()=>{this.$emit('ready')}];a.callbacks.onNewComment=[a=>{this.$emit('new-comment',a)}]}}};function b(b){b.component('VueDisqus',a)}typeof window!=='undefined'&&typeof window.Vue!=='undefined'&&window.Vue.use(b);return b}))
+
 
 /***/ })
 /******/ ]);
