@@ -24,6 +24,7 @@ import router from './router'
 import VueDisqus from 'vue-disqus'
 Vue.use(VueDisqus)
 
+
 //vuetify
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'

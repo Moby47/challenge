@@ -57,9 +57,15 @@
                                                            </div>
                                                    <div class="card-content p-2 text-cap">
                                                         {{single.dare_name}}. <p><b>{{single.views}} views</b></p>
+                                                      
                                                         <p class="fg-gray">
-                                                            <div class="addthis_inline_share_toolbox"></div>  
-                                                       </p>
+                                                          <whats-app  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7" ></whats-app> 
+                                                           <email  :url="url" :subject="'Challenge completed by: '+single.username" scale="1.7"></email>  
+                                                           <facebook  :url="url" scale="1.7"></facebook> 
+                                                            <twitter  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7"></twitter>  
+                                                           <linkedin  :url="url" scale="1.7"></linkedin>   
+                                                    </p>
+
                                                                       </div>
                                                
                                 <button class="button fg-white m-1"  style="background-color: #1ba1e2"
@@ -189,9 +195,28 @@
         </template>
         
         <script>
-            
-
+        //share icons
+     import {
+      Facebook,
+      Twitter,
+      Linkedin,
+      WhatsApp,
+      Email,
+      Google
+    } from "vue-socialmedia-share";
+    //share icons
         export default {
+       
+          //share icons
+         components: {
+        Facebook,
+        Twitter,
+        Linkedin,
+        WhatsApp,
+        Email,
+        Google
+      },
+      //share icons
     
                 data(){
                     return {
@@ -202,6 +227,7 @@
                       loading2:true,
                       url_disqus:'',
                      id_disqus:'',
+                     url:'',
                     }
                 },
         
@@ -336,7 +362,10 @@
                     this.others()
                   }, 1000);
                   
+                  this.url = String(window.location)
+
                   var url = String(window.location)
+                  
               var id = this.$route.params.id
                 if(id){
              this.url_disqus = url+`/`+id

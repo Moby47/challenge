@@ -42,7 +42,14 @@
                         </thead>
                         <tbody>
                                 <tr v-for='con in content' v-bind:key='con.id'>
-                                        <td>{{con.dare_name}} </td>
+                                        <td>{{con.dare_name}} 
+                                            <p class="fg-gray">
+                                        Dare a friend:
+                                                <whats-app  :url="url" :title="'I dare you: '+con.dare_name" scale="1.4" ></whats-app> 
+                                                 <facebook  :url="url" scale="1.4"></facebook> 
+                                                  <twitter  :url="url" :title="'I dare you: '+con.dare_name" scale="1.4"></twitter>  
+                                          </p>
+                                        </td>
                                         <td>{{con.play_count}}</td>
                                         <td>{{con.points}}</td>
                                     </tr>
@@ -75,8 +82,29 @@
             </style>
 
     <script>
+ //share icons
+ import {
+      Facebook,
+      Twitter,
+      Linkedin,
+      WhatsApp,
+      Email,
+      Google
+    } from "vue-socialmedia-share";
+    //share icons
         export default {
-    
+       
+          //share icons
+         components: {
+        Facebook,
+        Twitter,
+        Linkedin,
+        WhatsApp,
+        Email,
+        Google
+      },
+      //share icons
+       
             data(){
                 return {
                     content:[],
@@ -84,6 +112,7 @@
                     loading:false,    
                     pagination: [],
                     count:'0',
+                    url:'',
                 }
             },
     
@@ -91,6 +120,8 @@
             $(document).ready(function(){
                 $(window).scrollTop(0);
             });
+
+            this.url = String(window.location)
 
             this.get()
         },
