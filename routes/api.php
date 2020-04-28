@@ -28,10 +28,6 @@ Route::get('/leaderboard', 'dareController@scores'); //->middleware('auth.apikey
 
 Route::get('/dares', 'dareController@dares'); //->middleware('auth.apikey');
 
-Route::get('/search', 'dareController@search'); //->middleware('auth.apikey');
-
-Route::get('/filter-dare', 'dareController@filter_dare'); //->middleware('auth.apikey');
-
 Route::get('/dare-list', 'dareController@dare_list'); //->middleware('auth.apikey');
 
 Route::post('/suggest-dare', 'dareController@suggestion'); //->middleware('auth.apikey');
@@ -58,6 +54,7 @@ Route::POST('/upload-dare', 'dareController@upload_dare'); //->middleware('auth.
 
 Route::GET('/single-dare-video/{slug}/{id}', 'dareController@single_dare_video'); //->middleware('auth.apikey');
 
+Route::get('/search/{data}', 'dareController@search'); //->middleware('auth.apikey');
 
 
 

@@ -20,13 +20,19 @@ use JD\Cloudder\Facades\Cloudder;
 
 class dareController extends Controller
 {
+
+
+
     public function dares()
     {
         //fetch data (last 15) from dares model. (Done! was blocking pro)
-         $scores = dare::orderby('id','desc')
+         $dares = dare::orderby('id','desc')
          ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(15);
-         return dareres::collection($scores);
+         return dareres::collection($dares);
     }
+
+
+
 
 
     public function single_dare_video($slug, $id)
@@ -38,21 +44,25 @@ class dareController extends Controller
     }
 
 
-    public function search()
+
+
+
+
+    public function search($data)
     {
-        //search by dare name from dare model ...........................(method needs work)
-            //demo. delete the belows lines of code.
-      $scores = dare::all();
-      return dareres::collection($scores);
+        //data is user_id
+        $res = dare::orderby('id','desc')->where('user_id','=',$data)
+        ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(15);
+        return dareres::collection($res);
+
+        //data is dare_name
+         $res = dare::orderby('id','desc')->where('dare_name','=',$data)
+        ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(15);
+        return dareres::collection($res);
     }
 
-    public function filter_dare()
-    {
-        //search by username from dare model ............................(method needs work)
-             //demo. delete the belows lines of code.
-      $scores = dare::all();
-      return dareres::collection($scores);
-    }
+
+
 
     public function scores()
     {
@@ -63,11 +73,19 @@ class dareController extends Controller
     }
 
    
+
+
+
+
     public function dare_list()
     {
       $scores = darelist::orderby('play_count','desc')->select('dare_name','points','play_count')->paginate(10);
       return darelistres::collection($scores);
     }
+
+
+
+
 
     public function add_mydare(Request $request)
     {
@@ -98,11 +116,19 @@ class dareController extends Controller
       
     }
 
+
+
+
+
     public function dropdown_dare_list()
     {
       $data = darelist::orderby('id','desc')->select('dare_name','points','id')->get();
       return darelistres::collection($data);
     }
+
+
+
+
 
     public function dropdown_dare_name()
     {
@@ -110,11 +136,19 @@ class dareController extends Controller
       return darelistres::collection($data);
     }
 
+
+
+
+
     public function username_dropdown()
     {
       $data = User::orderby('id','desc')->select('username','id')->get();
       return userres::collection($data);
     }
+
+
+
+
 
     public function suggestion(Request $request)
     {
@@ -125,6 +159,10 @@ class dareController extends Controller
         return 1;
     }
 
+
+
+
+
     public function create_darelist(Request $request)
     {
         $save = new darelist();
@@ -134,11 +172,19 @@ class dareController extends Controller
         return 1;
     }
 
+
+
+
+
     public function suggestions()
     {
         $data = suggestion::orderby('id','desc')->select('username','dare','created_at')->paginate(15);
         return suggestionres::collection($data);
     }
+
+
+
+
 
     public function pending_dares($userid)
     {
@@ -162,6 +208,10 @@ class dareController extends Controller
     }
 
 
+
+
+
+
     public function upload_dare_list($userid)
     {
         //check and expire
@@ -183,6 +233,9 @@ class dareController extends Controller
 
       return darelistres::collection($ex_data);
     }
+
+
+
 
 
     public function upload_dare(Request $request)
@@ -238,7 +291,7 @@ class dareController extends Controller
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
-        $save->poster = str_ireplace("upload/","upload/so_3,f_jpg/",$cloundary_upload['url']);;
+        $save->poster = str_ireplace("upload/","upload/so_3,f_gif/",$cloundary_upload['url']);;
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->username = $user->username;

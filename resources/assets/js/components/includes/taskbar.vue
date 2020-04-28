@@ -144,6 +144,7 @@
                 <!-- <button class="task-bar-item" id="open-charm" onclick="Metro.charms.toggle('#charm2')">
                         <span class="mif-info"></span></button>
                     -->
+                   
                     <span style="line-height: 40px;" class="pr-4">
                         <span data-role="clock" class="w-auto fg-white reduce-1" data-show-date="false"></span>
                     </span>

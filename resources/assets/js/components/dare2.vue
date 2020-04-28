@@ -58,11 +58,7 @@
                                                    <div class="card-content p-2 text-cap">
                                                         {{single.dare_name}}. <p><b>{{single.views}} views</b></p>
                                                         <p class="fg-gray">
-                                                             <whats-app  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7" ></whats-app> 
-                                                              <email  :url="url" :subject="'Challenge completed by: '+single.username" scale="1.7"></email>  
-                                                              <facebook  :url="url" scale="1.7"></facebook> 
-                                                               <twitter  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7"></twitter>  
-                                                              <linkedin  :url="url" scale="1.7"></linkedin>   
+                                                            <div class="addthis_inline_share_toolbox"></div>  
                                                        </p>
                                                                       </div>
                                                
@@ -152,7 +148,7 @@
                                                               </div>
                                                               <div class="card-content p-2 text-ellipsis text-cap">
                                                                  {{con.dare_name}}
-                                            <p class="fg-gray"><b>{{con.views}} views</b>. {{con.created_at}}.</p>
+                                            <p class="fg-gray"><b>{{con.views}} views</b>. {{con.created_at}}</p>
                                                               </div>
                                                           </div>
                                                         </router-link>
@@ -200,29 +196,10 @@
         </template>
         
         <script>
-              //share icons
-     import {
-      Facebook,
-      Twitter,
-      Linkedin,
-      WhatsApp,
-      Email,
-      Google
-    } from "vue-socialmedia-share";
-    //share icons
+            
 
         export default {
-       
-          //share icons
-         components: {
-        Facebook,
-        Twitter,
-        Linkedin,
-        WhatsApp,
-        Email,
-        Google
-      },
-      //share icons
+    
                 data(){
                     return {
                       single:[],
