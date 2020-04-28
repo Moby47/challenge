@@ -83,6 +83,8 @@
                              Metro.activity.close(activity);
                              this.$router.push({name: "homepage"});
                           
+                          }else{
+                              alert('An error coccured, please try again.')
                           }
                     })
                     .catch(error =>{

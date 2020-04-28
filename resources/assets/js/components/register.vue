@@ -69,27 +69,11 @@
             },
             
             methods: {
-                newPlayer(){
-                    this.$router.push({name: "register"});
-               },
+              
                oldPlayer(){
                 this.$router.push({name: "login"});
                 },
-                dares(){
-                    this.$router.push({name: "dares"});
-                },
-                board(){
-                this.$router.push({name: "leaderBoard"});
-                },
-                pick(){
-                    this.$router.push({name: "pickDare"});
-                },
-                pendingDares(){
-                    this.$router.push({name: "pendingDares"});
-                },
-                upload(){
-                    this.$router.push({name: "upload"});
-                },
+                
     
                 notify(){
                     var wel = Metro.session.getItem('player')
@@ -163,31 +147,45 @@
                     })
                     .catch(error =>{
                         Metro.activity.close(activity);
-                      console.log(error)
+                      console.log('err',error)
                     })
 
         }else{
             var options = {
                                 showTop: true,
                             }
-            Metro.toast.create('An error occured!',
+            Metro.toast.create('An error occured. Try again',
                              null, 9000, 'alert', options);
                              Metro.activity.close(activity);
-        }
 
-        })
+        
+        }
+         })
         .catch(error=>{
           console.log(error)
           Metro.activity.close(activity);
-
+            console.log('err res',error.response.data.errors)
+    
           if(error.response.status == 422){
-           
-            Metro.toast.create('This Email has been taken.',
-                             null, 9000, 'yellow');
+         
+            var options = {
+                   showTop: true,
+            }
+            var err = error.response.data.errors
+            if(err.email){
+                Metro.toast.create(err.email[0],
+                            null, 5000, 'yellow', options);
+              }
+              if(err.username){
+                Metro.toast.create(err.username[0],
+                            null, 5000, 'yellow');
+              }
+
           }else{
-    Metro.toast.create('Please verify that your inputs are correct',
+             Metro.toast.create('Please check your data and try again',
                              null, 9000, 'alert');
           } 
+
         })
           
              }else{

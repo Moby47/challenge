@@ -160,6 +160,11 @@ class dareController extends Controller
 
     public function suggestion(Request $request)
     {
+        $this->validate($request, [
+            'username' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
         $save = new suggestion();
         $save->username = $request->input('username');
         $save->dare = $request->input('description');
@@ -173,6 +178,11 @@ class dareController extends Controller
 
     public function create_darelist(Request $request)
     {
+        $this->validate($request, [
+            'dare_name' => 'required|string|unique:darelists',
+            'points' => 'required',
+        ]);
+
         $save = new darelist();
         $save->dare_name = $request->input('dare_name');
         $save->points = $request->input('points');
@@ -251,6 +261,13 @@ class dareController extends Controller
         $this->validate($request,[
             'video'=>'required|mimes:mp4,3gp|between:1, 50000',
         ]);
+
+       /* try{
+
+        }
+        catch(\Exception $e){
+            return '47';
+         } */
 
         //push to cloud
         $video = $request->file('video')->getRealPath();;

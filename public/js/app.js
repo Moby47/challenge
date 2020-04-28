@@ -59524,13 +59524,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }).catch(function (error) {
                         Metro.activity.close(activity);
                         console.log(error);
-                        /*
-                        if(error.response.status == 422){
-                        this.valerror = error.response.data.errors;
-                        if(this.valerror){
-                        this.$toasted.show("Please verify your email is correct...");
-                        }
-                        }*/
                     });
                 } else {} //if error
                 //error is auto shown, dont worry
@@ -59872,26 +59865,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        newPlayer: function newPlayer() {
-            this.$router.push({ name: "register" });
-        },
         oldPlayer: function oldPlayer() {
             this.$router.push({ name: "login" });
-        },
-        dares: function dares() {
-            this.$router.push({ name: "dares" });
-        },
-        board: function board() {
-            this.$router.push({ name: "leaderBoard" });
-        },
-        pick: function pick() {
-            this.$router.push({ name: "pickDare" });
-        },
-        pendingDares: function pendingDares() {
-            this.$router.push({ name: "pendingDares" });
-        },
-        upload: function upload() {
-            this.$router.push({ name: "upload" });
         },
         notify: function notify() {
             var wel = Metro.session.getItem('player');
@@ -59959,24 +59934,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 }
                             }).catch(function (error) {
                                 Metro.activity.close(activity);
-                                console.log(error);
+                                console.log('err', error);
                             });
                         } else {
                             var options = {
                                 showTop: true
                             };
-                            Metro.toast.create('An error occured!', null, 9000, 'alert', options);
+                            Metro.toast.create('An error occured. Try again', null, 9000, 'alert', options);
                             Metro.activity.close(activity);
                         }
                     }).catch(function (error) {
                         console.log(error);
                         Metro.activity.close(activity);
+                        console.log('err res', error.response.data.errors);
 
                         if (error.response.status == 422) {
 
-                            Metro.toast.create('This Email has been taken.', null, 9000, 'yellow');
+                            var options = {
+                                showTop: true
+                            };
+                            var err = error.response.data.errors;
+                            if (err.email) {
+                                Metro.toast.create(err.email[0], null, 5000, 'yellow', options);
+                            }
+                            if (err.username) {
+                                Metro.toast.create(err.username[0], null, 5000, 'yellow');
+                            }
                         } else {
-                            Metro.toast.create('Please verify that your inputs are correct', null, 9000, 'alert');
+                            Metro.toast.create('Please check your data and try again', null, 9000, 'alert');
                         }
                     });
                 } else {
@@ -60384,6 +60369,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                             Metro.activity.close(activity);
                             _this.$router.push({ name: "homepage" });
+                        } else {
+                            alert('An error coccured, please try again.');
                         }
                     }).catch(function (error) {
                         Metro.activity.close(activity);

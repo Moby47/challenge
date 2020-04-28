@@ -28,9 +28,9 @@ class customauthcontroller extends Controller
 
     public function reg(Request $request){
         $this->validate($request, [
-            'email' => 'required|string|email|max:100',
+            'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string', //|confirmed
-            'username' => 'required|string', 
+            'username' => 'required|string|unique:users', 
         ]);
         //create
        $user = new User;
