@@ -10,7 +10,7 @@
         
             <div class="container">
             
-                    <h3 class="text-center">  </h3>
+                    <h5 class="text-center fg-white">{{text}}</h5>
     
                     <span v-if='empty'>
                         <div class="remark info text-center">
@@ -120,6 +120,7 @@
                 loading:false, 
                 pagination: [],
                 count:'0',
+                text:'',
             }
         },
 
@@ -142,8 +143,16 @@
             .then(res=>{
                this.content = res.data;
                this.count = res.meta.total
-              this.loading = false
-             console.log(this.content)
+
+               this.loading = false
+               console.log(this.content)
+
+               if(Number.isInteger(this.$route.params.data)){
+                this.text = 'Dares by: '+ res.data[0].username
+               }else{
+                this.text = 'Results for: '+ res.data[0].dare_name
+               }
+
             
               //to determine if obj is empty 
                       console.log(res.data[0]);

@@ -50,13 +50,17 @@ class dareController extends Controller
 
     public function search($data)
     {
+
+        if(is_numeric($data)){
         //data is user_id
         $res = dare::orderby('id','desc')->where('user_id','=',$data)
         ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(15);
         return dareres::collection($res);
+        }
+      
 
         //data is dare_name
-         $res = dare::orderby('id','desc')->where('dare_name','=',$data)
+         $res = dare::orderby('id','desc')->where('dare_slug','=',$data)
         ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(15);
         return dareres::collection($res);
     }
@@ -132,8 +136,12 @@ class dareController extends Controller
 
     public function dropdown_dare_name()
     {
-      $data = dare::orderby('id','desc')->select('dare_name','dare_slug')->get();
-      return darelistres::collection($data);
+    //  $data = dare::orderby('id','desc')->select('dare_name','dare_slug')->get();
+     // return darelistres::collection($data);
+      return $data= \DB::table('dares')->orderby('id','desc')
+      ->select('dare_name','dare_slug', \DB::raw('count(dare_name) as play_count'))
+      ->groupBy('dare_name','dare_slug')->get();
+      
     }
 
 
@@ -142,7 +150,7 @@ class dareController extends Controller
 
     public function username_dropdown()
     {
-      $data = User::orderby('id','desc')->select('username','id')->get();
+      $data = User::orderby('id','desc')->where('points','>',1)->select('username','id')->get();
       return userres::collection($data);
     }
 

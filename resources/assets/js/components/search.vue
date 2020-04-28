@@ -74,7 +74,7 @@
                             <select data-role="select" data-prepend="<span class='mif-file-video'>" 
                                     name="Darename"  v-model='darename' v-validate='"required"'>
                                     <option selected class="text-bold" :value='con.dare_slug' v-for='con in content2' v-bind:key='con.id'>
-                                            {{con.dare_name}}
+                                            ({{con.play_count}}) - {{con.dare_name}}
                                             </option>
                                 </select>
                                 </div>
@@ -155,13 +155,13 @@
                     fetch('/api/dropdown-dare-name')
                     .then(res => res.json())
                     .then(res=>{
-                        this.content2 = res.data;
+                        this.content2 = res;
                     this.loading2 = false
-                    console.log(this.content2)
+                    console.log('darenames',this.content2)
                     
                     //to determine if obj is empty 
-                            console.log(res.data[0]);
-                            if(res.data[0] == undefined){
+                            console.log('res state',res[0]);
+                            if(res[0] == undefined){
                                 this.empty2 = true;
                             }else{
                                 this.empty2 = false;

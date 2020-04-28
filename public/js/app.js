@@ -60790,13 +60790,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fetch('/api/dropdown-dare-name').then(function (res) {
                 return res.json();
             }).then(function (res) {
-                _this2.content2 = res.data;
+                _this2.content2 = res;
                 _this2.loading2 = false;
-                console.log(_this2.content2);
+                console.log('darenames', _this2.content2);
 
                 //to determine if obj is empty 
-                console.log(res.data[0]);
-                if (res.data[0] == undefined) {
+                console.log('res state', res[0]);
+                if (res[0] == undefined) {
                     _this2.empty2 = true;
                 } else {
                     _this2.empty2 = false;
@@ -61068,7 +61068,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                                    " +
+                                "\n                                    (" +
+                                  _vm._s(con.play_count) +
+                                  ") - " +
                                   _vm._s(con.dare_name) +
                                   "\n                                    "
                               )
@@ -61273,7 +61275,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             empty: false,
             loading: false,
             pagination: [],
-            count: '0'
+            count: '0',
+            text: ''
         };
     },
     mounted: function mounted() {
@@ -61297,8 +61300,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                 _this.content = res.data;
                 _this.count = res.meta.total;
+
                 _this.loading = false;
                 console.log(_this.content);
+
+                if (Number.isInteger(_this.$route.params.data)) {
+                    _this.text = 'Dares by: ' + res.data[0].username;
+                } else {
+                    _this.text = 'Results for: ' + res.data[0].dare_name;
+                }
 
                 //to determine if obj is empty 
                 console.log(res.data[0]);
@@ -61350,7 +61360,9 @@ var render = function() {
       [
         _c("div", { staticClass: "window-area scroll" }, [
           _c("div", { staticClass: "container" }, [
-            _c("h3", { staticClass: "text-center" }),
+            _c("h5", { staticClass: "text-center fg-white" }, [
+              _vm._v(_vm._s(_vm.text))
+            ]),
             _vm._v(" "),
             _vm.empty
               ? _c("span", [
