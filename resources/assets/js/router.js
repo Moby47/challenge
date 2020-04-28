@@ -8,6 +8,7 @@ import index from './components/index.vue'
 import homepage from './components/homepage.vue'
 import dares from './components/dares.vue'
 import dare from './components/dare.vue'
+import dare2 from './components/dare2.vue'
 import leaderBoard from './components/leaderBoard.vue'
 import dareList from './components/dareList.vue'
 import playerProfile from './components/playerProfile.vue'
@@ -57,6 +58,14 @@ export default new Router({
             path: '/dare/:slug/:id',
             name: 'dare',
             component: dare,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/dare-video/:slug/:id',
+            name: 'dare2',
+            component: dare2,
              meta:{
               //  auth: true
             }

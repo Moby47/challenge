@@ -52374,39 +52374,42 @@ var install = VeeValidate$1.install;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_dares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_dares_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dare_vue__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_dare_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_leaderBoard_vue__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_leaderBoard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_leaderBoard_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dareList_vue__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dareList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_dareList_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_playerProfile_vue__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_playerProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_playerProfile_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_store_vue__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_store_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_store_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_help_vue__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_help_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_help_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_rules_vue__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_rules_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_rules_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_vue__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_login_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_register_vue__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_register_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_register_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_suggest_vue__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_suggest_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_suggest_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_search_vue__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_search_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_search_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_result_vue__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_result_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_result_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_player_pickDare_vue__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_player_pickDare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_player_pickDare_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_player_pendingDares_vue__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_player_pendingDares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_player_pendingDares_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_player_upload_vue__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_player_upload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_player_upload_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_dare2_vue__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_dare2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_dare2_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_leaderBoard_vue__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_leaderBoard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_leaderBoard_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dareList_vue__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dareList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_dareList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_playerProfile_vue__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_playerProfile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_playerProfile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_store_vue__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_store_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_store_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_help_vue__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_help_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_help_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_rules_vue__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_rules_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_rules_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_login_vue__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_login_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_register_vue__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_register_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_register_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_suggest_vue__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_suggest_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_suggest_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_search_vue__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_search_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_search_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_result_vue__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_result_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_result_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_player_pickDare_vue__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_player_pickDare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_player_pickDare_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_player_pendingDares_vue__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_player_pendingDares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_player_pendingDares_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_player_upload_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_player_upload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_player_upload_vue__);
 
 
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
 
 
 
@@ -52461,100 +52464,107 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
             //  auth: true
         }
     }, {
+        path: '/dare-video/:slug/:id',
+        name: 'dare2',
+        component: __WEBPACK_IMPORTED_MODULE_6__components_dare2_vue___default.a,
+        meta: {
+            //  auth: true
+        }
+    }, {
         path: '/leader-board',
         name: 'leaderBoard',
-        component: __WEBPACK_IMPORTED_MODULE_6__components_leaderBoard_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_7__components_leaderBoard_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/dare-list',
         name: 'dareList',
-        component: __WEBPACK_IMPORTED_MODULE_7__components_dareList_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_8__components_dareList_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/player-profile',
         name: 'playerProfile',
-        component: __WEBPACK_IMPORTED_MODULE_8__components_playerProfile_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_9__components_playerProfile_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/store',
         name: 'store',
-        component: __WEBPACK_IMPORTED_MODULE_9__components_store_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_10__components_store_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/help',
         name: 'help',
-        component: __WEBPACK_IMPORTED_MODULE_10__components_help_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_11__components_help_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/rules',
         name: 'rules',
-        component: __WEBPACK_IMPORTED_MODULE_11__components_rules_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_12__components_rules_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/login',
         name: 'login',
-        component: __WEBPACK_IMPORTED_MODULE_12__components_login_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_13__components_login_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/register',
         name: 'register',
-        component: __WEBPACK_IMPORTED_MODULE_13__components_register_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_14__components_register_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/suggest',
         name: 'suggest',
-        component: __WEBPACK_IMPORTED_MODULE_14__components_suggest_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_15__components_suggest_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/search',
         name: 'search',
-        component: __WEBPACK_IMPORTED_MODULE_15__components_search_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_16__components_search_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/result/:data',
         name: 'result',
-        component: __WEBPACK_IMPORTED_MODULE_16__components_result_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_17__components_result_vue___default.a,
         meta: {
             //  auth: true
         }
     }, {
         path: '/pick-dare',
         name: 'pickDare',
-        component: __WEBPACK_IMPORTED_MODULE_17__components_player_pickDare_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_18__components_player_pickDare_vue___default.a,
         meta: {
             auth: true
         }
     }, {
         path: '/pending-dares',
         name: 'pendingDares',
-        component: __WEBPACK_IMPORTED_MODULE_18__components_player_pendingDares_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_19__components_player_pendingDares_vue___default.a,
         meta: {
             auth: true
         }
     }, {
         path: '/upload-dare',
         name: 'upload',
-        component: __WEBPACK_IMPORTED_MODULE_19__components_player_upload_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_20__components_player_upload_vue___default.a,
         meta: {
             auth: true
         }
@@ -56651,7 +56661,7 @@ var render = function() {
                                                   "data-role": "video",
                                                   "data-src": _vm.single.url,
                                                   "data-poster":
-                                                    "/images/poster.png",
+                                                    "single.poster",
                                                   "data-aspect-ratio": "hd",
                                                   "data-autoplay": "true",
                                                   "data-loop": "true"
@@ -56813,7 +56823,7 @@ var render = function() {
                                               staticClass: "remove-deco",
                                               attrs: {
                                                 to:
-                                                  "/dare/" +
+                                                  "/dare-video/" +
                                                   con.dare_slug +
                                                   "/" +
                                                   con.id
@@ -56835,7 +56845,7 @@ var render = function() {
                                                         "data-poster":
                                                           con.poster,
                                                         "data-aspect-ratio":
-                                                          "hd",
+                                                          "cinema",
                                                         "data-logo":
                                                           "/images/play.png",
                                                         "data-logo-height":
@@ -56933,7 +56943,9 @@ var render = function() {
                                       on: {
                                         click: function($event) {
                                           $event.preventDefault()
-                                          _vm.get(_vm.pagination.prev_page_url)
+                                          _vm.others(
+                                            _vm.pagination.prev_page_url
+                                          )
                                         }
                                       }
                                     },
@@ -56972,7 +56984,9 @@ var render = function() {
                                       on: {
                                         click: function($event) {
                                           $event.preventDefault()
-                                          _vm.get(_vm.pagination.next_page_url)
+                                          _vm.others(
+                                            _vm.pagination.next_page_url
+                                          )
                                         }
                                       }
                                     },
@@ -107647,6 +107661,832 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(123)
+/* template */
+var __vue_template__ = __webpack_require__(124)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/dare2.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-54c8363b", Component.options)
+  } else {
+    hotAPI.reload("data-v-54c8363b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 123 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      single: [],
+      loading: true,
+      content: [],
+      count: '',
+      loading2: true
+    };
+  },
+
+
+  methods: {
+    video: function video() {
+      var _this = this;
+
+      this.loading = true;
+      fetch('/api/single-dare-video/' + this.$route.params.slug + '/' + this.$route.params.id).then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        _this.single = res.data;
+        _this.loading = false;
+        console.log(_this.single);
+
+        /*to determine if obj is empty 
+                console.log(res.data[0]);
+                if(res.data[0] == undefined){
+                    this.empty = true;
+                }else{
+                    this.empty = false;
+                }
+        //to determine if obj is empty */
+      }).catch(function (error) {
+        console.log(error);
+        //off loader
+        _this.loading = false;
+        var options = {
+          showTop: true
+        };
+        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+      });
+    },
+    others: function others(page_url) {
+      var _this2 = this;
+
+      this.loading2 = true;
+
+      var page_url = page_url || '/api/dares';
+
+      fetch(page_url).then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        _this2.content = res.data;
+        _this2.count = res.meta.total;
+        _this2.loading2 = false;
+        console.log(_this2.content);
+
+        //to determine if obj is empty 
+        console.log(res.data[0]);
+        if (res.data[0] == undefined) {
+          _this2.empty = true;
+        } else {
+          _this2.empty = false;
+        }
+        //to determine if obj is empty
+        _this2.makePagination(res.meta, res.links);
+        _this2.loading2 = false;
+      }).catch(function (error) {
+        console.log(error);
+        //off loader
+        _this2.loading2 = false;
+        var options = {
+          showTop: true
+        };
+        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+      });
+    },
+    makePagination: function makePagination(meta, links) {
+      var pagination = {
+        current_page: meta.current_page,
+        last_page: meta.last_page,
+        next_page_url: links.next,
+        prev_page_url: links.prev
+      };
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      this.pagination = pagination;
+    },
+    scrollToTop: function scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+    reloadVideo: function reloadVideo() {
+      var _this3 = this;
+
+      // this.scrollToTop()
+
+      this.loading = true;
+      fetch('/api/single-dare-video/' + this.$route.params.slug + '/' + this.$route.params.id).then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        _this3.single = res.data;
+        _this3.loading = false;
+        console.log(_this3.single);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }).catch(function (error) {
+        console.log(error);
+        //off loader
+        _this3.loading = false;
+        var options = {
+          showTop: true
+        };
+        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+      });
+    }
+  },
+
+  mounted: function mounted() {
+    var _this4 = this;
+
+    this.video();
+
+    $(document).ready(function () {
+      $(window).scrollTop(0);
+    });
+
+    setTimeout(function () {
+      _this4.others();
+    }, 1000);
+  },
+  //mount end
+
+  watch: {
+    //watch for url param changes, meaning user clicked another video
+    // $route (to,from){
+    // this.reloadVideo();
+    //},
+
+  }
+});
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "desktop" },
+      [
+        _c("div", { staticClass: "window-area scroll" }, [
+          _c("div", { staticClass: "container white-color" }, [
+            _c("h3", { staticClass: "text-center" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "grid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "cell-sm-full cell-md-one-third cell-lg-7" },
+                  [
+                    _vm.loading
+                      ? [
+                          _c(
+                            "v-sheet",
+                            {
+                              staticClass: "px-3 pt-3 pb-3",
+                              attrs: { color: "grey" }
+                            },
+                            [
+                              _c("v-skeleton-loader", {
+                                staticClass: "mx-auto",
+                                attrs: { "max-width": "auto", type: "card" }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      : [
+                          _c(
+                            "v-container",
+                            { staticClass: "grey lighten-5" },
+                            [
+                              _c(
+                                "v-row",
+                                { attrs: { "no-gutters": "" } },
+                                [
+                                  _c(
+                                    "v-col",
+                                    { attrs: { cols: "12", sm: "12" } },
+                                    [
+                                      _c(
+                                        "v-card",
+                                        {
+                                          staticClass: "pa-2",
+                                          attrs: { outlined: "", tile: "" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-header" },
+                                            [
+                                              _c("video", {
+                                                attrs: {
+                                                  "data-role": "video",
+                                                  "data-src": _vm.single.url,
+                                                  "data-poster":
+                                                    "single.poster",
+                                                  "data-aspect-ratio": "hd",
+                                                  "data-autoplay": "true",
+                                                  "data-loop": "true"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-content p-2" },
+                                            [
+                                              _vm._v(
+                                                "\n                                        " +
+                                                  _vm._s(_vm.single.dare_name) +
+                                                  "\n           "
+                                              ),
+                                              _c(
+                                                "p",
+                                                { staticClass: "fg-gray" },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(_vm.single.views) +
+                                                      " views. " +
+                                                      _vm._s(_vm.single.likes) +
+                                                      " likes."
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "button fg-white m-1",
+                                              staticStyle: {
+                                                "background-color": "#1ba1e2"
+                                              },
+                                              attrs: { id: "dropdown_toggle_1" }
+                                            },
+                                            [_vm._v("Comments")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "pos-relative" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  attrs: {
+                                                    "data-role": "dropdown",
+                                                    "data-toggle-element":
+                                                      "#dropdown_toggle_1"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    {
+                                                      staticClass:
+                                                        "p-10 text-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                          In Metro 4 you can transform any element to dropdown.\n                                                                      "
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "badge inside  fg-white",
+                                              staticStyle: {
+                                                "background-color": "#b82943"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(_vm.single.username)
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "cell-sm-full cell-md-two-third cell-lg-4" },
+                  [
+                    _vm._l(6, function(i) {
+                      return _vm.loading2
+                        ? [
+                            _c(
+                              "v-sheet",
+                              {
+                                staticClass: "px-3 pt-3 pb-3",
+                                attrs: { color: "grey" }
+                              },
+                              [
+                                _c("v-skeleton-loader", {
+                                  staticClass: "mx-auto",
+                                  attrs: { "max-width": "auto", type: "card" }
+                                })
+                              ],
+                              1
+                            )
+                          ]
+                        : _vm._e()
+                    }),
+                    _vm._v(" "),
+                    !_vm.loading2
+                      ? [
+                          _c(
+                            "v-container",
+                            { staticClass: "grey lighten-5" },
+                            [
+                              _c(
+                                "v-row",
+                                _vm._l(_vm.content, function(con) {
+                                  return _c(
+                                    "v-col",
+                                    {
+                                      key: con.id,
+                                      attrs: { cols: "12", sm: "12" }
+                                    },
+                                    [
+                                      _c(
+                                        "v-card",
+                                        {
+                                          staticClass: "pa-2",
+                                          attrs: { outlined: "", tile: "" }
+                                        },
+                                        [
+                                          _c(
+                                            "router-link",
+                                            {
+                                              staticClass: "remove-deco",
+                                              attrs: {
+                                                to:
+                                                  "/dare/" +
+                                                  con.dare_slug +
+                                                  "/" +
+                                                  con.id
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "card image-header"
+                                                },
+                                                [
+                                                  _c("div", [
+                                                    _c("video", {
+                                                      attrs: {
+                                                        "data-role": "video",
+                                                        "data-src": con.url,
+                                                        "data-poster":
+                                                          con.poster,
+                                                        "data-aspect-ratio":
+                                                          "cinema",
+                                                        "data-logo":
+                                                          "/images/play.png",
+                                                        "data-logo-height":
+                                                          "40",
+                                                        "data-show-loop":
+                                                          "false",
+                                                        "data-show-play":
+                                                          "false",
+                                                        "data-show-stop":
+                                                          "false",
+                                                        "data-show-stream":
+                                                          "false",
+                                                        "data-show-volume":
+                                                          "false",
+                                                        "data-show-mute":
+                                                          "false",
+                                                        "data-show-full":
+                                                          "false"
+                                                      }
+                                                    })
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "card-content p-2 text-ellipsis"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                                         " +
+                                                          _vm._s(
+                                                            con.dare_name
+                                                          ) +
+                                                          "\n                                    "
+                                                      ),
+                                                      _c(
+                                                        "p",
+                                                        {
+                                                          staticClass: "fg-gray"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(con.views) +
+                                                              " views. " +
+                                                              _vm._s(
+                                                                con.likes
+                                                              ) +
+                                                              " likes."
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "badge inside  fg-white",
+                                              staticStyle: {
+                                                "background-color": "#b82943"
+                                              }
+                                            },
+                                            [_vm._v(_vm._s(con.username))]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                }),
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm.count > 15
+                            ? _c("ul", { staticClass: "pagination" }, [
+                                _c("li", { staticClass: "page-item" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "page-link",
+                                      attrs: {
+                                        href: "#",
+                                        disabled: !_vm.pagination.prev_page_url
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          _vm.others(
+                                            _vm.pagination.prev_page_url
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [_vm._v(" Prev ")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("li", { staticClass: "page-item" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "page-link",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("span", [
+                                        _vm._v(
+                                          _vm._s(_vm.pagination.current_page) +
+                                            " of " +
+                                            _vm._s(_vm.pagination.last_page)
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("li", { staticClass: "page-item" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "page-link",
+                                      attrs: {
+                                        href: "#",
+                                        disabled: !_vm.pagination.next_page_url
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          _vm.others(
+                                            _vm.pagination.next_page_url
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Next ")]
+                                  )
+                                ])
+                              ])
+                            : _vm._e()
+                        ]
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("taskbar")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-54c8363b", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -49,7 +49,7 @@
                                              <video 
                                              data-role="video"
                                              :data-src="single.url"
-                                             data-poster="/images/poster.png"
+                                             data-poster="single.poster"
                                              data-aspect-ratio="hd"
                                              data-autoplay="true"
                                              data-loop="true"
@@ -125,14 +125,14 @@
                                                         outlined
                                                         tile
                                                       >
-                                                    <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
+                                   <router-link :to="'/dare-video/'+con.dare_slug+'/'+con.id" class='remove-deco'>
                                                       <div class="card image-header">
                                             <div>
                 
                                                 <video data-role="video"
                                                 :data-src="con.url"
                                                 :data-poster="con.poster"
-                                                data-aspect-ratio="hd"
+                                                data-aspect-ratio="cinema"
                                                 data-logo="/images/play.png"
                                                 data-logo-height="40"
                                                 data-show-loop="false"
@@ -160,11 +160,11 @@
                                                 </v-container>
                 
                                                 <ul class="pagination" v-if='count > 15'>
-                                     <li class="page-item"><a class="page-link" href="#" @click.prevent="get(pagination.prev_page_url)" :disabled="!pagination.prev_page_url"> Prev </a></li>
+                                     <li class="page-item"><a class="page-link" href="#" @click.prevent="others(pagination.prev_page_url)" :disabled="!pagination.prev_page_url"> Prev </a></li>
                         
                                      <li class="page-item"><a class="page-link" href="#"><span>{{pagination.current_page}} of {{pagination.last_page}}</span></a></li>
                                                     
-                                      <li class="page-item"><a class="page-link" href="#" @click.prevent="get(pagination.next_page_url)" :disabled="!pagination.next_page_url">Next </a></li>
+                                      <li class="page-item"><a class="page-link" href="#" @click.prevent="others(pagination.next_page_url)" :disabled="!pagination.next_page_url">Next </a></li>
                                                 </ul>
                 
                                               </template>
