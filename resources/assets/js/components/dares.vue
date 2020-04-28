@@ -69,9 +69,9 @@
                                 data-show-full="false"
                                  ></video>
                                           </div>
-                                          <div class="card-content p-2 text-ellipsis">
+                                          <div class="card-content p-2 text-ellipsis text-cap">
                                              {{con.dare_name}}
-                        <p class="fg-gray">{{con.views}} views. {{con.likes}} likes.</p>
+                        <p class="fg-gray"> <b>{{con.views}} views</b>. completed on {{con.created_at}}.</p>
                                           </div>
                                       </div>
                                     </router-link>

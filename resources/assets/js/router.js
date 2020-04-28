@@ -20,6 +20,7 @@ import register from './components/register.vue'
 import suggest from './components/suggest.vue'
 import search from './components/search.vue'
 import result from './components/result.vue'
+import not_found from './components/not_found.vue'
 
 import pickDare from './components/player/pickDare.vue'
 import pendingDares from './components/player/pendingDares.vue'
@@ -194,6 +195,19 @@ export default new Router({
              meta:{
                 auth: true
             }
+        },
+
+        {
+            path: '/not-found',
+            name: 'not_found',
+            component: not_found,
+             meta:{
+               // auth: true
+            }
+        },
+        {
+            path: '*',
+            redirect: '/not-found'
         },
     ],
 

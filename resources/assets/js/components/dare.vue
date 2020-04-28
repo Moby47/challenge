@@ -55,9 +55,15 @@
                                              data-loop="true"
                                               ></video>
                                                        </div>
-                                               <div class="card-content p-2">
-                                            {{single.dare_name}}
-               <p class="fg-gray">{{single.views}} views. {{single.likes}} likes.</p>
+                                               <div class="card-content p-2 text-cap">
+                                            {{single.dare_name}}. <p><b>{{single.views}} views</b></p>
+               <p class="fg-gray">
+                    <whats-app  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7" ></whats-app> 
+                     <email  :url="url" :subject="'Challenge completed by: '+single.username" scale="1.7"></email>  
+                     <facebook  :url="url" scale="1.7"></facebook> 
+                      <twitter  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7"></twitter>  
+                     <linkedin  :url="url" scale="1.7"></linkedin>   
+              </p>
                                                                   </div>
                                            
                             <button class="button fg-white m-1"  style="background-color: #1ba1e2"
@@ -144,9 +150,9 @@
                                                 data-show-full="false"
                                                  ></video>
                                                           </div>
-                                                          <div class="card-content p-2 text-ellipsis">
+                                                          <div class="card-content p-2 text-ellipsis text-cap">
                                                              {{con.dare_name}}
-                                        <p class="fg-gray">{{con.views}} views. {{con.likes}} likes.</p>
+                                        <p class="fg-gray"><b>{{con.views}} views</b>. {{con.created_at}}.</p>
                                                           </div>
                                                       </div>
                                                     </router-link>
@@ -194,8 +200,31 @@
     </template>
     
     <script>
+
+       //share icons
+     import {
+      Facebook,
+      Twitter,
+      Linkedin,
+      WhatsApp,
+      Email,
+      Google
+    } from "vue-socialmedia-share";
+    //share icons
+
         export default {
        
+          //share icons
+         components: {
+        Facebook,
+        Twitter,
+        Linkedin,
+        WhatsApp,
+        Email,
+        Google
+      },
+      //share icons
+          
             data(){
                 return {
                   single:[],
@@ -203,6 +232,7 @@
                   content:[],
                   count:'',
                   loading2:true,
+                  url:'',
                 }
             },
     
@@ -337,14 +367,15 @@
                 this.others()
               }, 1000);
 
+              this.url = String(window.location)
 
             },//mount end
 
             watch:{
                //watch for url param changes, meaning user clicked another video
-               $route (to,from){
+            /*   $route (to,from){
                 this.reloadVideo();
-                },
+                }, */
                 
             }
         }
