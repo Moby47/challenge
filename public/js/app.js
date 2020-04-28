@@ -55933,7 +55933,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         },
         makePagination: function makePagination(meta, links) {
@@ -56542,7 +56542,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         },
         others: function others(page_url) {
@@ -56577,7 +56577,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         },
         makePagination: function makePagination(meta, links) {
@@ -56615,7 +56615,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         }
     },
@@ -57454,7 +57454,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var options = {
           showTop: true
         };
-        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+        Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
       });
     },
     others: function others(page_url) {
@@ -57489,7 +57489,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var options = {
           showTop: true
         };
-        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+        Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
       });
     },
     makePagination: function makePagination(meta, links) {
@@ -57527,7 +57527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var options = {
           showTop: true
         };
-        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+        Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
       });
     }
   },
@@ -58220,7 +58220,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         }
     }
@@ -58853,7 +58853,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         },
         makePagination: function makePagination(meta, links) {
@@ -61418,7 +61418,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var options = {
                             showTop: true
                         };
-                        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                        Metro.toast.create('A temporary network error occured... Please try again', null, 5000, 'yellow', options);
                     });
                 } else {} //if error
                 //error is auto shown, dont worry
@@ -61822,7 +61822,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         },
         getdares: function getdares() {
@@ -61851,7 +61851,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         }
     },
@@ -62369,7 +62369,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         },
         makePagination: function makePagination(meta, links) {
@@ -63014,7 +63014,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         },
         Pmenu: function Pmenu() {
@@ -63068,7 +63068,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var options = {
                             showTop: true
                         };
-                        Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                        Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
                     });
                 } //if yes
             }
@@ -63453,7 +63453,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
             });
         }
     }
@@ -63907,7 +63907,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var options = {
                     showTop: true
                 };
-                Metro.toast.create('A temporary network error occured...', null, 5000, 'yellow', options);
+                Metro.toast.create('A temporary network error occured...  Please reload page', null, 5000, 'yellow', options);
             });
         },
         home: function home() {
