@@ -18,13 +18,13 @@ class CreateDaresTable extends Migration
             $table->integer('user_id');
             $table->string('url');
             $table->string('poster');
-            $table->string('dare_name');
-            $table->string('dare_slug');
-            $table->string('username');
+            $table->string('dare_name',255);
+            $table->string('dare_slug', 255);
+            $table->string('username', 20);
             $table->integer('point');
             $table->integer('likes')->default(0);
             $table->integer('views')->default(0);
-            $table->string('duration');
+            $table->string('duration', 11);
             $table->timestamps();
         });
     }

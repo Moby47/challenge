@@ -15,7 +15,7 @@ class CreateDarelistsTable extends Migration
     {
         Schema::create('darelists', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('dare_name');
+            $table->string('dare_name',255);
             $table->integer('points');
             $table->integer('play_count')->default(0);
             $table->timestamps();

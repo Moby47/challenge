@@ -15,7 +15,7 @@ class CreateMydaresTable extends Migration
     {
         Schema::create('mydares', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('dare_name');
+            $table->string('dare_name',255);
             $table->integer('user_id');
             $table->integer('darelist_id');
             $table->dateTime('expire');
