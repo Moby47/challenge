@@ -7,6 +7,18 @@
        -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="metro4:init" content="false">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- Web Application Manifest -->
+        <link rel="manifest" href="/manifest.json">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/fav/favicon-16x16.png">
+<link rel="manifest" href="/images/fav/site.webmanifest">
+
         <title>Challenge</title>
 
         
@@ -27,9 +39,7 @@
 <link href="/css/custom.css" rel="stylesheet" />
 <link href="/css/home.css" rel="stylesheet" />
 
- <!--fav icon -->
- <link rel="icon" href="{{ asset('images/fav.jpg') }}">
-        <!-- Styles -->
+
         <style>
           
         </style>
@@ -53,11 +63,27 @@
     $(document).ready(function(){
                 $(window).scrollTop(0);
             });
+
+
+
+            // Initialize the service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/serviceworker.js', {
+            scope: '.' 
+        }).then(function (registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+            // registration failed 
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    }
              </script>
+
+
               <script src="{{asset('/js/home.js')}}"></script>
+
         <script src="{{asset('/js/app.js')}}"></script>
 
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ea82d4567d8df18"></script>
-    </body>
+       </body>
 </html>

@@ -52406,17 +52406,20 @@ var install = VeeValidate$1.install;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_result_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_result_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_not_found_vue__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_not_found_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_not_found_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_player_pickDare_vue__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_player_pickDare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_player_pickDare_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_player_pendingDares_vue__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_player_pendingDares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_player_pendingDares_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_player_upload_vue__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_player_upload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_player_upload_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_offline_vue__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_offline_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_offline_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_player_pickDare_vue__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_player_pickDare_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_player_pickDare_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_player_pendingDares_vue__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_player_pendingDares_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_player_pendingDares_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_player_upload_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_player_upload_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_player_upload_vue__);
 
 
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
 
 
 
@@ -52557,23 +52560,30 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
             //  auth: true
         }
     }, {
+        path: '/offline',
+        name: 'offline',
+        component: __WEBPACK_IMPORTED_MODULE_19__components_offline_vue___default.a,
+        meta: {
+            //  auth: true
+        }
+    }, {
         path: '/pick-dare',
         name: 'pickDare',
-        component: __WEBPACK_IMPORTED_MODULE_19__components_player_pickDare_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_20__components_player_pickDare_vue___default.a,
         meta: {
             auth: true
         }
     }, {
         path: '/pending-dares',
         name: 'pendingDares',
-        component: __WEBPACK_IMPORTED_MODULE_20__components_player_pendingDares_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_21__components_player_pendingDares_vue___default.a,
         meta: {
             auth: true
         }
     }, {
         path: '/upload-dare',
         name: 'upload',
-        component: __WEBPACK_IMPORTED_MODULE_21__components_player_upload_vue___default.a,
+        component: __WEBPACK_IMPORTED_MODULE_22__components_player_upload_vue___default.a,
         meta: {
             auth: true
         }
@@ -111430,6 +111440,132 @@ module.exports = function (object, names) {
 
 /******/ })["default"];
 //# sourceMappingURL=vue-socialmedia-share.common.js.map
+
+/***/ }),
+/* 131 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(132)
+/* template */
+var __vue_template__ = __webpack_require__(133)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/offline.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1c66d89c", Component.options)
+  } else {
+    hotAPI.reload("data-v-1c66d89c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 132 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {};
+    },
+
+
+    methods: {}
+
+});
+
+/***/ }),
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("vue-particles", { attrs: { color: "#fdf9c6" } }),
+      _vm._v(" "),
+      _c("h2", { staticClass: "text-center white-color" }, [
+        _vm._v("Offline Mode")
+      ]),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "zoomer",
+        attrs: {
+          "data-role": "cube",
+          "data-color": "black",
+          "data-flash-color": "#fdf9c6"
+        }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticClass: "text-center white-color fadeIn" }, [
+        _vm._v("Check your internet connection")
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1c66d89c", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

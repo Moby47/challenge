@@ -21,6 +21,7 @@ import suggest from './components/suggest.vue'
 import search from './components/search.vue'
 import result from './components/result.vue'
 import not_found from './components/not_found.vue'
+import offline from './components/offline.vue'
 
 import pickDare from './components/player/pickDare.vue'
 import pendingDares from './components/player/pendingDares.vue'
@@ -157,6 +158,14 @@ export default new Router({
             path: '/result/:data',
             name: 'result',
             component: result,
+             meta:{
+              //  auth: true
+            }
+        },
+        {
+            path: '/offline',
+            name: 'offline',
+            component: offline,
              meta:{
               //  auth: true
             }

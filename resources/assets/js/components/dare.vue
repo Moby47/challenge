@@ -262,7 +262,7 @@
                     var options = {
                                 showTop: true,
                             }
-                         Metro.toast.create('A temporary network error occured...',
+                         Metro.toast.create('A temporary network error occured... Please reload page',
                          null, 5000, 'yellow', options);
                        
                     })
@@ -300,7 +300,7 @@
                     var options = {
                                 showTop: true,
                             }
-                         Metro.toast.create('A temporary network error occured...',
+                         Metro.toast.create('A temporary network error occured... Please reload page',
                          null, 5000, 'yellow', options);
                        
                     })
@@ -342,7 +342,7 @@
                     var options = {
                                 showTop: true,
                             }
-                         Metro.toast.create('A temporary network error occured...',
+                         Metro.toast.create('A temporary network error occured... Please reload page',
                          null, 5000, 'yellow', options);
                        
                     })
@@ -367,7 +367,7 @@
               this.url = String(window.location)
 
               var url = String(window.location)
-              
+
               var id = this.$route.params.id
                 if(id){
              this.url_disqus = url+`/`+id

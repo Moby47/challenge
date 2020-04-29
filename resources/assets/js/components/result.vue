@@ -172,7 +172,7 @@
                 var options = {
                             showTop: true,
                         }
-                     Metro.toast.create('A temporary network error occured...',
+                     Metro.toast.create('A temporary network error occured... Please reload page',
                      null, 5000, 'yellow', options);
                    
                 })
