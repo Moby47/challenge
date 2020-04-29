@@ -40,64 +40,6 @@
 </div>
 
 
-<!--dialogs login-
-<div class="dialog" data-role="dialog" id='oldPlayer'>
-  
-    <form method="post" data-vv-scope='loginForm'>
-            <div class="dialog-title white-color" style="background-color: #07557B">Login To Continue</div>
-
-     <div class="dialog-content">
-        <p>User name:</p>
-     <input type="text" data-role="input" data-history="true" name="Username"
-      v-model='username' v-validate='"required|max:15"'>
-      <p class='fg-red shake' v-show="errors.has('loginForm.Username')">{{ errors.first('loginForm.Username') }}</p>
-           <p>Password:</p>
-     <input type="password" data-role="input" name="Password" 
-     v-model='password' v-validate='"required"'>
-     <p class='fg-red shake' v-show="errors.has('loginForm.Password')">{{ errors.first('loginForm.Password') }}</p>
-
-            <p class='text-right'><button class="image-button" @click.prevent='newPlayer()'>
-                    <span class="mif-user-plus icon"></span>
-                    <span class="caption">New Player?</span>
-                </button></p>
-    </div>
-    <div class="dialog-actions">
-        <button class="button primary" @click.prevent='login()'>Ok</button>
-        <button class="button alert js-dialog-close" @click.prevent=''>Cancel</button>
-    </div>
-    </form>
-</div>
-
-  -dialogs reg--
-<div class="dialog" data-role="dialog" id='newPlayer'>
-        <form method="post" data-vv-scope='regForm'>
-    <div class="dialog-title white-color" style="background-color: #07557B">Start New Game</div>
-    <div class="dialog-content">
-            <p>User name:</p>
-            <input type="text" data-role="input" data-history="true" name="Username"
-            v-model='username' v-validate='"required|max:15"'>
-            <p class='fg-red shake' v-show="errors.has('regForm.Username')">{{ errors.first('regForm.Username') }}</p>
-            <p>Email:</p>
-            <input type="email" data-role="input" data-history="true" name="Email"
-             v-model='email' v-validate='"required|email|max:100"'>
-             <p class='fg-red shake' v-show="errors.has('regForm.Email')">{{ errors.first('regForm.Email') }}</p>
-           <p>Password:</p>
-            <input type="password" data-role="input" name="Password" 
-            v-model='password' v-validate='"required"'>
-            <p class='fg-red shake' v-show="errors.has('regForm.Password')">{{ errors.first('regForm.Password') }}</p>
-
-            <p class='text-right'><button class="image-button" @click.prevent='oldPlayer()'>
-                    <span class="mif-user icon"></span>
-                    <span class="caption">Old Player?</span>
-                </button></p>
-    </div>
-    <div class="dialog-actions">
-        <button class="button primary"  @click.prevent='reg()'>Ok</button>
-        <button class="button alert js-dialog-close" @click.prevent=''>Cancel</button>
-    </div>
-    </form>
-</div>
--->
 
 </div>
 

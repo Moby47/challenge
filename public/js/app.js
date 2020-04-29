@@ -55280,64 +55280,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -55845,52 +55787,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -55991,7 +55887,7 @@ var render = function() {
               ? _c("span", [
                   _c("div", { staticClass: "remark info text-center" }, [
                     _vm._v(
-                      "\n                                No Dare Videos Currently\n                                 "
+                      "\n                        No Dare Videos Currently\n                         "
                     )
                   ])
                 ])
@@ -56071,26 +55967,38 @@ var render = function() {
                                               staticClass: "card image-header"
                                             },
                                             [
-                                              _c("div", [
-                                                _c("video", {
-                                                  attrs: {
-                                                    "data-role": "video",
-                                                    "data-src": con.url,
-                                                    "data-poster": con.poster,
-                                                    "data-aspect-ratio": "hd",
-                                                    "data-logo":
-                                                      "/images/play.png",
-                                                    "data-logo-height": "40",
-                                                    "data-show-loop": "false",
-                                                    "data-show-play": "false",
-                                                    "data-show-stop": "false",
-                                                    "data-show-stream": "false",
-                                                    "data-show-volume": "false",
-                                                    "data-show-mute": "false",
-                                                    "data-show-full": "false"
-                                                  }
-                                                })
-                                              ]),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "card-header fg-white",
+                                                  style:
+                                                    "background-image: url(" +
+                                                    con.poster +
+                                                    ")"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass: "fg-white",
+                                                      staticStyle: {
+                                                        "background-color":
+                                                          "#2c2a2a",
+                                                        padding: "2px",
+                                                        "border-radius": "5px"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                 " +
+                                                          _vm._s(con.duration) +
+                                                          "\n                                 "
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
                                               _vm._v(" "),
                                               _c(
                                                 "div",
@@ -56100,9 +56008,9 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                             " +
+                                                    "\n                                     " +
                                                       _vm._s(con.dare_name) +
-                                                      "\n                        "
+                                                      "\n                "
                                                   ),
                                                   _c(
                                                     "p",
@@ -56113,11 +56021,7 @@ var render = function() {
                                                           _vm._s(con.views) +
                                                             " views"
                                                         )
-                                                      ]),
-                                                      _vm._v(
-                                                        ". completed on " +
-                                                          _vm._s(con.created_at)
-                                                      )
+                                                      ])
                                                     ]
                                                   )
                                                 ]
@@ -56296,14 +56200,6 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -56966,36 +56862,42 @@ var render = function() {
                                                     "card image-header"
                                                 },
                                                 [
-                                                  _c("div", [
-                                                    _c("video", {
-                                                      attrs: {
-                                                        "data-role": "video",
-                                                        "data-src": con.url,
-                                                        "data-poster":
-                                                          con.poster,
-                                                        "data-aspect-ratio":
-                                                          "cinema",
-                                                        "data-logo":
-                                                          "/images/play.png",
-                                                        "data-logo-height":
-                                                          "40",
-                                                        "data-show-loop":
-                                                          "false",
-                                                        "data-show-play":
-                                                          "false",
-                                                        "data-show-stop":
-                                                          "false",
-                                                        "data-show-stream":
-                                                          "false",
-                                                        "data-show-volume":
-                                                          "false",
-                                                        "data-show-mute":
-                                                          "false",
-                                                        "data-show-full":
-                                                          "false"
-                                                      }
-                                                    })
-                                                  ]),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "card-header fg-white",
+                                                      style:
+                                                        "background-image: url(" +
+                                                        con.poster +
+                                                        ")"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "fg-white",
+                                                          staticStyle: {
+                                                            "background-color":
+                                                              "#2c2a2a",
+                                                            padding: "2px",
+                                                            "border-radius":
+                                                              "5px"
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                   " +
+                                                              _vm._s(
+                                                                con.duration
+                                                              ) +
+                                                              "\n                                   "
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
                                                   _vm._v(" "),
                                                   _c(
                                                     "div",
@@ -57005,33 +56907,38 @@ var render = function() {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                                                         " +
+                                                        "\n                                       " +
                                                           _vm._s(
                                                             con.dare_name
                                                           ) +
-                                                          "\n                                    "
+                                                          "\n                                       "
                                                       ),
-                                                      _c(
-                                                        "p",
-                                                        {
-                                                          staticClass: "fg-gray"
-                                                        },
-                                                        [
-                                                          _c("b", [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                con.views
-                                                              ) + " views"
-                                                            )
-                                                          ]),
+                                                      _c("p", [
+                                                        _c("b", [
                                                           _vm._v(
-                                                            ". " +
-                                                              _vm._s(
-                                                                con.created_at
-                                                              )
+                                                            _vm._s(
+                                                              _vm.single.views
+                                                            ) + " views"
                                                           )
-                                                        ]
-                                                      )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "i",
+                                                          {
+                                                            staticClass:
+                                                              "pl-5 fg-gray"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n\n                                          Completed " +
+                                                                _vm._s(
+                                                                  _vm.single
+                                                                    .created_at
+                                                                )
+                                                            )
+                                                          ]
+                                                        )
+                                                      ])
                                                     ]
                                                   )
                                                 ]
@@ -57210,13 +57117,6 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -57664,7 +57564,7 @@ var render = function() {
                                               _vm._v(
                                                 "\n                                                " +
                                                   _vm._s(_vm.single.dare_name) +
-                                                  ". "
+                                                  ".\n                                           "
                                               ),
                                               _c("p", [
                                                 _c("b", [
@@ -57672,7 +57572,22 @@ var render = function() {
                                                     _vm._s(_vm.single.views) +
                                                       " views"
                                                   )
-                                                ])
+                                                ]),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "i",
+                                                  {
+                                                    staticClass: "pl-5 fg-gray"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\n                                           Completed " +
+                                                        _vm._s(
+                                                          _vm.single.created_at
+                                                        )
+                                                    )
+                                                  ]
+                                                )
                                               ]),
                                               _vm._v(" "),
                                               _c(
@@ -57878,36 +57793,42 @@ var render = function() {
                                                     "card image-header"
                                                 },
                                                 [
-                                                  _c("div", [
-                                                    _c("video", {
-                                                      attrs: {
-                                                        "data-role": "video",
-                                                        "data-src": con.url,
-                                                        "data-poster":
-                                                          con.poster,
-                                                        "data-aspect-ratio":
-                                                          "cinema",
-                                                        "data-logo":
-                                                          "/images/play.png",
-                                                        "data-logo-height":
-                                                          "40",
-                                                        "data-show-loop":
-                                                          "false",
-                                                        "data-show-play":
-                                                          "false",
-                                                        "data-show-stop":
-                                                          "false",
-                                                        "data-show-stream":
-                                                          "false",
-                                                        "data-show-volume":
-                                                          "false",
-                                                        "data-show-mute":
-                                                          "false",
-                                                        "data-show-full":
-                                                          "false"
-                                                      }
-                                                    })
-                                                  ]),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "card-header fg-white",
+                                                      style:
+                                                        "background-image: url(" +
+                                                        con.poster +
+                                                        ")"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "fg-white",
+                                                          staticStyle: {
+                                                            "background-color":
+                                                              "#2c2a2a",
+                                                            padding: "2px",
+                                                            "border-radius":
+                                                              "5px"
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                             " +
+                                                              _vm._s(
+                                                                con.duration
+                                                              ) +
+                                                              "\n                             "
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
                                                   _vm._v(" "),
                                                   _c(
                                                     "div",
@@ -57917,11 +57838,11 @@ var render = function() {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                                                         " +
+                                                        "\n                                 " +
                                                           _vm._s(
                                                             con.dare_name
                                                           ) +
-                                                          "\n                                    "
+                                                          "\n            "
                                                       ),
                                                       _c(
                                                         "p",
@@ -57935,13 +57856,7 @@ var render = function() {
                                                                 con.views
                                                               ) + " views"
                                                             )
-                                                          ]),
-                                                          _vm._v(
-                                                            ". " +
-                                                              _vm._s(
-                                                                con.created_at
-                                                              )
-                                                          )
+                                                          ])
                                                         ]
                                                       )
                                                     ]

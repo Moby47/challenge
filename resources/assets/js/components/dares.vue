@@ -52,26 +52,16 @@
                                       >
                                     <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
                                       <div class="card image-header">
-                            <div>
-
-                                <video data-role="video"
-                                :data-src="con.url"
-                                :data-poster="con.poster"
-                                data-aspect-ratio="hd"
-                                data-logo="/images/play.png"
-                                data-logo-height="40"
-                                data-show-loop="false"
-                                data-show-play="false"
-                                data-show-stop="false"
-                                data-show-stream="false"
-                                data-show-volume="false"
-                                data-show-mute="false"
-                                data-show-full="false"
-                                 ></video>
-                                          </div>
+                                          <div class="card-header fg-white"
+                                          :style="'background-image: url('+con.poster+')'">
+                                      <span style="background-color: #2c2a2a; padding:2px; border-radius:5px;"
+                                      class='fg-white'>
+                                         {{con.duration}}
+                                         </span>
+                                     </div>
                                           <div class="card-content p-2 text-ellipsis text-cap">
                                              {{con.dare_name}}
-                        <p class="fg-gray"> <b>{{con.views}} views</b>. completed on {{con.created_at}}</p>
+                        <p class="fg-gray"> <b>{{con.views}} views</b></p>
                                           </div>
                                       </div>
                                     </router-link>
@@ -93,43 +83,7 @@
                                 </ul>
 
                               </template>
-<!--
-       <div class="cell-sm-full cell-md-one-third cell-lg-4" v-for='con in content' v-bind:key='con.id'>
-                                    
-                                        <template>
-                                                <v-card
-                                                  class="mx-auto"
-                                                >
-                                                <video data-role="video"
-                                        :data-src="con.url"
-                                        data-logo-height="64"
-                                        data-poster="/images/home.svg"
-                                        data-aspect-ratio="hd"
-                                        data-on-play
-                                        id='one'
-                                         ></video>
-                                              
-                                                  <v-card-title>
-                                                        <div class="card-footer">
-                                                                <button class="flat-button mif-thumbs-up "> 47</button>
-                                                                <button class="flat-button mif-comment "> 7</button>
-                                                                <button class="flat-button mif-eye "> 4</button>
-                                                                <button class="flat-button mif-share "> 4</button>
-                                                            </div>
-                                                  </v-card-title>
-                                              
-                                                  <v-card-subtitle>
-                                                        <figcaption class="mt-1 text-center">
-                                 <router-link to='/single-dare' class=''> {{con.dare_name}}  </router-link> 
-                                                       </figcaption>
-                                                  </v-card-subtitle>
-                                              
-                                                </v-card>
-                                              </template>
-                                              <span class="badge inside  fg-white"
-                                              style="background-color: #b82943">{{con.username}}</span>
-                                </div>
-                              -->
+
         
                                 
         

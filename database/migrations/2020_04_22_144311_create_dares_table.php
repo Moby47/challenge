@@ -24,7 +24,7 @@ class CreateDaresTable extends Migration
             $table->integer('point');
             $table->integer('likes')->default(0);
             $table->integer('views')->default(0);
-          //  $table->integer('shares')->default(0);
+            $table->string('duration');
             $table->timestamps();
         });
     }
