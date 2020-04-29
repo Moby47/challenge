@@ -56,7 +56,7 @@
                                                   ></video>
                                                            </div>
                                                    <div class="card-content p-2 text-cap">
-                                                        {{single.dare_name}}.
+                                                        {{single.dare_name}}
                                                    <p><b>{{single.views}} views</b> <i class='pl-5 fg-gray'>
 
                                                    Completed {{single.created_at}}</i> </p>

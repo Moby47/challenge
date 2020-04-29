@@ -56,7 +56,10 @@
                                               ></video>
                                                        </div>
                                                <div class="card-content p-2 text-cap">
-                                            {{single.dare_name}}. <p><b>{{single.views}} views</b></p>
+                                            {{single.dare_name}} 
+                                            <p><b>{{single.views}} views</b> <i class='pl-5 fg-gray'>
+
+                                                Completed {{single.created_at}}</i> </p>
                                             <p class="fg-gray">
                                               <whats-app  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7" ></whats-app> 
                                                <email  :url="url" :subject="'Challenge completed by: '+single.username" scale="1.7"></email>  
@@ -138,9 +141,7 @@
                                    </div>
                                         <div class="card-content p-2 text-ellipsis text-cap">
                                            {{con.dare_name}}
-                                           <p><b>{{single.views}} views</b> <i class='pl-5 fg-gray'>
-
-                                              Completed {{single.created_at}}</i> </p>
+                                           <p><b>{{single.views}} views</b>  </p>
                                         </div>
                                     </div>
                                                     </router-link>

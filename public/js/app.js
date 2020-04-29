@@ -56389,6 +56389,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 //share icons
@@ -56648,7 +56649,7 @@ var render = function() {
                                               _vm._v(
                                                 "\n                                        " +
                                                   _vm._s(_vm.single.dare_name) +
-                                                  ". "
+                                                  " \n                                        "
                                               ),
                                               _c("p", [
                                                 _c("b", [
@@ -56656,7 +56657,22 @@ var render = function() {
                                                     _vm._s(_vm.single.views) +
                                                       " views"
                                                   )
-                                                ])
+                                                ]),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "i",
+                                                  {
+                                                    staticClass: "pl-5 fg-gray"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n\n                                            Completed " +
+                                                        _vm._s(
+                                                          _vm.single.created_at
+                                                        )
+                                                    )
+                                                  ]
+                                                )
                                               ]),
                                               _vm._v(" "),
                                               _c(
@@ -56920,24 +56936,7 @@ var render = function() {
                                                               _vm.single.views
                                                             ) + " views"
                                                           )
-                                                        ]),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "i",
-                                                          {
-                                                            staticClass:
-                                                              "pl-5 fg-gray"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n\n                                          Completed " +
-                                                                _vm._s(
-                                                                  _vm.single
-                                                                    .created_at
-                                                                )
-                                                            )
-                                                          ]
-                                                        )
+                                                        ])
                                                       ])
                                                     ]
                                                   )
@@ -57564,7 +57563,7 @@ var render = function() {
                                               _vm._v(
                                                 "\n                                                " +
                                                   _vm._s(_vm.single.dare_name) +
-                                                  ".\n                                           "
+                                                  "\n                                           "
                                               ),
                                               _c("p", [
                                                 _c("b", [

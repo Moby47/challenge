@@ -80,6 +80,15 @@
     }
              </script>
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "f1db3d38-3d87-42a6-b202-26e9492455bd",
+    });
+  });
+</script>
 
               <script src="{{asset('/js/home.js')}}"></script>
 

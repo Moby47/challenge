@@ -93,75 +93,6 @@
   }
   
   
-
-  .bg-darelist{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 100% 100%;
-    background-image:url('/images/list.svg');
-    background-color: #e9f6fc;
-  }
-  
-  .bg-help{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 100% 100%;
-    background-image:url('/images/help.svg');
-    background-color: #e9f6fc;
-  }
-
-  .bg-rules{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 100% 100%;
-    background-image:url('/images/rules.svg');
-    background-color: #e9f6fc;
-  }
-
-  .bg-dare{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 100% 100%;
-    background-image:url('/images/dare.svg');
-    background-color: #e9f6fc;
-  }
-
-  
-  .bg-store{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 100% 100%;
-    background-image:url('/images/store.svg');
-    background-color: #e9f6fc;
-  }
-
-   
-  .bg-homepage{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 100% 100%;
-    background-image:url('/images/home.svg');
-    background-color: #e9f6fc;
-  }
-
   .text-green{
     color: green;
   }
@@ -171,7 +102,7 @@
   }
 
   .window-area {
-    background: url("/images/bg-dare.jpg") center center no-repeat;
+    background: url("/images/bg-dare.png") center center no-repeat;
     background-size: cover;
     background-color: grey;
 }
