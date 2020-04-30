@@ -36,7 +36,7 @@
                         <thead class="thead-dark">
                         <tr>
                              <th>Dare</th>
-                            <th>Times Played</th>
+                            <th>Times Completed</th>
                             <th>Points</th>
                         </tr>
                         </thead>

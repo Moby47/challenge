@@ -72,8 +72,8 @@ class dareController extends Controller
     {
         //fetch data (last 10) from dare model, order from highest points. (Done! was blocking pro)
         return $scores= \DB::table('dares')->orderby('point','desc')
-        ->select('username','likes','views','point', \DB::raw('sum(point) as point'))
-        ->groupBy('username','likes','views','point')->paginate(10);
+        ->select('username','views', \DB::raw('sum(point) as point'))
+        ->groupBy('username','views')->paginate(10);
     }
 
    
@@ -316,7 +316,7 @@ class dareController extends Controller
         //convert duration from sec to min
        $seconds =  $cloundary_upload['duration'];
             $start_seconds = round($seconds);
-            if($start_seconds <60)
+            if($start_seconds < 60)
             {
                 $minutes ="";
                 $seconds = $start_seconds;

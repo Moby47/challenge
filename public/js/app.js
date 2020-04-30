@@ -57303,6 +57303,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 //share icons
 
@@ -57636,57 +57638,25 @@ var render = function() {
                                                   })
                                                 ],
                                                 1
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "button",
-                                            {
-                                              staticClass:
-                                                "button fg-white m-1",
-                                              staticStyle: {
-                                                "background-color": "#1ba1e2"
-                                              },
-                                              attrs: { id: "dropdown_toggle_1" }
-                                            },
-                                            [_vm._v("Comments")]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "pos-relative" },
-                                            [
+                                              ),
+                                              _vm._v(" "),
                                               _c(
-                                                "div",
+                                                "p",
                                                 {
-                                                  attrs: {
-                                                    "data-role": "dropdown",
-                                                    "data-toggle-element":
-                                                      "#dropdown_toggle_1"
-                                                  }
+                                                  staticClass:
+                                                    "p-10 text-center"
                                                 },
                                                 [
-                                                  _c(
-                                                    "p",
-                                                    {
-                                                      staticClass:
-                                                        "p-10 text-center"
-                                                    },
-                                                    [
-                                                      _c("vue-disqus", {
-                                                        attrs: {
-                                                          shortname:
-                                                            "challenge-app",
-                                                          identifier:
-                                                            _vm.id_disqus,
-                                                          url: _vm.url_disqus
-                                                        }
-                                                      })
-                                                    ],
-                                                    1
-                                                  )
-                                                ]
+                                                  _c("vue-disqus", {
+                                                    attrs: {
+                                                      shortname:
+                                                        "challenge-app",
+                                                      identifier: _vm.id_disqus,
+                                                      url: _vm.url_disqus
+                                                    }
+                                                  })
+                                                ],
+                                                1
                                               )
                                             ]
                                           ),
@@ -58095,8 +58065,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58212,8 +58180,6 @@ var render = function() {
                             [
                               _c("td", [_vm._v(_vm._s(con.username))]),
                               _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(con.likes))]),
-                              _vm._v(" "),
                               _c("td", [_vm._v(_vm._s(con.views))]),
                               _vm._v(" "),
                               _c("td", [_vm._v(_vm._s(con.point))])
@@ -58243,8 +58209,6 @@ var staticRenderFns = [
     return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
         _c("th", [_vm._v("Player")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Likes")]),
         _vm._v(" "),
         _c("th", [_vm._v("Views")]),
         _vm._v(" "),
@@ -58985,7 +58949,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Dare")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Times Played")]),
+        _c("th", [_vm._v("Times Completed")]),
         _vm._v(" "),
         _c("th", [_vm._v("Points")])
       ])

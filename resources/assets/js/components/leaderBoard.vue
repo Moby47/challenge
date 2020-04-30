@@ -33,7 +33,6 @@
                         <thead class="thead-dark">
                         <tr >
                              <th>Player</th>
-                            <th>Likes</th>
                             <th>Views</th>
                             <th>Points</th>
                         </tr>
@@ -41,7 +40,6 @@
                         <tbody>
                                 <tr class="info" v-for='con in content' v-bind:key='con.id'>
                                         <td>{{con.username}}</td>
-                                        <td>{{con.likes}}</td>
                                         <td>{{con.views}}</td>
                                         <td>{{con.point}}</td>
                                     </tr>
