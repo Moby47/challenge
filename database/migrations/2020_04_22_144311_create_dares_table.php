@@ -23,7 +23,7 @@ class CreateDaresTable extends Migration
             $table->string('username', 20);
             $table->integer('point');
             $table->integer('views')->default(0);
-            $table->string('duration', 11);
+            $table->string('duration', 20);
             $table->timestamps();
         });
     }
