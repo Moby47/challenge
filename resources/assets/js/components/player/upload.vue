@@ -15,7 +15,7 @@
         
             <div class="container fadeIn">
             
-                    <h3 class="text-center white-color"> Upload Dare</h3>
+                    <h3 class="text-center white-color"> Upload Dare Videos</h3>
                     <span v-if='empty'>
                             <div class="remark info text-center">
                                     Your Dare list is currently empty. <router-link to='/pick-dare'> Click here to add one</router-link>
@@ -81,17 +81,19 @@
                                             data-control-next="<span class='mif-chevron-right fg-cyan'></span>"
                                             data-control-prev="<span class='mif-chevron-left fg-cyan'></span>"
                                        >
-                                          
-                                           <div class="slide" data-cover="images/rules.svg">
+                                       Sponsored Ads
+                                          <a href="#">
+                                           <div class="slide" data-cover="/images/ads/getfoods.ng.png">
                                           </div>
+                                        </a>
                                        
-                                           <div class="slide p-2 pl-10 pr-10" data-cover="images/help.svg">
+                                           <div class="slide p-2 pl-10 pr-10" data-cover="/images/ads/cohotek.png">
                                            </div>
     
-                                           <div class="slide" data-cover="images/rules.svg">
+                                           <div class="slide" data-cover="/images/ads/carspar.com.ng.png">
                                            </div>
                                           
-                                              <div class="slide p-2 pl-10 pr-10" data-cover="images/help.svg">
+                                              <div class="slide p-2 pl-10 pr-10" data-cover="/images/ads/dstreet.com.ng.png">
                                               </div>
     
                                        </div>
@@ -134,6 +136,16 @@
                },5000)
 
                this.get()
+
+               var notify = Metro.notify;
+                        notify.setup({
+                            width: 300,
+                            duration: 1000,
+                            timeout: 12000,
+                            animation: 'easeOutBounce'
+                        });
+                        notify.create("Select a Dare from your Dare list and upload its Video");
+                        notify.reset();
             },
             
             methods: {

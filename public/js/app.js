@@ -55550,10 +55550,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 notify.setup({
                     width: 300,
                     duration: 1000,
-                    timeout: 10000,
+                    timeout: 15000,
                     animation: 'easeOutBounce'
                 });
-                notify.create("Welcome to Challenge App. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
+                notify.create("Welcome to Challenge. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
                 notify.reset();
 
                 Metro.session.setItem('welcome', 'welcome');
@@ -55785,8 +55785,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -55887,7 +55885,7 @@ var render = function() {
               ? _c("span", [
                   _c("div", { staticClass: "remark info text-center" }, [
                     _vm._v(
-                      "\n                        No Dare Videos Currently\n                         "
+                      "\n                         No Dare Videos Currently\n                          "
                     )
                   ])
                 ])
@@ -55991,9 +55989,9 @@ var render = function() {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                                 " +
+                                                        "\n                                  " +
                                                           _vm._s(con.duration) +
-                                                          "\n                                 "
+                                                          "\n                                  "
                                                       )
                                                     ]
                                                   )
@@ -56008,9 +56006,9 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                     " +
+                                                    "\n                                      " +
                                                       _vm._s(con.dare_name) +
-                                                      "\n                "
+                                                      "\n                 "
                                                   ),
                                                   _c(
                                                     "p",
@@ -58190,7 +58188,7 @@ var render = function() {
                       [
                         _c("v-skeleton-loader", {
                           staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "table-tbody" }
+                          attrs: { "max-width": "auto", type: "table-tbody@2" }
                         })
                       ],
                       1
@@ -58838,7 +58836,7 @@ var render = function() {
                       [
                         _c("v-skeleton-loader", {
                           staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "table-tbody" }
+                          attrs: { "max-width": "auto", type: "table-tbody@2" }
                         })
                       ],
                       1
@@ -58987,7 +58985,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Dare")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Players Played")]),
+        _c("th", [_vm._v("Times Played")]),
         _vm._v(" "),
         _c("th", [_vm._v("Points")])
       ])
@@ -59903,7 +59901,7 @@ var render = function() {
                       { staticClass: "p-2" },
                       [
                         _vm._v(
-                          "\n                         Challenge App is a fun game of "
+                          "\n                         Challenge is a fun game of "
                         ),
                         _c(
                           "b",
@@ -59951,9 +59949,7 @@ var render = function() {
                       ),
                       _c("ul", [
                         _c("li", [
-                          _vm._v(
-                            "Earn gold to spend in the Challenge App store"
-                          )
+                          _vm._v("Earn gold to spend in the Challenge store")
                         ]),
                         _vm._v(" "),
                         _c(
@@ -60483,7 +60479,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             Metro.session.setItem('userId', res.data.id);
                             Metro.session.setItem('userName', res.data.username);
                             Metro.activity.close(activity);
-                            _this.$router.push({ name: "homepage" });
+                            _this.$router.push({ name: "pickDare" });
                         }
                     }).catch(function (error) {
                         Metro.activity.close(activity);
@@ -60533,7 +60529,7 @@ var render = function() {
             "form",
             {
               staticClass:
-                "login-form bg-white p-6 mx-auto border bd-default win-shadow",
+                "login-form bg-white p-6 mx-auto border bd-default win-shadow fadeIn",
               attrs: { method: "post", "data-vv-scope": "loginForm" }
             },
             [
@@ -60542,7 +60538,7 @@ var render = function() {
                 staticStyle: { "margin-top": "-10px" }
               }),
               _vm._v(" "),
-              _c("h2", { staticClass: "text-light" }, [_vm._v("Login")]),
+              _c("h2", { staticClass: "text-light" }, [_vm._v("Old Player")]),
               _vm._v(" "),
               _c("hr", { staticClass: "thin mt-4 mb-4 bg-white" }),
               _vm._v(" "),
@@ -60894,7 +60890,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     Metro.session.setItem('userId', res.data.id);
                                     Metro.session.setItem('userName', res.data.username);
                                     Metro.activity.close(activity);
-                                    _this.$router.push({ name: "homepage" });
+                                    _this.$router.push({ name: "pickDare" });
                                 }
                             }).catch(function (error) {
                                 Metro.activity.close(activity);
@@ -60974,7 +60970,7 @@ var render = function() {
             "form",
             {
               staticClass:
-                "login-form bg-white p-6 mx-auto border bd-default win-shadow",
+                "login-form bg-white p-6 mx-auto border bd-default win-shadow fadeIn",
               attrs: { method: "post", "data-vv-scope": "regForm" }
             },
             [
@@ -61395,7 +61391,7 @@ var render = function() {
             "form",
             {
               staticClass:
-                "login-form bg-white p-6 mx-auto border bd-default win-shadow",
+                "login-form bg-white p-6 mx-auto border bd-default win-shadow fadeIn",
               attrs: { method: "post", "data-vv-scope": "suggForm" }
             },
             [
@@ -61833,7 +61829,7 @@ var render = function() {
             "form",
             {
               staticClass:
-                "login-form1 bg-white p-6 mx-auto border bd-default win-shadow",
+                "login-form1 bg-white p-6 mx-auto border bd-default win-shadow fadeIn",
               attrs: { method: "post", "data-vv-scope": "usernameForm" }
             },
             [
@@ -61943,7 +61939,7 @@ var render = function() {
             "form",
             {
               staticClass:
-                "login-form2 bg-white p-6 mx-auto border bd-default win-shadow",
+                "login-form2 bg-white p-6 mx-auto border bd-default win-shadow fadeIn",
               attrs: { method: "post", "data-vv-scope": "darenameForm" }
             },
             [
@@ -61951,7 +61947,7 @@ var render = function() {
                 ? _c("span", [
                     _c("div", { staticClass: "remark info text-center" }, [
                       _vm._v(
-                        "\n                         No user found\n                         "
+                        "\n                         No Dare found\n                         "
                       )
                     ])
                   ])
@@ -62908,6 +62904,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
 
         this.get();
+
+        this.notify();
     },
 
 
@@ -62946,6 +62944,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         back: function back() {
             this.$router.go(-1);
+        },
+        notify: function notify() {
+            var pick = Metro.session.getItem('pickedDare');
+
+            if (pick) {
+                //old guest, do nothing
+            } else {
+                //new guest:
+                //notify and save key
+                var notify = Metro.notify;
+                notify.setup({
+                    width: 300,
+                    duration: 1000,
+                    timeout: 15000,
+                    animation: 'easeOutBounce'
+                });
+                notify.create("Pick dares you want to try out. A mamixum of 5 dares at a time");
+                notify.reset();
+
+                Metro.session.setItem('pickedDare', 'pickedDare');
+            }
         }
     },
 
@@ -62977,10 +62996,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             Metro.toast.create(' Dare added  Successfuly!', null, 5000, 'success', options);
                             Metro.activity.close(activity);
                         } else if (result == 2) {
-                            Metro.toast.create('Complete your 5 selected dares to select more', null, 5000, 'yellow', options);
+                            Metro.toast.create('Complete your 5 selected dares, then you can select more', null, 5000, 'info', options);
                             Metro.activity.close(activity);
                         } else if (result == 3) {
-                            Metro.toast.create('You added this dare already', null, 5000, 'info', options);
+                            Metro.toast.create('You added this dare already', null, 5000, 'yellow', options);
+                            Metro.activity.close(activity);
+                        } else if (result == 4) {
+                            Metro.toast.create('This Dare has expired', null, 5000, 'alert', options);
+                            Metro.activity.close(activity);
+                        } else if (result == 5) {
+                            Metro.toast.create('You completed this Dare already', null, 5000, 'info', options);
                             Metro.activity.close(activity);
                         } else {
                             Metro.toast.create('Adding failed. Refresh and try again', null, 5000, 'alert', options);
@@ -63020,7 +63045,7 @@ var render = function() {
             { staticClass: "container fadeIn" },
             [
               _c("h3", { staticClass: "text-center white-color" }, [
-                _vm._v(" Select Dares to Add")
+                _vm._v(" Select a Dare")
               ]),
               _vm._v(" "),
               _vm.empty
@@ -63060,7 +63085,7 @@ var render = function() {
                         attrs: {
                           "data-role": "hint",
                           "data-hint-text":
-                            "Select Dares you want to attempt. Selected dares are added to your Dare list.",
+                            "Selected dares are added to your Dare list.",
                           "data-hint-position": "top"
                         }
                       },
@@ -63333,7 +63358,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             timeout: 12000,
             animation: 'easeOutBounce'
         });
-        notify.create("Timed out Dares can not be played/completed again.");
+        notify.create("Completed your Dares before they time-out. Timed-out Dares are permanently lost!");
         notify.reset();
     },
 
@@ -63435,7 +63460,7 @@ var render = function() {
                       [
                         _c("v-skeleton-loader", {
                           staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "table-tbody" }
+                          attrs: { "max-width": "auto", type: "table-tbody@2" }
                         })
                       ],
                       1
@@ -63506,7 +63531,7 @@ var render = function() {
                       { staticClass: "remark info text-center" },
                       [
                         _c("router-link", { attrs: { to: "/pick-dare" } }, [
-                          _vm._v(" Click here to add another dare")
+                          _vm._v(" Click here to add a Dare")
                         ])
                       ],
                       1
@@ -63724,6 +63749,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -63745,6 +63772,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }, 5000);
 
         this.get();
+
+        var notify = Metro.notify;
+        notify.setup({
+            width: 300,
+            duration: 1000,
+            timeout: 12000,
+            animation: 'easeOutBounce'
+        });
+        notify.create("Select a Dare from your Dare list and upload its Video");
+        notify.reset();
     },
 
 
@@ -63869,7 +63906,7 @@ var render = function() {
             { staticClass: "container fadeIn" },
             [
               _c("h3", { staticClass: "text-center white-color" }, [
-                _vm._v(" Upload Dare")
+                _vm._v(" Upload Dare Videos")
               ]),
               _vm._v(" "),
               _vm.empty
@@ -64131,24 +64168,29 @@ var staticRenderFns = [
               }
             },
             [
+              _vm._v(
+                "\n                               Sponsored Ads\n                                  "
+              ),
+              _c("a", { attrs: { href: "#" } }, [
+                _c("div", {
+                  staticClass: "slide",
+                  attrs: { "data-cover": "/images/ads/getfoods.ng.png" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "slide p-2 pl-10 pr-10",
+                attrs: { "data-cover": "/images/ads/cohotek.png" }
+              }),
+              _vm._v(" "),
               _c("div", {
                 staticClass: "slide",
-                attrs: { "data-cover": "images/rules.svg" }
+                attrs: { "data-cover": "/images/ads/carspar.com.ng.png" }
               }),
               _vm._v(" "),
               _c("div", {
                 staticClass: "slide p-2 pl-10 pr-10",
-                attrs: { "data-cover": "images/help.svg" }
-              }),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "slide",
-                attrs: { "data-cover": "images/rules.svg" }
-              }),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "slide p-2 pl-10 pr-10",
-                attrs: { "data-cover": "images/help.svg" }
+                attrs: { "data-cover": "/images/ads/dstreet.com.ng.png" }
               })
             ]
           )

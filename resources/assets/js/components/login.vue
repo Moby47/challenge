@@ -4,10 +4,10 @@
                 <div class="desktop">
                         <div class="window-area scroll">
                             <!-- content here-->
-                            <form class="login-form bg-white p-6 mx-auto border bd-default win-shadow" 
+                            <form class="login-form bg-white p-6 mx-auto border bd-default win-shadow fadeIn" 
                             method="post" data-vv-scope='loginForm'>
                           <span class="mif-gamepad mif-4x place-right" style="margin-top: -10px;"></span>
-                          <h2 class="text-light">Login</h2>
+                          <h2 class="text-light">Old Player</h2>
                           <hr class="thin mt-4 mb-4 bg-white">
                           <div class="form-group">
                               <input type="text" data-role="input" data-prepend="<span class='mif-user'>" placeholder="Enter your username..." 
@@ -137,7 +137,7 @@
                                Metro.session.setItem('userId',res.data.id);
                                Metro.session.setItem('userName',res.data.username);
                                Metro.activity.close(activity);
-                               this.$router.push({name: "homepage"});
+                               this.$router.push({name: "pickDare"});
                           }
                     })
                     .catch(error =>{

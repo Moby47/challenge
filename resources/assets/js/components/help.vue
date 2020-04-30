@@ -19,7 +19,7 @@
                             <div class="heading">Challenge App</div>
                             <div class="content">
                                 <div class="p-2">
-                                 Challenge App is a fun game of <b> <strike>Truth</strike> or Dare</b>, without the Truth.
+                                 Challenge is a fun game of <b> <strike>Truth</strike> or Dare</b>, without the Truth.
                                 <br>
                                 Play as a <router-link to='/dares'  style="background-color: #b82943; color:white; padding:3px; border-radius:6px">Watcher</router-link> 
                                 and watch dares completed by Players
@@ -33,7 +33,7 @@
                             <div class="content">
                                 <div class="p-2">Complete a completely safe Dare listed by the Challenge App to:
                                     <ul>
-                                        <li>Earn gold to spend in the Challenge App store</li>
+                                        <li>Earn gold to spend in the Challenge store</li>
                                         <li>Get likes, views and climb the <router-link to='/leader-board' 
                                              style="background-color: #b82943; color:white; padding:3px; border-radius:6px">
                                             Leader Board</router-link></li>

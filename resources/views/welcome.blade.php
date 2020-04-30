@@ -47,11 +47,9 @@
     <body>
         <div id='app' v-cloak>
 
-    <!-- <transition name='anime' enter-active-class='animated fadeIn' :duration='200' leave-active-class='animated fadeOut'>
-                     	
-      </transition>-->
+     <transition name='anime' enter-active-class='animated fadeIn' :duration='200' leave-active-class='animated fadeOut'>
       <router-view></router-view>
-              
+    </transition>
               
                     </div>
 
@@ -68,7 +66,7 @@
 
             // Initialize the service worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceworker.js', {
+        navigator.serviceWorker.register('/sw.js', {
             scope: '.' 
         }).then(function (registration) {
             // Registration was successful
@@ -78,6 +76,7 @@
             console.log('ServiceWorker registration failed: ', err);
         });
     }
+    
              </script>
 
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>

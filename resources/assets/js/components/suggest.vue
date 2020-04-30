@@ -4,7 +4,7 @@
                 <div class="desktop">
                         <div class="window-area scroll">
                             <!-- content here-->
-                            <form class="login-form bg-white p-6 mx-auto border bd-default win-shadow" 
+                            <form class="login-form bg-white p-6 mx-auto border bd-default win-shadow fadeIn" 
                             method="post" data-vv-scope='suggForm'>
                           <span class="mif-comment mif-4x place-right" style="margin-top: -10px;"></span>
                           <h2 class="text-light">Suggest a Dare</h2>

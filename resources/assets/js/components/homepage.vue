@@ -74,10 +74,10 @@
                         notify.setup({
                             width: 300,
                             duration: 1000,
-                            timeout: 10000,
+                            timeout: 15000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Welcome to Challenge App. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
+                        notify.create("Welcome to Challenge. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
                         notify.reset();
 
                         Metro.session.setItem('welcome','welcome')

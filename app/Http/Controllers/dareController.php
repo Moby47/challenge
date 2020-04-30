@@ -102,9 +102,27 @@ class dareController extends Controller
             ->where('dare_name','=',$request->input('darename'))->first();
            
             if($check2){
+
+                //check expiration
+                $checkEx = mydare::where('user_id','=',$request->input('userid'))
+                ->where('dare_name','=',$request->input('darename'))
+                ->whereDate('expire','<=', \carbon\carbon::now())->first();
+                if($checkEx){
+                    //it has expired
+                    return 4;
+                }
+
+                //check if completed
+                $checkStat = mydare::where('user_id','=',$request->input('userid'))
+                ->where('dare_name','=',$request->input('darename'))->pluck('status')->first();
+                if($checkStat == 3){
+                    return 5;
+                }
+
+                //dare was added before
                 return 3;
             }else{
-              
+              //ok, proceed
                 $save = new mydare();
                 $save->dare_name = $request->input('darename');
                 $save->user_id = $request->input('userid');
@@ -232,7 +250,7 @@ class dareController extends Controller
 
     public function upload_dare_list($userid)
     {
-        //check and expire
+        //check and expire - start
         $ex_data = mydare::orderby('status',1)->where('user_id','=',$userid)
         ->whereDate('expire','<=', \carbon\carbon::now())
         ->select('id','status')->get();
@@ -243,7 +261,7 @@ class dareController extends Controller
             $d->save();
         }
        }
-       //check and expire
+       //check and expire - end
      
           $ex_data = mydare::orderby('id','desc')->where('user_id','=',$userid)
         ->whereDate('expire','>=', \carbon\carbon::now())->where('status','=',1)
@@ -270,11 +288,12 @@ class dareController extends Controller
          } */
 
         //push to cloud
-        $video = $request->file('video')->getRealPath();;
+        $video = $request->file('video')->getRealPath();
+        
         Cloudder::uploadVideo($video, null);
                    // return Cloudder::getResult();
         
-        //change daree status to 3, meaning done!
+        //change dare status to 3, meaning done!
         $dare = mydare::findorfail($request->input('selected'));
         $dare->status = 3;
         $dare->save();

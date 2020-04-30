@@ -17,12 +17,10 @@
                                 No Dare Videos Currently
                                  </div>
                     </span>
-            
-                 
         
                         <div class="row">
         
-                            <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading' v-for='i in 6'>
+       <div class="cell-sm-full cell-md-one-third cell-lg-4" v-if='loading' v-for='i in 6'>
                             <template >
                                 <v-sheet
                                   :color="`grey`"

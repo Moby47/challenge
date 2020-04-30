@@ -26,7 +26,7 @@
                           <v-skeleton-loader
                             class="mx-auto"
                             max-width="auto"
-                            type="table-tbody"
+                            type="table-tbody@2"
                           ></v-skeleton-loader>
                         </v-sheet>
                       </template>
@@ -36,7 +36,7 @@
                         <thead class="thead-dark">
                         <tr>
                              <th>Dare</th>
-                            <th>Players Played</th>
+                            <th>Times Played</th>
                             <th>Points</th>
                         </tr>
                         </thead>

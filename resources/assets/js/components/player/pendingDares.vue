@@ -33,7 +33,7 @@
                               <v-skeleton-loader
                                 class="mx-auto"
                                 max-width="auto"
-                                type="table-tbody"
+                                type="table-tbody@2"
                               ></v-skeleton-loader>
                             </v-sheet>
                           </template>
@@ -76,7 +76,7 @@
                         </table>
     
                         <div class="remark info text-center">
-                            <router-link to='/pick-dare'> Click here to add another dare</router-link>
+                            <router-link to='/pick-dare'> Click here to add a Dare</router-link>
                          </div>
     
                         <div class="remark success text-center">
@@ -121,7 +121,7 @@
                             timeout: 12000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Timed out Dares can not be played/completed again.");
+                        notify.create("Completed your Dares before they time-out. Timed-out Dares are permanently lost!");
                         notify.reset();
             },
             

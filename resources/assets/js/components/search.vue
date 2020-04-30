@@ -6,7 +6,7 @@
                             <!-- content here-->
                             
 
-                            <form class="login-form1 bg-white p-6 mx-auto border bd-default win-shadow"
+                            <form class="login-form1 bg-white p-6 mx-auto border bd-default win-shadow fadeIn"
                             method="post" data-vv-scope='usernameForm'>
 
                             <span v-if='empty'>
@@ -44,12 +44,12 @@
                       
 
 
-                      <form class="login-form2 bg-white p-6 mx-auto border bd-default win-shadow" 
+                      <form class="login-form2 bg-white p-6 mx-auto border bd-default win-shadow fadeIn" 
                       method="post" data-vv-scope='darenameForm'>
 
                       <span v-if='empty2'>
                             <div class="remark info text-center">
-                                 No user found
+                                 No Dare found
                                  </div>
                     </span>
             

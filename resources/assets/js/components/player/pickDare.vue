@@ -16,7 +16,7 @@
         
             <div class="container fadeIn">
             
-                    <h3 class="text-center white-color"> Select Dares to Add</h3>
+                    <h3 class="text-center white-color"> Select a Dare</h3>
         
                     <span v-if='empty'>
                             <div class="remark info text-center">
@@ -39,7 +39,7 @@
     
                           <span v-else>
                    <p data-role="hint" 
-                   data-hint-text="Select Dares you want to attempt. Selected dares are added to your Dare list."
+                   data-hint-text="Selected dares are added to your Dare list."
                     data-hint-position="top">
                     <select data-role="select" v-model='selected'>
                             <option selected class="text-bold" :value='con.dare_name'
@@ -90,6 +90,7 @@
                 
                 this.get()
 
+                this.notify()
                 },
 
                 methods: {
@@ -136,7 +137,29 @@
 
                 back(){
                     this.$router.go(-1)
-                }
+                },
+
+                notify(){
+                    var pick = Metro.session.getItem('pickedDare')
+    
+                        if(pick){
+                            //old guest, do nothing
+                        }else{
+                            //new guest:
+                            //notify and save key
+                            var notify = Metro.notify;
+                            notify.setup({
+                                width: 300,
+                                duration: 1000,
+                                timeout: 15000,
+                                animation: 'easeOutBounce'
+                            });
+                            notify.create("Pick dares you want to try out. A mamixum of 5 dares at a time");
+                            notify.reset();
+    
+                            Metro.session.setItem('pickedDare','pickedDare')
+                        }
+                },
 
             },
     
@@ -170,11 +193,19 @@
                              null, 5000, 'success', options);
                                Metro.activity.close(activity);
                           }else if(result == 2){
-                            Metro.toast.create('Complete your 5 selected dares to select more',
-                             null, 5000, 'yellow', options);
+                            Metro.toast.create('Complete your 5 selected dares, then you can select more',
+                             null, 5000, 'info', options);
                              Metro.activity.close(activity);
                           }else if(result == 3){
                             Metro.toast.create('You added this dare already',
+                             null, 5000, 'yellow', options);
+                             Metro.activity.close(activity);
+                          }else if(result == 4){
+                            Metro.toast.create('This Dare has expired',
+                             null, 5000, 'alert', options);
+                             Metro.activity.close(activity);
+                          }else if(result == 5){
+                            Metro.toast.create('You completed this Dare already',
                              null, 5000, 'info', options);
                              Metro.activity.close(activity);
                           }else{
