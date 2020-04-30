@@ -55331,7 +55331,7 @@ var render = function() {
     [
       _c("vue-particles", { attrs: { color: "#fdf9c6" } }),
       _vm._v(" "),
-      _c("h2", { staticClass: "text-center white-color" }, [
+      _c("h3", { staticClass: "text-center white-color" }, [
         _vm._v("CHALLENGE")
       ]),
       _vm._v(" "),
@@ -55344,7 +55344,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("h4", { staticClass: "text-center white-color fadeIn" }, [
+      _c("p", { staticClass: "text-center white-color fadeIn" }, [
         _vm._v("Choose a Character")
       ]),
       _vm._v(" "),
@@ -62145,16 +62145,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62336,26 +62326,38 @@ var render = function() {
                                               staticClass: "card image-header"
                                             },
                                             [
-                                              _c("div", [
-                                                _c("video", {
-                                                  attrs: {
-                                                    "data-role": "video",
-                                                    "data-src": con.url,
-                                                    "data-poster": con.poster,
-                                                    "data-aspect-ratio": "hd",
-                                                    "data-logo":
-                                                      "/images/play.png",
-                                                    "data-logo-height": "40",
-                                                    "data-show-loop": "false",
-                                                    "data-show-play": "false",
-                                                    "data-show-stop": "false",
-                                                    "data-show-stream": "false",
-                                                    "data-show-volume": "false",
-                                                    "data-show-mute": "false",
-                                                    "data-show-full": "false"
-                                                  }
-                                                })
-                                              ]),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "card-header fg-white",
+                                                  style:
+                                                    "background-image: url(" +
+                                                    con.poster +
+                                                    ")"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass: "fg-white",
+                                                      staticStyle: {
+                                                        "background-color":
+                                                          "#2c2a2a",
+                                                        padding: "2px",
+                                                        "border-radius": "5px"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                   " +
+                                                          _vm._s(con.duration) +
+                                                          "\n                                   "
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
                                               _vm._v(" "),
                                               _c(
                                                 "div",
@@ -62365,9 +62367,9 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                     " +
+                                                    "\n                                       " +
                                                       _vm._s(con.dare_name) +
-                                                      "\n                "
+                                                      "\n                  "
                                                   ),
                                                   _c(
                                                     "p",
@@ -62378,11 +62380,7 @@ var render = function() {
                                                           _vm._s(con.views) +
                                                             " views"
                                                         )
-                                                      ]),
-                                                      _vm._v(
-                                                        ". completed on " +
-                                                          _vm._s(con.created_at)
-                                                      )
+                                                      ])
                                                     ]
                                                   )
                                                 ]
@@ -63980,8 +63978,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|ext:mp4,3gp|size:50000",
-                              expression: '"required|ext:mp4,3gp|size:50000"'
+                              value: "required|ext:mp4,3gp|size:19000",
+                              expression: '"required|ext:mp4,3gp|size:19000"'
                             }
                           ],
                           attrs: {

@@ -50,31 +50,21 @@
                                     outlined
                                     tile
                                   >
-                                <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
-                                  <div class="card image-header">
-                        <div>
-
-                            <video data-role="video"
-                            :data-src="con.url"
-                            :data-poster="con.poster"
-                            data-aspect-ratio="hd"
-                            data-logo="/images/play.png"
-                            data-logo-height="40"
-                            data-show-loop="false"
-                            data-show-play="false"
-                            data-show-stop="false"
-                            data-show-stream="false"
-                            data-show-volume="false"
-                            data-show-mute="false"
-                            data-show-full="false"
-                             ></video>
-                                      </div>
-                                      <div class="card-content p-2 text-ellipsis text-cap">
-                                         {{con.dare_name}}
-                    <p class="fg-gray"> <b>{{con.views}} views</b>. completed on {{con.created_at}}</p>
-                                      </div>
-                                  </div>
-                                </router-link>
+                                  <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
+                                    <div class="card image-header">
+                                        <div class="card-header fg-white"
+                                        :style="'background-image: url('+con.poster+')'">
+                                    <span style="background-color: #2c2a2a; padding:2px; border-radius:5px;"
+                                    class='fg-white'>
+                                       {{con.duration}}
+                                       </span>
+                                   </div>
+                                        <div class="card-content p-2 text-ellipsis text-cap">
+                                           {{con.dare_name}}
+                      <p class="fg-gray"> <b>{{con.views}} views</b></p>
+                                        </div>
+                                    </div>
+                                  </router-link>
 
                                   <span class="badge inside  fg-white"
                                   style="background-color: #b82943">Completed by: {{con.username}}</span>

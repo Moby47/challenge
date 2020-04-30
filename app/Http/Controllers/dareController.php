@@ -330,12 +330,16 @@ class dareController extends Controller
                 $minutes = "$minutes"."m";
                 $seconds = $seconds."s";
             }
+           if($minutes){
             $time = "$minutes $seconds";
+           }else{
+            $time = "$minutes $seconds".'s';
+           }
 
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
-        $save->poster = str_ireplace("upload/","upload/vs_40,dl_200,h_200,e_loop:4,f_gif/",$cloundary_upload['url']);
+        $save->poster = str_ireplace("upload/","upload/vs_40,dl_200,h_200,e_loop,f_gif/",$cloundary_upload['url']);
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->duration = $time;

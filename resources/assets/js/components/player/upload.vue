@@ -50,7 +50,7 @@
     
                     <p class='white-color'>Video upload</p>
                     <input type="file" data-role="file" data-mode="drop" name='video'
-                    @change='videoSelect' v-validate='"required|ext:mp4,3gp|size:50000"'>
+                    @change='videoSelect' v-validate='"required|ext:mp4,3gp|size:19000"'>
                     <p class='fg-yellow shake' v-show="errors.has('video')">{{ errors.first('video') }}</p>
     
                     <br>
