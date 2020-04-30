@@ -11,6 +11,7 @@
 |
 */
 
+Route::Auth();
 
 
 Route::get('/{vue_capture?}', function () {

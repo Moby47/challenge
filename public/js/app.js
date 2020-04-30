@@ -63746,9 +63746,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 //  document.getElementById("addForm").reset();
 
                                 Metro.toast.create('Upload Successful!', null, 5000, 'success', options);
-                            } else {
+                            } else if (res.dat == 0) {
                                 Metro.activity.close(activity);
-                                Metro.toast.create('An error occured, refresh and try again', null, 5000, 'alert', options);
+                                Metro.toast.create('Upload timeout, bad network or file is too larger. (use less than 20Mb)', null, 5000, 'alert', options);
                             }
                         }).catch(function (err) {
                             console.log(err);
@@ -63978,8 +63978,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|ext:mp4,3gp|size:19000",
-                              expression: '"required|ext:mp4,3gp|size:19000"'
+                              value: "required|ext:mp4,3gp|size:68000",
+                              expression: '"required|ext:mp4,3gp|size:68000"'
                             }
                           ],
                           attrs: {

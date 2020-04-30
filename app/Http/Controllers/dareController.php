@@ -277,22 +277,28 @@ class dareController extends Controller
     public function upload_dare(Request $request)
     {
         $this->validate($request,[
-            'video'=>'required|mimes:mp4,3gp|between:1, 50000',
+            'video'=>'required|mimes:mp4,3gp|between:1, 68000',
         ]);
-
-       /* try{
-
-        }
-        catch(\Exception $e){
-            return '47';
-         } */
 
         //push to cloud
         $video = $request->file('video')->getRealPath();
         
+        /*
+        \Cloudinary\Uploader::upload_large($video, 
+            array("resource_type" => "video",
+            "chunk_size" => 10000000,
+            "timeout" => 18000
+        ));
+        */
+
+        try{
         Cloudder::uploadVideo($video, null);
-                   // return Cloudder::getResult();
-        
+        $cloundary_upload = Cloudder::getResult();
+        }
+        catch(\Exception $e){
+            return 0;
+         } 
+
         //change dare status to 3, meaning done!
         $dare = mydare::findorfail($request->input('selected'));
         $dare->status = 3;
@@ -312,7 +318,7 @@ class dareController extends Controller
           $darelistContent->save();
 
         //save required intel
-        $cloundary_upload = Cloudder::getResult();
+       
         //convert duration from sec to min
        $seconds =  $cloundary_upload['duration'];
             $start_seconds = round($seconds);

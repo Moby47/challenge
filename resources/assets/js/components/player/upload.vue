@@ -50,7 +50,7 @@
     
                     <p class='white-color'>Video upload</p>
                     <input type="file" data-role="file" data-mode="drop" name='video'
-                    @change='videoSelect' v-validate='"required|ext:mp4,3gp|size:19000"'>
+                    @change='videoSelect' v-validate='"required|ext:mp4,3gp|size:68000"'>
                     <p class='fg-yellow shake' v-show="errors.has('video')">{{ errors.first('video') }}</p>
     
                     <br>
@@ -187,9 +187,9 @@
       Metro.toast.create('Upload Successful!',
         null, 5000, 'success', options);
 			
-			}else{
+			}else if (res.dat == 0){
         Metro.activity.close(activity);
-        Metro.toast.create('An error occured, refresh and try again',
+        Metro.toast.create('Upload timeout, bad network or file is too larger. (use less than 20Mb)',
          null, 5000, 'alert', options);
 			}
 				

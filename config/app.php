@@ -2,6 +2,15 @@
 
 return [
 
+    //for cloudinary
+    
+    \Cloudinary::config(array( 
+        "cloud_name" => "ddvotdlwm", 
+        "api_key" => "733671229438548", 
+        "api_secret" => "l_5eL-VRYweL5CluEaEZfilZJz4", 
+        "secure" => true
+    )),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
