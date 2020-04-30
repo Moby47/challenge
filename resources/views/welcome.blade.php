@@ -47,10 +47,8 @@
     <body>
         <div id='app' v-cloak>
 
-     <transition name='anime' enter-active-class='animated fadeIn' :duration='200' leave-active-class='animated fadeOut'>
-      <router-view></router-view>
-    </transition>
-              
+            <router-view></router-view>
+        
                     </div>
 
                     <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>

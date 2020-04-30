@@ -67,24 +67,25 @@
                                                 <twitter  :url="url" :title="'Challenge completed by: '+single.username" scale="1.7"></twitter>  
                                                <linkedin  :url="url" scale="1.7"></linkedin>   
                                         </p>
+                                        <p class="p-5 text-center">
+
+                                            <vue-disqus shortname="challenge-app"
+                                            :identifier="id_disqus"
+                                            :url="url_disqus">
+                                           </vue-disqus>
+      
+                                              </p>
                                                                   </div>
-                                           
+                            <!--              
                             <button class="button fg-white m-1"  style="background-color: #1ba1e2"
                                                                    id="dropdown_toggle_1">Comments</button>
                                                                   <div class="pos-relative">
                                                                       <div
                                                                       data-role="dropdown"
                                                                        data-toggle-element="#dropdown_toggle_1">
-                                   <p class="p-5 text-center">
-
-                                      <vue-disqus shortname="challenge-app"
-                                      :identifier="id_disqus"
-                                      :url="url_disqus">
-                                     </vue-disqus>
-
-                                        </p>
+                                                                  
                                                                       </div>
-                                                                  </div>
+                                                                  </div>-->
                                                               
                                   <span class="badge inside  fg-white"
                               style="background-color: #b82943">{{single.username}}</span>

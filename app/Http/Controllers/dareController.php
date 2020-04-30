@@ -70,10 +70,10 @@ class dareController extends Controller
 
     public function scores()
     {
-        //fetch data (last 10) from dare model, order from highest points. (Done! was blocking pro)
-        return $scores= \DB::table('dares')->orderby('point','desc')
-        ->select('username','views', \DB::raw('sum(point) as point'))
-        ->groupBy('username','views')->paginate(10);
+         $scores= User::orderby('points','desc')
+        ->select('username','points')->get()
+        ->take(10);
+        return dareres::collection($scores);
     }
 
    
@@ -335,7 +335,7 @@ class dareController extends Controller
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = $cloundary_upload['url'];
-        $save->poster = str_ireplace("upload/","upload/so_3,f_gif/",$cloundary_upload['url']);;
+        $save->poster = str_ireplace("upload/","upload/vs_40,dl_200,h_200,e_loop:4,f_gif/",$cloundary_upload['url']);
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->duration = $time;
