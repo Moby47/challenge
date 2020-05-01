@@ -9,7 +9,7 @@
     <div data-role="cube" data-color="black"
     data-flash-color="#fdf9c6" class='zoomer'></div>
 
-<p class="text-center white-color fadeIn">Choose a Character</p>
+<p class="text-center white-color fadeIn">Choose Your Character</p>
 
 <div class="row text-center fadeIn">
    
