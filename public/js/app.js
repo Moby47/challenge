@@ -66626,8 +66626,10 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required|ext:mp4,3gp|size:68000",
-                              expression: '"required|ext:mp4,3gp|size:68000"'
+                              value:
+                                "required|ext:mp4,3gp,ASF,FLV,MKV,AVI,MOV,HEVC,MPEG-4,H.264,MJPEG,M-JEPG|size:33000",
+                              expression:
+                                '"required|ext:mp4,3gp,ASF,FLV,MKV,AVI,MOV,HEVC,MPEG-4,H.264,MJPEG,M-JEPG|size:33000"'
                             }
                           ],
                           attrs: {
