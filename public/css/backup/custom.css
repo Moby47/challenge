@@ -107,7 +107,7 @@
     background-color: grey;
 }
 #charm {
-    height: calc(100vh - 97px);
+    height: calc(88vh - 97px);
     width: 396px;
     background-color: rgba(0, 0, 0, 0.42);
 }
