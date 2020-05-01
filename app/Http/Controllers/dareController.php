@@ -277,27 +277,29 @@ class dareController extends Controller
     public function upload_dare(Request $request)
     {
         $this->validate($request,[
-            'video'=>'required|mimes:mp4,3gp|between:1, 68000',
+            'video'=>'required|mimes:mp4,3gp|between:1, 33000',
         ]);
 
         //push to cloud
         $video = $request->file('video')->getRealPath();
         
-        /*
-        \Cloudinary\Uploader::upload_large($video, 
+        try{
+        $cloundary_upload = \Cloudinary\Uploader::upload_large($video, 
             array("resource_type" => "video",
-            "chunk_size" => 10000000,
+            "chunk_size" => 6000000,
             "timeout" => 18000
         ));
-        */
-
-        try{
+        }
+        catch(\Exception $e){
+            return 0;
+         } 
+      /*  
         Cloudder::uploadVideo($video, null);
         $cloundary_upload = Cloudder::getResult();
         }
         catch(\Exception $e){
             return 0;
-         } 
+         } */
 
         //change dare status to 3, meaning done!
         $dare = mydare::findorfail($request->input('selected'));
