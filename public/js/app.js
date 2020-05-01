@@ -110886,6 +110886,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -111007,8 +111024,6 @@ var render = function() {
         [
           _c("div", { staticClass: "h-100 d-flex flex-column" }, [
             _c("div", { staticClass: "charm-top" }, [
-              _vm._m(0),
-              _vm._v(" "),
               _c("div", { staticClass: "charm-bottom mt-auto" }, [
                 _c("div", { staticClass: "d-flex" }, [
                   _c(
@@ -111055,8 +111070,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile ani-hover-horizontal",
-                      staticStyle: { "background-color": "#b82943" },
+                      staticClass: "charm-tile ani-hover-horizontal bg-teal",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -111071,38 +111085,16 @@ var render = function() {
                         _vm._v("Dare Leaderboard")
                       ])
                     ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile bg-teal ani-hover-horizontal",
-                      staticStyle: { "background-color": "#b82943" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.search()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-search" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [_vm._v("Search")])
-                    ]
                   )
                 ])
               ]),
-              _vm._v(" "),
-              _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "charm-bottom mt-auto" }, [
                 _c("div", { staticClass: "d-flex" }, [
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile ani-hover-horizontal",
-                      staticStyle: { "background-color": "#1ba1e2" },
+                      staticClass: "charm-tile ani-hover-horizontal bg-teal",
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -111122,7 +111114,8 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "charm-tile ani-hover-horizontal bg-teal",
+                      staticClass: "charm-tile ani-hover-horizontal",
+                      staticStyle: { "background-color": "#b82943" },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -111157,8 +111150,136 @@ var render = function() {
                         _vm._v("Upload Dare")
                       ])
                     ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile ani-hover-horizontal bg-purple",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.store()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-cart" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Store")])
+                    ]
                   ),
                   _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile ani-hover-horizontal",
+                      staticStyle: { "background-color": "#1ba1e2" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.search()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-search" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Search")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile ani-hover-horizontal bg-orange",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.suggest()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-move_to_inbox" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("Suggest Dare")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile ani-hover-horizontal",
+                      staticStyle: { "background-color": "#b82943" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.help()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-help" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [
+                        _vm._v("How to Play")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile ani-hover-horizontal bg-teal",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.rules()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-books" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Rules")])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "charm-bottom mt-auto" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "charm-tile ani-hover-horizontal",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.menu()
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon mif-home" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "caption" }, [_vm._v("Home")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex" }, [
                   _vm.isAuth()
                     ? _c(
                         "div",
@@ -111199,118 +111320,12 @@ var render = function() {
                             _vm._v("Start Playing")
                           ])
                         ]
-                      )
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _c("div", { staticClass: "charm-bottom mt-auto" }, [
-                _c("div", { staticClass: "d-flex" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile ani-hover-horizontal bg-purple",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.store()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-cart" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [_vm._v("Store")])
-                    ]
-                  ),
+                      ),
                   _vm._v(" "),
                   _c(
                     "div",
                     {
                       staticClass: "charm-tile ani-hover-horizontal bg-orange",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.suggest()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-move_to_inbox" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("Suggest Dare")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile ani-hover-horizontal",
-                      staticStyle: { "background-color": "#b82943" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.help()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-help" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [
-                        _vm._v("How to Play")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "d-flex" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile ani-hover-horizontal bg-teal",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.rules()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-books" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [_vm._v("Rules")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile ani-hover-horizontal",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.menu()
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon mif-home" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "caption" }, [_vm._v("Home")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "charm-tile ani-hover-horizontal",
-                      staticStyle: { "background-color": "#7e07ff" },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -111331,39 +111346,15 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "task-bar-section tasks" }),
       _vm._v(" "),
-      _vm._m(5)
+      _vm._m(2)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center m-4" }, [
-      _c("span", [_vm._v("Watcher")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center m-4" }, [
-      _c("span", [_vm._v("Player")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center m-4" }, [
-      _c("span", [_vm._v("General Options")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

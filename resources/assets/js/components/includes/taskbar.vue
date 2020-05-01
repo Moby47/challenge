@@ -5,9 +5,9 @@
                     <div data-role="charms" data-position="left" id="charm" class="p-4">
                             <div class="h-100 d-flex flex-column">
                                 <div class="charm-top">
-                                    <div class="text-center m-4">
+                                    <!--<div class="text-center m-4">
                                         <span>Watcher</span>
-                                    </div>
+                                    </div>-->
                                  
                                     <div class="charm-bottom mt-auto">
                                         <div class="d-flex">
@@ -19,14 +19,11 @@
                                                 <span class="icon mif-list"></span>
                                                 <span class="caption">Dare List</span>
                                             </div>
-                                            <div class="charm-tile ani-hover-horizontal" @click.prevent='board()' style="background-color: #b82943">
+                                            <div class="charm-tile ani-hover-horizontal bg-teal" @click.prevent='board()'>
                                                 <span class="icon mif-clipboard"></span>
                                                 <span class="caption">Dare Leaderboard</span>
                                             </div>
-                                            <div class="charm-tile bg-teal ani-hover-horizontal" @click.prevent='search()' style="background-color: #b82943">
-                                                    <span class="icon mif-search"></span>
-                                                    <span class="caption">Search</span>
-                                                </div>
+                                            
                                           
                                         </div>
                         
@@ -34,19 +31,17 @@
                 
                 
                 
-                                    <div class="text-center m-4">
-                                        <span>Player</span>
-                                    </div>
+                                  
                                  
                                     <div class="charm-bottom mt-auto">
                                         <div class="d-flex">
-                                            <div class="charm-tile ani-hover-horizontal" @click.prevent='pickDare()'
-                                             style="background-color: #1ba1e2">
+                                            <div class="charm-tile ani-hover-horizontal bg-teal" @click.prevent='pickDare()'
+                                             >
                                                 <span class="icon mif-add"></span>
                                                 <span class="caption">Pick a Dare</span>
                                             </div>
-                                            <div class="charm-tile ani-hover-horizontal bg-teal" @click.prevent='myDare()' 
-                                            >
+                                            <div class="charm-tile ani-hover-horizontal" @click.prevent='myDare()' 
+                                            style="background-color: #b82943">
                                                 <span class="icon mif-alarm"></span>
                                                 <span class="caption">My Dares</span>
                                             </div>
@@ -54,23 +49,14 @@
                                                 <span class="icon mif-file-upload"></span>
                                                 <span class="caption">Upload Dare</span>
                                             </div>
-                                            <div class="charm-tile ani-hover-horizontal " @click.prevent='logout()'v-if='isAuth()' style="background-color: #b82943">
-                                                <span class="icon mif-power"></span>
-                                                <span class="caption">Logout</span>
-                                            </div>
-                                            <div class="charm-tile ani-hover-horizontal " @click.prevent='upload()' v-else style="background-color: #b82943">
-                                                    <span class="icon mif-gamepad"></span>
-                                                    <span class="caption">Start Playing</span>
-                                                </div>
+                                          
                                         </div>
                         
                                     </div>
                 
                 
                 
-                                    <div class="text-center m-4">
-                                            <span>General Options</span>
-                                        </div>
+                                  
                                      
                                         <div class="charm-bottom mt-auto">
                                             <div class="d-flex">
@@ -78,34 +64,66 @@
                                                     <span class="icon mif-cart"></span>
                                                     <span class="caption">Store</span>
                                                 </div>
+                                                <div class="charm-tile ani-hover-horizontal" @click.prevent='search()' style="background-color: #1ba1e2">
+                                                    <span class="icon mif-search"></span>
+                                                    <span class="caption">Search</span>
+                                                </div>
+                                       
+                                             
+                                                
+                                            </div>
+                
+                                            <div class="d-flex">
                                                 <div class="charm-tile ani-hover-horizontal bg-orange" @click.prevent='suggest()'>
                                                     <span class="icon mif-move_to_inbox"></span>
                                                     <span class="caption">Suggest Dare</span>
                                                 </div>
-                                       <div class="charm-tile ani-hover-horizontal" style="background-color: #b82943" @click.prevent='help()'>
+                                                <div class="charm-tile ani-hover-horizontal" style="background-color: #b82943" @click.prevent='help()'>
                                                     <span class="icon mif-help"></span>
                                                     <span class="caption">How to Play</span>
+                                                </div>
+                                                <div class="charm-tile ani-hover-horizontal bg-teal" @click.prevent='rules()'>
+                                                    <span class="icon mif-books"></span>
+                                                    <span class="caption">Rules</span>
+                                                </div>
+                                                   
+                                                    
+                                                </div>
+
+
+                            
+                                        </div>
+                
+
+
+
+                                        <div class="charm-bottom mt-auto">
+                                            <div class="d-flex">
+                                                <a href='mailto:honred47@yahoo.com' class='link'>
+                                                    <div class="charm-tile ani-hover-horizontal"  style="background-color: #1ba1e2">
+                                                    <span class="icon mif-phone"></span>
+                                                    
+                                                           <span class="caption">Contact Support</span>
+                                                  </div></a>
+                                                  <div class="charm-tile ani-hover-horizontal" @click.prevent='menu()'>
+                                                    <span class="icon mif-home"></span>
+                                                    <span class="caption">Home</span>
                                                 </div>
                                              
                                                 
                                             </div>
                 
                                             <div class="d-flex">
-                                                    <div class="charm-tile ani-hover-horizontal bg-teal" @click.prevent='rules()'>
-                                                            <span class="icon mif-books"></span>
-                                                            <span class="caption">Rules</span>
-                                                        </div>
-                                                        <a href='mailto:honred47@yahoo.com' class='link'>
-                                                                <div class="charm-tile ani-hover-horizontal"  style="background-color: #1ba1e2">
-                                                                <span class="icon mif-phone"></span>
-                                                                
-                                                                       <span class="caption">Contact Support</span>
-                                                              </div></a>
-                                                    <div class="charm-tile ani-hover-horizontal" @click.prevent='menu()'>
-                                                        <span class="icon mif-home"></span>
-                                                        <span class="caption">Home</span>
+                                                <div class="charm-tile ani-hover-horizontal " @click.prevent='logout()'v-if='isAuth()' style="background-color: #b82943">
+                                                    <span class="icon mif-power"></span>
+                                                    <span class="caption">Logout</span>
+                                                </div>
+                                                <div class="charm-tile ani-hover-horizontal " @click.prevent='upload()' v-else style="background-color: #b82943">
+                                                        <span class="icon mif-gamepad"></span>
+                                                        <span class="caption">Start Playing</span>
                                                     </div>
-                                                    <div class="charm-tile ani-hover-horizontal" @click.prevent='home()' style="background-color: #7e07ff">
+                                                  
+                                                    <div class="charm-tile ani-hover-horizontal bg-orange" @click.prevent='home()'>
                                                         <span class="icon mif-settings-power"></span>
                                                         <span class="caption">Exit</span>
                                                     </div>
@@ -116,7 +134,6 @@
 
                             
                                         </div>
-                
                                         
                         
                                 </div>
