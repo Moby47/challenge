@@ -58184,7 +58184,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     timeout: 15000,
                     animation: 'easeOutBounce'
                 });
-                notify.create("Welcome to Challenge. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
+                notify.create("Welcome to <b>Challenge</b>. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
+                notify.create("Click the icon below to <b>START</b>");
                 notify.reset();
 
                 Metro.session.setItem('welcome', 'welcome');
@@ -59236,6 +59237,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 //share icons
@@ -59646,7 +59648,9 @@ var render = function() {
                                 })
                               ],
                               1
-                            )
+                            ),
+                            _vm._v(" "),
+                            _c("br")
                           ]
                         : _vm._e()
                     }),
@@ -59924,6 +59928,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
+//
 //
 //
 //
@@ -60523,7 +60528,9 @@ var render = function() {
                                 })
                               ],
                               1
-                            )
+                            ),
+                            _vm._v(" "),
+                            _c("br")
                           ]
                         : _vm._e()
                     }),
@@ -65838,7 +65845,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     timeout: 15000,
                     animation: 'easeOutBounce'
                 });
-                notify.create("Pick dares you want to try out. A mamixum of 5 dares at a time");
+                notify.create("Pick dares you want to try out. A maximum of 5 dares at a time");
                 notify.reset();
 
                 Metro.session.setItem('pickedDare', 'pickedDare');
@@ -66236,7 +66243,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             timeout: 12000,
             animation: 'easeOutBounce'
         });
-        notify.create("Completed your Dares before they time-out. Timed-out Dares are permanently lost!");
+        notify.create("Complete your Dares before they time-out. Timed-out Dares are permanently lost!");
         notify.reset();
     },
 
@@ -66658,7 +66665,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             timeout: 12000,
             animation: 'easeOutBounce'
         });
-        notify.create("Select a Dare from your Dare list and upload its Video");
+        notify.create("Select a Dare from your list and upload its Video");
         notify.reset();
     },
 

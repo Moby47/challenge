@@ -154,7 +154,7 @@
                                 timeout: 15000,
                                 animation: 'easeOutBounce'
                             });
-                            notify.create("Pick dares you want to try out. A mamixum of 5 dares at a time");
+                            notify.create("Pick dares you want to try out. A maximum of 5 dares at a time");
                             notify.reset();
     
                             Metro.session.setItem('pickedDare','pickedDare')

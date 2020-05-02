@@ -185,10 +185,11 @@
                             timeout: 15000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Welcome to Challenge. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
+                        notify.create("Welcome to <b>Challenge</b>. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
+                        notify.create("Click the icon below to <b>START</b>");
                         notify.reset();
 
-                        Metro.session.setItem('welcome','welcome')
+                      Metro.session.setItem('welcome','welcome')
                     }
             },
             

@@ -116,6 +116,7 @@
                                                         type="list-item-avatar-three-line"
                                                       ></v-skeleton-loader>
                                                     </v-sheet>
+                                                    <br>
                                                   </template>
     
                                                 <template v-if='!loading2'>

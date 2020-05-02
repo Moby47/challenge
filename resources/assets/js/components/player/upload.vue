@@ -144,7 +144,7 @@
                             timeout: 12000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Select a Dare from your Dare list and upload its Video");
+                        notify.create("Select a Dare from your list and upload its Video");
                         notify.reset();
             },
             

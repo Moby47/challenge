@@ -121,7 +121,7 @@
                             timeout: 12000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Completed your Dares before they time-out. Timed-out Dares are permanently lost!");
+                        notify.create("Complete your Dares before they time-out. Timed-out Dares are permanently lost!");
                         notify.reset();
             },
             
