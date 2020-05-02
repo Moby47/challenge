@@ -32,6 +32,13 @@ class dareController extends Controller
     }
 
 
+    public function trending_dares()
+    {
+        //fetch data (last 15) from dares model. (Done! was blocking pro)
+         $dares = dare::orderby('views','desc')
+         ->select('id','dare_name','username','poster','dare_slug','duration','views')->paginate(20);
+         return dareres::collection($dares);
+    }
 
 
 
@@ -347,7 +354,7 @@ class dareController extends Controller
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = str_ireplace("upload/","upload/q_auto:low/",$cloundary_upload['url']);
-        $save->poster = str_ireplace("upload/","upload/so_3,f_jpg/",$cloundary_upload['url']);
+        $save->poster = str_ireplace("upload/","upload/so_3,f_gif/",$cloundary_upload['url']);
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->duration = $time;

@@ -58031,10 +58031,85 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            content: [],
+            empty: false,
+            loading: false,
+            pagination: [],
+            count: '0'
+
+        };
     },
     mounted: function mounted() {
         $(document).ready(function () {
@@ -58043,10 +58118,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         //notification for neebies
         this.notify();
+
+        this.get();
     },
 
 
     methods: {
+        get: function get(page_url) {
+            var _this = this;
+
+            this.loading = true;
+
+            var page_url = page_url || '/api/trending-dares';
+
+            fetch(page_url).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.content = res.data;
+                _this.count = res.meta.total;
+                _this.loading = false;
+                console.log(_this.content);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this.empty = true;
+                } else {
+                    _this.empty = false;
+                }
+                //to determine if obj is empty
+                _this.makePagination(res.meta, res.links);
+                _this.loading = false;
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
+            });
+        },
+        makePagination: function makePagination(meta, links) {
+            var pagination = {
+                current_page: meta.current_page,
+                last_page: meta.last_page,
+                next_page_url: links.next,
+                prev_page_url: links.prev
+            };
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            this.pagination = pagination;
+        },
         notify: function notify() {
             var wel = Metro.session.getItem('welcome');
 
@@ -58099,11 +58222,242 @@ var render = function() {
       [
         _c(
           "div",
-          { staticClass: "window-area" },
+          { staticClass: "window-area scroll" },
           [
             _c("vue-particles", {
               attrs: { color: "#fdf9c6", particleSize: 5 }
-            })
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "container" }, [
+              _c("h3", { staticClass: "text-center fg-white" }, [
+                _vm._v(" Trending Dares ")
+              ]),
+              _vm._v(" "),
+              _vm.empty
+                ? _c("span", [
+                    _c("div", { staticClass: "remark info text-center" }, [
+                      _vm._v(
+                        "\n                                No Trending Videos Currently\n                                 "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row" },
+                [
+                  _vm._l(20, function(i) {
+                    return _vm.loading
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "cell-sm-full cell-md-one-third cell-lg-3"
+                          },
+                          [
+                            [
+                              _c(
+                                "v-sheet",
+                                {
+                                  staticClass: "px-3 pt-3 pb-3",
+                                  attrs: { color: "grey" }
+                                },
+                                [
+                                  _c("v-skeleton-loader", {
+                                    staticClass: "mx-auto",
+                                    attrs: {
+                                      "max-width": "auto",
+                                      type: "list-item-avatar-three-line"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          ],
+                          2
+                        )
+                      : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _vm._l(_vm.content, function(con) {
+                    return !_vm.loading
+                      ? _c(
+                          "div",
+                          {
+                            key: con.id,
+                            staticClass:
+                              "cell-sm-full cell-md-one-third cell-lg-3"
+                          },
+                          [
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "remove-deco",
+                                  attrs: {
+                                    to: "/dare/" + con.dare_slug + "/" + con.id
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "v-card",
+                                    {
+                                      staticClass: "mx-auto",
+                                      attrs: {
+                                        "max-width": "344",
+                                        outlined: ""
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "v-list-item",
+                                        { attrs: { "three-line": "" } },
+                                        [
+                                          _c(
+                                            "v-list-item-content",
+                                            [
+                                              _c(
+                                                "v-list-item-subtitle",
+                                                {
+                                                  staticClass:
+                                                    "text-ellipsis text-cap"
+                                                },
+                                                [_vm._v(_vm._s(con.dare_name))]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-list-item-title",
+                                                { staticClass: " mb-1" },
+                                                [
+                                                  _vm._v(
+                                                    "By " + _vm._s(con.username)
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-list-item-title",
+                                                { staticClass: " mb-1" },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(con.views) +
+                                                      " Views \n                                    "
+                                                  ),
+                                                  _c(
+                                                    "span",
+                                                    { staticClass: "ml-2" },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(con.duration)
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-list-item-avatar",
+                                            {
+                                              attrs: {
+                                                tile: "",
+                                                size: "80",
+                                                color: "grey"
+                                              }
+                                            },
+                                            [
+                                              _c("v-img", {
+                                                attrs: {
+                                                  src: con.poster,
+                                                  "lazy-src": con.poster
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          ],
+                          2
+                        )
+                      : _vm._e()
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _vm.count > 20
+                ? _c("ul", { staticClass: "pagination" }, [
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: {
+                            href: "#",
+                            disabled: !_vm.pagination.prev_page_url
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.get(_vm.pagination.prev_page_url)
+                            }
+                          }
+                        },
+                        [_vm._v(" Prev ")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        { staticClass: "page-link", attrs: { href: "#" } },
+                        [
+                          _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.pagination.current_page) +
+                                " of " +
+                                _vm._s(_vm.pagination.last_page)
+                            )
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: {
+                            href: "#",
+                            disabled: !_vm.pagination.next_page_url
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.get(_vm.pagination.next_page_url)
+                            }
+                          }
+                        },
+                        [_vm._v("Next ")]
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ])
           ],
           1
         ),
@@ -111012,7 +111366,7 @@ var render = function() {
                       _c("span", { staticClass: "icon mif-file-video" }),
                       _vm._v(" "),
                       _c("span", { staticClass: "caption" }, [
-                        _vm._v("Watch Dares")
+                        _vm._v("Dare Videos")
                       ])
                     ]
                   ),

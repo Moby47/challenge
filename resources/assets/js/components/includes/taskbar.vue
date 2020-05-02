@@ -13,7 +13,7 @@
                                         <div class="d-flex">
                                             <div class="charm-tile ani-hover-horizontal bg-orange" @click.prevent='dares()'>
                                                 <span class="icon mif-file-video"></span>
-                                                <span class="caption">Watch Dares</span>
+                                                <span class="caption">Dare Videos</span>
                                             </div>
                                             <div class="charm-tile ani-hover-horizontal" @click.prevent='list()' style="background-color: #1ba1e2">
                                                 <span class="icon mif-list"></span>

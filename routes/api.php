@@ -28,6 +28,8 @@ Route::get('/leaderboard', 'dareController@scores'); //->middleware('auth.apikey
 
 Route::get('/dares', 'dareController@dares'); //->middleware('auth.apikey');
 
+Route::get('/trending-dares', 'dareController@trending_dares'); //->middleware('auth.apikey');
+
 Route::get('/dare-list', 'dareController@dare_list'); //->middleware('auth.apikey');
 
 Route::post('/suggest-dare', 'dareController@suggestion'); //->middleware('auth.apikey');
