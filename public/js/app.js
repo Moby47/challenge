@@ -58031,20 +58031,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58117,9 +58103,7 @@ var render = function() {
           [
             _c("vue-particles", {
               attrs: { color: "#fdf9c6", particleSize: 5 }
-            }),
-            _vm._v(" "),
-            _vm._m(0)
+            })
           ],
           1
         ),
@@ -58130,20 +58114,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row flex-align-center" }, [
-      _c("div", { staticClass: "cell" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cell mt-4" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cell" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -111395,7 +111366,7 @@ var staticRenderFns = [
             "data-popover-hide": "3000"
           }
         },
-        [_c("span", { staticClass: "mif-windows" })]
+        [_c("span", { staticClass: "mif-menu" })]
       )
     ])
   },

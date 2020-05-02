@@ -147,7 +147,7 @@
                     data-popover-text="Start"
                     data-popover-position="right" 
                     data-popover-hide="3000">
-                    <span class="mif-windows"></span></button>
+                    <span class="mif-menu"></span></button>
             
                   
                 </div>

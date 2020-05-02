@@ -15,21 +15,7 @@
               
 
               
-                    <div class="row flex-align-center">
-                        <div class="cell"></div>
-                        <div class="cell mt-4">
-<!--
-  <div class='home-title'>
-    <h2 class="text-center bold fadeIn white-color">I</h2>
-    
-    <h2 class="text-center bold fadeIn white-color">CHALLENGE</h2>
-    
-    <h2 class="text-center bold fadeIn white-color">YOU!</h2>
-</div>
-     -->
-                       </div>
-                        <div class="cell"></div>
-                    </div>
+             
                     
 
             </div>
