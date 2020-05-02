@@ -99,7 +99,7 @@
 
                                         <div class="charm-bottom mt-auto">
                                             <div class="d-flex">
-                                                <a href='mailto:honred47@yahoo.com' class='link'>
+                                                <a href='mailto:honred47@yahoo.com' class='link remove-deco'>
                                                     <div class="charm-tile ani-hover-horizontal"  style="background-color: #1ba1e2">
                                                     <span class="icon mif-phone"></span>
                                                     

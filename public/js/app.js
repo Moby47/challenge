@@ -11608,106 +11608,6 @@ module.exports = Vue;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__(1);
-var normalizeHeaderName = __webpack_require__(25);
-
-var DEFAULT_CONTENT_TYPE = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-};
-
-function setContentTypeIfUnset(headers, value) {
-  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-    headers['Content-Type'] = value;
-  }
-}
-
-function getDefaultAdapter() {
-  var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = __webpack_require__(8);
-  } else if (typeof process !== 'undefined') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(8);
-  }
-  return adapter;
-}
-
-var defaults = {
-  adapter: getDefaultAdapter(),
-
-  transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Content-Type');
-    if (utils.isFormData(data) ||
-      utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
-    ) {
-      return data;
-    }
-    if (utils.isArrayBufferView(data)) {
-      return data.buffer;
-    }
-    if (utils.isURLSearchParams(data)) {
-      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-      return data.toString();
-    }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
-    }
-    return data;
-  }],
-
-  transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
-      try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
-    }
-    return data;
-  }],
-
-  timeout: 0,
-
-  xsrfCookieName: 'XSRF-TOKEN',
-  xsrfHeaderName: 'X-XSRF-TOKEN',
-
-  maxContentLength: -1,
-
-  validateStatus: function validateStatus(status) {
-    return status >= 200 && status < 300;
-  }
-};
-
-defaults.headers = {
-  common: {
-    'Accept': 'application/json, text/plain, */*'
-  }
-};
-
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-});
-
-module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports) {
 
 module.exports =
@@ -14228,6 +14128,106 @@ module.exports = function (object, names) {
 
 /******/ })["default"];
 //# sourceMappingURL=vue-socialmedia-share.common.js.map
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(1);
+var normalizeHeaderName = __webpack_require__(25);
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(8);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(8);
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 /* 6 */
@@ -44952,7 +44952,7 @@ module.exports = __webpack_require__(22);
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(6);
 var Axios = __webpack_require__(24);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(5);
 
 /**
  * Create an instance of Axios
@@ -45035,7 +45035,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(5);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(33);
 var dispatchRequest = __webpack_require__(34);
@@ -45576,7 +45576,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(35);
 var isCancel = __webpack_require__(10);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(5);
 var isAbsoluteURL = __webpack_require__(36);
 var combineURLs = __webpack_require__(37);
 
@@ -58002,6 +58002,122 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -58100,14 +58216,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+//share icons
+
+//share icons
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+
+    //share icons
+    components: {
+        Facebook: __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__["Facebook"],
+        Twitter: __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__["Twitter"],
+        Linkedin: __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__["Linkedin"],
+        WhatsApp: __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__["WhatsApp"],
+        Email: __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__["Email"],
+        Google: __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__["Google"]
+    },
+    //share icons
+
     data: function data() {
         return {
             content: [],
             empty: false,
             loading: false,
             pagination: [],
-            count: '0'
+            count: '0',
+            //rescent
+            content2: [],
+            empty2: false,
+            loading2: false,
+            //scores
+            content3: [],
+            empty3: false,
+            loading3: false
         };
     },
     mounted: function mounted() {
@@ -58119,12 +58260,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.notify();
 
         this.get();
+
+        this.getdares();
+
+        this.getscores();
     },
 
 
     methods: {
-        get: function get(page_url) {
+        getscores: function getscores() {
             var _this = this;
+
+            this.loading3 = true;
+            fetch('/api/leaderboard').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this.content3 = res.data;
+                _this.loading3 = false;
+                console.log(_this.content3);
+
+                //to determine if obj is empty 
+                console.log(res.data[0]);
+                if (res.data[0] == undefined) {
+                    _this.empty3 = true;
+                } else {
+                    _this.empty3 = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this.loading3 = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
+            });
+        },
+        getdares: function getdares() {
+            var _this2 = this;
+
+            this.loading2 = true;
+            fetch('/api/rescent-dares').then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                _this2.content2 = res;
+                _this2.loading2 = false;
+                console.log('darenames', _this2.content2);
+
+                //to determine if obj is empty 
+                console.log('res state', res[0]);
+                if (res[0] == undefined) {
+                    _this2.empty2 = true;
+                } else {
+                    _this2.empty2 = false;
+                }
+                //to determine if obj is empty
+            }).catch(function (error) {
+                console.log(error);
+                //off loader
+                _this2.loading2 = false;
+                var options = {
+                    showTop: true
+                };
+                Metro.toast.create('A temporary network error occured... Please reload page', null, 5000, 'yellow', options);
+            });
+        },
+        get: function get(page_url) {
+            var _this3 = this;
 
             this.loading = true;
 
@@ -58133,25 +58336,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fetch(page_url).then(function (res) {
                 return res.json();
             }).then(function (res) {
-                _this.content = res.data;
-                _this.count = res.meta.total;
-                _this.loading = false;
-                console.log(_this.content);
+                _this3.content = res.data;
+                _this3.count = res.meta.total;
+                _this3.loading = false;
+                console.log(_this3.content);
 
                 //to determine if obj is empty 
                 console.log(res.data[0]);
                 if (res.data[0] == undefined) {
-                    _this.empty = true;
+                    _this3.empty = true;
                 } else {
-                    _this.empty = false;
+                    _this3.empty = false;
                 }
                 //to determine if obj is empty
-                _this.makePagination(res.meta, res.links);
-                _this.loading = false;
+                _this3.makePagination(res.meta, res.links);
+                _this3.loading = false;
             }).catch(function (error) {
                 console.log(error);
                 //off loader
-                _this.loading = false;
+                _this3.loading = false;
                 var options = {
                     showTop: true
                 };
@@ -58229,153 +58432,475 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("div", { staticClass: "container" }, [
-              _c("h3", { staticClass: "text-center fg-white" }, [
-                _vm._v(" Trending Dares ")
-              ]),
-              _vm._v(" "),
-              _vm.empty
-                ? _c("span", [
-                    _c("div", { staticClass: "remark info text-center" }, [
-                      _vm._v(
-                        "\n                                No Trending Videos Currently\n                                 "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "row" },
+                { staticClass: "border bd-default no-border-top p-2" },
                 [
-                  _vm._l(20, function(i) {
-                    return _vm.loading
-                      ? _c(
-                          "div",
-                          {
-                            staticClass:
-                              "cell-sm-full cell-md-one-third cell-lg-3"
-                          },
-                          [
+                  _c("div", { attrs: { id: "_target_1" } }, [
+                    _vm.empty
+                      ? _c("span", [
+                          _c(
+                            "div",
+                            { staticClass: "remark info text-center" },
                             [
-                              _c(
-                                "v-sheet",
-                                {
-                                  staticClass: "px-3 pt-3 pb-3",
-                                  attrs: { color: "grey" }
-                                },
-                                [
-                                  _c("v-skeleton-loader", {
-                                    staticClass: "mx-auto",
-                                    attrs: {
-                                      "max-width": "auto",
-                                      type: "list-item-avatar-three-line"
-                                    }
-                                  })
-                                ],
-                                1
+                              _vm._v(
+                                "\n                                No Trending Videos Currently\n                                 "
                               )
                             ]
-                          ],
-                          2
-                        )
-                      : _vm._e()
-                  }),
-                  _vm._v(" "),
-                  _vm._l(_vm.content, function(con) {
-                    return !_vm.loading
-                      ? _c(
-                          "div",
-                          {
-                            key: con.id,
-                            staticClass:
-                              "cell-sm-full cell-md-one-third cell-lg-3"
-                          },
-                          [
-                            [
-                              _c(
-                                "router-link",
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row" },
+                      [
+                        _vm._l(20, function(i) {
+                          return _vm.loading
+                            ? _c(
+                                "div",
                                 {
-                                  staticClass: "remove-deco",
-                                  attrs: {
-                                    to: "/dare/" + con.dare_slug + "/" + con.id
-                                  }
+                                  staticClass:
+                                    "cell-sm-full cell-md-one-third cell-lg-3"
                                 },
                                 [
-                                  _c(
-                                    "v-card",
-                                    {
-                                      staticClass: "mx-auto",
-                                      attrs: {
-                                        "max-width": "344",
-                                        outlined: ""
-                                      }
-                                    },
-                                    [
+                                  [
+                                    _c(
+                                      "v-sheet",
+                                      {
+                                        staticClass: "px-3 pt-3 pb-3",
+                                        attrs: { color: "grey" }
+                                      },
+                                      [
+                                        _c("v-skeleton-loader", {
+                                          staticClass: "mx-auto",
+                                          attrs: {
+                                            "max-width": "auto",
+                                            type: "list-item-avatar-three-line"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ],
+                                2
+                              )
+                            : _vm._e()
+                        }),
+                        _vm._v(" "),
+                        _vm._l(_vm.content, function(con) {
+                          return !_vm.loading
+                            ? _c(
+                                "div",
+                                {
+                                  key: con.id,
+                                  staticClass:
+                                    "cell-sm-full cell-md-one-third cell-lg-3"
+                                },
+                                [
+                                  [
+                                    _c(
+                                      "v-card",
+                                      {
+                                        staticClass: "mx-auto bg-white",
+                                        attrs: {
+                                          "max-width": "344",
+                                          outlined: ""
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-item",
+                                          { attrs: { "three-line": "" } },
+                                          [
+                                            _c(
+                                              "v-list-item-content",
+                                              [
+                                                _c(
+                                                  "router-link",
+                                                  {
+                                                    staticClass: "remove-deco",
+                                                    attrs: {
+                                                      to:
+                                                        "/dare/" +
+                                                        con.dare_slug +
+                                                        "/" +
+                                                        con.id
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "v-list-item-subtitle",
+                                                      {
+                                                        staticClass:
+                                                          "text-ellipsis text-cap"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(con.dare_name)
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "overline mb-4 fg-black"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "By " +
+                                                            _vm._s(con.username)
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "v-list-item-title",
+                                                      { staticClass: " mb-1" },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(con.views) +
+                                                            " Views \n                                    "
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass: "ml-2"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                con.duration
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-list-item-title",
+                                                  { staticClass: " mb-1" },
+                                                  [
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass: "fg-gray"
+                                                      },
+                                                      [
+                                                        _c("whats-app", {
+                                                          attrs: {
+                                                            url:
+                                                              "https://challenge.com/dare/" +
+                                                              con.dare_slug +
+                                                              "/" +
+                                                              con.id,
+                                                            title:
+                                                              "Challenge completed by: " +
+                                                              con.username,
+                                                            scale: "1.7"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c("email", {
+                                                          attrs: {
+                                                            url:
+                                                              "https://challenge.com/dare/" +
+                                                              con.dare_slug +
+                                                              "/" +
+                                                              con.id,
+                                                            subject:
+                                                              "Challenge completed by: " +
+                                                              con.username,
+                                                            scale: "1.7"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c("facebook", {
+                                                          attrs: {
+                                                            url:
+                                                              "https://challenge.com/dare/" +
+                                                              con.dare_slug +
+                                                              "/" +
+                                                              con.id,
+                                                            scale: "1.7"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c("twitter", {
+                                                          attrs: {
+                                                            url:
+                                                              "https://challenge.com/dare/" +
+                                                              con.dare_slug +
+                                                              "/" +
+                                                              con.id,
+                                                            title:
+                                                              "Challenge completed by: " +
+                                                              con.username,
+                                                            scale: "1.7"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c("linkedin", {
+                                                          attrs: {
+                                                            url:
+                                                              "https://challenge.com/dare/" +
+                                                              con.dare_slug +
+                                                              "/" +
+                                                              con.id,
+                                                            scale: "1.7"
+                                                          }
+                                                        })
+                                                      ],
+                                                      1
+                                                    )
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "router-link",
+                                              {
+                                                staticClass: "remove-deco",
+                                                attrs: {
+                                                  to:
+                                                    "/dare/" +
+                                                    con.dare_slug +
+                                                    "/" +
+                                                    con.id
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "v-list-item-avatar",
+                                                  {
+                                                    attrs: {
+                                                      tile: "",
+                                                      size: "80",
+                                                      color: "grey"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-img", {
+                                                      attrs: {
+                                                        src: con.poster,
+                                                        "lazy-src": con.poster
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ],
+                                2
+                              )
+                            : _vm._e()
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _vm.count > 20
+                      ? _c("ul", { staticClass: "pagination" }, [
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  disabled: !_vm.pagination.prev_page_url
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.get(_vm.pagination.prev_page_url)
+                                  }
+                                }
+                              },
+                              [_vm._v(" Prev ")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [
+                                _c("span", [
+                                  _vm._v(
+                                    _vm._s(_vm.pagination.current_page) +
+                                      " of " +
+                                      _vm._s(_vm.pagination.last_page)
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "page-item" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  disabled: !_vm.pagination.next_page_url
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.get(_vm.pagination.next_page_url)
+                                  }
+                                }
+                              },
+                              [_vm._v("Next ")]
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { attrs: { id: "_target_2" } },
+                    [
+                      _vm.empty2
+                        ? _c("span", [
+                            _c(
+                              "div",
+                              { staticClass: "remark info text-center" },
+                              [
+                                _vm._v(
+                                  "\n                                   Rescent Dare list is currently empty\n                                 "
+                                )
+                              ]
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.loading2
+                        ? [
+                            _c(
+                              "v-sheet",
+                              {
+                                staticClass: "px-3 pt-3 pb-3",
+                                attrs: { color: "grey" }
+                              },
+                              [
+                                _c("v-skeleton-loader", {
+                                  staticClass: "mx-auto",
+                                  attrs: {
+                                    "max-width": "auto",
+                                    type: "table-tbody"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]
+                        : _c("span", [
+                            _c(
+                              "table",
+                              {
+                                staticClass:
+                                  "table row-hover table-border table-striped table-dark"
+                              },
+                              [
+                                _vm._m(1),
+                                _vm._v(" "),
+                                _c(
+                                  "tbody",
+                                  _vm._l(_vm.content2, function(con) {
+                                    return _c("tr", { key: con.id }, [
                                       _c(
-                                        "v-list-item",
-                                        { attrs: { "three-line": "" } },
+                                        "td",
                                         [
                                           _c(
-                                            "v-list-item-content",
-                                            [
-                                              _c(
-                                                "v-list-item-subtitle",
-                                                {
-                                                  staticClass:
-                                                    "text-ellipsis text-cap"
-                                                },
-                                                [_vm._v(_vm._s(con.dare_name))]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass: "overline mb-4"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "By " + _vm._s(con.username)
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-list-item-title",
-                                                { staticClass: " mb-1" },
-                                                [
-                                                  _vm._v(
-                                                    _vm._s(con.views) +
-                                                      " Views \n                                    "
-                                                  ),
-                                                  _c(
-                                                    "span",
-                                                    { staticClass: "ml-2" },
-                                                    [
-                                                      _vm._v(
-                                                        _vm._s(con.duration)
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "v-list-item-avatar",
+                                            "router-link",
                                             {
+                                              staticClass: "fg-white",
+                                              staticStyle: {
+                                                "text-decoration": "underline"
+                                              },
                                               attrs: {
-                                                tile: "",
-                                                size: "80",
-                                                color: "grey"
+                                                to: "/result/" + con.dare_slug
                                               }
                                             },
                                             [
-                                              _c("v-img", {
+                                              _vm._v(
+                                                " \n                                    " +
+                                                  _vm._s(con.dare_name) +
+                                                  " \n                                "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "p",
+                                            { staticClass: "fg-gray" },
+                                            [
+                                              _vm._v(
+                                                " Dare a Friend:\n                                                                "
+                                              ),
+                                              _c("whats-app", {
                                                 attrs: {
-                                                  src: con.poster,
-                                                  "lazy-src": con.poster
+                                                  url:
+                                                    "https://challenge.com/result/" +
+                                                    con.dare_slug +
+                                                    "/" +
+                                                    con.id,
+                                                  title:
+                                                    "Challenge completed by: " +
+                                                    con.username,
+                                                  scale: "1.7"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c("facebook", {
+                                                attrs: {
+                                                  url:
+                                                    "https://challenge.com/result/" +
+                                                    con.dare_slug +
+                                                    "/" +
+                                                    con.id,
+                                                  scale: "1.7"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c("twitter", {
+                                                attrs: {
+                                                  url:
+                                                    "https://challenge.com/result/" +
+                                                    con.dare_slug +
+                                                    "/" +
+                                                    con.id,
+                                                  title:
+                                                    "Challenge completed by: " +
+                                                    con.username,
+                                                  scale: "1.7"
                                                 }
                                               })
                                             ],
@@ -58383,82 +58908,89 @@ var render = function() {
                                           )
                                         ],
                                         1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ]
-                          ],
-                          2
-                        )
-                      : _vm._e()
-                  })
-                ],
-                2
-              ),
-              _vm._v(" "),
-              _vm.count > 20
-                ? _c("ul", { staticClass: "pagination" }, [
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "page-link",
-                          attrs: {
-                            href: "#",
-                            disabled: !_vm.pagination.prev_page_url
-                          },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.get(_vm.pagination.prev_page_url)
-                            }
-                          }
-                        },
-                        [_vm._v(" Prev ")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "page-link", attrs: { href: "#" } },
-                        [
-                          _c("span", [
-                            _vm._v(
-                              _vm._s(_vm.pagination.current_page) +
-                                " of " +
-                                _vm._s(_vm.pagination.last_page)
+                                      ),
+                                      _vm._v(" "),
+                                      _c("td", [_vm._v(_vm._s(con.play_count))])
+                                    ])
+                                  }),
+                                  0
+                                )
+                              ]
                             )
                           ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "page-link",
-                          attrs: {
-                            href: "#",
-                            disabled: !_vm.pagination.next_page_url
-                          },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.get(_vm.pagination.next_page_url)
-                            }
-                          }
-                        },
-                        [_vm._v("Next ")]
-                      )
-                    ])
-                  ])
-                : _vm._e()
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { attrs: { id: "_target_3" } },
+                    [
+                      _vm.empty3
+                        ? _c("span", [
+                            _c(
+                              "div",
+                              { staticClass: "remark info text-center" },
+                              [
+                                _vm._v(
+                                  "\n                                        Leader board is currently empty\n                                     "
+                                )
+                              ]
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.loading3
+                        ? [
+                            _c(
+                              "v-sheet",
+                              {
+                                staticClass: "px-3 pt-3 pb-3",
+                                attrs: { color: "grey" }
+                              },
+                              [
+                                _c("v-skeleton-loader", {
+                                  staticClass: "mx-auto",
+                                  attrs: {
+                                    "max-width": "auto",
+                                    type: "table-tbody"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]
+                        : _c(
+                            "table",
+                            {
+                              staticClass:
+                                "table row-hover table-border table-striped table-dark"
+                            },
+                            [
+                              _vm._m(2),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.content3, function(con) {
+                                  return _c(
+                                    "tr",
+                                    { key: con.id, staticClass: "info" },
+                                    [
+                                      _c("td", [_vm._v(_vm._s(con.username))]),
+                                      _vm._v(" "),
+                                      _c("td", [_vm._v(_vm._s(con.points))])
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                    ],
+                    2
+                  )
+                ]
+              )
             ])
           ],
           1
@@ -58470,7 +59002,60 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      {
+        attrs: {
+          "data-role": "tabs",
+          "data-tabs-type": "group",
+          "data-expand": "true"
+        }
+      },
+      [
+        _c("li", [
+          _c("a", { attrs: { href: "#_target_1" } }, [_vm._v("Trending")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#_target_2" } }, [_vm._v("Rescent")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#_target_3" } }, [_vm._v("Scores")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", [_vm._v("Dare")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Played")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", [_vm._v("Player")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Points")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -59046,7 +59631,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
 //
 //
@@ -59926,7 +60511,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
 //
 //
@@ -60958,7 +61543,7 @@ var render = function() {
                       [
                         _c("v-skeleton-loader", {
                           staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "table-tbody@2" }
+                          attrs: { "max-width": "auto", type: "table-tbody" }
                         })
                       ],
                       1
@@ -61382,7 +61967,7 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
 //
 //
@@ -61597,7 +62182,7 @@ var render = function() {
                       [
                         _c("v-skeleton-loader", {
                           staticClass: "mx-auto",
-                          attrs: { "max-width": "auto", type: "table-tbody@2" }
+                          attrs: { "max-width": "auto", type: "table-tbody" }
                         })
                       ],
                       1
@@ -111679,7 +112264,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "a",
-      { staticClass: "link", attrs: { href: "mailto:honred47@yahoo.com" } },
+      {
+        staticClass: "link remove-deco",
+        attrs: { href: "mailto:honred47@yahoo.com" }
+      },
       [
         _c(
           "div",

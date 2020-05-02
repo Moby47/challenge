@@ -58,6 +58,8 @@ Route::GET('/single-dare-video/{slug}/{id}', 'dareController@single_dare_video')
 
 Route::get('/search/{data}', 'dareController@search'); //->middleware('auth.apikey');
 
+Route::get('/rescent-dares', 'dareController@rescent_dares'); //->middleware('auth.apikey');
+
 
 
 //For Admin Via API

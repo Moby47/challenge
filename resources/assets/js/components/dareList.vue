@@ -26,7 +26,7 @@
                           <v-skeleton-loader
                             class="mx-auto"
                             max-width="auto"
-                            type="table-tbody@2"
+                            type="table-tbody"
                           ></v-skeleton-loader>
                         </v-sheet>
                       </template>

@@ -170,6 +170,13 @@ class dareController extends Controller
     }
 
 
+    public function rescent_dares()
+    {
+      return $data= \DB::table('dares')->orderby('id','desc')
+      ->select('dare_name','dare_slug', \DB::raw('count(dare_name) as play_count'))
+      ->groupBy('dare_name','dare_slug')->get()->take(10);
+      
+    }
 
 
 
