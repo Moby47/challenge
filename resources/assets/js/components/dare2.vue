@@ -113,47 +113,45 @@
                                                       <v-skeleton-loader
                                                         class="mx-auto"
                                                         max-width="auto"
-                                                        type="card"
+                                                        type="list-item-avatar-three-line"
                                                       ></v-skeleton-loader>
                                                     </v-sheet>
                                                   </template>
     
                                                 <template v-if='!loading2'>
-                                                    <v-container class="grey lighten-5">
-                                                      <v-row>
-                                                        <v-col
-                                                        v-for='con in content' v-bind:key='con.id'
-                                                          cols="12"
-                                                          sm="12"
-                                                        >
-                                                          <v-card
-                                                            class="pa-2"
-                                                            outlined
-                                                            tile
-                                                          >
-                                 <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
-                                  <div class="card image-header">
-                                      <div class="card-header fg-white"
-                                      :style="'background-image: url('+con.poster+')'">
-                                  <span style="background-color: #2c2a2a; padding:2px; border-radius:5px;"
-                                  class='fg-white'>
-                                     {{con.duration}}
-                                     </span>
-                                 </div>
-                                      <div class="card-content p-2 text-ellipsis text-cap">
-                                         {{con.dare_name}}
-                    <p class="fg-gray"> <b>{{con.views}} views</b></p>
-                                      </div>
-                                  </div>
-                                                        </router-link>
-                    
-                                                          <span class="badge inside  fg-white"
-                                                          style="background-color: #b82943">{{con.username}}</span>
-                    
-                                                          </v-card>
-                                                        </v-col>
-                                                      </v-row>
-                                                    </v-container>
+                                                    <div class="cell-sm-full cell-md-one-third cell-lg-12"
+                                                    v-for='con in content' v-bind:key='con.id'>
+                                                            <template>
+                                                                    <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
+                                                                    <v-card
+                                                                      class="mx-auto"
+                                                                      max-width="344"
+                                                                      outlined
+                                                                    >
+                                                                      <v-list-item three-line>
+                                                
+                                                                        <v-list-item-content>
+                                                                            <v-list-item-subtitle class="text-ellipsis text-cap">{{con.dare_name}}</v-list-item-subtitle>
+                                                                                <div class="overline mb-4">By {{con.username}}</div>
+                                                                                  <v-list-item-title class=" mb-1">{{con.views}} Views 
+                                                                            <span class='ml-2'>{{con.duration}}</span></v-list-item-title>
+                                                                         </v-list-item-content>
+                                                
+                                                                        <v-list-item-avatar
+                                                                        tile
+                                                                        size="80"
+                                                                        color="grey"
+                                                                      >
+                                                                    <v-img 
+                                                                    :src='con.poster'
+                                                                    :lazy-src="con.poster"></v-img>
+                                                                   </v-list-item-avatar>
+                                                
+                                                                      </v-list-item>
+                                                                    </v-card>
+                                                                    </router-link>
+                                                                  </template>
+                                                  </div>
                     
                                                     <ul class="pagination" v-if='count > 15'>
                                          <li class="page-item"><a class="page-link" href="#" @click.prevent="others(pagination.prev_page_url)" :disabled="!pagination.prev_page_url"> Prev </a></li>

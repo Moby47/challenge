@@ -53,8 +53,8 @@
                                   <v-list-item three-line>
             
                                     <v-list-item-content>
-                                 <v-list-item-subtitle class="text-ellipsis text-cap">{{con.dare_name}}</v-list-item-subtitle>
-                               <v-list-item-title class=" mb-1">By {{con.username}}</v-list-item-title>
+                                            <v-list-item-subtitle class="text-ellipsis text-cap">{{con.dare_name}}</v-list-item-subtitle>
+                                            <div class="overline mb-4">By {{con.username}}</div>
                                    <v-list-item-title class=" mb-1">{{con.views}} Views 
                                         <span class='ml-2'>{{con.duration}}</span></v-list-item-title>
                                      </v-list-item-content>
@@ -105,7 +105,6 @@
                     loading:false, 
                     pagination: [],
                     count:'0',
-              
             }
         },
         mounted() {

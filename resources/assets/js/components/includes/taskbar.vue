@@ -2,7 +2,7 @@
     <div>
             <div class="task-bar">
 
-                    <div data-role="charms" data-position="left" id="charm" class="p-4">
+                    <div data-role="charms" data-position="left" id="charm" class="p-4" onclick="Metro.charms.toggle('#charm')" >
                             <div class="h-100 d-flex flex-column">
                                 <div class="charm-top">
                                     <!--<div class="text-center m-4">
@@ -13,7 +13,7 @@
                                         <div class="d-flex">
                                             <div class="charm-tile ani-hover-horizontal bg-orange" @click.prevent='dares()'>
                                                 <span class="icon mif-file-video"></span>
-                                                <span class="caption">Dare Videos</span>
+                                                <span class="caption">All Videos</span>
                                             </div>
                                             <div class="charm-tile ani-hover-horizontal" @click.prevent='list()' style="background-color: #1ba1e2">
                                                 <span class="icon mif-list"></span>

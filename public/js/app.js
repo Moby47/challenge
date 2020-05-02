@@ -58108,7 +58108,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             loading: false,
             pagination: [],
             count: '0'
-
         };
     },
     mounted: function mounted() {
@@ -58328,8 +58327,10 @@ var render = function() {
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "v-list-item-title",
-                                                { staticClass: " mb-1" },
+                                                "div",
+                                                {
+                                                  staticClass: "overline mb-4"
+                                                },
                                                 [
                                                   _vm._v(
                                                     "By " + _vm._s(con.username)
@@ -59235,8 +59236,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 //share icons
@@ -59640,7 +59639,10 @@ var render = function() {
                               [
                                 _c("v-skeleton-loader", {
                                   staticClass: "mx-auto",
-                                  attrs: { "max-width": "auto", type: "card" }
+                                  attrs: {
+                                    "max-width": "auto",
+                                    type: "list-item-avatar-three-line"
+                                  }
                                 })
                               ],
                               1
@@ -59651,80 +59653,55 @@ var render = function() {
                     _vm._v(" "),
                     !_vm.loading2
                       ? [
-                          _c(
-                            "v-container",
-                            { staticClass: "grey lighten-5" },
-                            [
-                              _c(
-                                "v-row",
-                                _vm._l(_vm.content, function(con) {
-                                  return _c(
-                                    "v-col",
+                          _vm._l(_vm.content, function(con) {
+                            return _c(
+                              "div",
+                              {
+                                key: con.id,
+                                staticClass:
+                                  "cell-sm-full cell-md-one-third cell-lg-12"
+                              },
+                              [
+                                [
+                                  _c(
+                                    "router-link",
                                     {
-                                      key: con.id,
-                                      attrs: { cols: "12", sm: "12" }
+                                      staticClass: "remove-deco",
+                                      attrs: {
+                                        to:
+                                          "/dare-video/" +
+                                          con.dare_slug +
+                                          "/" +
+                                          con.id
+                                      }
                                     },
                                     [
                                       _c(
                                         "v-card",
                                         {
-                                          staticClass: "pa-2",
-                                          attrs: { outlined: "", tile: "" }
+                                          staticClass: "mx-auto",
+                                          attrs: {
+                                            "max-width": "344",
+                                            outlined: ""
+                                          }
                                         },
                                         [
                                           _c(
-                                            "router-link",
-                                            {
-                                              staticClass: "remove-deco",
-                                              attrs: {
-                                                to:
-                                                  "/dare-video/" +
-                                                  con.dare_slug +
-                                                  "/" +
-                                                  con.id
-                                              }
-                                            },
+                                            "v-list-item",
+                                            { attrs: { "three-line": "" } },
                                             [
                                               _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "card image-header"
-                                                },
+                                                "v-list-item-content",
                                                 [
                                                   _c(
-                                                    "div",
+                                                    "v-list-item-subtitle",
                                                     {
                                                       staticClass:
-                                                        "card-header fg-white",
-                                                      style:
-                                                        "background-image: url(" +
-                                                        con.poster +
-                                                        ")"
+                                                        "text-ellipsis text-cap"
                                                     },
                                                     [
-                                                      _c(
-                                                        "span",
-                                                        {
-                                                          staticClass:
-                                                            "fg-white",
-                                                          staticStyle: {
-                                                            "background-color":
-                                                              "#2c2a2a",
-                                                            padding: "2px",
-                                                            "border-radius":
-                                                              "5px"
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                                   " +
-                                                              _vm._s(
-                                                                con.duration
-                                                              ) +
-                                                              "\n                                   "
-                                                          )
-                                                        ]
+                                                      _vm._v(
+                                                        _vm._s(con.dare_name)
                                                       )
                                                     ]
                                                   ),
@@ -59733,42 +59710,60 @@ var render = function() {
                                                     "div",
                                                     {
                                                       staticClass:
-                                                        "card-content p-2 text-ellipsis text-cap"
+                                                        "overline mb-4"
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                                       " +
-                                                          _vm._s(
-                                                            con.dare_name
-                                                          ) +
-                                                          "\n                                       "
+                                                        "By " +
+                                                          _vm._s(con.username)
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-list-item-title",
+                                                    { staticClass: " mb-1" },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(con.views) +
+                                                          " Views \n                                                                    "
                                                       ),
-                                                      _c("p", [
-                                                        _c("b", [
+                                                      _c(
+                                                        "span",
+                                                        { staticClass: "ml-2" },
+                                                        [
                                                           _vm._v(
-                                                            _vm._s(
-                                                              _vm.single.views
-                                                            ) + " views"
+                                                            _vm._s(con.duration)
                                                           )
-                                                        ])
-                                                      ])
+                                                        ]
+                                                      )
                                                     ]
                                                   )
-                                                ]
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-list-item-avatar",
+                                                {
+                                                  attrs: {
+                                                    tile: "",
+                                                    size: "80",
+                                                    color: "grey"
+                                                  }
+                                                },
+                                                [
+                                                  _c("v-img", {
+                                                    attrs: {
+                                                      src: con.poster,
+                                                      "lazy-src": con.poster
+                                                    }
+                                                  })
+                                                ],
+                                                1
                                               )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "badge inside  fg-white",
-                                              staticStyle: {
-                                                "background-color": "#b82943"
-                                              }
-                                            },
-                                            [_vm._v(_vm._s(con.username))]
+                                            ],
+                                            1
                                           )
                                         ],
                                         1
@@ -59776,12 +59771,11 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                }),
-                                1
-                              )
-                            ],
-                            1
-                          ),
+                                ]
+                              ],
+                              2
+                            )
+                          }),
                           _vm._v(" "),
                           _vm.count > 15
                             ? _c("ul", { staticClass: "pagination" }, [
@@ -59930,8 +59924,6 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
-//
-//
 //
 //
 //
@@ -60524,7 +60516,10 @@ var render = function() {
                               [
                                 _c("v-skeleton-loader", {
                                   staticClass: "mx-auto",
-                                  attrs: { "max-width": "auto", type: "card" }
+                                  attrs: {
+                                    "max-width": "auto",
+                                    type: "list-item-avatar-three-line"
+                                  }
                                 })
                               ],
                               1
@@ -60535,80 +60530,55 @@ var render = function() {
                     _vm._v(" "),
                     !_vm.loading2
                       ? [
-                          _c(
-                            "v-container",
-                            { staticClass: "grey lighten-5" },
-                            [
-                              _c(
-                                "v-row",
-                                _vm._l(_vm.content, function(con) {
-                                  return _c(
-                                    "v-col",
+                          _vm._l(_vm.content, function(con) {
+                            return _c(
+                              "div",
+                              {
+                                key: con.id,
+                                staticClass:
+                                  "cell-sm-full cell-md-one-third cell-lg-12"
+                              },
+                              [
+                                [
+                                  _c(
+                                    "router-link",
                                     {
-                                      key: con.id,
-                                      attrs: { cols: "12", sm: "12" }
+                                      staticClass: "remove-deco",
+                                      attrs: {
+                                        to:
+                                          "/dare/" +
+                                          con.dare_slug +
+                                          "/" +
+                                          con.id
+                                      }
                                     },
                                     [
                                       _c(
                                         "v-card",
                                         {
-                                          staticClass: "pa-2",
-                                          attrs: { outlined: "", tile: "" }
+                                          staticClass: "mx-auto",
+                                          attrs: {
+                                            "max-width": "344",
+                                            outlined: ""
+                                          }
                                         },
                                         [
                                           _c(
-                                            "router-link",
-                                            {
-                                              staticClass: "remove-deco",
-                                              attrs: {
-                                                to:
-                                                  "/dare/" +
-                                                  con.dare_slug +
-                                                  "/" +
-                                                  con.id
-                                              }
-                                            },
+                                            "v-list-item",
+                                            { attrs: { "three-line": "" } },
                                             [
                                               _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "card image-header"
-                                                },
+                                                "v-list-item-content",
                                                 [
                                                   _c(
-                                                    "div",
+                                                    "v-list-item-subtitle",
                                                     {
                                                       staticClass:
-                                                        "card-header fg-white",
-                                                      style:
-                                                        "background-image: url(" +
-                                                        con.poster +
-                                                        ")"
+                                                        "text-ellipsis text-cap"
                                                     },
                                                     [
-                                                      _c(
-                                                        "span",
-                                                        {
-                                                          staticClass:
-                                                            "fg-white",
-                                                          staticStyle: {
-                                                            "background-color":
-                                                              "#2c2a2a",
-                                                            padding: "2px",
-                                                            "border-radius":
-                                                              "5px"
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                             " +
-                                                              _vm._s(
-                                                                con.duration
-                                                              ) +
-                                                              "\n                             "
-                                                          )
-                                                        ]
+                                                      _vm._v(
+                                                        _vm._s(con.dare_name)
                                                       )
                                                     ]
                                                   ),
@@ -60617,48 +60587,60 @@ var render = function() {
                                                     "div",
                                                     {
                                                       staticClass:
-                                                        "card-content p-2 text-ellipsis text-cap"
+                                                        "overline mb-4"
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                                 " +
-                                                          _vm._s(
-                                                            con.dare_name
-                                                          ) +
-                                                          "\n            "
+                                                        "By " +
+                                                          _vm._s(con.username)
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-list-item-title",
+                                                    { staticClass: " mb-1" },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(con.views) +
+                                                          " Views \n                                                                    "
                                                       ),
                                                       _c(
-                                                        "p",
-                                                        {
-                                                          staticClass: "fg-gray"
-                                                        },
+                                                        "span",
+                                                        { staticClass: "ml-2" },
                                                         [
-                                                          _c("b", [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                con.views
-                                                              ) + " views"
-                                                            )
-                                                          ])
+                                                          _vm._v(
+                                                            _vm._s(con.duration)
+                                                          )
                                                         ]
                                                       )
                                                     ]
                                                   )
-                                                ]
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-list-item-avatar",
+                                                {
+                                                  attrs: {
+                                                    tile: "",
+                                                    size: "80",
+                                                    color: "grey"
+                                                  }
+                                                },
+                                                [
+                                                  _c("v-img", {
+                                                    attrs: {
+                                                      src: con.poster,
+                                                      "lazy-src": con.poster
+                                                    }
+                                                  })
+                                                ],
+                                                1
                                               )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "badge inside  fg-white",
-                                              staticStyle: {
-                                                "background-color": "#b82943"
-                                              }
-                                            },
-                                            [_vm._v(_vm._s(con.username))]
+                                            ],
+                                            1
                                           )
                                         ],
                                         1
@@ -60666,12 +60648,11 @@ var render = function() {
                                     ],
                                     1
                                   )
-                                }),
-                                1
-                              )
-                            ],
-                            1
-                          ),
+                                ]
+                              ],
+                              2
+                            )
+                          }),
                           _vm._v(" "),
                           _vm.count > 15
                             ? _c("ul", { staticClass: "pagination" }, [
@@ -111344,7 +111325,12 @@ var render = function() {
         "div",
         {
           staticClass: "p-4",
-          attrs: { "data-role": "charms", "data-position": "left", id: "charm" }
+          attrs: {
+            "data-role": "charms",
+            "data-position": "left",
+            id: "charm",
+            onclick: "Metro.charms.toggle('#charm')"
+          }
         },
         [
           _c("div", { staticClass: "h-100 d-flex flex-column" }, [
@@ -111366,7 +111352,7 @@ var render = function() {
                       _c("span", { staticClass: "icon mif-file-video" }),
                       _vm._v(" "),
                       _c("span", { staticClass: "caption" }, [
-                        _vm._v("Dare Videos")
+                        _vm._v("All Videos")
                       ])
                     ]
                   ),
