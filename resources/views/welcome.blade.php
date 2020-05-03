@@ -11,9 +11,9 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-        <!-- Web Application Manifest -->
+        <!-- Web Application Manifest
         <link rel="manifest" href="/manifest.json">
-
+ -->
         <link rel="apple-touch-icon" sizes="180x180" href="/images/fav/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/fav/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/fav/favicon-16x16.png">
@@ -62,7 +62,7 @@
 
 
 
-            // Initialize the service worker
+            /* Initialize the service worker
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', {
             scope: '.' 
@@ -74,7 +74,7 @@
             console.log('ServiceWorker registration failed: ', err);
         });
     }
-    
+    */
              </script>
 
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>

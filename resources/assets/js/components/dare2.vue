@@ -124,7 +124,7 @@
                                                     v-for='con in content' v-bind:key='con.id'>
                                                             <template>
                                                                     <router-link :to="'/dare/'+con.dare_slug+'/'+con.id" class='remove-deco'>
-                                                                    <v-card
+                                                                    <div style='background-color:white !important;'
                                                                       class="mx-auto"
                                                                       max-width="344"
                                                                       outlined
@@ -149,12 +149,12 @@
                                                                    </v-list-item-avatar>
                                                 
                                                                       </v-list-item>
-                                                                    </v-card>
+                                                                    </div>
                                                                     </router-link>
                                                                   </template>
                                                   </div>
                     
-                                                    <ul class="pagination" v-if='count > 15'>
+                                                    <ul class="pagination" v-if='count > 16'>
                                          <li class="page-item"><a class="page-link" href="#" @click.prevent="others(pagination.prev_page_url)" :disabled="!pagination.prev_page_url"> Prev </a></li>
                             
                                          <li class="page-item"><a class="page-link" href="#"><span>{{pagination.current_page}} of {{pagination.last_page}}</span></a></li>

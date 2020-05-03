@@ -25,16 +25,15 @@ class dareController extends Controller
 
     public function dares()
     {
-        //fetch data (last 15) from dares model. (Done! was blocking pro)
          $dares = dare::orderby('id','desc')
-         ->select('id','dare_name','username','url','poster','dare_slug','duration','views')->paginate(15);
+         ->select('id','dare_name','username','url','poster','dare_slug','duration','views')->paginate(16);
          return dareres::collection($dares);
     }
 
 
     public function trending_dares()
     {
-        //fetch data (last 15) from dares model. (Done! was blocking pro)
+       
          $dares = dare::orderby('views','desc')
          ->select('id','dare_name','username','poster','dare_slug','duration','views')->paginate(20);
          return dareres::collection($dares);
@@ -61,14 +60,14 @@ class dareController extends Controller
         if(is_numeric($data)){
         //data is user_id
         $res = dare::orderby('id','desc')->where('user_id','=',$data)
-        ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(15);
+        ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(16);
         return dareres::collection($res);
         }
       
 
         //data is dare_name
          $res = dare::orderby('id','desc')->where('dare_slug','=',$data)
-        ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(15);
+        ->select('id','dare_name','username','url','poster','dare_slug','created_at','views')->paginate(16);
         return dareres::collection($res);
     }
 
@@ -228,7 +227,7 @@ class dareController extends Controller
 
     public function suggestions()
     {
-        $data = suggestion::orderby('id','desc')->select('username','dare','created_at')->paginate(15);
+        $data = suggestion::orderby('id','desc')->select('username','dare','created_at')->paginate(16);
         return suggestionres::collection($data);
     }
 
@@ -357,11 +356,11 @@ class dareController extends Controller
            }else{
             $time = "$minutes $seconds".'s';
            }
-        // vs_40,dl_200,h_200,e_loop,f_gif
+        // vs_40,dl_200,h_200,e_loop,f_gif so_3,f_gif
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = str_ireplace("upload/","upload/q_auto:low/",$cloundary_upload['url']);
-        $save->poster = str_ireplace("upload/","upload/so_3,f_gif/",$cloundary_upload['url']);
+        $save->poster = str_ireplace("upload/","upload/vs_40,dl_200,h_200,e_loop,f_gif/",$cloundary_upload['url']);
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->duration = $time;

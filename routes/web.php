@@ -19,6 +19,3 @@ Route::get('/{vue_capture?}', function () {
   })->where('vue_capture', '[\/\w\.-]*');
 
 
-  Route::get('/offline', function () {
-    return view('offline');
-  });

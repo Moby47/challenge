@@ -151,7 +151,7 @@
                             notify.setup({
                                 width: 300,
                                 duration: 1000,
-                                timeout: 15000,
+                                timeout: 10000,
                                 animation: 'easeOutBounce'
                             });
                             notify.create("Pick dares you want to try out. A maximum of 5 dares at a time");

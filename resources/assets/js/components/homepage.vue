@@ -51,10 +51,10 @@
               </div>
 
                 <div class="cell-sm-full cell-md-one-third cell-lg-3" v-if='!loading' 
-                v-for='con in content' v-bind:key='con.id' style='background-color:white !important;'>
+                v-for='con in content' v-bind:key='con.id'>
                         <template>
                                 
-                                <v-card
+                                <div
                                   class="mx-auto bg-white" style='background-color:white !important;'
                                   max-width="344"
                                   outlined
@@ -90,7 +90,7 @@
                                </v-list-item-avatar>
                                </router-link>
                                   </v-list-item>
-                                </v-card>
+                                </div>
                                 
                               </template>
               </div>
@@ -396,11 +396,10 @@
                         notify.setup({
                             width: 300,
                             duration: 1000,
-                            timeout: 15000,
+                            timeout: 10000,
                             animation: 'easeOutBounce'
                         });
-                        notify.create("Welcome to <b>Challenge</b>. A fun game of <b> <strike>Truth</strike> or Dare</b>.");
-                        notify.create("Click the icon below to <b>START</b>");
+                        notify.create("Welcome to <b>Challenge</b>. A fun game of <b> <strike>Truth</strike> or Dare</b>. Click the icon below to <b>START</b>");
                         notify.reset();
 
                       Metro.session.setItem('welcome','welcome')
