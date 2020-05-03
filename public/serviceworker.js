@@ -1,7 +1,16 @@
-var staticCacheName = "pwa-CA" + new Date().getTime();
+var staticCacheName = "pwa-v" + new Date().getTime();
 var filesToCache = [
-    '/',
     '/offline',
+    '/css/app.css',
+    '/js/app.js',
+    '/images/icons/icon-72x72.png',
+    '/images/icons/icon-96x96.png',
+    '/images/icons/icon-128x128.png',
+    '/images/icons/icon-144x144.png',
+    '/images/icons/icon-152x152.png',
+    '/images/icons/icon-192x192.png',
+    '/images/icons/icon-384x384.png',
+    '/images/icons/icon-512x512.png',
 
     'https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css',
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
@@ -13,15 +22,6 @@ var filesToCache = [
     '/images/fav/apple-touch-icon.png',
     '/images/fav/favicon-32x32.png',
     '/images/fav/favicon-16x16.png',
-    
-    '/images/icons/icon-48x48.png',
-    '/images/icons/icon-96x96.png',
-    '/images/icons/icon-144x144.png',
-    '/images/icons/icon-192x192.png',
-    '/images/icons/icon-256x256.png',
-    '/images/icons/icon-384x384.png',
-    '/images/icons/icon-512x512.png',
-   
 
     '/images/bg-dare.jpg',
     '/images/black-spinner.gif',
@@ -29,8 +29,7 @@ var filesToCache = [
     'https://unpkg.com/nprogress@0.2.0/nprogress.js',
     'https://code.jquery.com/jquery-3.3.1.slim.min.js',
     'https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js',
-    '/js/home.js',
-   
+    '/js/home',
 ];
 
 // Cache on install
@@ -66,7 +65,7 @@ self.addEventListener("fetch", event => {
                 return response || fetch(event.request);
             })
             .catch(() => {
-                return caches.match('/offline');
+                return caches.match('offline');
             })
     )
 });
