@@ -291,7 +291,7 @@ class dareController extends Controller
     public function upload_dare(Request $request)
     {
         $this->validate($request,[
-            'video'=>'required|mimes:mp4,3gp|between:1, 33000',
+            'video'=>'required|mimes:mp4,3gp|between:1, 34000',
         ]);
 
         //push to cloud

@@ -58606,7 +58606,7 @@ var render = function() {
                                                             title:
                                                               "Challenge completed by: " +
                                                               con.username,
-                                                            scale: "1.7"
+                                                            scale: "1.5"
                                                           }
                                                         }),
                                                         _vm._v(" "),
@@ -58620,7 +58620,7 @@ var render = function() {
                                                             subject:
                                                               "Challenge completed by: " +
                                                               con.username,
-                                                            scale: "1.7"
+                                                            scale: "1.5"
                                                           }
                                                         }),
                                                         _vm._v(" "),
@@ -58631,7 +58631,7 @@ var render = function() {
                                                               con.dare_slug +
                                                               "/" +
                                                               con.id,
-                                                            scale: "1.7"
+                                                            scale: "1.5"
                                                           }
                                                         }),
                                                         _vm._v(" "),
@@ -58645,7 +58645,7 @@ var render = function() {
                                                             title:
                                                               "Challenge completed by: " +
                                                               con.username,
-                                                            scale: "1.7"
+                                                            scale: "1.5"
                                                           }
                                                         }),
                                                         _vm._v(" "),
@@ -58656,7 +58656,7 @@ var render = function() {
                                                               con.dare_slug +
                                                               "/" +
                                                               con.id,
-                                                            scale: "1.7"
+                                                            scale: "1.5"
                                                           }
                                                         })
                                                       ],
@@ -62212,7 +62212,7 @@ var render = function() {
                                   { staticClass: "fg-gray" },
                                   [
                                     _vm._v(
-                                      "\n                                Dare a friend:\n                                        "
+                                      "\n                                Dare:\n                                        "
                                     ),
                                     _c("whats-app", {
                                       attrs: {
@@ -62329,9 +62329,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
-        _c("th", [_vm._v("Dare")]),
+        _c("th", [_vm._v("Dares")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Times Completed")]),
+        _c("th", [_vm._v("Played")]),
         _vm._v(" "),
         _c("th", [_vm._v("Points")])
       ])
@@ -67525,9 +67525,9 @@ var render = function() {
                               name: "validate",
                               rawName: "v-validate",
                               value:
-                                "required|ext:mp4,3gp,ASF,FLV,MKV,AVI,MOV,HEVC,MPEG-4,H.264,MJPEG,M-JEPG|size:33000",
+                                "required|ext:mp4,3gp,ASF,FLV,MKV,AVI,MOV,HEVC,MPEG-4,H.264,MJPEG,M-JEPG|size:34000",
                               expression:
-                                '"required|ext:mp4,3gp,ASF,FLV,MKV,AVI,MOV,HEVC,MPEG-4,H.264,MJPEG,M-JEPG|size:33000"'
+                                '"required|ext:mp4,3gp,ASF,FLV,MKV,AVI,MOV,HEVC,MPEG-4,H.264,MJPEG,M-JEPG|size:34000"'
                             }
                           ],
                           attrs: {

@@ -70,11 +70,11 @@
                                         </router-link>
                                         <v-list-item-title class=" mb-1">
                                                 <p class="fg-gray">
-                                                        <whats-app  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :title="'Challenge completed by: '+con.username" scale="1.7" ></whats-app> 
-                                                         <email  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :subject="'Challenge completed by: '+con.username" scale="1.7"></email>  
-                                                         <facebook  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" scale="1.7"></facebook> 
-                                                          <twitter  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :title="'Challenge completed by: '+con.username" scale="1.7"></twitter>  
-                                                         <linkedin  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" scale="1.7"></linkedin>   
+                                                        <whats-app  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :title="'Challenge completed by: '+con.username" scale="1.5" ></whats-app> 
+                                                         <email  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :subject="'Challenge completed by: '+con.username" scale="1.5"></email>  
+                                                         <facebook  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" scale="1.5"></facebook> 
+                                                          <twitter  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :title="'Challenge completed by: '+con.username" scale="1.5"></twitter>  
+                                                         <linkedin  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" scale="1.5"></linkedin>   
                                                   </p>
                                         </v-list-item-title>
                                      </v-list-item-content>

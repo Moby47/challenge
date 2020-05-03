@@ -35,8 +35,8 @@
                 <table class="table row-hover table-border table-striped table-dark">
                         <thead class="thead-dark">
                         <tr>
-                             <th>Dare</th>
-                            <th>Times Completed</th>
+                             <th>Dares</th>
+                            <th>Played</th>
                             <th>Points</th>
                         </tr>
                         </thead>
@@ -44,7 +44,7 @@
                                 <tr v-for='con in content' v-bind:key='con.id'>
                                         <td>{{con.dare_name}} 
                                             <p class="fg-gray">
-                                        Dare a friend:
+                                        Dare:
                                                 <whats-app  :url="url" :title="'I dare you: '+con.dare_name" scale="1.4" ></whats-app> 
                                                  <facebook  :url="url" scale="1.4"></facebook> 
                                                   <twitter  :url="url" :title="'I dare you: '+con.dare_name" scale="1.4"></twitter>  
