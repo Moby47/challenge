@@ -302,10 +302,7 @@ class dareController extends Controller
             "chunk_size" => 6000000,
             "timeout" => 18000
         ));
-        }
-        catch(\Exception $e){
-            return 0;
-         } 
+      
       /*  
         Cloudder::uploadVideo($video, null);
         $cloundary_upload = Cloudder::getResult();
@@ -360,7 +357,7 @@ class dareController extends Controller
         $save = new dare();
         $save->user_id = $request->input('userid');
         $save->url = str_ireplace("upload/","upload/q_auto:low/",$cloundary_upload['url']);
-        $save->poster = str_ireplace("upload/","upload/vs_40,dl_200,h_200,e_loop,f_gif/",$cloundary_upload['url']);
+        $save->poster = str_ireplace("upload/","upload/so_2,f_gif/",$cloundary_upload['url']);
         $save->dare_name = $dare->dare_name;
         $save->dare_slug = str_slug($dare->dare_name, '-');
         $save->duration = $time;
@@ -369,6 +366,11 @@ class dareController extends Controller
         $save->save();
 
         return 1;
+
+    }
+    catch(\Exception $e){
+        return 0;
+     }
     }
 
 }

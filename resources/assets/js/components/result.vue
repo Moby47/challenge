@@ -43,7 +43,7 @@
                                 <v-col
                                 v-for='con in content' v-bind:key='con.id'
                                   cols="12"
-                                  sm="4"
+                                  sm="3"
                                 >
                                   <v-card
                                     class="pa-2"

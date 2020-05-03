@@ -59816,6 +59816,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 //share icons
@@ -60246,38 +60256,37 @@ var render = function() {
                               [
                                 [
                                   _c(
-                                    "router-link",
+                                    "div",
                                     {
-                                      staticClass: "remove-deco",
+                                      staticClass: "mx-auto bg-white",
+                                      staticStyle: {
+                                        "background-color": "white !important"
+                                      },
                                       attrs: {
-                                        to:
-                                          "/dare-video/" +
-                                          con.dare_slug +
-                                          "/" +
-                                          con.id
+                                        "max-width": "344",
+                                        outlined: ""
                                       }
                                     },
                                     [
                                       _c(
-                                        "div",
-                                        {
-                                          staticClass: "mx-auto",
-                                          staticStyle: {
-                                            "background-color":
-                                              "white !important"
-                                          },
-                                          attrs: {
-                                            "max-width": "344",
-                                            outlined: ""
-                                          }
-                                        },
+                                        "v-list-item",
+                                        { attrs: { "three-line": "" } },
                                         [
                                           _c(
-                                            "v-list-item",
-                                            { attrs: { "three-line": "" } },
+                                            "v-list-item-content",
                                             [
                                               _c(
-                                                "v-list-item-content",
+                                                "router-link",
+                                                {
+                                                  staticClass: "remove-deco",
+                                                  attrs: {
+                                                    to:
+                                                      "/dare-video/" +
+                                                      con.dare_slug +
+                                                      "/" +
+                                                      con.id
+                                                  }
+                                                },
                                                 [
                                                   _c(
                                                     "v-list-item-subtitle",
@@ -60296,7 +60305,7 @@ var render = function() {
                                                     "div",
                                                     {
                                                       staticClass:
-                                                        "overline mb-4"
+                                                        "overline mb-4 fg-black"
                                                     },
                                                     [
                                                       _vm._v(
@@ -60312,7 +60321,7 @@ var render = function() {
                                                     [
                                                       _vm._v(
                                                         _vm._s(con.views) +
-                                                          " Views \n                                                                    "
+                                                          " Views \n                                    "
                                                       ),
                                                       _c(
                                                         "span",
@@ -60329,6 +60338,99 @@ var render = function() {
                                                 1
                                               ),
                                               _vm._v(" "),
+                                              _c(
+                                                "v-list-item-title",
+                                                { staticClass: " mb-1" },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "fg-gray" },
+                                                    [
+                                                      _c("whats-app", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          title:
+                                                            "Challenge completed by: " +
+                                                            con.username,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("email", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          subject:
+                                                            "Challenge completed by: " +
+                                                            con.username,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("facebook", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("twitter", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          title:
+                                                            "Challenge completed by: " +
+                                                            con.username,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("linkedin", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          scale: "1.5"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "router-link",
+                                            {
+                                              staticClass: "remove-deco",
+                                              attrs: {
+                                                to:
+                                                  "/dare-video/" +
+                                                  con.dare_slug +
+                                                  "/" +
+                                                  con.id
+                                              }
+                                            },
+                                            [
                                               _c(
                                                 "v-list-item-avatar",
                                                 {
@@ -60355,7 +60457,8 @@ var render = function() {
                                         ],
                                         1
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ]
                               ],
@@ -60510,6 +60613,16 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socialmedia_share__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -61130,38 +61243,37 @@ var render = function() {
                               [
                                 [
                                   _c(
-                                    "router-link",
+                                    "div",
                                     {
-                                      staticClass: "remove-deco",
+                                      staticClass: "mx-auto bg-white",
+                                      staticStyle: {
+                                        "background-color": "white !important"
+                                      },
                                       attrs: {
-                                        to:
-                                          "/dare/" +
-                                          con.dare_slug +
-                                          "/" +
-                                          con.id
+                                        "max-width": "344",
+                                        outlined: ""
                                       }
                                     },
                                     [
                                       _c(
-                                        "div",
-                                        {
-                                          staticClass: "mx-auto",
-                                          staticStyle: {
-                                            "background-color":
-                                              "white !important"
-                                          },
-                                          attrs: {
-                                            "max-width": "344",
-                                            outlined: ""
-                                          }
-                                        },
+                                        "v-list-item",
+                                        { attrs: { "three-line": "" } },
                                         [
                                           _c(
-                                            "v-list-item",
-                                            { attrs: { "three-line": "" } },
+                                            "v-list-item-content",
                                             [
                                               _c(
-                                                "v-list-item-content",
+                                                "router-link",
+                                                {
+                                                  staticClass: "remove-deco",
+                                                  attrs: {
+                                                    to:
+                                                      "/dare/" +
+                                                      con.dare_slug +
+                                                      "/" +
+                                                      con.id
+                                                  }
+                                                },
                                                 [
                                                   _c(
                                                     "v-list-item-subtitle",
@@ -61180,7 +61292,7 @@ var render = function() {
                                                     "div",
                                                     {
                                                       staticClass:
-                                                        "overline mb-4"
+                                                        "overline mb-4 fg-black"
                                                     },
                                                     [
                                                       _vm._v(
@@ -61214,6 +61326,99 @@ var render = function() {
                                               ),
                                               _vm._v(" "),
                                               _c(
+                                                "v-list-item-title",
+                                                { staticClass: " mb-1" },
+                                                [
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "fg-gray" },
+                                                    [
+                                                      _c("whats-app", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          title:
+                                                            "Challenge completed by: " +
+                                                            con.username,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("email", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          subject:
+                                                            "Challenge completed by: " +
+                                                            con.username,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("facebook", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("twitter", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          title:
+                                                            "Challenge completed by: " +
+                                                            con.username,
+                                                          scale: "1.5"
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("linkedin", {
+                                                        attrs: {
+                                                          url:
+                                                            "https://challenge.com/dare/" +
+                                                            con.dare_slug +
+                                                            "/" +
+                                                            con.id,
+                                                          scale: "1.5"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "router-link",
+                                            {
+                                              staticClass: "remove-deco",
+                                              attrs: {
+                                                to:
+                                                  "/dare/" +
+                                                  con.dare_slug +
+                                                  "/" +
+                                                  con.id
+                                              }
+                                            },
+                                            [
+                                              _c(
                                                 "v-list-item-avatar",
                                                 {
                                                   attrs: {
@@ -61239,7 +61444,8 @@ var render = function() {
                                         ],
                                         1
                                       )
-                                    ]
+                                    ],
+                                    1
                                   )
                                 ]
                               ],
@@ -65719,7 +65925,7 @@ var render = function() {
                             _vm._l(_vm.content, function(con) {
                               return _c(
                                 "v-col",
-                                { key: con.id, attrs: { cols: "12", sm: "4" } },
+                                { key: con.id, attrs: { cols: "12", sm: "3" } },
                                 [
                                   _c(
                                     "v-card",

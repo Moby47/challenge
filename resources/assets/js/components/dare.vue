@@ -123,34 +123,44 @@
                                                 <div class="cell-sm-full cell-md-one-third cell-lg-12"
                                                 v-for='con in content' v-bind:key='con.id'>
                                                         <template>
-                                                                <router-link :to="'/dare-video/'+con.dare_slug+'/'+con.id" class='remove-deco'>
-                                                                <div style='background-color:white !important;'
-                                                                  class="mx-auto"
-                                                                  max-width="344"
-                                                                  outlined
-                                                                >
-                                                                  <v-list-item three-line>
-                                            
-                                                                    <v-list-item-content>
-                                                                        <v-list-item-subtitle class="text-ellipsis text-cap">{{con.dare_name}}</v-list-item-subtitle>
-                                                                            <div class="overline mb-4">By {{con.username}}</div>
-                                                                   <v-list-item-title class=" mb-1">{{con.views}} Views 
-                                                                        <span class='ml-2'>{{con.duration}}</span></v-list-item-title>
-                                                                     </v-list-item-content>
-                                            
-                                                                    <v-list-item-avatar
-                                                                    tile
-                                                                    size="80"
-                                                                    color="grey"
-                                                                  >
-                                                                <v-img 
-                                                                :src='con.poster'
-                                                                :lazy-src="`/images/black-spinner.gif`"></v-img>
-                                                               </v-list-item-avatar>
-                                            
-                                                                  </v-list-item>
-                                                                </div>
-                                                                </router-link>
+                                                                <div
+                                  class="mx-auto bg-white" style='background-color:white !important;'
+                                  max-width="344"
+                                  outlined
+                                >
+                                  <v-list-item three-line>
+            
+                                    <v-list-item-content>
+                                            <router-link :to="'/dare-video/'+con.dare_slug+'/'+con.id" class='remove-deco'>
+                                            <v-list-item-subtitle class="text-ellipsis text-cap">{{con.dare_name}}</v-list-item-subtitle>
+                                            <div class="overline mb-4 fg-black">By {{con.username}}</div>
+                                   <v-list-item-title class=" mb-1">{{con.views}} Views 
+                                        <span class='ml-2'>{{con.duration}}</span></v-list-item-title>
+                                        </router-link>
+                                        <v-list-item-title class=" mb-1">
+                                                <p class="fg-gray">
+                                                        <whats-app  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :title="'Challenge completed by: '+con.username" scale="1.5" ></whats-app> 
+                                                         <email  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :subject="'Challenge completed by: '+con.username" scale="1.5"></email>  
+                                                         <facebook  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" scale="1.5"></facebook> 
+                                                          <twitter  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" :title="'Challenge completed by: '+con.username" scale="1.5"></twitter>  
+                                                         <linkedin  :url="'https://challenge.com/dare/'+con.dare_slug+'/'+con.id" scale="1.5"></linkedin>   
+                                                  </p>
+                                        </v-list-item-title>
+                                     </v-list-item-content>
+                                     <router-link :to="'/dare-video/'+con.dare_slug+'/'+con.id" class='remove-deco'>
+                                    <v-list-item-avatar
+                                    tile
+                                    size="80"
+                                    color="grey"
+                                  >
+                                <v-img 
+                                :src='con.poster'
+                                :lazy-src="`/images/black-spinner.gif`"></v-img>
+                               </v-list-item-avatar>
+                               </router-link>
+                                  </v-list-item>
+                                </div>
+                                                        
                                                               </template>
                                               </div>
                 
