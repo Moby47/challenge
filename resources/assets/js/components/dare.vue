@@ -145,7 +145,7 @@
                                                                   >
                                                                 <v-img 
                                                                 :src='con.poster'
-                                                                :lazy-src="con.poster"></v-img>
+                                                                :lazy-src="`/images/black-spinner.gif`"></v-img>
                                                                </v-list-item-avatar>
                                             
                                                                   </v-list-item>

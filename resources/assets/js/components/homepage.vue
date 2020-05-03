@@ -20,7 +20,7 @@
                          <!--tab-->
                 <ul data-role="tabs" data-tabs-type="group" data-expand="true">
                         <li><a href="#_target_1">Trending</a></li>
-                        <li><a href="#_target_2">Rescent</a></li>
+                        <li><a href="#_target_2">Recent</a></li>
                         <li><a href="#_target_3">Scores</a></li>
                     </ul>
                     <div class="border bd-default no-border-top p-2">
@@ -51,11 +51,11 @@
               </div>
 
                 <div class="cell-sm-full cell-md-one-third cell-lg-3" v-if='!loading' 
-                v-for='con in content' v-bind:key='con.id'>
+                v-for='con in content' v-bind:key='con.id' style='background-color:white !important;'>
                         <template>
                                 
                                 <v-card
-                                  class="mx-auto bg-white"
+                                  class="mx-auto bg-white" style='background-color:white !important;'
                                   max-width="344"
                                   outlined
                                 >
@@ -86,7 +86,7 @@
                                   >
                                 <v-img 
                                 :src='con.poster'
-                                :lazy-src="con.poster"></v-img>
+                                :lazy-src="`/images/black-spinner.gif`"></v-img>
                                </v-list-item-avatar>
                                </router-link>
                                   </v-list-item>

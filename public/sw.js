@@ -25,6 +25,7 @@ var filesToCache = [
 
     '/images/play.png',
     '/images/bg-dare.jpg',
+    '/images/black-spinner.gif',
 
     'https://unpkg.com/nprogress@0.2.0/nprogress.js',
     'https://code.jquery.com/jquery-3.3.1.slim.min.js',
