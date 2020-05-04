@@ -2,7 +2,6 @@ var staticCacheName = "pwa-v" + new Date().getTime();
 var filesToCache = [
     '/offline',
     '/css/app.css',
-    '/js/app.js',
     '/images/icons/icon-72x72.png',
     '/images/icons/icon-96x96.png',
     '/images/icons/icon-128x128.png',
@@ -29,7 +28,7 @@ var filesToCache = [
     'https://unpkg.com/nprogress@0.2.0/nprogress.js',
     'https://code.jquery.com/jquery-3.3.1.slim.min.js',
     'https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js',
-    '/js/home',
+    '/js/home.js',
 ];
 
 // Cache on install
