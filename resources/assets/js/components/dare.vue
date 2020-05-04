@@ -52,7 +52,6 @@
                                              data-poster="single.poster"
                                              data-aspect-ratio="hd"
                                              data-autoplay="true"
-                                             data-loop="true"
                                               ></video>
                                                        </div>
                                                <div class="card-content p-2 text-cap">

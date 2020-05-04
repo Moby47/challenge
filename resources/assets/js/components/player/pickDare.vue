@@ -42,6 +42,7 @@
                    data-hint-text="Selected dares are added to your Dare list."
                     data-hint-position="top">
                     <select data-role="select" v-model='selected'>
+                        <option value=''>List of Dares</option>
                             <option selected class="text-bold" :value='con.dare_name'
                             v-for='con in content' v-bind:key='con.id'>
                             {{con.dare_name}}</option>

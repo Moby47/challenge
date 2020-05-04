@@ -42,6 +42,7 @@
                    data-hint-text="Select a Dare you want to upload its video"
                     data-hint-position="top">
                     <select data-role="select" v-model='selected' v-validate='"required"' name='dare'>
+                            <option value=''>List of Dares</option>
                             <option selected class="text-bold" :value='con.id'
                             v-for='con in content' v-bind:key='con.id'>
                             {{con.dare_name}}</option>

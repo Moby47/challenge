@@ -33,6 +33,7 @@
                           <div class="form-group">
                                   <select data-role="select" data-prepend="<span class='mif-user'>" 
                                         name="Username"  v-model='userID' v-validate='"required"'>
+                                        <option value=''>List of Users</option>
              <option selected class="text-bold" :value='con.id' v-for='con in content' v-bind:key='con.id'>
                              {{con.username}}
                          </option>
@@ -73,6 +74,7 @@
                         
                             <select data-role="select" data-prepend="<span class='mif-file-video'>" 
                                     name="Darename"  v-model='darename' v-validate='"required"'>
+                                    <option value=''>List of Dares</option>
                                     <option selected class="text-bold" :value='con.dare_slug' v-for='con in content2' v-bind:key='con.id'>
                                             ({{con.play_count}}) - {{con.dare_name}}
                                             </option>
